@@ -210,10 +210,6 @@ public class UserController {
     public Boolean regist(TbUser user) {
         user.setUid(UUID.randomUUID().toString().replace("-", "").toLowerCase());
         user.setPassword(MD5Utils.md5(user.getPassword()));
-        user.setVip((byte) 0);
-        // 默认头像
-        user.setImage("/static/img/user.png");
-        user.setStatus(true);
         return userService.regist(user);
     }
 
