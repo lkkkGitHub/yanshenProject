@@ -1,5 +1,9 @@
 package com.pojo;
 
+/**
+ * @author 疯自
+ *
+ */
 public class TbUser {
     private String uid;
 

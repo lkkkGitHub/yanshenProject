@@ -320,7 +320,7 @@
 		select `phone` from `tb_user` where `phone` = #{value}
 	</select>
 
-    <select id="selectByUnameOrUname"
+    <select id="selectByEmailLogin"
             parameterType="java.lang.String" resultType="com.pojo.TbUser">
 		select `uid`, `uname`, `password`,
 		`email`, `phone`, `sex`, `vip`,

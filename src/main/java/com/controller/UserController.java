@@ -18,13 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.imageio.stream.FileImageOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.*;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-//import cn.qst.comman.fastdfs.FileUploadUtils;
 
 /**
  * @author lk 2018/9/7 11:23
@@ -71,31 +72,40 @@ public class UserController {
      * 以比特流上传图片文件，并获取sessino中“username” 的用户名， 将该用户的图片的地址，写入到数据库
      *
      * @param imgDate 比特类型图片数据
-     * @param request 获取session对象中的 用户名
      * @return
      */
     @ResponseBody
     @RequestMapping("/upHeadImage")
-    public Boolean upHeadImage(String imgDate, HttpServletRequest request, HttpSession session) {
+    public Boolean upHeadImage(String imgDate, HttpSession session) {
         TbUser user = (TbUser) session.getAttribute("user");
-        //删除原图像
-      //  FileUploadUtils.fileDelete(user.getImage());
         String str = imgDate.substring(imgDate.indexOf(",") + 1);
         byte[] bs = Base64.GenerateImage(str);
         if (bs == null) {
             return false;
         }
-        // jpg图片后缀,以及上传图片的不带ip地址的url
-      //  String path = FileUploadUtils.fileUpload(bs, "jpg");
-        // 拼接ip和地址
-       // String url = "http://192.168.25.175/" + path;
-      //  System.err.println(url);
-     //   user.setImage(path);
+        String uploadPath = "/static/img/userHeadImg";
+        String realUploadPath = session.getServletContext().getRealPath(uploadPath);
+        String userImg = "/" + user.getUid() + ".jpg";
+        File file = new File(realUploadPath + userImg);
+        FileImageOutputStream imageOutput = null ;
+        try {
+            imageOutput =new FileImageOutputStream(file);
+            imageOutput.write(bs, 0, bs.length);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                imageOutput.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        user.setImage(uploadPath + userImg);
         // 将图片存入数据库
         int flag = userService.upHeadImage(user);
         // 更新session中的图片的数据
         if (flag == 1) {
-      //      session.setAttribute("imgstr", url);
+            session.setAttribute("imgstr", uploadPath + userImg);
             return true;
         } else {
             return false;
@@ -178,9 +188,8 @@ public class UserController {
         if (user != null) {
             if (user.getStatus()) {
                 session.setAttribute("username", user.getUname());
-                session.setAttribute("imgstr", "http://192.168.25.175/" + user.getImage());
+                session.setAttribute("imgstr", user.getImage());
                 session.setAttribute("user", user);
-                session.setAttribute("fparentId", "-1");
                 return true;
             } else {
                 return null;

@@ -66,7 +66,7 @@ public interface TbUserMapper {
      * @param uname
      * @return
      */
-    TbUser selectByUnameOrUname(String uname);
+    TbUser selectByEmailLogin(String uname);
 
     /**
      * 根据 地址id 查询用户所在的地区

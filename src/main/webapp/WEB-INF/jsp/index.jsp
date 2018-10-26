@@ -12,6 +12,8 @@
 </head>
 <body>
 <p>sadfasdf</p>
-<a href="/login">asdf</a>
+<a href="/login">登陆</a>
+<a href="/answer">答题</a>
+<a href="/personal">个人信息</a>
 </body>
 </html>

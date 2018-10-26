@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public Boolean selectByUnameAndEmail(String uname, String email) {
-        TbUser user = tbUserMapper.selectByUnameOrUname(uname);
+        TbUser user = tbUserMapper.selectByEmailLogin(uname);
         if (user == null) {
             return false;
         } else {
@@ -102,7 +102,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public TbUser login(String userName, String passWord) {
         // TODO Auto-generated method stub
-        TbUser user = tbUserMapper.selectByUnameOrUname(userName);
+        TbUser user = tbUserMapper.selectByEmailLogin(userName);
         if (user == null) {
             return null;
         } else {
@@ -142,7 +142,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public TbUser selectPersonalInfo(String uname) {
         // TODO Auto-generated method stub
-        return tbUserMapper.selectByUnameOrUname(uname);
+        return tbUserMapper.selectByEmailLogin(uname);
     }
 
     /**
