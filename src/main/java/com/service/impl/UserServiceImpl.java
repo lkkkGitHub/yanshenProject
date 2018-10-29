@@ -121,6 +121,7 @@ public class UserServiceImpl implements UserService {
      * @param passWord 密码
      * @return 成功即返回true 失败即返回 false
      */
+    @Override
     public Boolean changePassword(String userName, String passWord) {
         TbUser user = new TbUser();
         user.setPassword(passWord);

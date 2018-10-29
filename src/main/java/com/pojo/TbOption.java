@@ -3,16 +3,16 @@ package com.pojo;
 
 public class TbOption {
 
-  private long optionId;
+  private Integer optionId;
   private String optionComment;
-  private long topicId;
+  private Integer topicId;
 
 
-  public long getOptionId() {
+  public Integer getOptionId() {
     return optionId;
   }
 
-  public void setOptionId(long optionId) {
+  public void setOptionId(Integer optionId) {
     this.optionId = optionId;
   }
 
@@ -26,11 +26,11 @@ public class TbOption {
   }
 
 
-  public long getTopicId() {
+  public Integer getTopicId() {
     return topicId;
   }
 
-  public void setTopicId(long topicId) {
+  public void setTopicId(Integer topicId) {
     this.topicId = topicId;
   }
 

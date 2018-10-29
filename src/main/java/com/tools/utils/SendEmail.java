@@ -44,29 +44,38 @@ public class SendEmail {
      */
     public static String sendEamilCode(String email, String sendFlag) {
         HtmlEmail send = new HtmlEmail();
-        String resultCode = achieveCode(); // 获取随机验证码
+        // 获取随机验证码
+        String resultCode = achieveCode();
         try {
             send.setHostName("smtp.qq.com");
-            send.setSmtpPort(465); //端口号
-            send.setSSLOnConnect(true); //开启SSL加密
+            //端口号
+            send.setSmtpPort(465);
+            //开启SSL加密
+            send.setSSLOnConnect(true);
             send.setCharset("utf-8");
-            send.addTo(email); //接收者的QQEamil
-            send.setFrom("963087276@qq.com", "疯自"); //第一个参数是发送者的QQEamil   第二个参数是发送者QQ昵称
-            send.setAuthentication("963087276@qq.com", "puuyqttsagdzbcce"); //第一个参数是发送者的QQEamil   第二个参数是刚刚获取的授权码
-            if (sendFlag.equals("register")) {
-                send.setSubject("注册u唱"); //Eamil的标题
+            //接收者的QQEamil
+            send.addTo(email);
+            //第一个参数是发送者的QQEamil   第二个参数是发送者QQ昵称
+            send.setFrom("963087276@qq.com", "疯自");
+            //第一个参数是发送者的QQEamil   第二个参数是刚刚获取的授权码
+            send.setAuthentication("963087276@qq.com", "puuyqttsagdzbcce");
+            if ("register".equals(sendFlag)) {
+                //Eamil的标题
+                send.setSubject("注册u唱");
+                //Eamil的内容
                 send.setMsg("欢迎注册百度网盘，此次注册验证码:   " + resultCode + "   请妥善保管"
-                        + "   验证码三分钟内有效，三分钟内不重复发送"); //Eamil的内容
-            } else if (sendFlag.equals("changePassword")) {
+                        + "   验证码三分钟内有效，三分钟内不重复发送");
+            } else if ("changePassword".equals(sendFlag)) {
                 send.setSubject("修改密码");
                 send.setMsg("欢迎使用百度网盘，您正在修改密码，此次验证码：          " + resultCode + "    请妥善保管"
                         + "   验证码三分钟内有效，三分钟内不重复发送");
             }
-            send.send(); //发送
+            //发送
+            send.send();
         } catch (EmailException e) {
             e.printStackTrace();
-        }
-        return resultCode; //同等验证码
+        }//同等验证码
+        return resultCode;
     }
 
 }

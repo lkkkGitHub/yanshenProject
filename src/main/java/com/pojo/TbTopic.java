@@ -3,16 +3,16 @@ package com.pojo;
 
 public class TbTopic {
 
-  private long topicId;
+  private Integer topicId;
   private String topicComment;
-  private long classifyId;
+  private Integer classifyId;
 
 
-  public long getTopicId() {
+  public Integer getTopicId() {
     return topicId;
   }
 
-  public void setTopicId(long topicId) {
+  public void setTopicId(Integer topicId) {
     this.topicId = topicId;
   }
 
@@ -26,11 +26,11 @@ public class TbTopic {
   }
 
 
-  public long getClassifyId() {
+  public Integer getClassifyId() {
     return classifyId;
   }
 
-  public void setClassifyId(long classifyId) {
+  public void setClassifyId(Integer classifyId) {
     this.classifyId = classifyId;
   }
 

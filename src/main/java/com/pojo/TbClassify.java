@@ -3,15 +3,15 @@ package com.pojo;
 
 public class TbClassify {
 
-  private long classifyId;
+  private Integer classifyId;
   private String classifyName;
 
 
-  public long getClassifyId() {
+  public Integer getClassifyId() {
     return classifyId;
   }
 
-  public void setClassifyId(long classifyId) {
+  public void setClassifyId(Integer classifyId) {
     this.classifyId = classifyId;
   }
 

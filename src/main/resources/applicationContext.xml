@@ -16,7 +16,8 @@
 		http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx
-		http://www.springframework.org/schema/tx/spring-tx.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd"
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd"
        default-lazy-init="true">
 
     <!-- 只需扫描 业务逻辑层的类，因为控制层由springMVC配置文件扫描，，实体对象和Dao层数据访问接口由 MyBatis配置文件扫描. -->
@@ -67,4 +68,11 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!--以注解的形式加载dao接口-->
     <!--<mybatis-spring:scan base-package="lk.mapper"/>-->
+    <context:annotation-config/>
+    <!-- 配置单机版redis -->
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg name="host" value="127.0.0.1"/>
+        <constructor-arg name="port" value="6379"/>
+    </bean>
+    <bean id="jedisClientPool" class="com.tools.utils.jedis.JedisClientPool"/>
 </beans>

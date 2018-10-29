@@ -3,27 +3,27 @@ package com.pojo;
 
 public class TbDidtopic {
 
-  private long didTopicId;
-  private long topicId;
+  private Integer didTopicId;
+  private Integer topicId;
   private String userId;
-  private long error;
-  private long errorOptionId;
+  private Integer error;
+  private Integer errorOptionId;
 
 
-  public long getDidTopicId() {
+  public Integer getDidTopicId() {
     return didTopicId;
   }
 
-  public void setDidTopicId(long didTopicId) {
+  public void setDidTopicId(Integer didTopicId) {
     this.didTopicId = didTopicId;
   }
 
 
-  public long getTopicId() {
+  public Integer getTopicId() {
     return topicId;
   }
 
-  public void setTopicId(long topicId) {
+  public void setTopicId(Integer topicId) {
     this.topicId = topicId;
   }
 
@@ -37,20 +37,20 @@ public class TbDidtopic {
   }
 
 
-  public long getError() {
+  public Integer getError() {
     return error;
   }
 
-  public void setError(long error) {
+  public void setError(Integer error) {
     this.error = error;
   }
 
 
-  public long getErrorOptionId() {
+  public Integer getErrorOptionId() {
     return errorOptionId;
   }
 
-  public void setErrorOptionId(long errorOptionId) {
+  public void setErrorOptionId(Integer errorOptionId) {
     this.errorOptionId = errorOptionId;
   }
 

@@ -8,10 +8,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * @author 疯自
+ */
 public class Base64 {
 
     /**
      * 图片转化成base64字符串
+     *
      * @param imageName
      * @return
      */
@@ -43,14 +47,16 @@ public class Base64 {
      */
     public static byte[] GenerateImage(String imgStr) { //对字节数组字符串进行Base64解码并生成图片
         //图像数据为空
-        if (imgStr == null)
+        if (imgStr == null) {
             return null;
+        }
         BASE64Decoder decoder = new BASE64Decoder();
         try {
             // Base64解码
             byte[] b = decoder.decodeBuffer(imgStr);
             for (int i = 0; i < b.length; ++i) {
-                if (b[i] < 0) { //调整异常数据
+                //调整异常数据
+                if (b[i] < 0) {
                     b[i] += 256;
                 }
             }
