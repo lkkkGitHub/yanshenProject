@@ -13,13 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.stream.FileImageOutputStream;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.Date;
@@ -183,7 +182,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value = "/login")
-    public Boolean login(String userName, String passWord, HttpSession session, HttpServletRequest request) {
+    public Boolean login(String userName, String passWord, HttpSession session) {
         TbUser user = userService.login(userName, passWord);
         if (user != null) {
             if (user.getStatus()) {
@@ -313,7 +312,7 @@ public class UserController {
 
     /**
      * 从sessino中获取验证码，效验邮件验证码是否正确, 同时取得验证码超时的时间 判断验证码是否超时 每次效验成功即销毁验证码对象
-     * 有一个bug 解决不了     效验验证码会效验两次，所以清楚session中的信息会出现验证失败的问题
+     * 有两个bug 解决不了     效验验证码会效验两次，所以清除session中的信息会出现验证失败的问题
      *
      * @param verifyNo 用户输入验证码
      * @return 确认是否正确

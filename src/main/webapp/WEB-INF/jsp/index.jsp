@@ -1,228 +1,735 @@
-<%@ page language="java" pageEncoding="UTF-8" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-<html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" isELIgnored="false" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="zxx">
+<!--<![endif]-->
 <head>
-    <base href="<%=basePath%>">
-    <title></title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300">
-    <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="/static/index/css/bootstrap.min.css">
-    <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="/static/index/fontawesome/css/fontawesome-all.min.css">
-    <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" type="text/css" href="/static/index/slick/slick.css"/>
-    <!-- http://kenwheeler.github.io/slick/ -->
-    <link rel="stylesheet" type="text/css" href="/static/index/slick/slick-theme.css"/>
-    <link rel="stylesheet" href="/static/index/css/tooplate-style.css">
-    <script>document.documentElement.className = "js";
-    var supportsCssVars = function () {
-        var e, t = document.createElement("style");
-        return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
-    };
-    supportsCssVars() || alert("Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.");</script>
-
+    <%--<base href="<%=basePath%>">--%>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- favicon icon -->
+    <%--<link rel="shortcut icon" type="image/png" href="favicon.ico"/>--%>
+    <!-- WEB FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../static/index/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/index/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/index/css/bootstrap-theme.min.css">
+    <!-- color css -->
+    <link rel="stylesheet" href="../../static/index/switcher/switcher.css"/>
+    <link rel="stylesheet" href="../../static/index/css/main.css">
+    <link rel="stylesheet" href="../../static/index/css/colors/blue.css">
+    <script src="../../static/index/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
-<body>
-<div id="tm-bg"></div>
-<div id="tm-wrap">
-    <div class="tm-main-content">
-        <div class="container tm-site-header-container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6 col-md-col-xl-6 mb-md-0 mb-sm-4 mb-4 tm-site-header-col">
-                    <div class="tm-site-header">
-                        <p>
-                            <c:choose>
-                                <c:when test="${sessionScope.sessionAccount==null}">
-                                    <a href="/User/login">登录</a>
-                                </c:when>
-                                <c:otherwise>
-                                    ${sessionScope.username} <a href="/User/exit">注销</a>
-                                </c:otherwise>
-                            </c:choose>
-                        </p>
-                        <h1 class="mb-4">POP design</h1>
-                        <img src="/static/index/img/underline.png" class="img-fluid mb-4">
-                        <p>New HTML Template with pop up pages and use this layout for your website</p>
-                    </div>
-                </div>
 
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <div class="content">
-                        <div class="grid">
-                            <div class="grid__item" id="home-link">
-                                <div class="product">
-                                    <div class="tm-nav-link">
-                                        <i class="fas fa-home fa-3x tm-nav-icon"></i>
-                                        <span class="tm-nav-text">创建投票</span>
-                                        <div class="product__bg"></div>
-                                    </div>
-                                    <div class="product__description">
-                                        <div class="row mb-3">
-                                            <div class="col-12">
-                                                <h2 class="tm-page-title">Welcome to Pop Design</h2>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                                <p>
-                                                    <%--<c:choose>--%>
-                                                        <%--<c:when test="${sessionScope.sessionAccount==null}">--%>
-                                                            <%--<a href="user/login">请登陆</a>--%>
-                                                        <%--</c:when>--%>
-                                                        <%--<c:otherwise>--%>
-                                                            <iframe src="vote/createVote" scrolling="no" frameborder="0"
-                                                                    height="75%" width="100%">
-                                                            </iframe>
-                                                        <%--</c:otherwise>--%>
-                                                    <%--</c:choose>--%>
-                                                </p>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                                <p>Donec eu lectus ligula. Aenean pulvinar dolor et massa lacinia
-                                                    rhoncus sit amet sed mauris. Aliquam dictum nibh et consequat
-                                                    finibus.</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In magna
-                                                    mauris, malesuada ut diam eu, pellentesque fringilla orci.</p>
-                                                <img src="/static/index/img/welcome-2.jpg" class="img-fluid">
-                                            </div>
-                                        </div>
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="overflow: visible;">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-                                    </div>
-                                </div>
-                            </div>
+<!-- ===========================
+			PRELOADER
+============================= -->
 
-                            <div class="grid__item" id="team-link">
-                                <div class="product">
-                                    <div class="tm-nav-link">
-                                        <i class="fas fa-users fa-3x tm-nav-icon"></i>
-                                        <span class="tm-nav-text">投票</span>
-                                        <div class="product__bg"></div>
-                                    </div>
-                                    <div class="product__description">
-                                        <div class="p-sm-4 p-2">
-                                            <div class="row mb-3">
-                                                <div class="col-12">
-                                                    <h2 class="tm-page-title">Background of Our Team</h2>
-                                                </div>
-                                            </div>
-                                            <div class="row tm-reverse-sm">
-                                                <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
-                                                    <p class="mb-4">
-                                                        <iframe src="vote/findVote" scrolling="no"
-                                                                frameborder="0" height="60%" width="100%">
-                                                        </iframe>
-                                                    </p>
-                                                </div>
-                                                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-lg-0 mb-sm-4 mb-4">
-                                                    <img src="/static/index/img/team.jpg" class="img-fluid">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tlinks">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
+<div id="preloader">
+    <div id="status"></div>
+</div>
 
-                            <div class="grid__item">
-                                <div class="product">
-                                    <div class="tm-nav-link">
-                                        <i class="fas fa-handshake fa-3x t m-nav-icon"></i>
-                                        <span class="tm-nav-text">我参与过的投票</span>
-                                        <div class="product__bg"></div>
-                                    </div>
-                                    <div class="product__description">
-                                        <div class="p-sm-4 p-2">
-                                            <div class="row mb-3">
-                                                <div class="col-12">
-                                                    <h2 class="tm-page-title">投票</h2>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-12">
-                                                    <iframe src="vote/findUserVoted" scrolling="no" frameborder="0"
-                                                            height="75%" width="100%">
-                                                    </iframe>
-                                                </div>
-                                            </div>
+<!-- End Preloader -->
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid__item">
-                                <div class="product">
-                                    <div class="tm-nav-link">
-                                        <i class="fas fa-comments fa-3x tm-nav-icon"></i>
-                                        <span class="tm-nav-text">我的投票</span>
-                                        <div class="product__bg"></div>
-                                    </div>
-                                    <div class="product__description">
-                                        <div class="pt-sm-4 pb-sm-4 pl-sm-5 pr-sm-5 pt-2 pb-2 pl-3 pr-3">
-                                            <div class="row mb-3">
-                                                <div class="col-12">
-                                                    <h2 class="tm-page-title">我的投票</h2>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-12">
-                                                    <p class="mb-4">
-                                                        <iframe src="" scrolling="no"
-                                                                frameborder="0" height="60%" width="100%">
-                                                        </iframe>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+<!-- =========================
+    page header START
+============================== -->
+<header>
+    <!--Nav Menu Starts-->
+    <nav class="navbar default nav-mob">
+        <div class="container mob-logo">
+            <div class="navbar-header col-sm-2 tablet-logo">
+                <button type="button" class="navbar-toggle mob-menu" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#slides" class="brand-logo">
+                    <img src="../../static/index/images/logo.png" alt="karbar logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="active">
+                        <a href="#slides">Home</a>
+                    </li>
+                    <li>
+                        <a href="#karbar-how-it-works-section">How</a>
+                    </li>
+                    <li>
+                        <a href="#karbar-service-section">Service</a>
+                    </li>
+                    <li>
+                        <a href="#karbar-why-choose-section">Why</a>
+                    </li>
+                    <li>
+                        <a href="#karbar-team-section">Team</a>
+                    </li>
+                    <li>
+                        <a href="#testimonial-and-client">Testimonial</a>
+                    </li>
+                    <li>
+                        <a href="#karbar-price-section">Packages</a>
+                    </li>
+                    <li>
+                        <a href="#karbar-footer-section">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- end header -->
+
+
+<!-- =========================
+		home slider section
+ ============================== -->
+<section id="slides" class="pb">
+    <div class="slides-container">
+        <div class="slide active">
+            <div class="img"><img src="../../static/index/images/slider/slide1.jpg" alt="slide" class="img-responsive"></div>
+            <div class="overlay"></div>
+            <div class="slide-caption">
+                <div class="container">
+                    <div class="box">
+                        <h1>Promote Business</h1>
+                        <span>Imporve Earnings!</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div> <!-- .tm-main-content -->
-</div>
-<!-- load JS -->
-<script src="/static/index/js/jquery-3.2.1.slim.min.js"></script>         <!-- https://jquery.com/ -->
-<script src="/static/index/slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
-<script src="/static/index/js/anime.min.js"></script>                     <!-- http://animejs.com/ -->
-<script src="/static/index/js/main.js"></script>
-<script>
+        <!-- end slide1 -->
+        <div class="slide">
+            <div class="img"><img src="../../static/index/images/slider/slide2.jpg" alt="slide" class="img-responsive"></div>
+            <div class="overlay"></div>
+            <div class="slide-caption">
+                <div class="container">
+                    <div class="box">
+                        <h1>Imporve Earnings!</h1>
+                        <span>Promote Business</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end slide2 -->
+    </div>
+    <!-- end slides-container -->
+    <div class="slides-navigation">
+        <a class="prev sqaureIconSec" href="#"> <i class="fa fa-chevron-left"></i></a>
+        <a class="next sqaureIconSec" href="#"> <i class="fa fa-chevron-right"></i></a>
+    </div>
+    <!-- end slides-navigation -->
+    <div class="holder">
 
-    function setupFooter() {
-        var pageHeight = $('.tm-site-header-container').height() + $('footer').height() + 100;
+	  <span class="scroll-btn">
+		<a href="#karbar-how-it-works-section">
+			<span class="mouse">
+				<span>
+				</span>
+			</span>
+		</a>
+	</span>
+        <i class="fa fa-chevron-down moreArrow moving"></i>
+    </div>
 
-        var main = $('.tm-main-content');
+</section>
+<!-- end slider -->
 
-        if ($(window).height() < pageHeight) {
-            main.addClass('tm-footer-relative');
-        }
-        else {
-            main.removeClass('tm-footer-relative');
-        }
-    }
+<!-- =========================
+       How it works section
+============================== -->
+<section id="karbar-how-it-works-section" class="how-it-works section-bg-color">
+    <div class="container">
+        <div class="row">
+            <!-- Section main title -->
+            <div class="col-xs-12 section-title-padding">
+                <div class="sec-title-container text-center">
+                    <div class="title-line"></div>
+                    <h2 class="uppercase font-weight-7 less-mar-1">How it works</h2>
+                    <div class="clearfix"></div>
+                    <p class="by-sub-title">lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-11 center-block">
+                <!--step 1-->
+                <div class="row">
+                    <div class="col-md-6 col-md-push-6 text-center"><img src="../../static/index/images/step1.png" alt="step-1"></div>
+                    <div class="col-md-6 col-md-pull-6 reveal-left-fade">
+                        <div class="step-number"><span>1</span></div>
+                        <h4>Planning</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent
+                            mattis commodo.</p>
+                    </div>
+                </div>
+                <!--step 1 end-->
+                <!--step 2-->
+                <div class="row">
+                    <div class="col-md-6 text-center"><img src="../../static/index/images/step-2.svg" alt="step-2"></div>
+                    <div class="col-md-6 reveal-right-fade">
+                        <div class="step-number"><span>2</span></div>
+                        <h4>Prototyping</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent
+                            mattis commodo.</p>
+                    </div>
+                </div>
+                <!--step 2 end-->
+                <!--step 3-->
+                <div class="row">
+                    <div class="col-md-6 col-md-push-6 text-center"><img src="../../static/index/images/step-3.svg" alt="step-3"></div>
+                    <div class="col-md-6 col-md-pull-6 reveal-left-fade">
+                        <div class="step-number"><span>3</span></div>
+                        <h4>Visual Design</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent
+                            mattis commodo.</p>
+                    </div>
+                </div>
+                <!--step 3 end-->
+                <!--step 4-->
+                <div class="row">
+                    <div class="col-md-6 text-center"><img src="../../static/index/images/step-4.svg" alt="step-4"></div>
+                    <div class="col-md-6 reveal-right-fade">
+                        <div class="step-number"><span>4</span></div>
+                        <h4>Production</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent
+                            mattis commodo.</p>
+                    </div>
+                </div>
+                <!--step 4 end-->
+            </div>
+        </div>
+    </div>
+</section>
+<!--How it works end-->
 
-    /* DOM is ready
-    ------------------------------------------------*/
-    $(function () {
 
-        setupFooter();
+<!-- =========================
+       service section
+============================== -->
+<section id="karbar-service-section">
+    <div class="container">
+        <div class="row">
+            <!-- Section main title -->
+            <div class="col-xs-12 section-title-padding">
+                <div class="sec-title-container text-center">
+                    <div class="title-line"></div>
+                    <h2 class="uppercase font-weight-7 less-mar-1">Our special services</h2>
+                    <div class="clearfix"></div>
+                    <p class="by-sub-title">lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!--end title-->
+            <div class="item">
+                <div class="col-md-6">
+                    <div class="service-left-side active reveal-right-delay">
+                        <div class="circle"><i class="fa fa-desktop"></i></div>
+                        <div class="text-box">
+                            <h5 class="title">Web Design</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent
+                                mattis commodo .</p>
+                        </div>
+                    </div>
+                </div>
+                <!--end item-->
+                <div class="col-md-6">
+                    <div class="service-right-side reveal-right-delay">
+                        <div class="circle"><i class="fa fa-tablet"></i></div>
+                        <div class="text-box">
+                            <h5 class="title">Responsive Design</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent
+                                mattis commodo .</p>
+                        </div>
+                    </div>
+                </div>
+                <!--end item-->
+                <div class="clearfix"></div>
+                <div class="col-divider-margin-3"></div>
+                <div class="col-md-6">
+                    <div class="service-left-side reveal-right-delay">
+                        <div class="circle"><i class="fa fa-picture-o"></i></div>
+                        <div class="text-box">
+                            <h5 class="title">Graphic design</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent
+                                mattis commodo .</p>
+                        </div>
+                    </div>
+                </div>
+                <!--end item-->
+                <div class="col-md-6">
+                    <div class="service-right-side reveal-right-delay">
+                        <div class="circle"><i class="fa fa-wordpress"></i></div>
+                        <div class="text-box">
+                            <h5 class="title">Wordpress ThemeC</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent
+                                mattis commodo .</p>
+                        </div>
+                    </div>
+                </div>
+                <!--end item-->
+            </div>
+        </div>
+    </div>
+</section>
+<div class="tlinks">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
+<!-- end services -->
 
-        $(window).resize(function () {
-            setupFooter();
-        });
+<!-- =========================
+     why choose section
+============================== -->
+<section id="karbar-why-choose-section" class="section-light why-choose-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="k-why-choose-us-main">
+                    <div class="k-why-choose-us margin-bottom"><img src="../../static/index/images/ce-8.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="border-box"></div>
+                </div>
+            </div>
+            <!--end item-->
+            <div class="col-md-5 padding-left-4">
+                <div class="col-xs-12 nopadding">
+                    <div class="sec-title-container text-center">
+                        <div class="title-line less-mar"></div>
+                        <h3 class="uppercase font-weight-7 nopadding ce-title"><span>Why Choose Us</span></h3>
+                        <p>Lorem imsum doler sit amet</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <!--end title-->
+                <div class="why-choose-single reveal-right-fade">
+                    <div class="iconbox-smedium white left round icon"><span><i class="fa fa-phone"
+                                                                                aria-hidden="true"></i></span></div>
+                    <div class="text-box-right">
+                        <h4 class="less-mar-4">24 hours supports</h4>
+                        <p>Lorem ipsum dolor sit amet sit et justo elit dolor consectetuer.</p>
+                    </div>
+                </div>
+                <div class="why-choose-single reveal-right-fade">
+                    <div class="iconbox-smedium white left round icon"><span><i class="fa fa-bicycle"
+                                                                                aria-hidden="true"></i></span></div>
+                    <div class="text-box-right">
+                        <h4 class="less-mar-4">Easy to use</h4>
+                        <p>Lorem ipsum dolor sit amet sit et justo elit dolor consectetuer.</p>
+                    </div>
+                </div>
+                <div class="why-choose-single reveal-right-fade">
+                    <div class="iconbox-smedium white left round icon"><span><i class="fa fa-info"
+                                                                                aria-hidden="true"></i></span></div>
+                    <div class="text-box-right">
+                        <h4 class="less-mar-4">Valid all information</h4>
+                        <p>Lorem ipsum dolor sit amet sit et justo elit dolor consectetuer.</p>
+                    </div>
+                </div>
+            </div>
+            <!--end item-->
+        </div>
+    </div>
+</section>
+<!-- end why choose -->
 
-        $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright
-    });
+<!-- =========================
+	   team section
+ ============================== -->
+<section id="karbar-team-section">
+    <div class="awesome-team-members">
+        <div class="container">
+            <div class="row">
+                <!-- Section main title -->
+                <div class="col-xs-12 section-title-padding">
+                    <div class="sec-title-container text-center">
+                        <div class="title-line"></div>
+                        <h2 class="uppercase font-weight-7 less-mar-1">our awesome team</h2>
+                        <div class="clearfix"></div>
+                        <p class="by-sub-title">lorem ipsum dolor sit amet</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <!--end title-->
+                <div class="col-md-4 col-sm-6 col-xs-12 padding">
+                    <div class="item-holder margin-bottom">
+                        <img src="../../static/index/images/ce-3.jpg" alt="" class="img-responsive">
+                        <div class="clearfix"></div>
+                        <div class="text-box text-center">
+                            <h4 class="text-white font-weight-5">Shorna Sharmin</h4>
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et
+                                justo Praesent mattis commodo ipsum dolor.</p>
+                            <br>
+                            <a href="#">
+                                <div class="btn-circle"><i class="fa fa-facebook"></i></div>
+                            </a>
+                            <a href="#">
+                                <div class="btn-circle"><i class="fa fa-twitter"></i></div>
+                            </a>
+                            <a href="#">
+                                <div class="btn-circle"><i class="fa fa-linkedin"></i></div>
+                            </a>
+                            <a href="#">
+                                <div class="btn-circle"><i class="fa fa-google-plus"></i></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--end item-->
+                <div class="col-md-4 col-sm-6 col-xs-12 padding">
+                    <div class="item-holder margin-bottom">
+                        <div class="text-box text-center more-height white">
+                            <h4 class="font-weight-5">Riyad Ninja</h4>
+                            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent
+                                mattis commodo ipsum dolor.</p>
+                            <br>
+                            <a href="#">
+                                <div class="btn-circle primary"><i class="fa fa-facebook"></i></div>
+                            </a>
+                            <a href="#">
+                                <div class="btn-circle primary"><i class="fa fa-twitter"></i></div>
+                            </a>
+                            <a href="#">
+                                <div class="btn-circle primary"><i class="fa fa-linkedin"></i></div>
+                            </a>
+                            <a href="#">
+                                <div class="btn-circle primary"><i class="fa fa-google-plus"></i></div>
+                            </a>
+                        </div>
+                        <img src="../../static/index/images/ce-4.jpg" alt="" class="img-responsive">
+                    </div>
+                </div>
+                <!--end item-->
+                <div class="col-md-4 col-sm-6 col-xs-12 padding">
+                    <div class="item-holder margin-bottom">
+                        <img src="../../static/index/images/ce-5.jpg" alt="" class="img-responsive">
+                        <div class="clearfix"></div>
+                        <div class="text-box text-center">
+                            <h4 class="text-white font-weight-5">Ierin Sultana</h4>
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et
+                                justo Praesent mattis commodo ipsum dolor.</p>
+                            <br>
+                            <a href="#">
+                                <div class="btn-circle"><i class="fa fa-facebook"></i></div>
+                            </a>
+                            <a href="#">
+                                <div class="btn-circle"><i class="fa fa-twitter"></i></div>
+                            </a>
+                            <a href="#">
+                                <div class="btn-circle"><i class="fa fa-linkedin"></i></div>
+                            </a>
+                            <a href="#">
+                                <div class="btn-circle"><i class="fa fa-google-plus"></i></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--end item-->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end team section -->
 
-</script>
+<!-- =========================
+       client testimonial section
+============================== -->
+<section id="testimonial-and-client" class="tc-light-style">
+    <div class="container">
+        <div class="row">
+            <!-- Section main title -->
+            <div class="col-xs-12 section-title-padding">
+                <div class="sec-title-container text-center">
+                    <div class="title-line"></div>
+                    <h2 class="uppercase font-weight-7 less-mar-1">Client Testimonial and Clients</h2>
+                    <div class="clearfix"></div>
+                    <p class="by-sub-title">lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!--end title-->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="testimonial-single margin-bottom">
+                    <div class="inner-box">
+                        <div class="imgbox-tiny left round overflow-hidden"><img src="../../static/index/images/ce4-1.jpg" alt=""
+                                                                                 class="img-responsive"></div>
+                        <div class="text-box-right">
+                            <p><em>lorem ipsum dolor eget accumsan cursus lectus ante euismod odio.</em></p>
+                            <h6 class="less-mar-1 padding-top-1">Isabella</h6>
+                            <p class="text-b">Manager- mediatricks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end item-->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="testimonial-single margin-bottom">
+                    <div class="inner-box">
+                        <div class="imgbox-tiny left round overflow-hidden"><img src="../../static/index/images/ce4-2.jpg" alt=""
+                                                                                 class="img-responsive"></div>
+                        <div class="text-box-right">
+                            <p><em>lorem ipsum dolor eget accumsan cursus lectus ante euismod odio.</em></p>
+                            <h6 class="less-mar-1 padding-top-1">Michael</h6>
+                            <p class="text-b">Manager- mediatricks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end item-->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="testimonial-single margin-bottom">
+                    <div class="inner-box">
+                        <div class="imgbox-tiny left round overflow-hidden"><img src="../../static/index/images/ce4-3.jpg" alt=""
+                                                                                 class="img-responsive"></div>
+                        <div class="text-box-right">
+                            <p><em>lorem ipsum dolor eget accumsan cursus lectus ante euismod odio.</em></p>
+                            <h6 class="less-mar-1 padding-top-1">Charlotte</h6>
+                            <p class="text-b">Manager- mediatricks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end item-->
+        </div>
+        <div class="row sec-padding sponsors">
+            <ul class="clients-list grid-cols-6 hover-6">
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/1.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/2.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/3.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/4.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/5.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/6.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/7.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/8.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/9.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/10.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/11.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="../../static/index/images/clients/12.png" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- end client testimonial -->
+
+<!-- =========================
+       price section
+============================== -->
+<section id="karbar-price-section">
+    <div class="container">
+        <div class="row">
+            <!-- Section main title -->
+            <div class="col-xs-12 section-title-padding">
+                <div class="sec-title-container text-center">
+                    <div class="title-line"></div>
+                    <h2 class="uppercase font-weight-7 less-mar-1">Affordable Packages</h2>
+                    <div class="clearfix"></div>
+                    <p class="by-sub-title">lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- end title -->
+            <div class="pricing-table">
+                <div class="col-sm-4 col-md-4">
+                    <div class="item reveal-left-fade">
+                        <h3>Personal</h3>
+                        <p class="price"><span>$</span>55
+                            <small>/per</small>
+                        </p>
+                        <ul>
+                            <li>Regular seating</li>
+                            <li>Free snacks</li>
+                            <li>Regular badge</li>
+                        </ul>
+                        <button class="btn-theme">Register</button>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="item reveal-bottom-fade">
+                        <h3>Company <span class="hot">HOT!</span></h3>
+                        <p class="price"><span>$</span>99
+                            <small>/per</small>
+                        </p>
+                        <ul>
+                            <li>Front seats</li>
+                            <li>Free snacks</li>
+                            <li>VIP Badge</li>
+                            <li>VIP lounge access</li>
+                        </ul>
+                        <button class="btn-theme active">Register</button>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="item reveal-right-fade">
+                        <h3>Business</h3>
+                        <p class="price"><span>$</span>199
+                            <small>/per</small>
+                        </p>
+                        <ul>
+                            <li> Front seats</li>
+                            <li> Free snacks</li>
+                            <li>VIP Badge</li>
+                        </ul>
+                        <button class="btn-theme">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end price -->
+
+<!-- =========================
+       Gmap, ContactForm section
+============================== -->
+<!--  -->
+<section id="karbar-footer-section">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div id="gmap"></div>
+            <div class="contact-form clearfix">
+                <form method="post" action="bin/mailer.php" class="" id="ajax-contact">
+                    <div class="col-sm-6">
+                        <div class="input-text">
+                            <input type="text" name="name" id="name" class="input-name form-control"
+                                   placeholder="Full name">
+                        </div>
+                        <div class="input-email">
+                            <input type="email" name="email" id="email" class="input-email form-control"
+                                   placeholder="Email">
+                        </div>
+                        <div class="input-phone">
+                            <input type="text" name="phone" id="phone" class="input-phone form-control"
+                                   placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="textarea-message">
+                            <textarea name="message" id="message" placeholder="Message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" id="submit" name="submit" class="submit-btn">Send Now<i
+                                class="icon-paper-plane"></i></button>
+                    </div>
+                    <!--Result notification -->
+                    <div id="error-message"></div>
+                    <div id="form-messages"></div>
+                </form>
+            </div>
+            <div class="contact-info">
+                <ul class="clearfix">
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>
+                        <p>+1 123 654 5421
+                            <br>+1 684 548 3645</p>
+                    </li>
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i>
+                        <p>example@mail.com
+                            <br>info@mail.com</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="subscribe-content">
+                    <!-- Newsletter title -->
+                    <div class="subscribe-content-inner">
+                        <h2>SUBSCRIBE TO OUR NEWSLETTER</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <div class="subscribe-form">
+                    <div class="subscribe-form-inner">
+                        <!-- Newsletter form -->
+                        <form class="form-inline dv-form" id="mc-form">
+                            <div class="form-group">
+                                <input id="mc-email" type="email" name="EMAIL" placeholder="Enter Your Email Address"
+                                       class="form-control">
+                                <button class="btn btn-24" name="Subscribe" id="subscribe-btn" type="submit">Subscribe
+                                </button>
+                            </div>
+                            <br>
+                            <label for="mc-email"></label>
+                            <div id="subscribe-result"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+                <div class="copyright">
+                    <p class="copyright">Copyright &copy; 2017.Company name All rights reserved.More Templates <a
+                            href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a
+                            href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end Gmap ContactForm -->
+
+<script src="../../static/index/js/jquery-1.8.3.min.js"></script>
+<!-- plugin js -->
+<script src="../../static/index/js/plugins.js"></script>
+<!-- super slider -->
+<script type="text/javascript" src="../../static/index/js/jquery.superslides.min.js"></script>
+<!-- contact js -->
+<script src="../../static/index/js/jquery-contact.js"></script>
+<!-- retina js -->
+<script src="../../static/index/js/retina.min.js"></script>
+<!-- mailchimp -->
+<script src="../../static/index/js/jquery.ajaxchimp.min.js"></script>
+<!-- scroll animatin JS -->
+<script src="../../static/index/js/scrollreveal.min.js"></script>
+<script src="../../static/index/js/main.js"></script>
+<!---<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB963i1T-nnKpiJjHmBfZq1zX9nEsgklhQ&callback=initMap" async defer></script>--->
+<!-- color js -->
+<script src="../../static/index/switcher/switcher.js"></script>
 
 </body>
 </html>
+
