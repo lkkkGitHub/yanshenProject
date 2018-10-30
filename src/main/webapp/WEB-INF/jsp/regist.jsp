@@ -6,7 +6,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>注册</title>
-<link rel="shortcut icon" href="../../source/images/logo-b.png" />
+<link rel="shortcut icon" href="../../static/logo.png" />
 <link type="text/css" rel="stylesheet"
 	href="../../static/regist/css/bootstrap.min.css">
 <link type="text/css" rel="stylesheet"
@@ -319,7 +319,7 @@
 	<div id="footer">
 		<div class="dblock">
 			<div class="inline-block1">
-				<img src="../../source/images/logo-b.png" width="75" height="50">
+				<img src="../../static/logo.png" width="75" height="50">
 			</div>
 			<div class="inline-block copyright" style="padding-top: 30px;">
 				<p>

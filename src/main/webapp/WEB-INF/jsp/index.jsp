@@ -1,9 +1,10 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="zxx">
 <!--<![endif]-->
@@ -18,8 +19,7 @@
     <!-- favicon icon -->
     <%--<link rel="shortcut icon" type="image/png" href="favicon.ico"/>--%>
     <!-- WEB FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+    <link href="../../static/index/css/index.css" rel="stylesheet">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../../static/index/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../static/index/css/bootstrap.min.css">
@@ -62,16 +62,29 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="#slides" class="brand-logo">
-                    <img src="../../static/index/images/logo.png" alt="karbar logo">
+                    <img src="../../static/logo.png" alt="karbar logo">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav pull-right">
-                    <li class="active">
-                        <a href="#slides">Home</a>
-                    </li>
+                    <%--<li class="active">--%>
+                    <%--<a href="#slides">Home</a>--%>
+                    <%--</li>--%>
                     <li>
-                        <a href="#karbar-how-it-works-section">How</a>
+                        <c:choose>
+                            <c:when test="${user==null}">
+                                <a href="/login">login</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="/personal">
+                                    <img src="${imgstr}" width="65" height="35" alt="userInfo">
+                                </a>
+                                <div style="display: none">
+                                    <span><a href="/User/exit">exit</a></span>
+                                    <span><a href="/personal">personal</a></span>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
                     </li>
                     <li>
                         <a href="#karbar-service-section">Service</a>
@@ -105,26 +118,28 @@
 <section id="slides" class="pb">
     <div class="slides-container">
         <div class="slide active">
-            <div class="img"><img src="../../static/index/images/slider/slide1.jpg" alt="slide" class="img-responsive"></div>
+            <div class="img"><img src="../../static/index/images/slider/slide1.jpg" alt="slide" class="img-responsive">
+            </div>
             <div class="overlay"></div>
             <div class="slide-caption">
                 <div class="container">
                     <div class="box">
-                        <h1>Promote Business</h1>
-                        <span>Imporve Earnings!</span>
+                        <h1>Preparing for study</h1>
+                        <span>necessary weapon!</span>
                     </div>
                 </div>
             </div>
         </div>
         <!-- end slide1 -->
         <div class="slide">
-            <div class="img"><img src="../../static/index/images/slider/slide2.jpg" alt="slide" class="img-responsive"></div>
+            <div class="img"><img src="../../static/index/images/slider/slide2.jpg" alt="slide" class="img-responsive">
+            </div>
             <div class="overlay"></div>
             <div class="slide-caption">
                 <div class="container">
                     <div class="box">
-                        <h1>Imporve Earnings!</h1>
-                        <span>Promote Business</span>
+                        <h1>necessary weapon</h1>
+                        <span>Preparing for study!</span>
                     </div>
                 </div>
             </div>
@@ -172,7 +187,8 @@
             <div class="col-md-11 center-block">
                 <!--step 1-->
                 <div class="row">
-                    <div class="col-md-6 col-md-push-6 text-center"><img src="../../static/index/images/step1.png" alt="step-1"></div>
+                    <div class="col-md-6 col-md-push-6 text-center"><img src="../../static/index/images/step1.png"
+                                                                         alt="step-1"></div>
                     <div class="col-md-6 col-md-pull-6 reveal-left-fade">
                         <div class="step-number"><span>1</span></div>
                         <h4>Planning</h4>
@@ -183,7 +199,8 @@
                 <!--step 1 end-->
                 <!--step 2-->
                 <div class="row">
-                    <div class="col-md-6 text-center"><img src="../../static/index/images/step-2.svg" alt="step-2"></div>
+                    <div class="col-md-6 text-center"><img src="../../static/index/images/step-2.svg" alt="step-2">
+                    </div>
                     <div class="col-md-6 reveal-right-fade">
                         <div class="step-number"><span>2</span></div>
                         <h4>Prototyping</h4>
@@ -194,7 +211,8 @@
                 <!--step 2 end-->
                 <!--step 3-->
                 <div class="row">
-                    <div class="col-md-6 col-md-push-6 text-center"><img src="../../static/index/images/step-3.svg" alt="step-3"></div>
+                    <div class="col-md-6 col-md-push-6 text-center"><img src="../../static/index/images/step-3.svg"
+                                                                         alt="step-3"></div>
                     <div class="col-md-6 col-md-pull-6 reveal-left-fade">
                         <div class="step-number"><span>3</span></div>
                         <h4>Visual Design</h4>
@@ -205,7 +223,8 @@
                 <!--step 3 end-->
                 <!--step 4-->
                 <div class="row">
-                    <div class="col-md-6 text-center"><img src="../../static/index/images/step-4.svg" alt="step-4"></div>
+                    <div class="col-md-6 text-center"><img src="../../static/index/images/step-4.svg" alt="step-4">
+                    </div>
                     <div class="col-md-6 reveal-right-fade">
                         <div class="step-number"><span>4</span></div>
                         <h4>Production</h4>
@@ -300,7 +319,8 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="k-why-choose-us-main">
-                    <div class="k-why-choose-us margin-bottom"><img src="../../static/index/images/ce-8.jpg" alt="" class="img-responsive">
+                    <div class="k-why-choose-us margin-bottom"><img src="../../static/index/images/ce-8.jpg" alt=""
+                                                                    class="img-responsive">
                     </div>
                     <div class="border-box"></div>
                 </div>
@@ -465,8 +485,9 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="testimonial-single margin-bottom">
                     <div class="inner-box">
-                        <div class="imgbox-tiny left round overflow-hidden"><img src="../../static/index/images/ce4-1.jpg" alt=""
-                                                                                 class="img-responsive"></div>
+                        <div class="imgbox-tiny left round overflow-hidden"><img
+                                src="../../static/index/images/ce4-1.jpg" alt=""
+                                class="img-responsive"></div>
                         <div class="text-box-right">
                             <p><em>lorem ipsum dolor eget accumsan cursus lectus ante euismod odio.</em></p>
                             <h6 class="less-mar-1 padding-top-1">Isabella</h6>
@@ -479,8 +500,9 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="testimonial-single margin-bottom">
                     <div class="inner-box">
-                        <div class="imgbox-tiny left round overflow-hidden"><img src="../../static/index/images/ce4-2.jpg" alt=""
-                                                                                 class="img-responsive"></div>
+                        <div class="imgbox-tiny left round overflow-hidden"><img
+                                src="../../static/index/images/ce4-2.jpg" alt=""
+                                class="img-responsive"></div>
                         <div class="text-box-right">
                             <p><em>lorem ipsum dolor eget accumsan cursus lectus ante euismod odio.</em></p>
                             <h6 class="less-mar-1 padding-top-1">Michael</h6>
@@ -493,8 +515,9 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="testimonial-single margin-bottom">
                     <div class="inner-box">
-                        <div class="imgbox-tiny left round overflow-hidden"><img src="../../static/index/images/ce4-3.jpg" alt=""
-                                                                                 class="img-responsive"></div>
+                        <div class="imgbox-tiny left round overflow-hidden"><img
+                                src="../../static/index/images/ce4-3.jpg" alt=""
+                                class="img-responsive"></div>
                         <div class="text-box-right">
                             <p><em>lorem ipsum dolor eget accumsan cursus lectus ante euismod odio.</em></p>
                             <h6 class="less-mar-1 padding-top-1">Charlotte</h6>

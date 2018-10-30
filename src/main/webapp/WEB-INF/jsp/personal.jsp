@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="shortcut icon" href="../../static/img/logo-b.png"/>
+    <link rel="shortcut icon" href="../../static/logo.png"/>
     <title>个人主页</title>
     <link rel="stylesheet" type="text/css"
           href="../../static/person/css/jiazaitoubu.css">
@@ -88,7 +88,7 @@
 
 <!--当前位置-->
 <div class="now_positionm">
-    <span>当前位置：</span><a href="/yunDisk"
+    <span>当前位置：</span><a href="/index"
                          style="text-decoration: none; cursor: pointer;">首页></a> <a href="#" style="text-decoration: none;">个人中心</a>
 </div>
 <!--centers-->
@@ -145,7 +145,7 @@
     <!--right-->
     <div class="centers_mr">
         <h1 class="welcom_tm">
-            欢迎您，网盘
+            欢迎您，
             <c:choose>
                 <c:when test="${user.vip == 1}">
                     <span style="color: red">会员</span>
@@ -386,7 +386,7 @@
                                 <c:when test="${user.vip == 0 }">
                                     <!-- 充值会员 暂时不做-->
                                     <em>非会员，</em>
-                                    <a style="text-decoration: none;" href="">充值&nbsp;&nbsp;</a>成为我们的会员，享受更大的空间,更快的速度
+                                    <a style="text-decoration: none;" href="">充值&nbsp;&nbsp;</a>成为我们的会员，享受更多学习资料
                                     <input type="text" name="vip"
                                            value="0" style="display: none">
                                 </c:when>

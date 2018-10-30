@@ -8,7 +8,7 @@
 <title>用户登录</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<link rel="shortcut icon" href="../../static/img/logo-b.png" />
+<link rel="shortcut icon" href="../../static/logo.png" />
 <link href="../../static/css/style/style.css" rel="stylesheet"
 	type="text/css" />
 <style>
@@ -179,7 +179,7 @@ body::-webkit-scrollbar-track-piece {
 			<div id="footer">
 				<div class="dblock">
 					<div class="inline-block1" style="padding-top: 6px;">
-						<img src="../../static/img/logo-b.png" width="75" height="50">
+						<img src="../../static/logo.png" width="75" height="50">
 					</div>
 					<div class="inline-block copyright" style="padding-top: 30px;">
 						<a href="#" style="text-decoration: none">关于我们</a> | <a href="#"
