@@ -17,4 +17,10 @@ public interface TbOptionDao {
      */
     int insertSelective(TbOption tbOption);
 
+    /**
+     * 根据题目id，查询题目的选项信息
+     * @param topicId 题目id
+     * @return 选项的信息集合
+     */
+    List<TbOption> selectOptionByTopicId(Integer topicId);
 }

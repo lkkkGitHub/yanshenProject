@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>NoSuchKey</Code>
+  <Message>The specified key does not exist.</Message>
+  <RequestId>5BDA74C32A535D9AC85C4347</RequestId>
+  <HostId>ncstatic.oss-cn-hangzhou.aliyuncs.com</HostId>
+  <Key>fonts/fontawesome-webfont.svg</Key>
+</Error>

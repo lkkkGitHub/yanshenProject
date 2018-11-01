@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<!-- html version 1999 -->
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>牛客网- 互联网求职神器和备考学习平台</title>
+<meta name="google-site-verification" content="lFSmn0rlLR-OPkas5c2GxdhTKP4J4PyaahhQ2TNanjs" />
+<meta name="description"
+content="牛客网是互联网求职神器，C++、Java、前端、产品、运营技能学习/备考/求职题库，在线进行百度阿里腾讯网易等互联网名企笔试面试模拟考试练习,和牛人一起讨论经典试题,全面提升你的技术能力">
+<meta name="keywords" content="牛客网,C++笔试面试，Java笔试面试，计算机笔试,计算机面试, IT笔试,笔试题库,笔试练习,IT面试,在线编程,编程学习,牛客网">
+<link rel="stylesheet" href="https://static.nowcoder.com/nc/fontcustom/release/ncfontcustom.css?t=1.2.1111">
+<link rel="stylesheet" href="//static.nowcoder.com/nowcoder/1.2.1111/stylesheets/styles/home/home.css">
+</head>
+<body>
+<div class="nk-container     ">
+<div class="nowcoder-header">
+<div class="header-main clearfix">
+<a class="nowcoder-logo" href="/" title="牛客网"></a>
+<ul class="nowcoder-navbar">
+<li class="active">
+<a href="/">首页</a>
+</li>
+<li>
+<a href="/contestRoom">题库</a>
+<ul class="sub-nav">
+<li><a href="/contestRoom">公司真题</a></li>
+<li><a href="/intelligentTest">专项练习</a></li>
+<li><a href="/activity/oj">在线编程</a></li>
+<li><a href="/mockexam/MockExam">模拟笔试</a></li>
+<li><a href="/schoolbooks">教材全解</a></li>
+<li><a href="/kaoyan">考研真题</a></li>
+<li><a href="/finalexam">期末考题</a></li>
+<li><a href="/activity/topics">精华专题</a></li>
+<li><a href="/questionCenter">试题广场</a></li>
+</ul>
+</li>
+<li>
+<a href="/courses">学习</a>
+<ul class="sub-nav">
+<li><a href="/courses">课程</a></li>
+<li><a href="/project/recommend">项目实战</a></li>
+<li><a href="/stacks">技术栈</a></li>
+</ul>
+</li>
+<li>
+<span class="ico-nav-new"></span>
+<a href="/recommend">求职</a>
+</li>
+<li>
+<a href="/discuss">讨论区</a>
+</li>
+<li>
+<a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_blank">发现</a>
+<ul class="sub-nav">
+<li><a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_blank">竞赛</a></li>
+<li><a href="/show-offer/index">Offer神器</a></li>
+<li><a href="/ranking">排行榜</a></li>
+<li><a href="/coin/index">牛币兑换中心</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nowcoder-navbar nowcoder-other-nav">
+<li class="nav-search">
+<a href="javascript:void(0);" class="icon-search js-search-btn">搜索</a>
+<div class="newnav-search-wrap">
+<div class="newnav-search-cont">
+<form method="get" action="/search">
+<input class="nav-search-txt" name="query" type="text">
+<input type="hidden" name="type" value="all"/>
+<input type="submit" class="nk-invisible"/>
+<a href="javascript:void(0);" class="icon-search-colse js-close-search-btn"></a>
+</form>
+</div>
+</div
+</li>
+<li>
+<a href="/app" class="icon-mobile-phone">APP</a>
+</li>
+<li class="nav-msg">
+<a class="icon-envelope" href="/sns/message/328031526/conversation-list"
+data-unread-conv="">消息</a>
+</li>
+<li class="profile-item">
+<a href="/profile" class="nav-profile">
+<div class="img-box"><img src="https://images.nowcoder.com/images/20180810/328031526_1533893421047_7C2C60506876716CCF0E706DB13D4511@0e_100w_100h_0c_1i_1o_90Q_1x"/></div>
+</a>
+<div class="profile-hover-wrapper">
+<div class="profile-hover-info">
+<span>
+<span class="profile-hover-name">疯自</span>
+</span>
+<a href="/profile" class="profile-hover-btn">个人主页</a>
+</div>
+<div class="item-profile-box">
+<a href="/profile/328031526/resume" class="item-profile">
+<i class="hover-item-ico hover-item-ico1"></i>
+我的简历
+</a>
+<a href="/profile/328031526/tests" class="item-profile">
+<i class="hover-item-ico hover-item-ico2"></i>
+刷题
+</a>
+<a href="/profile/328031526/courses" class="item-profile">
+<i class="hover-item-ico hover-item-ico3"></i>
+课程
+</a>
+<a href="/profile/328031526/project/mine" class="item-profile">
+<i class="hover-item-ico hover-item-ico4"></i>
+项目
+</a>
+<a href="/profile/328031526/note" class="item-profile">
+<i class="hover-item-ico hover-item-ico5"></i>
+笔记
+</a>
+<a href="/profile/328031526/myFollowings" class="item-profile">
+<i class="hover-item-ico hover-item-ico6"></i>
+收藏
+</a>
+</div>
+<div class="hover-accout-wrapper">
+<a href="/profile/328031526/account"><i class="hover-item-ico hover-accout-icon"></i>账号设置</a>
+<a href="javascript:void(0);" class="nc-logout"><i class="hover-item-ico hover-accout-logout"></i>退出登录</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="nk-main clearfix">
+<!--主体内容-->
+<div class="nk-content">
+<div class="module-box home-items">
+<a class="real-exercise" href="/contestRoom">
+<i></i>
+<h2 class="new-items-txt">真题练习</h2>
+</a>
+<a class="devote-exercise" href="/intelligentTest">
+<i></i>
+<h2 class="new-items-txt">专项练习</h2>
+</a>
+<a class="wrong-exercise" href="/profile/328031526/wrongset">
+<i></i>
+<h2 class="new-items-txt">错题练习</h2>
+</a>
+<a class="subject-exercise" href="/activity/oj">
+<i></i>
+<h2 class="new-items-txt">在线编程</h2>
+</a>
+<a class="check-discuss" href="/profile/328031526/courses">
+<i></i>
+<h2 class="new-items-txt">课程学习</h2>
+</a>
+<a class="items-collect" href="/profile/328031526/myFollowings">
+<i></i>
+<h2 class="new-items-txt">我的收藏</h2>
+</a>
+</div>
+<div class="module-box mod-setting  mod-setting-hidden " id="jsPartSetTag">
+<div class="mod-set-oprt">
+<a href="javascript:void(0);" class="icon-home-sort js-oprt-tab">排序</a>
+<span class="mod-set-pipe">|</span>
+<a href="javascript:void(0);" class="ico-setting  js-oprt-tab">设置</a>
+</div>
+<div class="mod-choice-body">
+<div class="arrow-up-box">
+<i class="arrow-up"></i>
+<i class="arrow-up-min"></i>
+</div>
+<div class="module-head clearfix">
+<h1>选择你感兴趣的内容，以下内容的更新将出现在你的首页。</h1>
+</div>
+<div class="module-body">
+<dl class="home-tags-mod">
+<dt class="htm-head">职位</dt>
+<dd class="tags-box js-type-job">
+<a href="javascript:void(0);" class="tag-label" data-id="639">Java工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="640">C++工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="641">iOS工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="642">安卓工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="643">运维工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="644">前端工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="645">算法工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="649">PHP工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="680">测试工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="682">安全工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="683">C#工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="684">数据库工程师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="894">数据分析师</a>
+<a href="javascript:void(0);" class="tag-label" data-id="891">产品</a>
+<a href="javascript:void(0);" class="tag-label" data-id="892">运营</a>
+<a href="javascript:void(0);" class="tag-label" data-id="685">其它</a>
+</dd>
+</dl>
+<dl class="home-tags-mod">
+<dt class="htm-head">公司</dt>
+<dd class="tags-box js-type-company">
+<a href="javascript:void(0);" class="tag-label" data-id="134">阿里巴巴</a>
+<a href="javascript:void(0);" class="tag-label" data-id="138">腾讯</a>
+<a href="javascript:void(0);" class="tag-label" data-id="139">百度</a>
+<a href="javascript:void(0);" class="tag-label" data-id="140">人人</a>
+<a href="javascript:void(0);" class="tag-label" data-id="141">去哪儿</a>
+<a href="javascript:void(0);" class="tag-label" data-id="144">Google</a>
+<a href="javascript:void(0);" class="tag-label" data-id="146">微软</a>
+<a href="javascript:void(0);" class="tag-label" data-id="147">小米</a>
+<a href="javascript:void(0);" class="tag-label" data-id="148">搜狐</a>
+<a href="javascript:void(0);" class="tag-label" data-id="149">网易</a>
+<a href="javascript:void(0);" class="tag-label" data-id="151">京东</a>
+<a href="javascript:void(0);" class="tag-label" data-id="153">携程</a>
+<a href="javascript:void(0);" class="tag-label" data-id="157">奇虎360</a>
+<a href="javascript:void(0);" class="tag-label" data-id="160">完美世界</a>
+<a href="javascript:void(0);" class="tag-label" data-id="171">迅雷</a>
+<a href="javascript:void(0);" class="tag-label" data-id="179">美团</a>
+</dd>
+</dl>
+<dl class="home-tags-mod">
+<dt class="htm-head">编程专题</dt>
+<dd class="tags-box js-type-topic">
+<a href="javascript:void(0);" class="tag-label" data-id="6">剑指offer</a>
+<a href="javascript:void(0);" class="tag-label" data-id="7">PAT</a>
+<a href="javascript:void(0);" class="tag-label" data-id="12">程序员面试金典</a>
+<a href="javascript:void(0);" class="tag-label" data-id="9">前端大挑战</a>
+<a href="javascript:void(0);" class="tag-label" data-id="11">JS测评</a>
+<a href="javascript:void(0);" class="tag-label" data-id="13">编程马拉松</a>
+</dd>
+</dl>
+<dl class="home-tags-mod">
+<dt class="htm-head">文章</dt>
+<dd class="tags-box js-type-discuss">
+<a href="javascript:void(0);" class="tag-label" data-id="2">笔经面经</a>
+<a href="javascript:void(0);" class="tag-label" data-id="1">技术交流</a>
+<a href="javascript:void(0);" class="tag-label" data-id="5">资源分享</a>
+<a href="javascript:void(0);" class="tag-label" data-id="7">求职招聘</a>
+<a href="javascript:void(0);" class="tag-label" data-id="4">站内公告</a>
+<a href="javascript:void(0);" class="tag-label" data-id="3">随便聊聊</a>
+<a href="javascript:void(0);" class="tag-label" data-id="6">我要提问</a>
+<a href="javascript:void(0);" class="tag-label" data-id="9">工作感受</a>
+</dd>
+</dl>
+<div class="model-btn-box">
+<a href="javascript:void(0);" class="btn btn-primary">保存并收起</a>
+<a href="javascript:void(0);" class="btn btn-default">重 选</a>
+</div>
+</div>
+</div>
+<div class="mod-sort-body">
+<div class="arrow-up-box">
+<i class="arrow-up"></i>
+<i class="arrow-up-min"></i>
+</div>
+<div class="module-head clearfix">
+<h1>拖动下面的模块到你想要的位置</h1>
+<div class="float-right">
+<a href="javascript:void(0);" class="btn btn-primary">保存</a>
+<a href="javascript:void(0);" class="btn btn-default">取消</a>
+</div>
+</div>
+</div>
+</div>
+<!-- mod-toggle默认添加open,当去掉open时模块内容隐藏 -->
+<div class="module-box mod-toggle  open" id="jsPartSetSkill" data-type="1">
+<div class="module-head clearfix">
+<h1>专项练习</h1>
+<a href="javascript:void(0);" class="icon-drag"></a>
+</div>
+<div class="module-body">
+<div class="model-count">
+<div class="count-item">
+<span>共刷题：</span>
+<a href="javascript:void(0);">1020题</a>
+</div>
+<div class="count-item">
+<span>做对题目：</span>
+<a href="javascript:void(0);">693题</a>
+</div>
+<div class="count-item">
+<span>最近一周平均分：</span>
+<a href="javascript:void(0);">56</a>
+</div>
+<div class="count-item">
+<span>排名：</span>
+<!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->
+<a chref="javascript:void(0);">3376</a>
+</div>
+</div>
+<div class="statistical-list">
+<div class="statistical-item statistical-item-head clearfix">
+<div class="s-item-cell s-checkbox"></div>
+<div class="s-item-cell s-column1">最近练习知识点</div>
+<div class="s-item-cell s-column2">做题数/题目总数</div>
+<div class="s-item-cell s-column3">正确率</div>
+</div>
+<div class="statistical-item clearfix js-statistical-item" data-id="570">
+<div class="s-item-cell s-checkbox">
+<label class="checkbox">
+<span class="icons"></span>
+<input type="checkbox">
+</label>
+</div>
+<div class="s-item-cell s-column1">Java</div>
+<div class="s-item-cell s-column2">967
+/967</div>
+<div class="s-item-cell s-column3">68%</div>
+<div class="s-item-cell s-column4">
+<form class="form-box" method="post"
+action="/makePaper?tagIds=570">
+<button data-left="303" class="btn btn-primary nc-js-make-paper">专项练习</button>
+</form>
+</div>
+<div class="s-item-oprt">
+<a class="js-del-skill" href="javascript:void(0);">删除</a>
+</div>
+</div>
+<div class="statistical-item clearfix js-statistical-item" data-id="636">
+<div class="s-item-cell s-checkbox">
+<label class="checkbox">
+<span class="icons"></span>
+<input type="checkbox">
+</label>
+</div>
+<div class="s-item-cell s-column1">并发</div>
+<div class="s-item-cell s-column2">15
+/46</div>
+<div class="s-item-cell s-column3">33%</div>
+<div class="s-item-cell s-column4">
+<form class="form-box" method="post"
+action="/makePaper?tagIds=636">
+<button data-left="41" class="btn btn-primary nc-js-make-paper">专项练习</button>
+</form>
+</div>
+<div class="s-item-oprt">
+<a class="js-del-skill" href="javascript:void(0);">删除</a>
+</div>
+</div>
+<div class="statistical-item clearfix js-statistical-item" data-id="637">
+<div class="s-item-cell s-checkbox">
+<label class="checkbox">
+<span class="icons"></span>
+<input type="checkbox">
+</label>
+</div>
+<div class="s-item-cell s-column1">Spring</div>
+<div class="s-item-cell s-column2">24
+/24</div>
+<div class="s-item-cell s-column3">87%</div>
+<div class="s-item-cell s-column4">
+<form class="form-box" method="post"
+action="/makePaper?tagIds=637">
+<button data-left="3" class="btn btn-primary nc-js-make-paper">专项练习</button>
+</form>
+</div>
+<div class="s-item-oprt">
+<a class="js-del-skill" href="javascript:void(0);">删除</a>
+</div>
+</div>
+<div class="statistical-item clearfix js-statistical-item" data-id="606" style="display:none;">
+<div class="s-item-cell s-checkbox">
+<label class="checkbox">
+<span class="icons"></span>
+<input type="checkbox">
+</label>
+</div>
+<div class="s-item-cell s-column1">数据库</div>
+<div class="s-item-cell s-column2">16
+/1878</div>
+<div class="s-item-cell s-column3">56%</div>
+<div class="s-item-cell s-column4">
+<form class="form-box" method="post"
+action="/makePaper?tagIds=606">
+<button data-left="1869" class="btn btn-primary nc-js-make-paper">专项练习</button>
+</form>
+</div>
+<div class="s-item-oprt">
+<a class="js-del-skill" href="javascript:void(0);">删除</a>
+</div>
+</div>
+<div class="statistical-item clearfix js-statistical-item" data-id="598" style="display:none;">
+<div class="s-item-cell s-checkbox">
+<label class="checkbox">
+<span class="icons"></span>
+<input type="checkbox">
+</label>
+</div>
+<div class="s-item-cell s-column1">高级算法</div>
+<div class="s-item-cell s-column2">7
+/74</div>
+<div class="s-item-cell s-column3">57%</div>
+<div class="s-item-cell s-column4">
+<form class="form-box" method="post"
+action="/makePaper?tagIds=598">
+<button data-left="70" class="btn btn-primary nc-js-make-paper">专项练习</button>
+</form>
+</div>
+<div class="s-item-oprt">
+<a class="js-del-skill" href="javascript:void(0);">删除</a>
+</div>
+</div>
+<div class="statistical-item clearfix js-statistical-item" data-id="578" style="display:none;">
+<div class="s-item-cell s-checkbox">
+<label class="checkbox">
+<span class="icons"></span>
+<input type="checkbox">
+</label>
+</div>
+<div class="s-item-cell s-column1">数组</div>
+<div class="s-item-cell s-column2">15
+/318</div>
+<div class="s-item-cell s-column3">53%</div>
+<div class="s-item-cell s-column4">
+<form class="form-box" method="post"
+action="/makePaper?tagIds=578">
+<button data-left="310" class="btn btn-primary nc-js-make-paper">专项练习</button>
+</form>
+</div>
+<div class="s-item-oprt">
+<a class="js-del-skill" href="javascript:void(0);">删除</a>
+</div>
+</div>
+</div>
+<div class="statistical-more">
+<a href="javascript:void(0);" class="icon-angle-up js-skill-angle"></a>
+<a href="javascript:void(0);" class="icon-angle-down js-skill-angle"></a>
+</div>
+<div class="statistical-list-btn">
+<a href="javascript:void(0);" id="jsExeChosen"
+class="btn btn-primary">练习选中技能</a>
+<a href="javascript:void(0);" id="jsExeOther"
+class="btn btn-default">练习其他技能</a>
+</div>
+</div>
+</div>
+<div class="module-box mod-toggle open" data-type="2">
+<div class="module-head clearfix">
+<h1>公司真题练习</h1>
+<a href="javascript:void(0);" class="icon-drag"></a>
+</div>
+<div class="module-body">
+<ul class="content-item-box clearfix">
+<li>
+<div class="content-item-brief">
+<a href="/test/12398581/summary">
+<!-- <div class="done-tag"></div> -->
+<h1>2018迅雷校园招聘计算机视觉在线笔试B卷</h1>
+<div class="web-logoimg">
+<img src="https://static.nowcoder.net/images/weblogo/gray_logo/40.png"/>
+</div>
+<div class="exam-foot">热度指数：2146</div>
+<div class="brief-mask"></div>
+<dl class="exam-info">
+<dd>题目数量:27道</dd>
+<dd>试卷平均分:6分</dd>
+<dd class="exam-btn">
+<span class="btn btn-block btn-primary">马上练习</span>
+</dd>
+</dl>
+</a>
+</div>
+<div class="difficulty">
+<span class="item-label">难度系数：</span>
+<span title="难度系数"
+class="stars-new star-3"></span>
+</div>
+</li>
+<li>
+<div class="content-item-brief">
+<a href="/test/12398504/summary">
+<!-- <div class="done-tag"></div> -->
+<h1>2018迅雷校园招聘计算机视觉在线笔试A卷</h1>
+<div class="web-logoimg">
+<img src="https://static.nowcoder.net/images/weblogo/gray_logo/40.png"/>
+</div>
+<div class="exam-foot">热度指数：1202</div>
+<div class="brief-mask"></div>
+<dl class="exam-info">
+<dd>题目数量:27道</dd>
+<dd>试卷平均分:6分</dd>
+<dd class="exam-btn">
+<span class="btn btn-block btn-primary">马上练习</span>
+</dd>
+</dl>
+</a>
+</div>
+<div class="difficulty">
+<span class="item-label">难度系数：</span>
+<span title="难度系数"
+class="stars-new star-3"></span>
+</div>
+</li>
+<li>
+<div class="content-item-brief">
+<a href="/test/12398104/summary">
+<!-- <div class="done-tag"></div> -->
+<h1>2018迅雷校园招聘C++在线笔试A卷</h1>
+<div class="web-logoimg">
+<img src="https://static.nowcoder.net/images/weblogo/gray_logo/40.png"/>
+</div>
+<div class="exam-foot">热度指数：1427</div>
+<div class="brief-mask"></div>
+<dl class="exam-info">
+<dd>题目数量:27道</dd>
+<dd>试卷平均分:5分</dd>
+<dd class="exam-btn">
+<span class="btn btn-block btn-primary">马上练习</span>
+</dd>
+</dl>
+</a>
+</div>
+<div class="difficulty">
+<span class="item-label">难度系数：</span>
+<span title="难度系数"
+class="stars-new star-3"></span>
+</div>
+</li>
+</ul>
+<div class="model-btn-box">
+<a href="/contestRoom?filter=2&page=1" class="btn btn-block btn-primary">查看全部未练习试卷</a>
+</div>
+</div>
+</div>
+<div class="module-box mod-toggle open" data-type="3">
+<div class="module-head clearfix">
+<h1>在线编程练习</h1>
+<a href="javascript:void(0);" class="icon-drag"></a>
+</div>
+<div class="module-body">
+<div class="model-count">
+<div class="count-item">
+<span>共刷题：</span>
+<a href="javascript:void(0);">0题</a>
+</div>
+<div class="count-item">
+<span>做对题目：</span>
+<a href="javascript:void(0);">0</a>
+</div>
+<div class="count-item">
+<span>最近一周做对题目：</span>
+<a href="javascript:void(0);">0</a>
+</div>
+<div class="count-item">
+<span>排名：</span>
+<a href="javascript:void(0);">0</a>
+<!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->
+</div>
+</div>
+<table>
+<tbody>
+<tr>
+<th width="300" style="padding-left:30px">题目</th>
+<th width="160">来自专题</th>
+</tr>
+<tr>
+<td class="offer-pot"><a href="/pat/6/problem/4077" target="_blank">A+B和C (15)</a></td>
+<td class="txt-left"><a href="/pat">PAT真题在线练习</a></td>
+</tr>
+<tr>
+<td class="offer-pot"><a href="/pat/6/problem/4078" target="_blank">数字分类 (20)</a></td>
+<td class="txt-left"><a href="/pat">PAT真题在线练习</a></td>
+</tr>
+<tr>
+<td class="offer-pot"><a href="/pat/6/problem/4079" target="_blank">数素数 (20)</a></td>
+<td class="txt-left"><a href="/pat">PAT真题在线练习</a></td>
+</tr>
+<tr>
+<td class="offer-pot"><a href="/pat/6/problem/4040" target="_blank">福尔摩斯的约会 (20)</a></td>
+<td class="txt-left"><a href="/pat">PAT真题在线练习</a></td>
+</tr>
+<tr>
+<td class="offer-pot"><a href="/pat/6/problem/4041" target="_blank">德才论 (25)</a></td>
+<td class="txt-left"><a href="/pat">PAT真题在线练习</a></td>
+</tr>
+</tbody>
+</table>
+<a href="/activity/topics" class="btn btn-block btn-primary">查看全部专题</a>
+</div>
+</div>
+<div class="module-box mod-toggle open" data-type="4">
+<div class="module-head clearfix">
+<h1>热议试题</h1>
+<a href="javascript:void(0);" class="icon-drag"></a>
+</div>
+<div class="module-body">
+<ul class="common-list">
+<li>
+<div class="discuss-brief">
+<div class="end-quot"><a
+href="/questionTerminal/27d300513f6940d0b1c66d32006ebad6">假设一棵二叉树先序遍历序列是ABCEDFGHIJ和中序序列是ECDBFAIHJG，则该树中第二层最左边的结点为_____________（根的层次为1）</a>
+</div>
+</div>
+<div class="tags-box">
+<a href="/questionCenter?mutiTagIds=583"
+class="tag-label">树</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=583" >树</a></span> -->
+</div>
+<div class="discuss-content clearfix">
+<a href="/profile/256055360"
+class="head-pic js-nc-card" data-card-uid="256055360"><img src="https://images.nowcoder.com/head/137m.png@0e_100w_100h_0c_1i_1o_90Q_1x.png"
+alt="头像"/></a>
+<div class="discuss-detail">
+<div class="discuss-head">
+<a class="discuss-name level-color-0 js-nc-card"
+href="/profile/256055360" data-card-uid="256055360"
+title="">63258974</a>
+<div class="origin">
+发表于  今天 14:48:19
+</div>
+</div>
+<div class="discuss-main clearfix">
+<p class="discuss-point"><a
+href="/questionTerminal/27d300513f6940d0b1c66d32006ebad6?toCommentId=2303947">
+B
+</a></p>
+<a href="/questionTerminal/27d300513f6940d0b1c66d32006ebad6"
+class="discuss-point-more">[查看全部]</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="discuss-brief">
+<div class="end-quot"><a
+href="/questionTerminal/9c56779095304cae98d0f2fca10a6a2c">在内存中，每个基本单位都赋予一个唯一的序号，该序号被称为（ ）。</a>
+</div>
+</div>
+<div class="tags-box">
+<a href="/questionCenter?mutiTagIds=609"
+class="tag-label">编程基础</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=609" >编程基础</a></span> -->
+</div>
+<div class="discuss-content clearfix">
+<a href="/profile/4657059"
+class="head-pic js-nc-card" data-card-uid="4657059"><img src="https://images.nowcoder.com/images/20170603/4657059_1496442598406_0564D4EC4885448FC55B26B11C1AE743@0e_100w_100h_0c_1i_1o_90Q_1x"
+alt="头像"/></a>
+<div class="discuss-detail">
+<div class="discuss-head">
+<a class="discuss-name level-color-6 js-nc-card"
+href="/profile/4657059" data-card-uid="4657059"
+title="">邓胜涛1</a>
+<div class="origin">
+发表于  今天 14:02:28
+</div>
+</div>
+<div class="discuss-main clearfix">
+<p class="discuss-point"><a
+href="/questionTerminal/9c56779095304cae98d0f2fca10a6a2c?toCommentId=2303613">
+你们家的地址是惟一的，    编号每个村都可能重复，   ...
+</a></p>
+<a href="/questionTerminal/9c56779095304cae98d0f2fca10a6a2c"
+class="discuss-point-more">[查看全部]</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="discuss-brief">
+<div class="end-quot"><a
+href="/questionTerminal/7949021455aa4f1fbda519499f3498d7">下列属于伟大的计算机科学家迪杰斯特拉(Dijkstra)的贡献的是：</a>
+</div>
+</div>
+<div class="tags-box">
+<a href="/questionCenter?mutiTagIds=640"
+class="tag-label">C++工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=640" >C++工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=641"
+class="tag-label">iOS工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=641" >iOS工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=642"
+class="tag-label">安卓工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=642" >安卓工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=643"
+class="tag-label">运维工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=643" >运维工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=644"
+class="tag-label">前端工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=644" >前端工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=645"
+class="tag-label">算法工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=645" >算法工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=649"
+class="tag-label">PHP工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=649" >PHP工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=767"
+class="tag-label">招商银行信用卡中心</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=767" >招商银行信用卡中心</a></span> -->
+<a href="/questionCenter?mutiTagIds=639"
+class="tag-label">Java工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=639" >Java工程师</a></span> -->
+</div>
+<div class="discuss-content clearfix">
+<a href="/profile/9359484"
+class="head-pic js-nc-card" data-card-uid="9359484"><img src="https://images.nowcoder.com/images/20181016/9359484_1539665528199_0D74908F29DA5A0781097A0832F4BBDF@0e_100w_100h_0c_1i_1o_90Q_1x"
+alt="头像"/></a>
+<div class="discuss-detail">
+<div class="discuss-head">
+<a class="discuss-name level-color-8 js-nc-card"
+href="/profile/9359484" data-card-uid="9359484"
+title="">菜是0offer的根本原因！</a>
+<div class="origin">
+发表于  今天 11:47:40
+</div>
+</div>
+<div class="discuss-main clearfix">
+<p class="discuss-point"><a
+href="/questionTerminal/7949021455aa4f1fbda519499f3498d7?toCommentId=2302727">
+这个...这个
+</a></p>
+<a href="/questionTerminal/7949021455aa4f1fbda519499f3498d7"
+class="discuss-point-more">[查看全部]</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="discuss-brief">
+<div class="end-quot"><a
+href="/questionTerminal/e16105b045024360b9317f1c0362c84a">【编程题】知某次聚会中共有N个人参加，这N个人来自26个地区，现在将26个...</a>
+</div>
+</div>
+<div class="tags-box">
+<a href="/questionCenter?mutiTagIds=640"
+class="tag-label">C++工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=640" >C++工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=641"
+class="tag-label">iOS工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=641" >iOS工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=642"
+class="tag-label">安卓工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=642" >安卓工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=643"
+class="tag-label">运维工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=643" >运维工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=644"
+class="tag-label">前端工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=644" >前端工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=981"
+class="tag-label">广联达</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=981" >广联达</a></span> -->
+<a href="/questionCenter?mutiTagIds=645"
+class="tag-label">算法工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=645" >算法工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=649"
+class="tag-label">PHP工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=649" >PHP工程师</a></span> -->
+<a href="/questionCenter?mutiTagIds=639"
+class="tag-label">Java工程师</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=639" >Java工程师</a></span> -->
+</div>
+<div class="discuss-content clearfix">
+<a href="/profile/4657059"
+class="head-pic js-nc-card" data-card-uid="4657059"><img src="https://images.nowcoder.com/images/20170603/4657059_1496442598406_0564D4EC4885448FC55B26B11C1AE743@0e_100w_100h_0c_1i_1o_90Q_1x"
+alt="头像"/></a>
+<div class="discuss-detail">
+<div class="discuss-head">
+<a class="discuss-name level-color-6 js-nc-card"
+href="/profile/4657059" data-card-uid="4657059"
+title="">邓胜涛1</a>
+<div class="origin">
+发表于  今天 11:15:18
+</div>
+</div>
+<div class="discuss-main clearfix">
+<p class="discuss-point"><a
+href="/questionTerminal/e16105b045024360b9317f1c0362c84a?toCommentId=2302476">
+冒泡排序：    比对数据：只要存在相同地区的人，就返回一...
+</a></p>
+<a href="/questionTerminal/e16105b045024360b9317f1c0362c84a"
+class="discuss-point-more">[查看全部]</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="discuss-brief">
+<div class="end-quot"><a
+href="/questionTerminal/62f4ebc3880e440094f8ade83afa41fa">三维数组A[10][20][30]按行序为主序存放于一个连续的存储空间中，其中A[0][0][0]的存储地址是100，数组中每个元素占用1个字节，则A[2][5][7]的存储地址是（）</a>
+</div>
+</div>
+<div class="tags-box">
+<a href="/questionCenter?mutiTagIds=578"
+class="tag-label">数组</a>
+<!-- <span class="tag-label"><a href="/questionCenter?mutiTagIds=578" >数组</a></span> -->
+</div>
+<div class="discuss-content clearfix">
+<a href="/profile/7376699"
+class="head-pic js-nc-card" data-card-uid="7376699"><img src="https://images.nowcoder.com/head/432m.png@0e_100w_100h_0c_1i_1o_90Q_1x.png"
+alt="头像"/></a>
+<div class="discuss-detail">
+<div class="discuss-head">
+<a class="discuss-name level-color-4 js-nc-card"
+href="/profile/7376699" data-card-uid="7376699"
+title="">hardingCheng</a>
+<div class="origin">
+发表于  今天 10:51:14
+</div>
+</div>
+<div class="discuss-main clearfix">
+<p class="discuss-point"><a
+href="/questionTerminal/62f4ebc3880e440094f8ade83afa41fa?toCommentId=2302323">
+A
+</a></p>
+<a href="/questionTerminal/62f4ebc3880e440094f8ade83afa41fa"
+class="discuss-point-more">[查看全部]</a>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<a href="/questionCenter?orderByHotValue=1" class="btn  btn-block btn-primary">更多经典试题</a>
+</div>
+</div>
+<div class="module-box mod-toggle open" data-type="5">
+<div class="module-head clearfix">
+<h1>热门文章</h1>
+<a href="javascript:void(0);" class="icon-drag"></a>
+</div>
+<div class="module-body">
+<ul class="common-list common-less-list">
+<li class="clearfix">
+<a class="head-pic js-nc-card" data-card-uid="5184683" href="/profile/5184683"><img alt="头像"
+src="https://images.nowcoder.com/images/20180408/5184683_1523155274559_7C2C60506876716CCF0E706DB13D4511@0e_100w_100h_0c_1i_1o_90Q_1x"></a>
+<div class="discuss-detail">
+<div class="discuss-main clearfix">
+<a href="/discuss/138619"
+target="_blank">
+招行北分技术岗二面，有面过的吗，求告知形式
+</a>
+</div>
+<div class="feed-foot">
+<div class="feed-origin">
+<p class="feed-tip">
+<a class="d-name level-color-6 js-nc-card"
+href="/profile/5184683" data-card-uid="5184683">
+black布丁</a>&nbsp;&nbsp;
+今天 14:52:05
+&nbsp;&nbsp;发表在
+<a href="/discuss?type=2">
+[笔经面经]</a>&nbsp;&nbsp;
+最后回复&nbsp;&nbsp;2分钟前
+</p>
+</div>
+<div class="feed-legend">
+<span>回复<span
+class="feed-legend-num">1</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>赞<span
+class="feed-legend-num">0</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>浏览<span
+class="feed-legend-num">69</span></span>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix">
+<a class="head-pic js-nc-card" data-card-uid="7852649" href="/profile/7852649"><img alt="头像"
+src="https://images.nowcoder.com/images/20180823/7852649_1535030477824_82A945974DE67457E8553651547DB56C@0e_100w_100h_0c_1i_1o_90Q_1x"></a>
+<div class="discuss-detail">
+<div class="discuss-main clearfix">
+<a href="/discuss/138268"
+target="_blank">
+挂出未来挂出明天，挂经与君共赏
+</a>
+</div>
+<div class="feed-foot">
+<div class="feed-origin">
+<p class="feed-tip">
+<a class="d-name level-color-7 js-nc-card"
+href="/profile/7852649" data-card-uid="7852649">
+嘤嘤嘤护体！</a>&nbsp;&nbsp;
+2018-10-31
+&nbsp;&nbsp;发表在
+<a href="/discuss?type=2">
+[笔经面经]</a>&nbsp;&nbsp;
+最后回复&nbsp;&nbsp;5分钟前
+</p>
+</div>
+<div class="feed-legend">
+<span>回复<span
+class="feed-legend-num">8</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>赞<span
+class="feed-legend-num">2</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>浏览<span
+class="feed-legend-num">1128</span></span>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix">
+<a class="head-pic js-nc-card" data-card-uid="5620980" href="/profile/5620980"><img alt="头像"
+src="https://images.nowcoder.com/images/20180406/5620980_1522986240323_605475850F555A9A1D76953CFB3E39A6@0e_100w_100h_0c_1i_1o_90Q_1x"></a>
+<div class="discuss-detail">
+<div class="discuss-main clearfix">
+<a href="/discuss/138573"
+target="_blank">
+腾讯三进三出 提前批+霸面+霸面【pm+运营】
+</a>
+</div>
+<div class="feed-foot">
+<div class="feed-origin">
+<p class="feed-tip">
+<a class="d-name level-color-1 js-nc-card"
+href="/profile/5620980" data-card-uid="5620980">
+XXXXXXY</a>&nbsp;&nbsp;
+今天 12:56:55
+&nbsp;&nbsp;发表在
+<a href="/discuss?type=2">
+[笔经面经]</a>&nbsp;&nbsp;
+最后回复&nbsp;&nbsp;6分钟前
+</p>
+</div>
+<div class="feed-legend">
+<span>回复<span
+class="feed-legend-num">7</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>赞<span
+class="feed-legend-num">2</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>浏览<span
+class="feed-legend-num">547</span></span>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix">
+<a class="head-pic js-nc-card" data-card-uid="65152081" href="/profile/65152081"><img alt="头像"
+src=""></a>
+<div class="discuss-detail">
+<div class="discuss-main clearfix">
+<a href="/discuss/138624"
+target="_blank">
+作业帮怎么样啊？
+</a>
+</div>
+<div class="feed-foot">
+<div class="feed-origin">
+<p class="feed-tip">
+<a class="d-name level-color-5 js-nc-card"
+href="/profile/65152081" data-card-uid="65152081">
+offer会有...</a>&nbsp;&nbsp;
+今天 14:57:45
+&nbsp;&nbsp;发表在
+<a href="/discuss?type=2">
+[笔经面经]</a>&nbsp;&nbsp;
+最后回复&nbsp;&nbsp;10分钟前
+</p>
+</div>
+<div class="feed-legend">
+<span>回复<span
+class="feed-legend-num">2</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>赞<span
+class="feed-legend-num">0</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>浏览<span
+class="feed-legend-num">114</span></span>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix">
+<a class="head-pic js-nc-card" data-card-uid="7344013" href="/profile/7344013"><img alt="头像"
+src="https://images.nowcoder.com/images/20170621/7344013_1497974513823_7C2C60506876716CCF0E706DB13D4511@0e_100w_100h_0c_1i_1o_90Q_1x"></a>
+<div class="discuss-detail">
+<div class="discuss-main clearfix">
+<a href="/discuss/138622"
+target="_blank">
+宽得投资面经
+</a>
+</div>
+<div class="feed-foot">
+<div class="feed-origin">
+<p class="feed-tip">
+<a class="d-name level-color-5 js-nc-card"
+href="/profile/7344013" data-card-uid="7344013">
+清显</a>&nbsp;&nbsp;
+今天 14:54:14
+&nbsp;&nbsp;发表在
+<a href="/discuss?type=2">
+[笔经面经]</a>&nbsp;&nbsp;
+</p>
+</div>
+<div class="feed-legend">
+<span>回复<span
+class="feed-legend-num">0</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>赞<span
+class="feed-legend-num">0</span></span>
+<span class="feed-legend-pipe">|</span>
+<span>浏览<span
+class="feed-legend-num">65</span></span>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<a href="/discuss" class="btn  btn-block btn-primary">更多热门文章</a>
+</div>
+</div>
+<div class="module-box mod-toggle open" data-type="6">
+<div class="module-head clearfix">
+<h2>我的课程</h2>
+<a href="javascript:void(0);" class="icon-drag"></a>
+</div>
+<div class="module-body">
+<div class="course-static">
+<span class="course-item">参加课程：<span class="font-green">0</span></span>
+<span class="course-item">累计学习时间：<span class="font-green">0分钟</span></span>
+</div>
+</div>
+</div>
+</div>
+<div class="nk-bar">
+<div class="module-box">
+<div class="sign-mod clearfix">
+<div class="sign-time">
+<div class="sign-week">周四</div>
+<div>11-01</div>
+</div>
+<div class="sign-main">
+<div class="sign-info">
+<p>已打卡<span><a href="/profile/328031526/clockInfo">0</a></span>天</p>
+<p>排名<span>0</span></p>
+</div>
+<a href="javascript:void(0);" class="btn btn-primary js-log-clock" data-count="0">今日打卡</a>
+</div>
+</div>
+</div>
+<div class="module-box complete-info-box">
+<p class="complete-tip">完善信息，快速找到战友！</p>
+<div class="complete-identity">
+<div class="clearfix">
+<label class="radio">
+<span class="icons"></span>
+<input type="radio" value="1">我还在上学
+</label>
+<label class="radio checked">
+<span class="icons"></span>
+<input type="radio" value="2">我已经工作
+</label>
+</div>
+<div class="control-group" id="jsInfoSchool">
+<input type="text" value="吉首大学" placeholder="毕业的学校">
+</div>
+<div class="control-group" id="jsInfoCompany">
+<input type="text" value="" placeholder="效力的公司">
+</div>
+<div class="control-group" id="jsInfoJobNow">
+<a href="javascript:void(0);" id="jsInfoJobIpt" class="jobs-choose">从事或感兴趣的工作</a>
+<div class="tags-box complete-tag-box">
+<a href="javascript:void(0);"
+class="tag-label  selected "
+data-id="639">Java工程师</a>
+<a href="javascript:void(0);"
+class="tag-label "
+data-id="640">C++工程师</a>
+<a href="javascript:void(0);"
+class="tag-label "
+data-id="641">iOS工程师</a>
+<a href="javascript:void(0);"
+class="tag-label "
+data-id="642">安卓工程师</a>
+<a href="javascript:void(0);"
+class="tag-label  selected "
+data-id="643">运维工程师</a>
+<a href="javascript:void(0);"
+class="tag-label "
+data-id="644">前端工程师</a>
+<a href="javascript:void(0);"
+class="tag-label  selected "
+data-id="645">算法工程师</a>
+<a href="javascript:void(0);"
+class="tag-label "
+data-id="649">PHP工程师</a>
+<a href="javascript:void(0);"
+class="tag-label "
+data-id="680">测试工程师</a>
+<a href="javascript:void(0);"
+class="tag-label "
+data-id="682">安全工程师</a>
+<a href="javascript:void(0);"
+class="tag-label "
+data-id="683">C#工程师</a>
+<a href="javascript:void(0);"
+class="tag-label  selected "
+data-id="684">数据库工程师</a>
+<a href="javascript:void(0);" class="tag-label " data-id="894">数据分析师</a>
+<a href="javascript:void(0);" class="tag-label " data-id="891">产品</a>
+<a href="javascript:void(0);" class="tag-label " data-id="892">运营</a>
+<a href="javascript:void(0);"
+class="tag-label "
+data-id="685">其它</a>
+</div>
+</div>
+<a href="javascript:void(0);" class="btn btn-block btn-primary">确定</a>
+</div>
+</div>
+<div class="module-box side-profile-box">
+<div class="side-profile-info">
+<div class="side-profile-avatar">
+<a class="side-profile-pic js-nc-card" data-card-uid="328031526" href="/profile/328031526">
+<img src="https://images.nowcoder.com/images/20180810/328031526_1533893421047_7C2C60506876716CCF0E706DB13D4511@0e_200w_200h_0c_1i_1o_90Q_1x" height="60" width="60">
+</a>
+</div>
+<h3 class="side-profile-name">
+<a href="/profile/328031526" class="level-color-7 js-nc-card" data-card-uid="328031526">
+疯自
+</a>
+</h3>
+</div>
+<!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->
+<div class="profile-count-box">
+<span class="pc-item">&nbsp;&nbsp;&nbsp;成就值&nbsp;<a href="javascript:void(0);">693</a></span>
+<span class="pc-pipe">|</span>
+<span class="pc-item">&nbsp;本周新增&nbsp;<a href="javascript:void(0);">44</a></span>
+<span class="pc-pipe">|</span>
+<span class="pc-item">&nbsp;排名&nbsp;</span><a href="javascript:void(0);">
+21159
+</a>
+</div>
+<ul class="web-statistics">
+<li>
+<p>被采纳</p>
+<p class="ws-num">0</p>
+</li>
+<li>
+<p>获赞</p>
+<p class="ws-num">0</p>
+</li>
+<li>
+<p>答对题</p>
+<p class="ws-num">693</p>
+</li>
+<li>
+<p>编程通过</p>
+<p class="ws-num">0</p>
+</li>
+</ul>
+<div class="side-rader-box" id="sideRaderBox" style="display:none;">
+<div class="side-rader-head clearfix">
+<h4>我的技能图谱</h4>
+<div class="btn-group btn-group-sm js-job-select"></div>
+</div>
+<div class="rader-container"></div>
+</div>
+</div>
+<div class="module-box side-topic-box" id="jsSideTopicList">
+<div class="module-head clearfix">
+<div class="module-head-oprt">
+<span class="mho-page topic-slide-progress"></span>
+<a href="javascript:void(0);" class="mho-pre js-topic-mho-pre" title="上一页"></a>
+<a href="javascript:void(0);" class="mho-next js-topic-mho-next" title="下一页"></a>
+</div>
+<h1>热门推荐</h1>
+</div>
+<div class="module-body">
+<div class="topic-slide-box">
+<ul class="side-topic-list">
+<li>
+<a href="/jump?type=ad&source=3&url=https%3A%2F%2Fwww.nowcoder.com%2Fcourses%2Fsemester%2Falgorithm-elementary">
+<img src="https://uploadfiles.nowcoder.net/images/20180123/826546_1516708416423_EA0C763DA536EBE7941F6B2A5D854E25" alt="">
+</a>
+</li>
+<li>
+<a href="/jump?type=ad&source=3&url=https%3A%2F%2Fwww.nowcoder.com%2Factivity%2F2019oversea%2Fintro">
+<img src="https://uploadfiles.nowcoder.com/images/20181019/826546_1539918100761_E9C12306B54238681B6A12F96B228DF5" alt="">
+</a>
+</li>
+<li>
+<a href="/jump?type=ad&source=3&url=https%3A%2F%2Fwww.nowcoder.com%2Fshow-offer%2Findex">
+<img src="https://uploadfiles.nowcoder.net/images/20171117/3311212_1510900554629_7D2A2B50F7E3C99128B238F40F682AEC" alt="">
+</a>
+</li>
+<li>
+<a href="/jump?type=ad&source=3&url=https%3A%2F%2Fwww.nowcoder.com%2Fcourses%2Fsemester%2Fsenior">
+<img src="https://uploadfiles.nowcoder.net/files/20170104/826546_1483534632567_238x922.png" alt="">
+</a>
+</li>
+<li>
+<a href="/jump?type=ad&source=3&url=https%3A%2F%2Fwww.nowcoder.com%2Fcourses%2Fsemester%2Felementary">
+<img src="https://uploadfiles.nowcoder.net/files/20170104/826546_1483534580222_238x92.png" alt="">
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed-menu">
+<ul>
+<li>
+<a href="javascript:void(0);" class="gotop js-nav-go-top" title="回到顶部"></a>
+</li>
+<li>
+<a class="fixed-wb" target="_blank" href="http://www.weibo.com/nowcoder"></a>
+</li>
+<li>
+<a href="tencent://groupwpa/?subcmd=all&param=7B2267726F757055696E223A3135373539343730352C2274696D655374616D70223A313431333130373737387D0A" class="qq" title="QQ"></a>
+</li>
+<li>
+<a href="javascript:void(0);" class="wx"></a>
+<div class="wx-qrcode">
+<img src="//static.nowcoder.com/images/wx-rcode.jpg" alt="二维码" />
+<p>扫描二维码，关注牛客网</p>
+</div>
+</li>
+<li>
+<a href="/discuss/30" class="feedback" title="意见反馈"></a>
+<a href="/discuss/30" class="feedback-letter">意见反馈</a>
+</li>
+<li>
+<a href="javascript:void(0);" class="qrcode"></a>
+<div class="wx-qrcode">
+<img src="//uploadfiles.nowcoder.com/app/android/app.png" alt="二维码" />
+<p>下载牛客APP，随时随地刷题</p>
+</div>
+</li>
+</ul>
+<div class="phone-qrcode" style="display:none;">
+<a href="javascript:void(0);" class="qrcode-close">x</a>
+<img src="//uploadfiles.nowcoder.com/app/android/app.png" alt="二维码" style="width:70px;height:70px;" />
+<p>扫一扫下载牛客APP</p>
+</div>
+</div>
+<div class="ft-wrap">
+<div class="ft-cont clearfix">
+<div class="ft-app">
+<div class="ft-qrcode-box">
+<img src="https://uploadfiles.nowcoder.com/app/app_download.png">
+</div>
+<p>扫一扫，把题目装进口袋</p>
+</div>
+<dl class="ft-web-info">
+<dt class="ft-web-name">牛客网，程序员必备求职神器</dt>
+<dd>
+<a href="javascript:void(0);" class="ft-qq-ico">
+<div class="tooltip top">
+<div class="tooltip-arrow"></div>
+<div class="tooltip-inner">
+<img width="110" src="//uploadfiles.nowcoder.net/images/20180815/59_1534321710941_41A541F87AE349E1D829B1B0B95C955D">
+<p>扫描二维码，进入QQ群</p>
+</div>
+</div>
+</a>
+<a href="javascript:void(0);" class="ft-wx-ico">
+<div class="tooltip top">
+<div class="tooltip-arrow"></div>
+<div class="tooltip-inner">
+<img width="110" src="//uploadfiles.nowcoder.net/images/20180815/59_1534321725995_22162F7114AC793718CC28F7F3F8B789">
+<p>扫描二维码，关注牛客网公众号</p>
+</div>
+</div>
+</a>
+<a href="https://weibo.com/nowcoder" class="ft-wb-ico" target="_blank"></a>
+<a href="https://www.zhihu.com/org/niu-ke-wang-53/activities" class="ft-zh-ico" target="_blank"></a>
+<a href="https://www.jianshu.com/u/6b440373157d " class="ft-jian-ico" target="_blank"></a>
+</dd>
+</dl>
+<div class="ft-main">
+<ul class="ft-links">
+<li><a href="/html/aboutus">关于我们</a></li>
+<li><a href="/nowcoder/recruitment">加入我们</a></li>
+<li><a href="/discuss/30">意见反馈</a></li>
+<li><a href="https://hr.nowcoder.com">企业服务</a></li>
+<li><a href="/html/cooperation">联系我们</a></li>
+<li><a href="/html/disclaimer">免责声明</a></li>
+<li><a href="/html/links">友情链接</a></li>
+</ul>
+<ul class="webrights">
+<li>公司地址：北京市朝阳区大屯路东金泉时代3-808北京牛客科技有限公司</li>
+<li>联系方式：010-60728802(电话) <span class="contact-email">admin@nowcoder.com</span></li>
+<li>牛客科技©2018 All rights reserved</li>
+<li>京ICP备14055008号-4</li>
+<li>
+<span style="color:#a9b8ca;">
+<img src="//static.nowcoder.com/company/images/res/ghs.png" style="width:18px;height:18px;">
+<a style="font-size:12px;" class="ft-info-item" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ad-window-sm js-global-tips" style="display:none;">
+<a href="javascript:void(0);" class="ad-close">X</a>
+<div class="ad-live-active"></div>
+<a class="link-green js-global-tips-href" target="_blank" href="">点击查看>></a>
+</div>
+
+</div>
+<script>
+window.isLogin = true;
+window.globalInfo = {
+ownerId: '328031526',
+ownerName: '疯自',
+ownerTinyHead: 'https://images.nowcoder.com/images/20180810/328031526_1533893421047_7C2C60506876716CCF0E706DB13D4511@0e_100w_100h_0c_1i_1o_90Q_1x',
+ownerMainHead: 'https://images.nowcoder.com/images/20180810/328031526_1533893421047_7C2C60506876716CCF0E706DB13D4511@0e_200w_200h_0c_1i_1o_90Q_1x',
+ownerEmail: '',
+ownerPhone: '15116407203',
+ownerType: '1',
+status: '0',
+honorLevel: '7',
+gender: '',
+isCompleteInfo: true,
+canLoadInIframe: 'false'
+};
+window.useNeteaseCaptcha = true;
+</script>
+<script type="text/javascript">
+window.ncDeployImageRoot = "//static.nowcoder.com/";
+window.ncJsVersion = "1.02.61";
+window.ncJsPluginVersion = "1.0.14";
+</script>
+<script src="//static.nowcoder.com/nc/js/1.02.61/sea.js" type="text/javascript"></script>
+<script src="//static.nowcoder.com/nc/js/1.02.61/nc.cpn.js" type="text/javascript"></script>
+<script src="//static.nowcoder.com/nowcoder/1.2.1111/javascripts/base.js" type="text/javascript"></script>
+<script type="text/javascript">
+if (!window.seajs) {
+var oBody = document.body;
+var aChild = oBody.childNodes;
+var oDv = document.createElement('div');
+oDv.innerHTML = [
+'<div style="text-align:center;">',
+'<div style="font-size:18px;margin:20px 0;font-weight: bold;">',
+'静态文件加载出错，请检查当前网络情况是否正常，或者按照下面步骤修改电脑的DNS',
+'<br />推荐使用以下DNS: 223.5.5.5(首选) 和 223.6.6.6(备用)，建议使用手机热点',
+'</div>',
+'<img style="border:1px solid #ccc;" src="//ww2.sinaimg.cn/mw690/44b25cb0jw1f5vt92tsz1j20o03d97dt.jpg" />',
+'</div>'].join('');
+aChild.length === 0 && oBody.appendChild(oDv);
+aChild.length > 0 && oBody.insertBefore(oDv, aChild[0]);
+}
+seajs.use('nowcoder/1.2.1111/javascripts/site/common/index');
+seajs.use('nowcoder/1.2.1111/javascripts/site/common/nav');
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?a808a1326b6c06c437de769d1b85b870";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+window.userBaseInfo = {};
+window.userBaseInfo.hasNickname = true;
+window.userBaseInfo.hasAvatar = true;
+window.userBaseInfo.completedInfo = false;
+window.userSkillGraphs = [{"score":"2.23","maximumScore":"100.00","totalCnt":17,"avgDiff":1,"tagId":643,"rightRation":"41.18","bigSkillTag":true,"rightCnt":7,"tagName":"运维工程师","totalScore":100}, {"score":"4.72","maximumScore":"100.00","totalCnt":10,"avgDiff":1,"tagId":645,"rightRation":"70.00","bigSkillTag":true,"rightCnt":7,"tagName":"算法工程师","totalScore":100}, {"score":"3.63","maximumScore":"100.00","totalCnt":30,"avgDiff":1,"tagId":684,"rightRation":"50.00","bigSkillTag":true,"rightCnt":15,"tagName":"数据库工程师","totalScore":100}, {"score":"35.77","maximumScore":"100.00","totalCnt":985,"avgDiff":1,"tagId":639,"rightRation":"68.93","bigSkillTag":true,"rightCnt":679,"tagName":"Java工程师","totalScore":100}];
+window.userSkillGraphsDetail = [{"score":"0.00","maximumScore":"100.00","totalCnt":0,"avgDiff":2,"bigTagId":643,"tagId":618,"rightRation":"0.00","rightCnt":0,"tagName":"Linux","totalScore":100}, {"score":"0.00","maximumScore":"100.00","totalCnt":1,"avgDiff":2,"bigTagId":643,"tagId":620,"rightRation":"0.00","rightCnt":0,"tagName":"Windows","totalScore":100}, {"score":"0.00","maximumScore":"100.00","totalCnt":0,"avgDiff":1,"bigTagId":643,"tagId":608,"rightRation":"0.00","rightCnt":0,"tagName":"加密和安全","totalScore":100}, {"score":"5.29","maximumScore":"100.00","totalCnt":14,"avgDiff":2,"bigTagId":643,"tagId":607,"rightRation":"42.86","rightCnt":6,"tagName":"操作系统","totalScore":100}, {"score":"1.97","maximumScore":"100.00","totalCnt":2,"avgDiff":2,"bigTagId":643,"tagId":604,"rightRation":"50.00","rightCnt":1,"tagName":"网络基础","totalScore":100}, {"score":"6.16","maximumScore":"100.00","totalCnt":2,"avgDiff":2,"bigTagId":645,"tagId":579,"rightRation":"100.00","rightCnt":2,"tagName":"字符串","totalScore":100}, {"score":"3.44","maximumScore":"100.00","totalCnt":3,"avgDiff":2,"bigTagId":645,"tagId":583,"rightRation":"66.67","rightCnt":2,"tagName":"树","totalScore":100}, {"score":"0.00","maximumScore":"100.00","totalCnt":0,"avgDiff":2,"bigTagId":645,"tagId":584,"rightRation":"0.00","rightCnt":0,"tagName":"图","totalScore":100}, {"score":"3.30","maximumScore":"100.00","totalCnt":1,"avgDiff":2,"bigTagId":645,"tagId":590,"rightRation":"100.00","rightCnt":1,"tagName":"排序","totalScore":100}, {"score":"14.81","maximumScore":"100.00","totalCnt":7,"avgDiff":1,"bigTagId":645,"tagId":598,"rightRation":"57.14","rightCnt":4,"tagName":"高级算法","totalScore":100}, {"score":"0.00","maximumScore":"100.00","totalCnt":0,"avgDiff":3,"bigTagId":645,"tagId":630,"rightRation":"0.00","rightCnt":0,"tagName":"数理统计","totalScore":100}, {"score":"0.00","maximumScore":"100.00","totalCnt":0,"avgDiff":2,"bigTagId":645,"tagId":631,"rightRation":"0.00","rightCnt":0,"tagName":"机器学习","totalScore":100}, {"score":"5.76","maximumScore":"100.00","totalCnt":16,"avgDiff":2,"bigTagId":684,"tagId":606,"rightRation":"56.25","rightCnt":9,"tagName":"数据库","totalScore":100}, {"score":"5.29","maximumScore":"100.00","totalCnt":14,"avgDiff":2,"bigTagId":684,"tagId":607,"rightRation":"42.86","rightCnt":6,"tagName":"操作系统","totalScore":100}, {"score":"0.00","maximumScore":"100.00","totalCnt":0,"avgDiff":2,"bigTagId":684,"tagId":618,"rightRation":"0.00","rightCnt":0,"tagName":"Linux","totalScore":100}, {"score":"0.00","maximumScore":"100.00","totalCnt":1,"avgDiff":2,"bigTagId":684,"tagId":610,"rightRation":"0.00","rightCnt":0,"tagName":"编译和体系结构","totalScore":100}, {"score":"66.31","maximumScore":"100.00","totalCnt":967,"avgDiff":2,"bigTagId":639,"tagId":570,"rightRation":"68.67","rightCnt":664,"tagName":"Java","totalScore":100}, {"score":"14.25","maximumScore":"100.00","totalCnt":49,"avgDiff":2,"bigTagId":639,"tagId":609,"rightRation":"77.55","rightCnt":38,"tagName":"编程基础","totalScore":100}, {"score":"100.00","maximumScore":"100.00","totalCnt":24,"avgDiff":2,"bigTagId":639,"tagId":637,"rightRation":"87.50","rightCnt":21,"tagName":"Spring","totalScore":100}, {"score":"0.00","maximumScore":"100.00","totalCnt":0,"avgDiff":2,"bigTagId":639,"tagId":618,"rightRation":"0.00","rightCnt":0,"tagName":"Linux","totalScore":100}, {"score":"1.97","maximumScore":"100.00","totalCnt":2,"avgDiff":2,"bigTagId":639,"tagId":604,"rightRation":"50.00","rightCnt":1,"tagName":"网络基础","totalScore":100}];
+window.userSkillGraphsDisplay = 1;
+window.allTagInfos = [{"doneCount":967,"rate":68,"tagId":570,"tagName":"Java","totalCount":967,"leftCount":0},{"doneCount":15,"rate":33,"tagId":636,"tagName":"并发","totalCount":46,"leftCount":31},{"doneCount":24,"rate":87,"tagId":637,"tagName":"Spring","totalCount":24,"leftCount":0},{"doneCount":16,"rate":56,"tagId":606,"tagName":"数据库","totalCount":1878,"leftCount":1862},{"doneCount":7,"rate":57,"tagId":598,"tagName":"高级算法","totalCount":74,"leftCount":67},{"doneCount":15,"rate":53,"tagId":578,"tagName":"数组","totalCount":318,"leftCount":303}];
+window.selectedTag = {
+jobIds: '639,643,645,684',
+companyIds: '',
+topicIds: '',
+discussIds: ''
+};
+</script>
+<script type="text/javascript">
+seajs.use('nowcoder/1.2.1111/javascripts/site/home/loginedV2.js');
+</script>
+</body>
+</html>

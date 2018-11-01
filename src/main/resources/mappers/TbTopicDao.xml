@@ -8,12 +8,20 @@
         <result column="classifyId" property="classifyId"/>
     </resultMap>
 
+    <resultMap id="ctxTbOption" type="com.pojo.TbTopic" extends="AllColumnMap">
+        <collection property="optionList" column="topicId" select="com.dao.TbOptionDao.selectOptionByTopicId"/>
+    </resultMap>
+
     <!--auto generated Code-->
     <sql id="all_column">
-        `topic_id`,
-        `topic_comment`,
-        `classify_id`
+        `topicId`,
+        `topicComment`,
+        `classifyId`
     </sql>
+
+    <select id="selectTopicByClassifyId" parameterType="java.lang.Integer" resultMap="ctxTbOption">
+        select <include refid="all_column"/> from `tb_topic` where `classifyId` = #{value}
+    </select>
 
     <!--auto generated Code-->
     <insert id="insertSelective" useGeneratedKeys="true" parameterType="com.pojo.TbOption" keyProperty="topicId">

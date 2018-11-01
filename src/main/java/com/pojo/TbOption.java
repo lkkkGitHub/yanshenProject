@@ -1,5 +1,6 @@
 package com.pojo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class TbOption {
 
@@ -42,4 +43,13 @@ public class TbOption {
         this.topicId = topicId;
     }
 
+    @Override
+    public String toString() {
+        return "TbOption{" +
+                "optionId=" + optionId +
+                ", optionComment='" + optionComment + '\'' +
+                ", topicId=" + topicId +
+                ", correct=" + correct +
+                '}';
+    }
 }

@@ -13,8 +13,13 @@
     <sql id="all_column">
         `optionId`,
         `optionComment`,
-        `topicId`
+        `topicId`,
+        `correct`
     </sql>
+
+    <select id="selectOptionByTopicId" parameterType="java.lang.Integer" resultMap="AllColumnMap">
+        select <include refid="all_column"/> from `tb_option` where `topicId` = #{value}
+    </select>
 
     <!--auto generated Code-->
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.optionId">

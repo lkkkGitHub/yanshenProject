@@ -17,4 +17,11 @@ public interface TbTopicDao {
      * @return 影响的行数
      */
     int insertSelective(TbTopic tbTopic);
+
+    /**
+     * 根据分类，查询题目信息，以及连接查询题目的选项信息
+     * @param classifyId 分类id
+     * @return
+     */
+    List<TbTopic> selectTopicByClassifyId(Integer classifyId);
 }
