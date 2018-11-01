@@ -29,12 +29,45 @@
     <link rel="stylesheet" href="../../static/index/css/main.css">
     <link rel="stylesheet" href="../../static/index/css/colors/blue.css">
     <script src="../../static/index/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <style>
+        /*滚动条*/
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color:#ccc;
+        }
+
+        body::-webkit-scrollbar-track-piece {
+            background-color: #ccc;
+        }
+
+        ::-webkit-scrollbar-track-piece:no-button {
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #F5B5B6;
+            border-radius: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #F5B5B6;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background-color: #F5B5B6;
+        }
+        /*/滚动条*/
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="overflow: visible;">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
+your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- ===========================
@@ -71,20 +104,7 @@
                     <%--<a href="#slides">Home</a>--%>
                     <%--</li>--%>
                     <li>
-                        <c:choose>
-                            <c:when test="${user==null}">
-                                <a href="/login">login</a>
-                            </c:when>
-                            <c:otherwise>
-                                <a href="/personal">
-                                    <img src="${imgstr}" width="65" height="35" alt="userInfo">
-                                </a>
-                                <div style="display: none">
-                                    <span><a href="/User/exit">exit</a></span>
-                                    <span><a href="/personal">personal</a></span>
-                                </div>
-                            </c:otherwise>
-                        </c:choose>
+                        <a href="#karbar-how-it-works-section">how</a>
                     </li>
                     <li>
                         <a href="#karbar-service-section">Service</a>
@@ -99,10 +119,30 @@
                         <a href="#testimonial-and-client">Testimonial</a>
                     </li>
                     <li>
-                        <a href="#karbar-price-section">Packages</a>
+                        <c:choose>
+                            <c:when test="${user==null}">
+                                <a href="/login">登陆</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="/personal">
+                                    <img src="${imgstr}" width="65" height="35" alt="userInfo">
+                                </a>
+                            </c:otherwise>
+                        </c:choose>
                     </li>
                     <li>
-                        <a href="#karbar-footer-section">Contact</a>
+                        <c:choose>
+                            <c:when test="${user==null}">
+                                <a href="/regist">注册</a>
+                            </c:when>
+                        </c:choose>
+                    </li>
+                    <li>
+                        <c:choose>
+                            <c:when test="${user!=null}">
+                                <a href="/User/exit">退出</a>
+                            </c:when>
+                        </c:choose>
                     </li>
                 </ul>
             </div>

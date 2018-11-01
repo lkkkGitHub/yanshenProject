@@ -53,6 +53,39 @@
     <!--页脚 -->
     <link rel="stylesheet" type="text/css"
           href="../../static/person/footer/index.css">
+    <style>
+        /*滚动条*/
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color:#ccc;
+        }
+
+        body::-webkit-scrollbar-track-piece {
+            background-color: #ccc;
+        }
+
+        ::-webkit-scrollbar-track-piece:no-button {
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #F5B5B6;
+            border-radius: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #F5B5B6;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background-color: #F5B5B6;
+        }
+        /*/滚动条*/
+    </style>
 </head>
 <%
     request.setCharacterEncoding("utf-8");

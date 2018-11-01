@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.TbOptionDao">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.pojo.TbOption">
+        <result column="optionId" property="optionId"/>
+        <result column="optionComment" property="optionComment"/>
+        <result column="topicId" property="topicId"/>
+        <result column="correct" property="correct"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `optionId`,
+        `optionComment`,
+        `topicId`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.optionId">
+        INSERT INTO tb_option
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="optionId!=null"> `optionId`,</if>
+            <if test="optionComment!=null"> `optionComment`,</if>
+            <if test="topicId!=null"> `topicId`,</if>
+            <if test="correct!=null">`correct`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="optionId!=null">#{optionId},</if>
+            <if test="optionComment!=null">#{optionComment},</if>
+            <if test="topicId!=null">#{topicId},</if>
+            <if test="correct!=null">#{correct},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE tb_option
+        <set>
+            <if test="pojo.optionId != null"> `optionId` = #{pojo.optionId}, </if>
+            <if test="pojo.optionComment != null"> `optionComment` = #{pojo.optionComment}, </if>
+            <if test="pojo.topicId != null"> `topicId` = #{pojo.topicId} </if>
+        </set>
+        WHERE optionId = #{pojo.optionId}
+    </update>
+</mapper>
+
