@@ -17,29 +17,26 @@
 
     <script charset="utf-8" async="" src="../../static/index/js/loginedv2.js"></script>
     <script charset="utf-8" async="" src="../../static/index/js/echarts-plain.js"></script>
+    <script src="../../static/person/js/jquery-1.8.3.min.js"></script>
+    <script type="application/javascript" src="../../static/index/js/MyJs.js"></script>
     <link media="all" href="../../static/index/css/index.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <div class="nk-container     ">
     <div class="nowcoder-header">
         <div class="header-main clearfix">
-            <a class="nowcoder-logo" href="https://www.nowcoder.com/" title="牛客网"></a>
+            <a class="nowcoder-logo" href="/index" title="牛客网"></a>
             <ul class="nowcoder-navbar">
                 <li class="active">
-                    <a href="https://www.nowcoder.com/">首页</a>
+                    <a href="/index">首页</a>
                 </li>
                 <li>
-                    <a href="https://www.nowcoder.com/contestRoom">题库</a>
+                    <a href="#">题库</a>
                     <ul class="sub-nav">
-                        <li><a href="https://www.nowcoder.com/contestRoom">公司真题</a></li>
-                        <li><a href="https://www.nowcoder.com/intelligentTest">专项练习</a></li>
-                        <li><a href="https://www.nowcoder.com/activity/oj">在线编程</a></li>
-                        <li><a href="https://www.nowcoder.com/mockexam/MockExam">模拟笔试</a></li>
-                        <li><a href="https://www.nowcoder.com/schoolbooks">教材全解</a></li>
-                        <li><a href="https://www.nowcoder.com/kaoyan">考研真题</a></li>
-                        <li><a href="https://www.nowcoder.com/finalexam">期末考题</a></li>
-                        <li><a href="https://www.nowcoder.com/activity/topics">精华专题</a></li>
-                        <li><a href="https://www.nowcoder.com/questionCenter">试题广场</a></li>
+                        <li><a href="https://www.nowcoder.com/contestRoom">顺序练习</a></li>
+                        <li><a href="https://www.nowcoder.com/intelligentTest">随机练习</a></li>
+                        <li><a href="https://www.nowcoder.com/activity/oj">章节练习</a></li>
+                        <li><a href="https://www.nowcoder.com/mockexam/MockExam">专项练习</a></li>
                     </ul>
                 </li>
                 <li>
@@ -72,7 +69,7 @@
                     <a href="javascript:void(0);" class="icon-search js-search-btn">搜索</a>
                     <div class="newnav-search-wrap">
                         <div class="newnav-search-cont">
-                            <form method="get" action="https://www.nowcoder.com/search">
+                            <form method="get" action="/#">
                                 <input class="nav-search-txt" name="query" autocomplete="off" value="" type="text">
                                 <input name="type" value="all" type="hidden">
                                 <input class="nk-invisible" type="submit">
@@ -82,13 +79,13 @@
                     </div>
                 </li>
                 <li>
-                    <a href="https://www.nowcoder.com/app" class="icon-mobile-phone">APP</a>
+                    <a href="#" class="icon-mobile-phone">APP</a>
                 </li>
                 <c:choose>
                     <c:when test="${user!=null}">
                         <li class="nav-msg">
                             <a class="icon-envelope"
-                               href="https://www.nowcoder.com/sns/message/328031526/conversation-list?type=1"
+                               href="#"
                                data-unread-conv="">
                                 <span class="nav-msg-num">0</span>消息</a>
                         </li>
@@ -103,30 +100,30 @@
                             <span>
                                  <span class="profile-hover-name">${username}</span>
                              </span>
-                                    <a href="https://www.nowcoder.com/profile" class="profile-hover-btn">个人主页</a>
+                                    <a href="/personal" class="profile-hover-btn">个人主页</a>
                                 </div>
                                 <div class="item-profile-box">
-                                    <a href="https://www.nowcoder.com/profile/328031526/resume" class="item-profile">
+                                    <a href="#" class="item-profile">
                                         <i class="hover-item-ico hover-item-ico1"></i>
                                         我的简历
                                     </a>
-                                    <a href="https://www.nowcoder.com/profile/328031526/tests" class="item-profile">
+                                    <a href="#" class="item-profile">
                                         <i class="hover-item-ico hover-item-ico2"></i>
                                         刷题
                                     </a>
-                                    <a href="https://www.nowcoder.com/profile/328031526/courses" class="item-profile">
+                                    <a href="#" class="item-profile">
                                         <i class="hover-item-ico hover-item-ico3"></i>
                                         课程
                                     </a>
-                                    <a href="https://www.nowcoder.com/profile/328031526/project/mine" class="item-profile">
+                                    <a href="#" class="item-profile">
                                         <i class="hover-item-ico hover-item-ico4"></i>
                                         项目
                                     </a>
-                                    <a href="https://www.nowcoder.com/profile/328031526/note" class="item-profile">
+                                    <a href="#" class="item-profile">
                                         <i class="hover-item-ico hover-item-ico5"></i>
                                         笔记
                                     </a>
-                                    <a href="https://www.nowcoder.com/profile/328031526/myFollowings" class="item-profile">
+                                    <a href="#" class="item-profile">
                                         <i class="hover-item-ico hover-item-ico6"></i>
                                         收藏
                                     </a>
@@ -146,9 +143,6 @@
                         </li>
                     </c:otherwise>
                 </c:choose>
-
-
-
             </ul>
         </div>
     </div>
@@ -156,130 +150,34 @@
         <!--主体内容-->
         <div class="nk-content">
             <div class="module-box home-items">
-                <a class="real-exercise" href="https://www.nowcoder.com/contestRoom">
+                <a class="real-exercise" href="#">
                     <i></i>
-                    <h2 class="new-items-txt">真题练习</h2>
+                    <h2 class="new-items-txt">顺序练习</h2>
                 </a>
-                <a class="devote-exercise" href="https://www.nowcoder.com/intelligentTest">
+                <a class="devote-exercise" href="#">
+                    <i></i>
+                    <h2 class="new-items-txt">随机练习</h2>
+                </a>
+                <a class="wrong-exercise" href="#">
+                    <i></i>
+                    <h2 class="new-items-txt">章节练习</h2>
+                </a>
+                <a class="subject-exercise" href="#">
                     <i></i>
                     <h2 class="new-items-txt">专项练习</h2>
                 </a>
-                <a class="wrong-exercise" href="https://www.nowcoder.com/profile/328031526/wrongset">
+                <a class="check-discuss" href="#">
                     <i></i>
                     <h2 class="new-items-txt">错题练习</h2>
                 </a>
-                <a class="subject-exercise" href="https://www.nowcoder.com/activity/oj">
-                    <i></i>
-                    <h2 class="new-items-txt">在线编程</h2>
-                </a>
-                <a class="check-discuss" href="https://www.nowcoder.com/profile/328031526/courses">
-                    <i></i>
-                    <h2 class="new-items-txt">课程学习</h2>
-                </a>
-                <a class="items-collect" href="https://www.nowcoder.com/profile/328031526/myFollowings">
+                <a class="items-collect" href="#">
                     <i></i>
                     <h2 class="new-items-txt">我的收藏</h2>
                 </a>
             </div>
             <div class="module-box mod-setting  mod-setting-hidden " id="jsPartSetTag">
                 <div class="mod-set-oprt">
-                    <a href="javascript:void(0);" class="icon-home-sort js-oprt-tab">排序</a>
-                    <span class="mod-set-pipe">|</span>
-                    <a href="javascript:void(0);" class="ico-setting  js-oprt-tab">设置</a>
-                </div>
-                <div class="mod-choice-body">
-                    <div class="arrow-up-box">
-                        <i class="arrow-up"></i>
-                        <i class="arrow-up-min"></i>
-                    </div>
-                    <div class="module-head clearfix">
-                        <h1>选择你感兴趣的内容，以下内容的更新将出现在你的首页。</h1>
-                    </div>
-                    <div class="module-body">
-                        <dl class="home-tags-mod">
-                            <dt class="htm-head">职位</dt>
-                            <dd class="tags-box js-type-job">
-                                <a href="javascript:void(0);" class="tag-label selected" data-id="639">Java工程师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="640">C++工程师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="641">iOS工程师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="642">安卓工程师</a>
-                                <a href="javascript:void(0);" class="tag-label selected" data-id="643">运维工程师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="644">前端工程师</a>
-                                <a href="javascript:void(0);" class="tag-label selected" data-id="645">算法工程师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="649">PHP工程师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="680">测试工程师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="682">安全工程师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="683">C#工程师</a>
-                                <a href="javascript:void(0);" class="tag-label selected" data-id="684">数据库工程师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="894">数据分析师</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="891">产品</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="892">运营</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="685">其它</a>
-                            </dd>
-                        </dl>
-                        <dl class="home-tags-mod">
-                            <dt class="htm-head">公司</dt>
-                            <dd class="tags-box js-type-company">
-                                <a href="javascript:void(0);" class="tag-label" data-id="134">阿里巴巴</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="138">腾讯</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="139">百度</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="140">人人</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="141">去哪儿</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="144">Google</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="146">微软</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="147">小米</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="148">搜狐</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="149">网易</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="151">京东</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="153">携程</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="157">奇虎360</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="160">完美世界</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="171">迅雷</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="179">美团</a>
-                            </dd>
-                        </dl>
-                        <dl class="home-tags-mod">
-                            <dt class="htm-head">编程专题</dt>
-                            <dd class="tags-box js-type-topic">
-                                <a href="javascript:void(0);" class="tag-label" data-id="6">剑指offer</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="7">PAT</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="12">程序员面试金典</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="9">前端大挑战</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="11">JS测评</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="13">编程马拉松</a>
-                            </dd>
-                        </dl>
-                        <dl class="home-tags-mod">
-                            <dt class="htm-head">文章</dt>
-                            <dd class="tags-box js-type-discuss">
-                                <a href="javascript:void(0);" class="tag-label" data-id="2">笔经面经</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="1">技术交流</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="5">资源分享</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="7">求职招聘</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="4">站内公告</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="3">随便聊聊</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="6">我要提问</a>
-                                <a href="javascript:void(0);" class="tag-label" data-id="9">工作感受</a>
-                            </dd>
-                        </dl>
-                        <div class="model-btn-box">
-                            <a href="javascript:void(0);" class="btn btn-primary">保存并收起</a>
-                            <a href="javascript:void(0);" class="btn btn-default">重 选</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="mod-sort-body">
-                    <div class="arrow-up-box">
-                        <i class="arrow-up"></i>
-                        <i class="arrow-up-min"></i>
-                    </div>
-                    <div class="module-head clearfix">
-                        <h1>拖动下面的模块到你想要的位置</h1>
-                        <div class="float-right">
-                            <a href="javascript:void(0);" class="btn btn-primary">保存</a>
-                            <a href="javascript:void(0);" class="btn btn-default">取消</a>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <!-- mod-toggle默认添加open,当去掉open时模块内容隐藏 -->
@@ -709,6 +607,65 @@
                     <li>
                         <p>编程通过</p>
                         <p class="ws-num">0</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ft-wrap">
+        <div class="ft-cont clearfix">
+            <div class="ft-app">
+                <div class="ft-qrcode-box">
+                    <img src="../../static/index/img/app_download.png">
+                </div>
+                <p>扫一扫，把题目装进口袋</p>
+            </div>
+            <dl class="ft-web-info">
+                <dt class="ft-web-name">牛客网，程序员必备求职神器</dt>
+                <dd>
+                    <a href="javascript:void(0);" class="ft-qq-ico">
+                        <div class="tooltip top">
+                            <div class="tooltip-arrow"></div>
+                            <div class="tooltip-inner">
+                                <img src="59_1534321710941_41a541f87ae349e1d829b1b0b95c955d" width="110">
+                                <p>扫描二维码，进入QQ群</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="javascript:void(0);" class="ft-wx-ico">
+                        <div class="tooltip top">
+                            <div class="tooltip-arrow"></div>
+                            <div class="tooltip-inner">
+                                <img src="59_1534321725995_22162f7114ac793718cc28f7f3f8b789" width="110">
+                                <p>扫描二维码，关注牛客网公众号</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://weibo.com/nowcoder" class="ft-wb-ico" target="_top"></a>
+                    <a href="https://www.zhihu.com/org/niu-ke-wang-53/activities" class="ft-zh-ico" target="_top"></a>
+                    <a href="https://www.jianshu.com/u/6b440373157d" class="ft-jian-ico" target="_top"></a>
+                </dd>
+            </dl>
+            <div class="ft-main">
+                <ul class="ft-links">
+                    <li><a href="https://www.nowcoder.com/html/aboutus">关于我们</a></li>
+                    <li><a href="https://www.nowcoder.com/nowcoder/recruitment">加入我们</a></li>
+                    <li><a href="https://www.nowcoder.com/discuss/30">意见反馈</a></li>
+                    <li><a href="https://hr.nowcoder.com/">企业服务</a></li>
+                    <li><a href="https://www.nowcoder.com/html/cooperation">联系我们</a></li>
+                    <li><a href="https://www.nowcoder.com/html/disclaimer">免责声明</a></li>
+                    <li><a href="https://www.nowcoder.com/html/links">友情链接</a></li>
+                </ul>
+                <ul class="webrights">
+                    <li>公司地址：北京市朝阳区大屯路东金泉时代3-808北京牛客科技有限公司</li>
+                    <li>联系方式：010-60728802(电话) <span class="contact-email">admin@nowcoder.com</span></li>
+                    <li>牛客科技©2018 All rights reserved</li>
+                    <li>京ICP备14055008号-4</li>
+                    <li>
+<span style="color: rgb(169, 184, 202);">
+<img src="ghs.png" style="width: 18px; height: 18px;">
+<a style="font-size: 12px;" class="ft-info-item" target="_top" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
+</span>
                     </li>
                 </ul>
             </div>
