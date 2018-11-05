@@ -4,16 +4,39 @@ function initUserTopicInfo() {
     $.ajax({
         url: "/classify/getAllClassify",
         type: "get",
-        async: true,
+        async: false,
         contentType: "application/x-www-form-urlencoded",
         dataType: 'json',
         success: function (json) {
             for (var i = 0; i < json.length; i++) {
                 var str = "";
-                str = ""+json[i].classifyName+"";
+                str = "" + json[i].classifyName + "";
                 var id = i + 1;
                 var strId = "column" + id;
-                $("#"+strId).html(str);
+                $("#" + strId).html(str);
+            }
+            if (json.length < 6) {
+                var x = document.getElementsByClassName("js-statistical-item");
+                for (var i = json.length; i < 6; i++) {
+                    x[i].remove();
+                }
+            } else if (json.length > 6) {
+                for (var i = 6; i < json.length; i++) {
+                    var id = i + 1;
+                    var str = "";
+                    str += "<div class=\"statistical-item clearfix js-statistical-item\" data-id=\"636\" style=\"display: none;\">";
+                    str += "<div class=\"s-item-cell s-checkbox\">";
+                    str += "<label class=\"checkbox\" id=\"jsCpn_5_checkbox_3\">";
+                    str += "<span class=\"icons\"></span>";
+                    str += "<input type=\"checkbox\">";
+                    str += " </label></div><div class=\"s-item-cell s-column1\" id=\"column"+id+"\">"+json[i].classifyName+"</div>";
+                    str += "<div class=\"s-item-cell s-column2\">15/<span id=\"allTopicNum"+id+"\"></span> </div>";
+                    str += "<div class=\"s-item-cell s-column3\">33%</div><div class=\"s-item-cell s-column4\">";
+                    str += "<form class=\"form-box\" method=\"post\" action=\"https://www.nowcoder.com/makePaper?tagIds=636\">";
+                    str += "<button data-left=\"41\" class=\"btn btn-primary nc-js-make-paper\">专项练习</button></form></div>";
+                    str += "<div class=\"s-item-oprt\"><a class=\"js-del-skill\" href=\"javascript:void(0);\">删除</a> </div> </div>";
+                    $(".statistical-list").append(str);
+                }
             }
         }
     });

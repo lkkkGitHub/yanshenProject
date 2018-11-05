@@ -26,21 +26,14 @@ public class ClassifyController {
     @Autowired
     private ClassifyService classifyServiceImpl;
 
-    @Autowired
-    private JedisClient jedisClient;
     /**
      * 获取所有的类别信息
-     * 加入redis缓存中进行保存
+     *
      * @return 返回json数据的所有类别信息
      */
     @ResponseBody
     @RequestMapping("/getAllClassify")
     public List<TbClassify> getAllClassify() {
-        List<TbClassify> list = JsonUtils.jsonToList(jedisClient.hget("classify", "comment"), TbClassify.class);
-        if (list == null) {
-            list = classifyServiceImpl.allClassify();
-            jedisClient.hset("classify", "comment", JsonUtils.objectToJson(list));
-        }
-        return list;
+        return classifyServiceImpl.allClassify();
     }
 }

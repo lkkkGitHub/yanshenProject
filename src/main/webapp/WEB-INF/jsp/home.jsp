@@ -183,7 +183,7 @@
             <!-- mod-toggle默认添加open,当去掉open时模块内容隐藏 -->
             <div class="module-box mod-toggle  open" id="jsPartSetSkill" data-type="1">
                 <div class="module-head clearfix">
-                    <h1>刷题情况</h1>
+                    <h1>练习情况</h1>
                     <a href="javascript:void(0);" class="icon-drag"></a>
                 </div>
                 <div class="module-body">
