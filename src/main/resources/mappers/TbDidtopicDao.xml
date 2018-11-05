@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.TbDidtopicDao">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.pojo.TbDidtopic">
+        <result column="didTopicId" property="didTopicId"/>
+        <result column="topicId" property="topicId"/>
+        <result column="userId" property="userId"/>
+        <result column="error" property="error"/>
+        <result column="errorOptionId" property="errorOptionId"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `didTopicId`,
+        `topicId`,
+        `userId`,
+        `error`,
+        `errorOptionId`
+    </sql>
+
+    <select id="findDidTopicByUserId" parameterType="java.lang.String" resultMap="AllColumnMap">
+        select <include refid="all_column"/> from `tb_didtopic` where `userId` = #{value}
+    </select>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.didTopicId">
+        INSERT INTO tb_didtopic (
+            `didTopicId`,
+            `topicId`,
+            `userId`,
+            `error`,
+            `errorOptionId`
+        ) VALUES (
+            #{pojo.didTopicId},
+            #{pojo.topicId},
+            #{pojo.userId},
+            #{pojo.error},
+            #{pojo.errorOptionId}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.didTopicId">
+        INSERT INTO tb_didtopic
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.didTopicId!=null"> `didTopicId`,</if>
+            <if test="pojo.topicId!=null"> `topicId`,</if>
+            <if test="pojo.userId!=null"> `userId`,</if>
+            <if test="pojo.error!=null"> `error`,</if>
+            <if test="pojo.errorOptionId!=null"> `errorOptionId`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.didTopicId!=null">#{pojo.didTopicId},</if>
+            <if test="pojo.topicId!=null">#{pojo.topicId},</if>
+            <if test="pojo.userId!=null">#{pojo.userId},</if>
+            <if test="pojo.error!=null">#{pojo.error},</if>
+            <if test="pojo.errorOptionId!=null">#{pojo.errorOptionId},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO tb_didtopic (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.didTopicId},
+            #{pojo.topicId},
+            #{pojo.userId},
+            #{pojo.error},
+            #{pojo.errorOptionId}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE tb_didtopic
+        <set>
+            <if test="pojo.didTopicId != null"> `didTopicId` = #{pojo.didTopicId}, </if>
+            <if test="pojo.topicId != null"> `topicId` = #{pojo.topicId}, </if>
+            <if test="pojo.userId != null"> `userId` = #{pojo.userId}, </if>
+            <if test="pojo.error != null"> `error` = #{pojo.error}, </if>
+            <if test="pojo.errorOptionId != null"> `errorOptionId` = #{pojo.errorOptionId} </if>
+        </set>
+        WHERE didTopicId = #{pojo.didTopicId}
+    </update>
+</mapper>
+

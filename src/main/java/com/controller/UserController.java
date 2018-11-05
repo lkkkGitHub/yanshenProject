@@ -155,7 +155,7 @@ public class UserController {
         session.removeAttribute("username");
         session.removeAttribute("imgstr");
         session.removeAttribute("user");
-        return "home";
+        return "index";
     }
 
     /**

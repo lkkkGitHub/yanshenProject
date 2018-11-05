@@ -121,7 +121,7 @@
 
 <!--当前位置-->
 <div class="now_positionm">
-    <span>当前位置：</span><a href="/index"
+    <span>当前位置：</span><a href="/home"
                          style="text-decoration: none; cursor: pointer;">首页></a> <a href="#" style="text-decoration: none;">个人中心</a>
 </div>
 <!--centers-->

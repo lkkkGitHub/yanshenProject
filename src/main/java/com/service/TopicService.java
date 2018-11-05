@@ -1,14 +1,19 @@
 package com.service;
 
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import java.util.List;
 import com.pojo.TbTopic;
-import com.dao.TbTopicDao;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author 疯自
  */
 public interface TopicService {
 
+    /**
+     * 查询所有分类的题目数量，
+     *
+     * @return
+     */
+    Map<Integer, Integer> selectTopicNumAllClassify();
 }

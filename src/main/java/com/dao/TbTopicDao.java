@@ -12,7 +12,7 @@ import com.pojo.TbTopic;
  */
 public interface TbTopicDao {
     /**
-     * 动态选择sql语句
+     * 动态选择插入sql语句
      * @param tbTopic 封装了题目信息的sql
      * @return 影响的行数
      */

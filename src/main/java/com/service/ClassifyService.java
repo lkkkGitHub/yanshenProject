@@ -12,5 +12,9 @@ import com.dao.TbClassifyDao;
 @Service
 public interface ClassifyService {
 
+    /**
+     * 显示所有类别信息
+     * @return 所有的类别信息，以及id
+     */
     List<TbClassify> allClassify();
 }

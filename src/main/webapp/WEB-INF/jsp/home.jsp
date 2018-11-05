@@ -21,14 +21,14 @@
     <script type="application/javascript" src="../../static/home/js/MyJs.js"></script>
     <link media="all" href="../../static/home/css/index.css" type="text/css" rel="stylesheet">
 </head>
-<body>
+<body onload="initUserTopicInfo()">
 <div class="nk-container     ">
     <div class="nowcoder-header">
         <div class="header-main clearfix">
-            <a class="nowcoder-logo" href="/index" title="牛客网"></a>
+            <a class="nowcoder-logo" href="/home" title="牛客网"></a>
             <ul class="nowcoder-navbar">
                 <li class="active">
-                    <a href="/index">首页</a>
+                    <a href="/home">首页</a>
                 </li>
                 <li>
                     <a href="#">题库</a>
@@ -152,7 +152,7 @@
             <div class="module-box home-items">
                 <a class="real-exercise" href="#">
                     <i></i>
-                    <h2 class="new-items-txt">顺序练习</h2>
+                    <h2 class="new-items-txt">专项练习</h2>
                 </a>
                 <a class="devote-exercise" href="#">
                     <i></i>
@@ -164,7 +164,7 @@
                 </a>
                 <a class="subject-exercise" href="#">
                     <i></i>
-                    <h2 class="new-items-txt">专项练习</h2>
+                    <h2 class="new-items-txt">顺序练习</h2>
                 </a>
                 <a class="check-discuss" href="#">
                     <i></i>
@@ -183,28 +183,28 @@
             <!-- mod-toggle默认添加open,当去掉open时模块内容隐藏 -->
             <div class="module-box mod-toggle  open" id="jsPartSetSkill" data-type="1">
                 <div class="module-head clearfix">
-                    <h1>专项练习</h1>
+                    <h1>刷题情况</h1>
                     <a href="javascript:void(0);" class="icon-drag"></a>
                 </div>
                 <div class="module-body">
                     <div class="model-count">
                         <div class="count-item">
                             <span>共刷题：</span>
-                            <a href="javascript:void(0);">1020题</a>
+                            <a href="javascript:void(0);" id="didTopic">1020题</a>
                         </div>
                         <div class="count-item">
                             <span>做对题目：</span>
-                            <a href="javascript:void(0);">693题</a>
+                            <a href="javascript:void(0);" id="errorDidTopic">693题</a>
                         </div>
                         <div class="count-item">
-                            <span>最近一周平均分：</span>
-                            <a href="javascript:void(0);">56</a>
+                            <span>正确率：</span>
+                            <a href="javascript:void(0);" id="correctRate">56%</a>
                         </div>
-                        <div class="count-item">
-                            <span>排名：</span>
-                            <!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->
-                            <a chref="javascript:void(0);">3376</a>
-                        </div>
+                        <%--<div class="count-item">--%>
+                            <%--<span>排名：</span>--%>
+                            <%--<!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->--%>
+                            <%--<a chref="javascript:void(0);">3376</a>--%>
+                        <%--</div>--%>
                     </div>
                     <div class="statistical-list">
                         <div class="statistical-item statistical-item-head clearfix">
@@ -220,9 +220,9 @@
                                     <input type="checkbox">
                                 </label>
                             </div>
-                            <div class="s-item-cell s-column1">Java</div>
+                            <div class="s-item-cell s-column1" id="column1">Java</div>
                             <div class="s-item-cell s-column2">967
-                                /967
+                                /<span id="allTopicNum1"></span>
                             </div>
                             <div class="s-item-cell s-column3">68%</div>
                             <div class="s-item-cell s-column4">
@@ -242,9 +242,9 @@
                                     <input type="checkbox">
                                 </label>
                             </div>
-                            <div class="s-item-cell s-column1">并发</div>
+                            <div class="s-item-cell s-column1" id="column2">C++</div>
                             <div class="s-item-cell s-column2">15
-                                /46
+                                /<span id="allTopicNum2"></span>
                             </div>
                             <div class="s-item-cell s-column3">33%</div>
                             <div class="s-item-cell s-column4">
@@ -264,9 +264,9 @@
                                     <input type="checkbox">
                                 </label>
                             </div>
-                            <div class="s-item-cell s-column1">Spring</div>
+                            <div class="s-item-cell s-column1" id="column3">C</div>
                             <div class="s-item-cell s-column2">24
-                                /24
+                                /<span id="allTopicNum3"></span>
                             </div>
                             <div class="s-item-cell s-column3">87%</div>
                             <div class="s-item-cell s-column4">
@@ -286,9 +286,9 @@
                                     <input type="checkbox">
                                 </label>
                             </div>
-                            <div class="s-item-cell s-column1">数据库</div>
+                            <div class="s-item-cell s-column1" id="column4">Python</div>
                             <div class="s-item-cell s-column2">16
-                                /1878
+                                /<span id="allTopicNum4"></span>
                             </div>
                             <div class="s-item-cell s-column3">56%</div>
                             <div class="s-item-cell s-column4">
@@ -308,9 +308,9 @@
                                     <input type="checkbox">
                                 </label>
                             </div>
-                            <div class="s-item-cell s-column1">高级算法</div>
+                            <div class="s-item-cell s-column1" id="column5">Spring</div>
                             <div class="s-item-cell s-column2">7
-                                /74
+                                /<span id="allTopicNum5"></span>
                             </div>
                             <div class="s-item-cell s-column3">57%</div>
                             <div class="s-item-cell s-column4">
@@ -330,9 +330,9 @@
                                     <input type="checkbox">
                                 </label>
                             </div>
-                            <div class="s-item-cell s-column1">数组</div>
+                            <div class="s-item-cell s-column1" id="column6">Mybatis</div>
                             <div class="s-item-cell s-column2">15
-                                /318
+                                /<span id="allTopicNum6"></span>
                             </div>
                             <div class="s-item-cell s-column3">53%</div>
                             <div class="s-item-cell s-column4">
