@@ -11,7 +11,7 @@ import java.util.Map;
 public interface TopicService {
 
     /**
-     * 查询所有分类的题目数量，
+     * 查询所有分类的题目总数量，
      *
      * @return
      */
