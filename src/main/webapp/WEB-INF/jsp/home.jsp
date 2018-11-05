@@ -209,7 +209,7 @@
                     <div class="statistical-list">
                         <div class="statistical-item statistical-item-head clearfix">
                             <div class="s-item-cell s-checkbox"></div>
-                            <div class="s-item-cell s-column1">最近练习知识点</div>
+                            <div class="s-item-cell s-column1">知识点</div>
                             <div class="s-item-cell s-column2">做题数/题目总数</div>
                             <div class="s-item-cell s-column3">正确率</div>
                         </div>
@@ -228,11 +228,11 @@
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=570">
-                                    <button data-left="303" class="btn btn-primary nc-js-make-paper">专项练习</button>
+                                    <button data-left="303" class="btn btn-primary nc-js-make-paper">开始练习</button>
                                 </form>
                             </div>
                             <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
+                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
                             </div>
                         </div>
                         <div class="statistical-item clearfix js-statistical-item" data-id="636">
@@ -250,11 +250,11 @@
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=636">
-                                    <button data-left="41" class="btn btn-primary nc-js-make-paper">专项练习</button>
+                                    <button data-left="41" class="btn btn-primary nc-js-make-paper">开始练习</button>
                                 </form>
                             </div>
                             <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
+                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
                             </div>
                         </div>
                         <div class="statistical-item clearfix js-statistical-item" data-id="637">
@@ -272,11 +272,11 @@
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=637">
-                                    <button data-left="3" class="btn btn-primary nc-js-make-paper">专项练习</button>
+                                    <button data-left="3" class="btn btn-primary nc-js-make-paper">开始练习</button>
                                 </form>
                             </div>
                             <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
+                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
                             </div>
                         </div>
                         <div class="statistical-item clearfix js-statistical-item" data-id="606" style="display: none;">
@@ -294,11 +294,11 @@
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=606">
-                                    <button data-left="1869" class="btn btn-primary nc-js-make-paper">专项练习</button>
+                                    <button data-left="1869" class="btn btn-primary nc-js-make-paper">开始练习</button>
                                 </form>
                             </div>
                             <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
+                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
                             </div>
                         </div>
                         <div class="statistical-item clearfix js-statistical-item" data-id="598" style="display: none;">
@@ -316,11 +316,11 @@
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=598">
-                                    <button data-left="70" class="btn btn-primary nc-js-make-paper">专项练习</button>
+                                    <button data-left="70" class="btn btn-primary nc-js-make-paper">开始练习</button>
                                 </form>
                             </div>
                             <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
+                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
                             </div>
                         </div>
                         <div class="statistical-item clearfix js-statistical-item" data-id="578" style="display: none;">
@@ -338,11 +338,11 @@
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=578">
-                                    <button data-left="310" class="btn btn-primary nc-js-make-paper">专项练习</button>
+                                    <button data-left="310" class="btn btn-primary nc-js-make-paper">开始练习</button>
                                 </form>
                             </div>
                             <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
+                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
                             </div>
                         </div>
                     </div>

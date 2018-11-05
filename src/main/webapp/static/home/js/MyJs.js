@@ -33,8 +33,8 @@ function initUserTopicInfo() {
                     str += "<div class=\"s-item-cell s-column2\">15/<span id=\"allTopicNum"+id+"\"></span> </div>";
                     str += "<div class=\"s-item-cell s-column3\">33%</div><div class=\"s-item-cell s-column4\">";
                     str += "<form class=\"form-box\" method=\"post\" action=\"https://www.nowcoder.com/makePaper?tagIds=636\">";
-                    str += "<button data-left=\"41\" class=\"btn btn-primary nc-js-make-paper\">专项练习</button></form></div>";
-                    str += "<div class=\"s-item-oprt\"><a class=\"js-del-skill\" href=\"javascript:void(0);\">删除</a> </div> </div>";
+                    str += "<button data-left=\"41\" class=\"btn btn-primary nc-js-make-paper\">开始练习</button></form></div>";
+                    str += "<div class=\"s-item-oprt\"><a class=\"js-del-skill\" href=\"javascript:void(0);\">查看错题</a> </div> </div>";
                     $(".statistical-list").append(str);
                 }
             }
@@ -49,9 +49,9 @@ function initUserTopicInfo() {
         dataType: 'json',
         success : function (data) {
             var str;
-            str = ""+data.didTopicNum+"";
+            str = ""+data.didTopicNum+"题";
             $("#didTopic").html(str);
-            str = ""+data.errorDidTopicNum+"";
+            str = ""+data.errorDidTopicNum+"题";
             $("#errorDidTopic").html(str);
             str = ""+data.correctRate+"%";
             $("#correctRate").html(str);
