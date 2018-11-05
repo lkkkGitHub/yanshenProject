@@ -16,9 +16,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.stream.FileImageOutputStream;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.Date;
@@ -157,7 +155,7 @@ public class UserController {
         session.removeAttribute("username");
         session.removeAttribute("imgstr");
         session.removeAttribute("user");
-        return "index";
+        return "home";
     }
 
     /**

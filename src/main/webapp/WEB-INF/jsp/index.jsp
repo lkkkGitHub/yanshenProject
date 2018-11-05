@@ -15,13 +15,29 @@
     <meta name="keywords" content="牛客网,C++笔试面试，Java笔试面试，计算机笔试,计算机面试, IT笔试,笔试题库,笔试练习,IT面试,在线编程,编程学习,牛客网">
 
 
-    <script charset="utf-8" async="" src="../../static/index/js/loginedv2.js"></script>
-    <script charset="utf-8" async="" src="../../static/index/js/echarts-plain.js"></script>
+    <script charset="utf-8" async="" src="../../static/home/js/loginedv2.js"></script>
+    <script charset="utf-8" async="" src="../../static/home/js/echarts-plain.js"></script>
     <script src="../../static/person/js/jquery-1.8.3.min.js"></script>
-    <script type="application/javascript" src="../../static/index/js/MyJs.js"></script>
-    <link media="all" href="../../static/index/css/index.css" type="text/css" rel="stylesheet">
+    <link media="all" href="../../static/home/css/index.css" type="text/css" rel="stylesheet">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- favicon icon -->
+    <%--<link rel="shortcut icon" type="image/png" href="favicon.ico"/>--%>
+    <!-- WEB FONTS -->
+    <link href="../../static/index/css/index.css" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../static/index/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/index/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/index/css/bootstrap-theme.min.css">
+    <!-- color css -->
+    <link rel="stylesheet" href="../../static/index/switcher/switcher.css"/>
+    <link rel="stylesheet" href="../../static/index/css/main.css">
+    <link rel="stylesheet" href="../../static/index/css/colors/blue.css">
+    <script src="../../static/index/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body>
+
+
 <div class="nk-container     ">
     <div class="nowcoder-header">
         <div class="header-main clearfix">
@@ -33,34 +49,34 @@
                 <li>
                     <a href="#">题库</a>
                     <ul class="sub-nav">
-                        <li><a href="https://www.nowcoder.com/contestRoom">顺序练习</a></li>
-                        <li><a href="https://www.nowcoder.com/intelligentTest">随机练习</a></li>
-                        <li><a href="https://www.nowcoder.com/activity/oj">章节练习</a></li>
-                        <li><a href="https://www.nowcoder.com/mockexam/MockExam">专项练习</a></li>
+                        <li><a href="#">顺序练习</a></li>
+                        <li><a href="#">随机练习</a></li>
+                        <li><a href="#">章节练习</a></li>
+                        <li><a href="#">专项练习</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="https://www.nowcoder.com/courses">学习</a>
+                    <a href="#">学习</a>
                     <ul class="sub-nav">
-                        <li><a href="https://www.nowcoder.com/courses">课程</a></li>
-                        <li><a href="https://www.nowcoder.com/project/recommend">项目实战</a></li>
-                        <li><a href="https://www.nowcoder.com/stacks">技术栈</a></li>
+                        <li><a href="#">课程</a></li>
+                        <li><a href="#">项目实战</a></li>
+                        <li><a href="#">技术栈</a></li>
                     </ul>
                 </li>
                 <li>
                     <span class="ico-nav-new"></span>
-                    <a href="https://www.nowcoder.com/recommend">求职</a>
+                    <a href="#">求职</a>
                 </li>
                 <li>
-                    <a href="https://www.nowcoder.com/discuss">讨论区</a>
+                    <a href="#">讨论区</a>
                 </li>
                 <li>
-                    <a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_top">发现</a>
+                    <a href="#" target="_top">发现</a>
                     <ul class="sub-nav">
-                        <li><a href="https://ac.nowcoder.com/acm/contest/vip-index" target="_top">竞赛</a></li>
-                        <li><a href="https://www.nowcoder.com/show-offer/index">Offer神器</a></li>
-                        <li><a href="https://www.nowcoder.com/ranking">排行榜</a></li>
-                        <li><a href="https://www.nowcoder.com/coin/index">牛币兑换中心</a></li>
+                        <li><a href="#" target="_top">竞赛</a></li>
+                        <li><a href="#">Offer神器</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">牛币兑换中心</a></li>
                     </ul>
                 </li>
             </ul>
@@ -146,477 +162,68 @@
             </ul>
         </div>
     </div>
-    <div class="nk-main clearfix">
-        <!--主体内容-->
-        <div class="nk-content">
-            <div class="module-box home-items">
-                <a class="real-exercise" href="#">
-                    <i></i>
-                    <h2 class="new-items-txt">顺序练习</h2>
-                </a>
-                <a class="devote-exercise" href="#">
-                    <i></i>
-                    <h2 class="new-items-txt">随机练习</h2>
-                </a>
-                <a class="wrong-exercise" href="#">
-                    <i></i>
-                    <h2 class="new-items-txt">章节练习</h2>
-                </a>
-                <a class="subject-exercise" href="#">
-                    <i></i>
-                    <h2 class="new-items-txt">专项练习</h2>
-                </a>
-                <a class="check-discuss" href="#">
-                    <i></i>
-                    <h2 class="new-items-txt">错题练习</h2>
-                </a>
-                <a class="items-collect" href="#">
-                    <i></i>
-                    <h2 class="new-items-txt">我的收藏</h2>
-                </a>
-            </div>
-            <div class="module-box mod-setting  mod-setting-hidden " id="jsPartSetTag">
-                <div class="mod-set-oprt">
 
-                </div>
-            </div>
-            <!-- mod-toggle默认添加open,当去掉open时模块内容隐藏 -->
-            <div class="module-box mod-toggle  open" id="jsPartSetSkill" data-type="1">
-                <div class="module-head clearfix">
-                    <h1>专项练习</h1>
-                    <a href="javascript:void(0);" class="icon-drag"></a>
-                </div>
-                <div class="module-body">
-                    <div class="model-count">
-                        <div class="count-item">
-                            <span>共刷题：</span>
-                            <a href="javascript:void(0);">1020题</a>
-                        </div>
-                        <div class="count-item">
-                            <span>做对题目：</span>
-                            <a href="javascript:void(0);">693题</a>
-                        </div>
-                        <div class="count-item">
-                            <span>最近一周平均分：</span>
-                            <a href="javascript:void(0);">56</a>
-                        </div>
-                        <div class="count-item">
-                            <span>排名：</span>
-                            <!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->
-                            <a chref="javascript:void(0);">3376</a>
-                        </div>
-                    </div>
-                    <div class="statistical-list">
-                        <div class="statistical-item statistical-item-head clearfix">
-                            <div class="s-item-cell s-checkbox"></div>
-                            <div class="s-item-cell s-column1">最近练习知识点</div>
-                            <div class="s-item-cell s-column2">做题数/题目总数</div>
-                            <div class="s-item-cell s-column3">正确率</div>
-                        </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="570">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_4_checkbox_2">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1">Java</div>
-                            <div class="s-item-cell s-column2">967
-                                /967
-                            </div>
-                            <div class="s-item-cell s-column3">68%</div>
-                            <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=570">
-                                    <button data-left="303" class="btn btn-primary nc-js-make-paper">专项练习</button>
-                                </form>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
-                            </div>
-                        </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="636">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_5_checkbox_3">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1">并发</div>
-                            <div class="s-item-cell s-column2">15
-                                /46
-                            </div>
-                            <div class="s-item-cell s-column3">33%</div>
-                            <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=636">
-                                    <button data-left="41" class="btn btn-primary nc-js-make-paper">专项练习</button>
-                                </form>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
-                            </div>
-                        </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="637">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_6_checkbox_4">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1">Spring</div>
-                            <div class="s-item-cell s-column2">24
-                                /24
-                            </div>
-                            <div class="s-item-cell s-column3">87%</div>
-                            <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=637">
-                                    <button data-left="3" class="btn btn-primary nc-js-make-paper">专项练习</button>
-                                </form>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
-                            </div>
-                        </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="606" style="display: none;">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_7_checkbox_5">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1">数据库</div>
-                            <div class="s-item-cell s-column2">16
-                                /1878
-                            </div>
-                            <div class="s-item-cell s-column3">56%</div>
-                            <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=606">
-                                    <button data-left="1869" class="btn btn-primary nc-js-make-paper">专项练习</button>
-                                </form>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
-                            </div>
-                        </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="598" style="display: none;">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_8_checkbox_6">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1">高级算法</div>
-                            <div class="s-item-cell s-column2">7
-                                /74
-                            </div>
-                            <div class="s-item-cell s-column3">57%</div>
-                            <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=598">
-                                    <button data-left="70" class="btn btn-primary nc-js-make-paper">专项练习</button>
-                                </form>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
-                            </div>
-                        </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="578" style="display: none;">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_9_checkbox_7">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1">数组</div>
-                            <div class="s-item-cell s-column2">15
-                                /318
-                            </div>
-                            <div class="s-item-cell s-column3">53%</div>
-                            <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=578">
-                                    <button data-left="310" class="btn btn-primary nc-js-make-paper">专项练习</button>
-                                </form>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">删除</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistical-more">
-                        <a href="javascript:void(0);" class="icon-angle-up js-skill-angle"></a>
-                        <a href="javascript:void(0);" class="icon-angle-down js-skill-angle"></a>
-                    </div>
-                    <div class="statistical-list-btn">
-                        <a href="javascript:void(0);" id="jsExeChosen" class="btn btn-primary">练习选中技能</a>
-                        <a href="javascript:void(0);" id="jsExeOther" class="btn btn-default">练习其他技能</a>
-                    </div>
-                </div>
-            </div>
-            <%--<div class="module-box mod-toggle open" data-type="2">--%>
-                <%--<div class="module-head clearfix">--%>
-                    <%--<h1>公司真题练习</h1>--%>
-                    <%--<a href="javascript:void(0);" class="icon-drag"></a>--%>
-                <%--</div>--%>
-                <%--<div class="module-body">--%>
-                    <%--<ul class="content-item-box clearfix">--%>
-                        <%--<li>--%>
-                            <%--<div class="content-item-brief">--%>
-                                <%--<a href="https://www.nowcoder.com/test/12398581/summary">--%>
-                                    <%--<!-- <div class="done-tag"></div> -->--%>
-                                    <%--<h1>2018迅雷校园招聘计算机视觉在线笔试B卷</h1>--%>
-                                    <%--<div class="web-logoimg">--%>
-                                        <%--<img src="../../static/index/img/40.png">--%>
-                                    <%--</div>--%>
-                                    <%--<div class="exam-foot">热度指数：2146</div>--%>
-                                    <%--<div class="brief-mask"></div>--%>
-                                    <%--<dl class="exam-info">--%>
-                                        <%--<dd>题目数量:27道</dd>--%>
-                                        <%--<dd>试卷平均分:6分</dd>--%>
-                                        <%--<dd class="exam-btn">--%>
-                                            <%--<span class="btn btn-block btn-primary">马上练习</span>--%>
-                                        <%--</dd>--%>
-                                    <%--</dl>--%>
-                                <%--</a>--%>
-                            <%--</div>--%>
-                            <%--<div class="difficulty">--%>
-                                <%--<span class="item-label">难度系数：</span>--%>
-                                <%--<span title="难度系数" class="stars-new star-3"></span>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li>--%>
-                            <%--<div class="content-item-brief">--%>
-                                <%--<a href="https://www.nowcoder.com/test/12398504/summary">--%>
-                                    <%--<!-- <div class="done-tag"></div> -->--%>
-                                    <%--<h1>2018迅雷校园招聘计算机视觉在线笔试A卷</h1>--%>
-                                    <%--<div class="web-logoimg">--%>
-                                        <%--<img src="../../static/index/img/40.png">--%>
-                                    <%--</div>--%>
-                                    <%--<div class="exam-foot">热度指数：1202</div>--%>
-                                    <%--<div class="brief-mask"></div>--%>
-                                    <%--<dl class="exam-info">--%>
-                                        <%--<dd>题目数量:27道</dd>--%>
-                                        <%--<dd>试卷平均分:6分</dd>--%>
-                                        <%--<dd class="exam-btn">--%>
-                                            <%--<span class="btn btn-block btn-primary">马上练习</span>--%>
-                                        <%--</dd>--%>
-                                    <%--</dl>--%>
-                                <%--</a>--%>
-                            <%--</div>--%>
-                            <%--<div class="difficulty">--%>
-                                <%--<span class="item-label">难度系数：</span>--%>
-                                <%--<span title="难度系数" class="stars-new star-3"></span>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li>--%>
-                            <%--<div class="content-item-brief">--%>
-                                <%--<a href="https://www.nowcoder.com/test/12398104/summary">--%>
-                                    <%--<!-- <div class="done-tag"></div> -->--%>
-                                    <%--<h1>2018迅雷校园招聘C++在线笔试A卷</h1>--%>
-                                    <%--<div class="web-logoimg">--%>
-                                        <%--<img src="../../static/index/img/40.png">--%>
-                                    <%--</div>--%>
-                                    <%--<div class="exam-foot">热度指数：1427</div>--%>
-                                    <%--<div class="brief-mask"></div>--%>
-                                    <%--<dl class="exam-info">--%>
-                                        <%--<dd>题目数量:27道</dd>--%>
-                                        <%--<dd>试卷平均分:5分</dd>--%>
-                                        <%--<dd class="exam-btn">--%>
-                                            <%--<span class="btn btn-block btn-primary">马上练习</span>--%>
-                                        <%--</dd>--%>
-                                    <%--</dl>--%>
-                                <%--</a>--%>
-                            <%--</div>--%>
-                            <%--<div class="difficulty">--%>
-                                <%--<span class="item-label">难度系数：</span>--%>
-                                <%--<span title="难度系数" class="stars-new star-3"></span>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                    <%--</ul>--%>
-                    <%--<div class="model-btn-box">--%>
-                        <%--<a href="https://www.nowcoder.com/contestRoom?filter=2&amp;page=1"--%>
-                           <%--class="btn btn-block btn-primary">查看全部未练习试卷</a>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="module-box mod-toggle open" data-type="3">--%>
-                <%--<div class="module-head clearfix">--%>
-                    <%--<h1>在线编程练习</h1>--%>
-                    <%--<a href="javascript:void(0);" class="icon-drag"></a>--%>
-                <%--</div>--%>
-                <%--<div class="module-body">--%>
-                    <%--<div class="model-count">--%>
-                        <%--<div class="count-item">--%>
-                            <%--<span>共刷题：</span>--%>
-                            <%--<a href="javascript:void(0);">0题</a>--%>
-                        <%--</div>--%>
-                        <%--<div class="count-item">--%>
-                            <%--<span>做对题目：</span>--%>
-                            <%--<a href="javascript:void(0);">0</a>--%>
-                        <%--</div>--%>
-                        <%--<div class="count-item">--%>
-                            <%--<span>最近一周做对题目：</span>--%>
-                            <%--<a href="javascript:void(0);">0</a>--%>
-                        <%--</div>--%>
-                        <%--<div class="count-item">--%>
-                            <%--<span>排名：</span>--%>
-                            <%--<a href="javascript:void(0);">0</a>--%>
-                            <%--<!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<table>--%>
-                        <%--<tbody>--%>
-                        <%--<tr>--%>
-                            <%--<th style="padding-left: 30px;" width="300">题目</th>--%>
-                            <%--<th width="160">来自专题</th>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4077" target="_top">A+B和C--%>
-                                <%--(15)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4078" target="_top">数字分类--%>
-                                <%--(20)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4079" target="_top">数素数--%>
-                                <%--(20)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4040" target="_top">福尔摩斯的约会--%>
-                                <%--(20)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4041" target="_top">德才论--%>
-                                <%--(25)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--</tbody>--%>
-                    <%--</table>--%>
-                    <%--<a href="https://www.nowcoder.com/activity/topics" class="btn btn-block btn-primary">查看全部专题</a>--%>
-                <%--</div>--%>
 
-        </div>
-        <div class="nk-bar">
-            <div class="module-box">
-                <div class="sign-mod clearfix">
-                    <div class="sign-time">
-                        <div class="sign-week">周四</div>
-                        <div>11-01</div>
-                    </div>
-                    <div class="sign-main">
-                        <div class="sign-info">
-                            <p>已打卡<span><a href="https://www.nowcoder.com/profile/328031526/clockInfo">0</a></span>天</p>
-                            <p>排名<span>0</span></p>
-                        </div>
-                        <a href="javascript:void(0);" class="btn btn-primary js-log-clock nc-req-auth" data-count="0">今日打卡</a>
-                    </div>
+    <%--图片轮播--%>
+    <section id="slides" class="pb">
+        <div class="slides-container">
+            <div class="slide active">
+                <div class="img"><img src="../../static/index/images/slider/slide1.jpg" alt="slide"
+                                      class="img-responsive">
                 </div>
-            </div>
-            <div class="module-box complete-info-box">
-                <p class="complete-tip">完善信息，快速找到战友！</p>
-                <div class="complete-identity">
-                    <div class="clearfix">
-                        <label class="radio" id="jsCpn_2_checkbox_0">
-                            <span class="icons"></span>
-                            <input value="1" type="radio">我还在上学
-                        </label>
-                        <label class="radio checked" id="jsCpn_3_checkbox_1">
-                            <span class="icons"></span>
-                            <input value="2" checked="checked" type="radio">我已经工作
-                        </label>
-                    </div>
-                    <div class="control-group" id="jsInfoSchool">
-                        <input value="吉首大学" placeholder="毕业的学校" type="text">
-                        <i class="input-icon fui-cross"></i><i class="input-icon fui-check-inverted"></i><span
-                            class="input-tip"></span></div>
-                    <div class="control-group" id="jsInfoCompany">
-                        <input value="" placeholder="效力的公司" type="text">
-                        <i class="input-icon fui-cross"></i><i class="input-icon fui-check-inverted"></i><span
-                            class="input-tip"></span></div>
-                    <div class="control-group" id="jsInfoJobNow">
-                        <a href="javascript:void(0);" id="jsInfoJobIpt" class="jobs-choose">从事或感兴趣的工作</a>
-                        <div class="tags-box complete-tag-box">
-                            <a href="javascript:void(0);" class="tag-label  selected " data-id="639">Java工程师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="640">C++工程师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="641">iOS工程师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="642">安卓工程师</a>
-                            <a href="javascript:void(0);" class="tag-label  selected " data-id="643">运维工程师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="644">前端工程师</a>
-                            <a href="javascript:void(0);" class="tag-label  selected " data-id="645">算法工程师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="649">PHP工程师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="680">测试工程师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="682">安全工程师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="683">C#工程师</a>
-                            <a href="javascript:void(0);" class="tag-label  selected " data-id="684">数据库工程师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="894">数据分析师</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="891">产品</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="892">运营</a>
-                            <a href="javascript:void(0);" class="tag-label " data-id="685">其它</a>
+                <div class="overlay"></div>
+                <div class="slide-caption">
+                    <div class="container">
+                        <div class="box">
+                            <h1>Preparing for study</h1>
+                            <span>necessary weapon!</span>
                         </div>
                     </div>
-                    <a href="javascript:void(0);" class="btn btn-block btn-primary">确定</a>
                 </div>
             </div>
-            <div class="module-box side-profile-box">
-                <div class="side-profile-info">
-                    <div class="side-profile-avatar">
-                        <a class="side-profile-pic" data-card-uid="328031526"
-                           href="https://www.nowcoder.com/profile/328031526" data-card-index="21">
-                            <img src="../../static/index/328031526_1533893421047_7c2c60506876716ccf0e706db13d4511@0e_200w_200h_0c_1i_1o_90q_1x"
-                                 width="60" height="60">
-                        </a>
+            <!-- end slide1 -->
+            <div class="slide">
+                <div class="img"><img src="../../static/index/images/slider/slide2.jpg" alt="slide"
+                                      class="img-responsive">
+                </div>
+                <div class="overlay"></div>
+                <div class="slide-caption">
+                    <div class="container">
+                        <div class="box">
+                            <h1>necessary weapon</h1>
+                            <span>Preparing for study!</span>
+                        </div>
                     </div>
-                    <h3 class="side-profile-name">
-                        <a href="https://www.nowcoder.com/profile/328031526" class="level-color-7"
-                           data-card-uid="328031526" data-card-index="22">
-                            疯自
-                        </a>
-                    </h3>
                 </div>
-                <!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->
-                <div class="profile-count-box">
-                    <span class="pc-item">&nbsp;&nbsp;&nbsp;成就值&nbsp;<a href="javascript:void(0);">693</a></span>
-                    <span class="pc-pipe">|</span>
-                    <span class="pc-item">&nbsp;本周新增&nbsp;<a href="javascript:void(0);">44</a></span>
-                    <span class="pc-pipe">|</span>
-                    <span class="pc-item">&nbsp;排名&nbsp;</span><a href="javascript:void(0);">
-                    21159
-                </a>
-                </div>
-                <ul class="web-statistics">
-                    <li>
-                        <p>被采纳</p>
-                        <p class="ws-num">0</p>
-                    </li>
-                    <li>
-                        <p>获赞</p>
-                        <p class="ws-num">0</p>
-                    </li>
-                    <li>
-                        <p>答对题</p>
-                        <p class="ws-num">693</p>
-                    </li>
-                    <li>
-                        <p>编程通过</p>
-                        <p class="ws-num">0</p>
-                    </li>
-                </ul>
             </div>
+            <!-- end slide2 -->
         </div>
-    </div>
+        <!-- end slides-container -->
+        <div class="slides-navigation">
+            <a class="prev sqaureIconSec" href="#"> <i class="fa fa-chevron-left"></i></a>
+            <a class="next sqaureIconSec" href="#"> <i class="fa fa-chevron-right"></i></a>
+        </div>
+        <!-- end slides-navigation -->
+        <div class="holder">
+
+	  <span class="scroll-btn">
+		<a href="#karbar-how-it-works-section">
+			<span class="mouse">
+				<span>
+				</span>
+			</span>
+		</a>
+	</span>
+            <i class="fa fa-chevron-down moreArrow moving"></i>
+        </div>
+
+    </section>
+
     <div class="ft-wrap">
         <div class="ft-cont clearfix">
             <div class="ft-app">
                 <div class="ft-qrcode-box">
-                    <img src="../../static/index/img/app_download.png">
+                    <img src="../../static/home/img/app_download.png">
                 </div>
                 <p>扫一扫，把题目装进口袋</p>
             </div>
@@ -664,7 +271,8 @@
                     <li>
 <span style="color: rgb(169, 184, 202);">
 <img src="ghs.png" style="width: 18px; height: 18px;">
-<a style="font-size: 12px;" class="ft-info-item" target="_top" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
+<a style="font-size: 12px;" class="ft-info-item" target="_top"
+   href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
 </span>
                     </li>
                 </ul>
@@ -690,7 +298,7 @@
 </div>
 
 <script type="text/javascript">
-    seajs.use('../../static/index/js/loginedV2.js');
+    seajs.use('../../static/home/js/loginedV2.js');
 </script>
 
 
