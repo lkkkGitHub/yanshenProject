@@ -10,6 +10,10 @@
         <result column="errorOptionId" property="errorOptionId"/>
     </resultMap>
 
+    <resultMap id="ctxTbTopic" type="com.pojo.TbDidtopic" extends="AllColumnMap">
+        <association property="tbTopic" resultMap="com.dao.TbTopicDao.AllColumnMap"/>
+    </resultMap>
+
     <!--auto generated Code-->
     <sql id="all_column">
         `didTopicId`,
@@ -19,8 +23,10 @@
         `errorOptionId`
     </sql>
 
-    <select id="findDidTopicByUserId" parameterType="java.lang.String" resultMap="AllColumnMap">
-        select <include refid="all_column"/> from `tb_didtopic` where `userId` = #{value}
+    <select id="findDidTopicByUserIdAndClassifyId" resultMap="ctxTbTopic">
+        SELECT * FROM tb_topic a JOIN tb_didtopic b ON a.`topicId` = b.`topicId`
+        WHERE EXISTS
+        (SELECT * FROM tb_didtopic b WHERE userId = #{param1} AND a.`topicId` = b.`topicId`) AND classifyId = #{param2}
     </select>
 
     <!--auto generated Code-->
@@ -44,11 +50,11 @@
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.didTopicId">
         INSERT INTO tb_didtopic
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.didTopicId!=null"> `didTopicId`,</if>
-            <if test="pojo.topicId!=null"> `topicId`,</if>
-            <if test="pojo.userId!=null"> `userId`,</if>
-            <if test="pojo.error!=null"> `error`,</if>
-            <if test="pojo.errorOptionId!=null"> `errorOptionId`,</if>
+            <if test="pojo.didTopicId!=null">`didTopicId`,</if>
+            <if test="pojo.topicId!=null">`topicId`,</if>
+            <if test="pojo.userId!=null">`userId`,</if>
+            <if test="pojo.error!=null">`error`,</if>
+            <if test="pojo.errorOptionId!=null">`errorOptionId`,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -80,11 +86,11 @@
     <update id="update">
         UPDATE tb_didtopic
         <set>
-            <if test="pojo.didTopicId != null"> `didTopicId` = #{pojo.didTopicId}, </if>
-            <if test="pojo.topicId != null"> `topicId` = #{pojo.topicId}, </if>
-            <if test="pojo.userId != null"> `userId` = #{pojo.userId}, </if>
-            <if test="pojo.error != null"> `error` = #{pojo.error}, </if>
-            <if test="pojo.errorOptionId != null"> `errorOptionId` = #{pojo.errorOptionId} </if>
+            <if test="pojo.didTopicId != null">`didTopicId` = #{pojo.didTopicId},</if>
+            <if test="pojo.topicId != null">`topicId` = #{pojo.topicId},</if>
+            <if test="pojo.userId != null">`userId` = #{pojo.userId},</if>
+            <if test="pojo.error != null">`error` = #{pojo.error},</if>
+            <if test="pojo.errorOptionId != null">`errorOptionId` = #{pojo.errorOptionId}</if>
         </set>
         WHERE didTopicId = #{pojo.didTopicId}
     </update>

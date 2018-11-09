@@ -25,7 +25,14 @@ public class DidTopicController {
     @ResponseBody
     @RequestMapping("/getDidTopicUtil")
     public UserDidTopicUtil getDidTopicUtil(HttpSession session) {
-        return tbDidtopicServiceImpl
-                .findDidTopicByUserId(((TbUser) (session.getAttribute("user"))).getUid());
+        UserDidTopicUtil userDidTopicUtil = null;
+        if (session.getAttribute("UserDidTopicUtil") == null) {
+            userDidTopicUtil = tbDidtopicServiceImpl
+                    .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
+            session.setAttribute("UserDidTopicUtil", userDidTopicUtil);
+        } else {
+            userDidTopicUtil = (UserDidTopicUtil) (session.getAttribute("UserDidTopicUtil"));
+        }
+        return userDidTopicUtil;
     }
 }

@@ -221,10 +221,10 @@
                                 </label>
                             </div>
                             <div class="s-item-cell s-column1" id="column1">Java</div>
-                            <div class="s-item-cell s-column2">967
+                            <div class="s-item-cell s-column2"><span id="didTopic1"></span>
                                 /<span id="allTopicNum1"></span>
                             </div>
-                            <div class="s-item-cell s-column3">68%</div>
+                            <div class="s-item-cell s-column3"><span id="correctRate1"></span>%</div>
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=570">
@@ -243,10 +243,10 @@
                                 </label>
                             </div>
                             <div class="s-item-cell s-column1" id="column2">C++</div>
-                            <div class="s-item-cell s-column2">15
+                            <div class="s-item-cell s-column2"><span id="didTopic2"></span>
                                 /<span id="allTopicNum2"></span>
                             </div>
-                            <div class="s-item-cell s-column3">33%</div>
+                            <div class="s-item-cell s-column3"><span id="correctRate2"></span>%</div>
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=636">
@@ -265,10 +265,10 @@
                                 </label>
                             </div>
                             <div class="s-item-cell s-column1" id="column3">C</div>
-                            <div class="s-item-cell s-column2">24
+                            <div class="s-item-cell s-column2"><span id="didTopic3"></span>
                                 /<span id="allTopicNum3"></span>
                             </div>
-                            <div class="s-item-cell s-column3">87%</div>
+                            <div class="s-item-cell s-column3"><span id="correctRate3"></span>%</div>
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=637">
@@ -287,10 +287,10 @@
                                 </label>
                             </div>
                             <div class="s-item-cell s-column1" id="column4">Python</div>
-                            <div class="s-item-cell s-column2">16
+                            <div class="s-item-cell s-column2"><span id="didTopic4"></span>
                                 /<span id="allTopicNum4"></span>
                             </div>
-                            <div class="s-item-cell s-column3">56%</div>
+                            <div class="s-item-cell s-column3"><span id="correctRate4"></span>%</div>
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=606">
@@ -309,10 +309,10 @@
                                 </label>
                             </div>
                             <div class="s-item-cell s-column1" id="column5">Spring</div>
-                            <div class="s-item-cell s-column2">7
+                            <div class="s-item-cell s-column2"><span id="didTopic5"></span>
                                 /<span id="allTopicNum5"></span>
                             </div>
-                            <div class="s-item-cell s-column3">57%</div>
+                            <div class="s-item-cell s-column3"><span id="correctRate5"></span>%</div>
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=598">
@@ -331,10 +331,10 @@
                                 </label>
                             </div>
                             <div class="s-item-cell s-column1" id="column6">Mybatis</div>
-                            <div class="s-item-cell s-column2">15
+                            <div class="s-item-cell s-column2"><span id="didTopic6"></span>
                                 /<span id="allTopicNum6"></span>
                             </div>
-                            <div class="s-item-cell s-column3">53%</div>
+                            <div class="s-item-cell s-column3"><span id="correctRate6"></span>%</div>
                             <div class="s-item-cell s-column4">
                                 <form class="form-box" method="post"
                                       action="https://www.nowcoder.com/makePaper?tagIds=578">

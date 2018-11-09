@@ -17,5 +17,5 @@ public interface DidtopicService {
      * @param userId
      * @return
      */
-    UserDidTopicUtil findDidTopicByUserId(String userId);
+    UserDidTopicUtil findDidTopicByUserIdAndClassifyId(String userId);
 }

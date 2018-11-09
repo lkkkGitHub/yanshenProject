@@ -30,8 +30,8 @@ function initUserTopicInfo() {
                     str += "<span class=\"icons\"></span>";
                     str += "<input type=\"checkbox\">";
                     str += " </label></div><div class=\"s-item-cell s-column1\" id=\"column"+id+"\">"+json[i].classifyName+"</div>";
-                    str += "<div class=\"s-item-cell s-column2\">15/<span id=\"allTopicNum"+id+"\"></span> </div>";
-                    str += "<div class=\"s-item-cell s-column3\">33%</div><div class=\"s-item-cell s-column4\">";
+                    str += "<div class=\"s-item-cell s-column2\"><span id=\"didTopic"+id+"\"></span>/<span id=\"allTopicNum"+id+"\"></span> </div>";
+                    str += "<div class=\"s-item-cell s-column3\"><span id=\"correctRate"+id+"\"></span>%</div><div class=\"s-item-cell s-column4\">";
                     str += "<form class=\"form-box\" method=\"post\" action=\"https://www.nowcoder.com/makePaper?tagIds=636\">";
                     str += "<button data-left=\"41\" class=\"btn btn-primary nc-js-make-paper\">开始练习</button></form></div>";
                     str += "<div class=\"s-item-oprt\"><a class=\"js-del-skill\" href=\"javascript:void(0);\">查看错题</a> </div> </div>";
@@ -40,7 +40,7 @@ function initUserTopicInfo() {
             }
         }
     });
-    //初始化做过题目导航条
+    //初始化做过题目,导航条，每个类型的做题数量，以及每个类型的正确率
     $.ajax({
         url : "/didTopic/getDidTopicUtil",
         type : "post",
@@ -49,12 +49,23 @@ function initUserTopicInfo() {
         dataType: 'json',
         success : function (data) {
             var str;
+            //初始化导航条
             str = ""+data.didTopicNum+"题";
             $("#didTopic").html(str);
             str = ""+data.errorDidTopicNum+"题";
             $("#errorDidTopic").html(str);
             str = ""+data.correctRate+"%";
             $("#correctRate").html(str);
+            //初始化每个类型做过多少题目
+            for(var key in data.mapDidTopicByClassify){
+                str = ""+data.mapDidTopicByClassify[key]+"";
+                $("#didTopic" + key).html(str);
+            }
+            //初始化正确率
+            for(var key in data.mapCorrectRate) {
+                str = ""+data.mapCorrectRate[key]+"";
+                $("#correctRate" + key).html(str);
+            }
         }
     });
     //初始化所有类别题目总数
