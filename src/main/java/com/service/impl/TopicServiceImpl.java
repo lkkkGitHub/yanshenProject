@@ -70,14 +70,23 @@ public class TopicServiceImpl implements TopicService {
      * 判断集合中题目的数量以及需求题目数量的大小
      *
      * @param size 集合数量
-     * @param temp 需求题目数量
+     * @param topicNum 需求题目总数量
      * @return
      */
-    private int judgeTopicSize(int size, int temp) {
-        if (size > temp) {
-            return temp;
+    private int judgeTopicSize(int size, int classifyIdsLength, int topicNum) {
+        int i = topicNum / classifyIdsLength;
+        if (topicNum % classifyIdsLength == 0) {
+            if (size > i) {
+                return i;
+            } else {
+                return size;
+            }
         } else {
-            return size;
+            if (size > ++i) {
+                return i;
+            } else {
+                return size;
+            }
         }
     }
 
@@ -96,8 +105,7 @@ public class TopicServiceImpl implements TopicService {
                 //打乱集合
                 Collections.shuffle(noDidTopicList);
                 //判断集合和需求的题目大小关系
-                int temp = topicNum / classifyIds.length + 1;
-                int critical = judgeTopicSize(noDidTopicList.size(), temp);
+                int critical = judgeTopicSize(noDidTopicList.size(), classifyIds.length, topicNum);
                 //赋值题目
                 for (int j = 0; j < critical; j++) {
                     list.add(noDidTopicList.get(j));
@@ -112,7 +120,7 @@ public class TopicServiceImpl implements TopicService {
             List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId);
             if (noDidTopicList != null) {
                 //判断集合和需求的题目大小关系
-                int critical = judgeTopicSize(noDidTopicList.size(), topicNum);
+                int critical = judgeTopicSize(noDidTopicList.size(), 1, topicNum);
                 for (int j = 0; j < critical; j++) {
                     list.add(noDidTopicList.get(j));
                 }
@@ -125,10 +133,8 @@ public class TopicServiceImpl implements TopicService {
                 if (didtopicList == null) {
                     break;
                 }
-                int temp = topicNum / classifyIds.length + 1;
-                int critical = judgeTopicSize(didtopicList.size(), temp);
+                int critical = judgeTopicSize(didtopicList.size(), classifyIds.length, topicNum);
                 for (int j = 0; j < critical; j++) {
-                    //
                     list.add(tbTopicDao.selectTopicByTopicId(didtopicList.get(j).getTopicId()));
                 }
             }
