@@ -2,6 +2,7 @@ package com.service.impl;
 
 import com.dao.TbTopicDao;
 import com.pojo.TbClassify;
+import com.pojo.TbDidtopic;
 import com.pojo.TbTopic;
 import com.service.ClassifyService;
 import com.service.TopicService;
@@ -10,11 +11,7 @@ import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author lk
@@ -54,17 +51,90 @@ public class TopicServiceImpl implements TopicService {
         return map;
     }
 
-    @Override
-    public List<TbTopic> getTopicToExercise(double topicNum, String topicType, int[] classifyId, HttpSession session) {
-        List<TbTopic> list = new ArrayList<>((int) topicNum);
-        //随机生成题目
-        if ("".equals(topicType)) {
-            for (int i = 0; i < classifyId.length; i++) {
-                List<TbTopic> topicList = JsonUtils.jsonToList(
-                        jedisClient.hget("topic", String.valueOf(classifyId[i])), TbTopic.class);
-                session.getAttribute("UserDidTopicUtil");
+    /**
+     * 移除多于的题目，如果题目数量过大
+     *
+     * @param list     生成的最后的题目集合
+     * @param topicNum 题目总数需要的
+     * @return 处理好的LinkedList集合
+     */
+    private void ifBigRemove(LinkedList<TbTopic> list, int topicNum) {
+        if (list.size() > topicNum) {
+            for (int i = 0; i < list.size() - topicNum + 1; i++) {
+                list.removeLast();
             }
         }
-        return null;
     }
+
+    /**
+     * 判断集合中题目的数量以及需求题目数量的大小
+     *
+     * @param size 集合数量
+     * @param temp 需求题目数量
+     * @return
+     */
+    private int judgeTopicSize(int size, int temp) {
+        if (size > temp) {
+            return temp;
+        } else {
+            return size;
+        }
+    }
+
+    @Override
+    public LinkedList<TbTopic> getTopicToExercise(int topicNum, String topicType,
+                                                  Map<Integer, List<TbDidtopic>> map, int[] classifyIds, String uid) {
+        LinkedList<TbTopic> list = new LinkedList<>();
+        //随机生成题目 random
+        if ("random".equals(topicType)) {
+            for (int i = 0; i < classifyIds.length; i++) {
+                int classifyId = classifyIds[i];
+                List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId);
+                if (noDidTopicList == null) {
+                    break;
+                }
+                //打乱集合
+                Collections.shuffle(noDidTopicList);
+                //判断集合和需求的题目大小关系
+                int temp = topicNum / classifyIds.length + 1;
+                int critical = judgeTopicSize(noDidTopicList.size(), temp);
+                //赋值题目
+                for (int j = 0; j < critical; j++) {
+                    list.add(noDidTopicList.get(j));
+                }
+            }
+            //移除多于的题目，如果题目数量过大
+            ifBigRemove(list, topicNum);
+        }
+        //专项练习 specialItem
+        if ("specialItem".equals(topicType)) {
+            int classifyId = classifyIds[0];
+            List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId);
+            if (noDidTopicList != null) {
+                //判断集合和需求的题目大小关系
+                int critical = judgeTopicSize(noDidTopicList.size(), topicNum);
+                for (int j = 0; j < critical; j++) {
+                    list.add(noDidTopicList.get(j));
+                }
+            }
+        }
+        //错题练习：顺徐错题练习
+        if ("wrongQuestion".equals(topicType)) {
+            for (int i = 0; i < classifyIds.length; i++) {
+                List<TbDidtopic> didtopicList = map.get(classifyIds[i]);
+                if (didtopicList == null) {
+                    break;
+                }
+                int temp = topicNum / classifyIds.length + 1;
+                int critical = judgeTopicSize(didtopicList.size(), temp);
+                for (int j = 0; j < critical; j++) {
+                    //
+                    list.add(tbTopicDao.selectTopicByTopicId(didtopicList.get(j).getTopicId()));
+                }
+            }
+            ifBigRemove(list, topicNum);
+        }
+        return list;
+    }
+
 }

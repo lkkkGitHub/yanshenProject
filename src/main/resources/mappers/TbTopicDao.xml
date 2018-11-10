@@ -19,17 +19,30 @@
         `classifyId`
     </sql>
 
+    <select id="selectUserNoDidTopicByUidAndClassifyId" resultMap="ctxTbOption">
+        SELECT * FROM `tb_topic` a WHERE NOT EXISTS
+        (SELECT * FROM `tb_didtopic` b WHERE `userId` = #{param1}
+        AND a.`topicId` = b.`topicId`)
+        AND classifyId = #{param2}
+    </select>
+
     <select id="selectTopicByClassifyId" parameterType="java.lang.Integer" resultMap="ctxTbOption">
-        select <include refid="all_column"/> from `tb_topic` where `classifyId` = #{value}
+        select
+        <include refid="all_column"/>
+        from `tb_topic` where `classifyId` = #{value}
+    </select>
+
+    <select id="selectTopicByTopicId" resultMap="ctxTbOption" parameterType="java.lang.Integer">
+        select <include refid="all_column"/> from `tb_topic` where `topicId` = #{value}
     </select>
 
     <!--auto generated Code-->
     <insert id="insertSelective" useGeneratedKeys="true" parameterType="com.pojo.TbOption" keyProperty="topicId">
         INSERT INTO tb_topic
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="topicId!=null"> `topicId`,</if>
-            <if test="topicComment!=null"> `topicComment`,</if>
-            <if test="classifyId!=null"> `classifyId`,</if>
+            <if test="topicId!=null">`topicId`,</if>
+            <if test="topicComment!=null">`topicComment`,</if>
+            <if test="classifyId!=null">`classifyId`,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -43,9 +56,9 @@
     <update id="update">
         UPDATE tb_topic
         <set>
-            <if test="pojo.topicId != null"> `topic_id` = #{pojo.topicId}, </if>
-            <if test="pojo.topicComment != null"> `topic_comment` = #{pojo.topicComment}, </if>
-            <if test="pojo.classifyId != null"> `classify_id` = #{pojo.classifyId} </if>
+            <if test="pojo.topicId != null">`topic_id` = #{pojo.topicId},</if>
+            <if test="pojo.topicComment != null">`topic_comment` = #{pojo.topicComment},</if>
+            <if test="pojo.classifyId != null">`classify_id` = #{pojo.classifyId}</if>
         </set>
         WHERE topic_id = #{pojo.topicId}
     </update>
