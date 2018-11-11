@@ -98,7 +98,7 @@ public class TopicServiceImpl implements TopicService {
         if ("random".equals(topicType)) {
             for (int i = 0; i < classifyIds.length; i++) {
                 int classifyId = classifyIds[i];
-                List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId);
+                List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, topicNum * 2);
                 if (noDidTopicList == null) {
                     break;
                 }
@@ -117,7 +117,7 @@ public class TopicServiceImpl implements TopicService {
         //专项练习 specialItem
         if ("specialItem".equals(topicType)) {
             int classifyId = classifyIds[0];
-            List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId);
+            List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, topicNum * 2);
             if (noDidTopicList != null) {
                 //判断集合和需求的题目大小关系
                 int critical = judgeTopicSize(noDidTopicList.size(), 1, topicNum);
