@@ -23,7 +23,7 @@
         SELECT * FROM `tb_topic` a WHERE NOT EXISTS
         (SELECT * FROM `tb_didtopic` b WHERE `userId` = #{param1}
         AND a.`topicId` = b.`topicId`)
-        AND classifyId = #{param2}
+        AND classifyId = #{param2} limit 0, #{param3}
     </select>
 
     <select id="selectTopicByClassifyId" parameterType="java.lang.Integer" resultMap="ctxTbOption">

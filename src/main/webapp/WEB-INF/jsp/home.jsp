@@ -20,6 +20,7 @@
     <script src="../../static/person/js/jquery-1.8.3.min.js"></script>
     <script type="application/javascript" src="../../static/home/js/MyJs.js"></script>
     <link media="all" href="../../static/home/css/index.css" type="text/css" rel="stylesheet">
+    <link href="../../static/home/css/home.css" type="text/css" rel="stylesheet">
 </head>
 <body onload="initUserTopicInfo()">
 <div class="nk-container     ">
@@ -201,9 +202,9 @@
                             <a href="javascript:void(0);" id="correctRate">56%</a>
                         </div>
                         <%--<div class="count-item">--%>
-                            <%--<span>排名：</span>--%>
-                            <%--<!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->--%>
-                            <%--<a chref="javascript:void(0);">3376</a>--%>
+                        <%--<span>排名：</span>--%>
+                        <%--<!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->--%>
+                        <%--<a chref="javascript:void(0);">3376</a>--%>
                         <%--</div>--%>
                     </div>
                     <div class="statistical-list">
@@ -226,10 +227,10 @@
                             </div>
                             <div class="s-item-cell s-column3"><span id="correctRate1"></span>%</div>
                             <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=570">
-                                    <button data-left="303" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                </form>
+                                <%--<form class="form-box" method="post"--%>
+                                <%--action="#">--%>
+                                <button data-left="303" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                <%--</form>--%>
                             </div>
                             <div class="s-item-oprt">
                                 <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -248,10 +249,10 @@
                             </div>
                             <div class="s-item-cell s-column3"><span id="correctRate2"></span>%</div>
                             <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=636">
-                                    <button data-left="41" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                </form>
+                                <%--<form class="form-box" method="post"--%>
+                                <%--action="https://www.nowcoder.com/makePaper?tagIds=636">--%>
+                                <button data-left="41" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                <%--</form>--%>
                             </div>
                             <div class="s-item-oprt">
                                 <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -270,10 +271,10 @@
                             </div>
                             <div class="s-item-cell s-column3"><span id="correctRate3"></span>%</div>
                             <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=637">
-                                    <button data-left="3" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                </form>
+                                <%--<form class="form-box" method="post"--%>
+                                <%--action="https://www.nowcoder.com/makePaper?tagIds=637">--%>
+                                <button data-left="3" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                <%--</form>--%>
                             </div>
                             <div class="s-item-oprt">
                                 <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -292,10 +293,10 @@
                             </div>
                             <div class="s-item-cell s-column3"><span id="correctRate4"></span>%</div>
                             <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=606">
-                                    <button data-left="1869" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                </form>
+                                <%--<form class="form-box" method="post"--%>
+                                <%--action="https://www.nowcoder.com/makePaper?tagIds=606">--%>
+                                <button data-left="1869" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                <%--</form>--%>
                             </div>
                             <div class="s-item-oprt">
                                 <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -314,10 +315,10 @@
                             </div>
                             <div class="s-item-cell s-column3"><span id="correctRate5"></span>%</div>
                             <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=598">
-                                    <button data-left="70" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                </form>
+                                <%--<form class="form-box" method="post"--%>
+                                <%--action="https://www.nowcoder.com/makePaper?tagIds=598">--%>
+                                <button data-left="70" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                <%--</form>--%>
                             </div>
                             <div class="s-item-oprt">
                                 <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -336,10 +337,10 @@
                             </div>
                             <div class="s-item-cell s-column3"><span id="correctRate6"></span>%</div>
                             <div class="s-item-cell s-column4">
-                                <form class="form-box" method="post"
-                                      action="https://www.nowcoder.com/makePaper?tagIds=578">
-                                    <button data-left="310" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                </form>
+                                <%--<form class="form-box" method="post"--%>
+                                <%--action="https://www.nowcoder.com/makePaper?tagIds=578">--%>
+                                <button data-left="310" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                <%--</form>--%>
                             </div>
                             <div class="s-item-oprt">
                                 <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -356,153 +357,6 @@
                     </div>
                 </div>
             </div>
-            <%--<div class="module-box mod-toggle open" data-type="2">--%>
-                <%--<div class="module-head clearfix">--%>
-                    <%--<h1>公司真题练习</h1>--%>
-                    <%--<a href="javascript:void(0);" class="icon-drag"></a>--%>
-                <%--</div>--%>
-                <%--<div class="module-body">--%>
-                    <%--<ul class="content-item-box clearfix">--%>
-                        <%--<li>--%>
-                            <%--<div class="content-item-brief">--%>
-                                <%--<a href="https://www.nowcoder.com/test/12398581/summary">--%>
-                                    <%--<!-- <div class="done-tag"></div> -->--%>
-                                    <%--<h1>2018迅雷校园招聘计算机视觉在线笔试B卷</h1>--%>
-                                    <%--<div class="web-logoimg">--%>
-                                        <%--<img src="../../static/index/img/40.png">--%>
-                                    <%--</div>--%>
-                                    <%--<div class="exam-foot">热度指数：2146</div>--%>
-                                    <%--<div class="brief-mask"></div>--%>
-                                    <%--<dl class="exam-info">--%>
-                                        <%--<dd>题目数量:27道</dd>--%>
-                                        <%--<dd>试卷平均分:6分</dd>--%>
-                                        <%--<dd class="exam-btn">--%>
-                                            <%--<span class="btn btn-block btn-primary">马上练习</span>--%>
-                                        <%--</dd>--%>
-                                    <%--</dl>--%>
-                                <%--</a>--%>
-                            <%--</div>--%>
-                            <%--<div class="difficulty">--%>
-                                <%--<span class="item-label">难度系数：</span>--%>
-                                <%--<span title="难度系数" class="stars-new star-3"></span>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li>--%>
-                            <%--<div class="content-item-brief">--%>
-                                <%--<a href="https://www.nowcoder.com/test/12398504/summary">--%>
-                                    <%--<!-- <div class="done-tag"></div> -->--%>
-                                    <%--<h1>2018迅雷校园招聘计算机视觉在线笔试A卷</h1>--%>
-                                    <%--<div class="web-logoimg">--%>
-                                        <%--<img src="../../static/index/img/40.png">--%>
-                                    <%--</div>--%>
-                                    <%--<div class="exam-foot">热度指数：1202</div>--%>
-                                    <%--<div class="brief-mask"></div>--%>
-                                    <%--<dl class="exam-info">--%>
-                                        <%--<dd>题目数量:27道</dd>--%>
-                                        <%--<dd>试卷平均分:6分</dd>--%>
-                                        <%--<dd class="exam-btn">--%>
-                                            <%--<span class="btn btn-block btn-primary">马上练习</span>--%>
-                                        <%--</dd>--%>
-                                    <%--</dl>--%>
-                                <%--</a>--%>
-                            <%--</div>--%>
-                            <%--<div class="difficulty">--%>
-                                <%--<span class="item-label">难度系数：</span>--%>
-                                <%--<span title="难度系数" class="stars-new star-3"></span>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li>--%>
-                            <%--<div class="content-item-brief">--%>
-                                <%--<a href="https://www.nowcoder.com/test/12398104/summary">--%>
-                                    <%--<!-- <div class="done-tag"></div> -->--%>
-                                    <%--<h1>2018迅雷校园招聘C++在线笔试A卷</h1>--%>
-                                    <%--<div class="web-logoimg">--%>
-                                        <%--<img src="../../static/index/img/40.png">--%>
-                                    <%--</div>--%>
-                                    <%--<div class="exam-foot">热度指数：1427</div>--%>
-                                    <%--<div class="brief-mask"></div>--%>
-                                    <%--<dl class="exam-info">--%>
-                                        <%--<dd>题目数量:27道</dd>--%>
-                                        <%--<dd>试卷平均分:5分</dd>--%>
-                                        <%--<dd class="exam-btn">--%>
-                                            <%--<span class="btn btn-block btn-primary">马上练习</span>--%>
-                                        <%--</dd>--%>
-                                    <%--</dl>--%>
-                                <%--</a>--%>
-                            <%--</div>--%>
-                            <%--<div class="difficulty">--%>
-                                <%--<span class="item-label">难度系数：</span>--%>
-                                <%--<span title="难度系数" class="stars-new star-3"></span>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                    <%--</ul>--%>
-                    <%--<div class="model-btn-box">--%>
-                        <%--<a href="https://www.nowcoder.com/contestRoom?filter=2&amp;page=1"--%>
-                           <%--class="btn btn-block btn-primary">查看全部未练习试卷</a>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="module-box mod-toggle open" data-type="3">--%>
-                <%--<div class="module-head clearfix">--%>
-                    <%--<h1>在线编程练习</h1>--%>
-                    <%--<a href="javascript:void(0);" class="icon-drag"></a>--%>
-                <%--</div>--%>
-                <%--<div class="module-body">--%>
-                    <%--<div class="model-count">--%>
-                        <%--<div class="count-item">--%>
-                            <%--<span>共刷题：</span>--%>
-                            <%--<a href="javascript:void(0);">0题</a>--%>
-                        <%--</div>--%>
-                        <%--<div class="count-item">--%>
-                            <%--<span>做对题目：</span>--%>
-                            <%--<a href="javascript:void(0);">0</a>--%>
-                        <%--</div>--%>
-                        <%--<div class="count-item">--%>
-                            <%--<span>最近一周做对题目：</span>--%>
-                            <%--<a href="javascript:void(0);">0</a>--%>
-                        <%--</div>--%>
-                        <%--<div class="count-item">--%>
-                            <%--<span>排名：</span>--%>
-                            <%--<a href="javascript:void(0);">0</a>--%>
-                            <%--<!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<table>--%>
-                        <%--<tbody>--%>
-                        <%--<tr>--%>
-                            <%--<th style="padding-left: 30px;" width="300">题目</th>--%>
-                            <%--<th width="160">来自专题</th>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4077" target="_top">A+B和C--%>
-                                <%--(15)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4078" target="_top">数字分类--%>
-                                <%--(20)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4079" target="_top">数素数--%>
-                                <%--(20)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4040" target="_top">福尔摩斯的约会--%>
-                                <%--(20)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td class="offer-pot"><a href="https://www.nowcoder.com/pat/6/problem/4041" target="_top">德才论--%>
-                                <%--(25)</a></td>--%>
-                            <%--<td class="txt-left"><a href="https://www.nowcoder.com/pat">PAT真题在线练习</a></td>--%>
-                        <%--</tr>--%>
-                        <%--</tbody>--%>
-                    <%--</table>--%>
-                    <%--<a href="https://www.nowcoder.com/activity/topics" class="btn btn-block btn-primary">查看全部专题</a>--%>
-                <%--</div>--%>
-
         </div>
         <div class="nk-bar">
             <div class="module-box">
@@ -664,7 +518,8 @@
                     <li>
 <span style="color: rgb(169, 184, 202);">
 <img src="ghs.png" style="width: 18px; height: 18px;">
-<a style="font-size: 12px;" class="ft-info-item" target="_top" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
+<a style="font-size: 12px;" class="ft-info-item" target="_top"
+   href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
 </span>
                     </li>
                 </ul>
@@ -693,6 +548,62 @@
     seajs.use('../../static/home/js/loginedV2.js');
 </script>
 
+<div class="layer-container-content" id="selectTopicType" style="display: none">
+    <div id="jsCpn_29_popup_1" class=" pop-box " style="width: 850px; margin-left: 258px; margin-top: 117.5px;">
+        <div class="pop-title"><a href="javascript:void(0);" class="pop-close nc-js-make-paper" title="关闭"></a><span
+                class="pop-error-tip"
+                style="display:none;"></span>
+            <h1>选择难度</h1></div>
+        <form action="/topic/getTopicToExercise" method="post">
+            <div class="pop-content pop-diff clearfix">
+                <div id="jsCpn_27_component_1">
+                    <div>
+
+
+                        <div class="choise-items js-choise-source" id="selectType">
+                            <%--<span class="item-label">出题来源：</span>--%>
+                            <%--<label class="checkbox" id="jsCpn_34_checkbox_21">--%>
+                            <%--<span class="icons"></span><input type="checkbox" name="topicType" value="0">错题+新题--%>
+                            <%--</label>--%>
+                            <%--<label class="checkbox checked" id="jsCpn_35_checkbox_22">--%>
+                            <%--<span class="icons"></span><input type="checkbox" name="topicType" value="1" checked="checked">只出新题--%>
+                            <%--</label>--%>
+                            <%--<label class="checkbox" id="jsCpn_36_checkbox_23">--%>
+                            <%--<span class="icons"></span><input type="checkbox" name="topicType" value="2">只出错题</label>--%>
+                            <%--<label class="checkbox" id="jsCpn_37_checkbox_24">--%>
+                            <%--<span class="icons"></span><input type="checkbox" name="topicType" value="3">不限来源--%>
+                            <%--</label>--%>
+                        </div>
+
+                        <div class="choise-items js-choise-count" style=""><span class="item-label">选择单次题目数量：</span>
+                            <label class="radio" id="jsCpn_30_checkbox_17">
+                                <span class="icons"></span><input name="topicNum" type="radio" value="5">5题
+                            </label>
+                            <label class="radio checked" id="jsCpn_31_checkbox_18"><span class="icons"></span>
+                                <input type="radio" name="topicNum" value="10" checked="checked">10题</label>
+                            <label class="radio" id="jsCpn_32_checkbox_19"><span class="icons"></span>
+                                <input type="radio" name="topicNum" value="20">20题</label>
+                        </div>
+                        <div class="choise-items js-choise-count" style=""><span class="item-label">选择单次题目数量：</span>
+                            <label class="radio">
+                                <span class="icons"></span>
+                                <input type="radio" name="topicType" value="random">随机练习
+                            </label>
+                            <label class="radio checked"><span class="icons"></span>
+                                <input type="radio" name="topicType" value="specialItem" checked="checked">专项练习</label>
+                            <label class="radio"><span class="icons"></span>
+                                <input type="radio" name="topicType" value="wrongQuestion">错题练习</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pop-footer clearfix">
+                <button class="btn btn-primary confirm-btn" type="submit">确定</button>
+                <a class="btn btn-default cancle-btn nc-js-make-paper" href="javascript:void(0);">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
 
 <div id="jsCpn_12_component_1" style="display: none;">
     <div id="jsCpn_11_component_0" class="  btn-group open" style="display: block;">

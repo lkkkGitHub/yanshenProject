@@ -54,7 +54,7 @@ public class TopicController {
         TbUser user = (TbUser) session.getAttribute("user");
         UserDidTopicUtil userDidTopicUtil = (UserDidTopicUtil) session.getAttribute("UserDidTopicUtil");
         LinkedList<TbTopic> list = topicServiceImpl.getTopicToExercise(topicNum, topicType,
-                userDidTopicUtil.getMap() ,classifyIds, user.getUid());
+                userDidTopicUtil.getMap() ,classifyIds , user.getUid());
 
         return "";
     }

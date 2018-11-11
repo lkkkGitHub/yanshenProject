@@ -30,9 +30,10 @@ public interface TbTopicDao {
      * 获取用户再改分类下没有做过的题目
      * @param uid 用户id
      * @param classifyId 分类id
+     * @param topicNum 一次查询的题目数量
      * @return 返回未做过的题目
      */
-    List<TbTopic> selectUserNoDidTopicByUidAndClassifyId(String uid, Integer classifyId);
+    List<TbTopic> selectUserNoDidTopicByUidAndClassifyId(String uid, Integer classifyId, Integer topicNum);
 
     /**
      * 根据题目id 查询题目信息
