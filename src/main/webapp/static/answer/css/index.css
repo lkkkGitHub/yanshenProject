@@ -1,0 +1,856 @@
+/* ::::: https://static.nowcoder.com/nc/fontcustom/ncfontcustom.css?t=1.2.1124 ::::: */
+
+@font-face {
+	font-family: "ncfontcustom";
+	font-style: normal;
+	font-weight: normal;
+	src: url('../other/ncfontcustom.eot') format("embedded-opentype"), url('../other/ncfontcustom.woff') format("woff"), url('../other/ncfontcustom.ttf') format("truetype"), url('../img/ncfontcustom.svg') format("svg");
+}
+@media not all {
+	@font-face {
+	font-family: "ncfontcustom";
+	src: url('../img/ncfontcustom.svg') format("svg");
+}
+}
+[data-icon]::before { content: attr(data-icon); }
+[data-icon]::before, .icon-nc-arrow-down::before, .icon-nc-qq::before, .icon-nc-symbol1::before, .icon-nc-symbol1-1::before, .icon-nc-symbol1-10::before, .icon-nc-symbol1-11::before, .icon-nc-symbol1-12::before, .icon-nc-symbol1-13::before, .icon-nc-symbol1-14::before, .icon-nc-symbol1-15::before, .icon-nc-symbol1-16::before, .icon-nc-symbol1-17::before, .icon-nc-symbol1-18::before, .icon-nc-symbol1-19::before, .icon-nc-symbol1-2::before, .icon-nc-symbol1-20::before, .icon-nc-symbol1-21::before, .icon-nc-symbol1-22::before, .icon-nc-symbol1-23::before, .icon-nc-symbol1-24::before, .icon-nc-symbol1-25::before, .icon-nc-symbol1-26::before, .icon-nc-symbol1-27::before, .icon-nc-symbol1-28::before, .icon-nc-symbol1-29::before, .icon-nc-symbol1-3::before, .icon-nc-symbol1-30::before, .icon-nc-symbol1-31::before, .icon-nc-symbol1-32::before, .icon-nc-symbol1-33::before, .icon-nc-symbol1-34::before, .icon-nc-symbol1-35::before, .icon-nc-symbol1-36::before, .icon-nc-symbol1-37::before, .icon-nc-symbol1-38::before, .icon-nc-symbol1-39::before, .icon-nc-symbol1-4::before, .icon-nc-symbol1-40::before, .icon-nc-symbol1-5::before, .icon-nc-symbol1-6::before, .icon-nc-symbol1-7::before, .icon-nc-symbol1-8::before, .icon-nc-symbol1-9::before, .icon-nc-symbol2::before, .icon-nc-symbol2-1::before, .icon-nc-symbol2-10::before, .icon-nc-symbol2-11::before, .icon-nc-symbol2-12::before, .icon-nc-symbol2-13::before, .icon-nc-symbol2-14::before, .icon-nc-symbol2-15::before, .icon-nc-symbol2-16::before, .icon-nc-symbol2-17::before, .icon-nc-symbol2-18::before, .icon-nc-symbol2-19::before, .icon-nc-symbol2-2::before, .icon-nc-symbol2-20::before, .icon-nc-symbol2-21::before, .icon-nc-symbol2-22::before, .icon-nc-symbol2-23::before, .icon-nc-symbol2-24::before, .icon-nc-symbol2-25::before, .icon-nc-symbol2-26::before, .icon-nc-symbol2-27::before, .icon-nc-symbol2-28::before, .icon-nc-symbol2-29::before, .icon-nc-symbol2-3::before, .icon-nc-symbol2-30::before, .icon-nc-symbol2-31::before, .icon-nc-symbol2-32::before, .icon-nc-symbol2-33::before, .icon-nc-symbol2-4::before, .icon-nc-symbol2-5::before, .icon-nc-symbol2-6::before, .icon-nc-symbol2-7::before, .icon-nc-symbol2-8::before, .icon-nc-symbol2-9::before, .icon-nc-symbol3::before, .icon-nc-symbol3-1::before, .icon-nc-symbol3-10::before, .icon-nc-symbol3-11::before, .icon-nc-symbol3-12::before, .icon-nc-symbol3-13::before, .icon-nc-symbol3-14::before, .icon-nc-symbol3-15::before, .icon-nc-symbol3-16::before, .icon-nc-symbol3-17::before, .icon-nc-symbol3-18::before, .icon-nc-symbol3-19::before, .icon-nc-symbol3-2::before, .icon-nc-symbol3-20::before, .icon-nc-symbol3-21::before, .icon-nc-symbol3-3::before, .icon-nc-symbol3-4::before, .icon-nc-symbol3-5::before, .icon-nc-symbol3-6::before, .icon-nc-symbol3-7::before, .icon-nc-symbol3-8::before, .icon-nc-symbol3-9::before, .icon-nc-symbol4::before, .icon-nc-symbol4-1::before, .icon-nc-symbol4-10::before, .icon-nc-symbol4-11::before, .icon-nc-symbol4-12::before, .icon-nc-symbol4-13::before, .icon-nc-symbol4-14::before, .icon-nc-symbol4-15::before, .icon-nc-symbol4-16::before, .icon-nc-symbol4-17::before, .icon-nc-symbol4-18::before, .icon-nc-symbol4-19::before, .icon-nc-symbol4-2::before, .icon-nc-symbol4-20::before, .icon-nc-symbol4-21::before, .icon-nc-symbol4-3::before, .icon-nc-symbol4-4::before, .icon-nc-symbol4-5::before, .icon-nc-symbol4-6::before, .icon-nc-symbol4-7::before, .icon-nc-symbol4-8::before, .icon-nc-symbol4-9::before, .icon-nc-symbol5::before, .icon-nc-symbol5-1::before, .icon-nc-symbol5-10::before, .icon-nc-symbol5-11::before, .icon-nc-symbol5-12::before, .icon-nc-symbol5-2::before, .icon-nc-symbol5-3::before, .icon-nc-symbol5-4::before, .icon-nc-symbol5-5::before, .icon-nc-symbol5-6::before, .icon-nc-symbol5-7::before, .icon-nc-symbol5-8::before, .icon-nc-symbol5-9::before, .icon-nc-wechat::before, .icon-nc-weibo::before { display: inline-block; font-family: "ncfontcustom"; font-style: normal; font-weight: normal; font-variant: normal; line-height: 1; text-decoration: inherit; text-rendering: optimizelegibility; text-transform: none; }
+.icon-nc-arrow-down::before { content: ""; }
+.icon-nc-qq::before { content: ""; }
+.icon-nc-symbol1::before { content: ""; }
+.icon-nc-symbol1-1::before { content: ""; }
+.icon-nc-symbol1-10::before { content: ""; }
+.icon-nc-symbol1-11::before { content: ""; }
+.icon-nc-symbol1-12::before { content: ""; }
+.icon-nc-symbol1-13::before { content: ""; }
+.icon-nc-symbol1-14::before { content: ""; }
+.icon-nc-symbol1-15::before { content: ""; }
+.icon-nc-symbol1-16::before { content: ""; }
+.icon-nc-symbol1-17::before { content: ""; }
+.icon-nc-symbol1-18::before { content: ""; }
+.icon-nc-symbol1-19::before { content: ""; }
+.icon-nc-symbol1-2::before { content: ""; }
+.icon-nc-symbol1-20::before { content: ""; }
+.icon-nc-symbol1-21::before { content: ""; }
+.icon-nc-symbol1-22::before { content: ""; }
+.icon-nc-symbol1-23::before { content: ""; }
+.icon-nc-symbol1-24::before { content: ""; }
+.icon-nc-symbol1-25::before { content: ""; }
+.icon-nc-symbol1-26::before { content: ""; }
+.icon-nc-symbol1-27::before { content: ""; }
+.icon-nc-symbol1-28::before { content: ""; }
+.icon-nc-symbol1-29::before { content: ""; }
+.icon-nc-symbol1-3::before { content: ""; }
+.icon-nc-symbol1-30::before { content: ""; }
+.icon-nc-symbol1-31::before { content: ""; }
+.icon-nc-symbol1-32::before { content: ""; }
+.icon-nc-symbol1-33::before { content: ""; }
+.icon-nc-symbol1-34::before { content: ""; }
+.icon-nc-symbol1-35::before { content: ""; }
+.icon-nc-symbol1-36::before { content: ""; }
+.icon-nc-symbol1-37::before { content: ""; }
+.icon-nc-symbol1-38::before { content: ""; }
+.icon-nc-symbol1-39::before { content: ""; }
+.icon-nc-symbol1-4::before { content: ""; }
+.icon-nc-symbol1-40::before { content: ""; }
+.icon-nc-symbol1-5::before { content: ""; }
+.icon-nc-symbol1-6::before { content: ""; }
+.icon-nc-symbol1-7::before { content: ""; }
+.icon-nc-symbol1-8::before { content: ""; }
+.icon-nc-symbol1-9::before { content: ""; }
+.icon-nc-symbol2::before { content: ""; }
+.icon-nc-symbol2-1::before { content: ""; }
+.icon-nc-symbol2-10::before { content: ""; }
+.icon-nc-symbol2-11::before { content: ""; }
+.icon-nc-symbol2-12::before { content: ""; }
+.icon-nc-symbol2-13::before { content: ""; }
+.icon-nc-symbol2-14::before { content: ""; }
+.icon-nc-symbol2-15::before { content: ""; }
+.icon-nc-symbol2-16::before { content: ""; }
+.icon-nc-symbol2-17::before { content: ""; }
+.icon-nc-symbol2-18::before { content: ""; }
+.icon-nc-symbol2-19::before { content: ""; }
+.icon-nc-symbol2-2::before { content: ""; }
+.icon-nc-symbol2-20::before { content: ""; }
+.icon-nc-symbol2-21::before { content: ""; }
+.icon-nc-symbol2-22::before { content: ""; }
+.icon-nc-symbol2-23::before { content: ""; }
+.icon-nc-symbol2-24::before { content: ""; }
+.icon-nc-symbol2-25::before { content: ""; }
+.icon-nc-symbol2-26::before { content: ""; }
+.icon-nc-symbol2-27::before { content: ""; }
+.icon-nc-symbol2-28::before { content: ""; }
+.icon-nc-symbol2-29::before { content: ""; }
+.icon-nc-symbol2-3::before { content: ""; }
+.icon-nc-symbol2-30::before { content: ""; }
+.icon-nc-symbol2-31::before { content: ""; }
+.icon-nc-symbol2-32::before { content: ""; }
+.icon-nc-symbol2-33::before { content: ""; }
+.icon-nc-symbol2-4::before { content: ""; }
+.icon-nc-symbol2-5::before { content: ""; }
+.icon-nc-symbol2-6::before { content: ""; }
+.icon-nc-symbol2-7::before { content: ""; }
+.icon-nc-symbol2-8::before { content: ""; }
+.icon-nc-symbol2-9::before { content: ""; }
+.icon-nc-symbol3::before { content: ""; }
+.icon-nc-symbol3-1::before { content: ""; }
+.icon-nc-symbol3-10::before { content: ""; }
+.icon-nc-symbol3-11::before { content: ""; }
+.icon-nc-symbol3-12::before { content: ""; }
+.icon-nc-symbol3-13::before { content: ""; }
+.icon-nc-symbol3-14::before { content: ""; }
+.icon-nc-symbol3-15::before { content: ""; }
+.icon-nc-symbol3-16::before { content: ""; }
+.icon-nc-symbol3-17::before { content: ""; }
+.icon-nc-symbol3-18::before { content: ""; }
+.icon-nc-symbol3-19::before { content: ""; }
+.icon-nc-symbol3-2::before { content: ""; }
+.icon-nc-symbol3-20::before { content: ""; }
+.icon-nc-symbol3-21::before { content: ""; }
+.icon-nc-symbol3-3::before { content: ""; }
+.icon-nc-symbol3-4::before { content: ""; }
+.icon-nc-symbol3-5::before { content: ""; }
+.icon-nc-symbol3-6::before { content: ""; }
+.icon-nc-symbol3-7::before { content: ""; }
+.icon-nc-symbol3-8::before { content: ""; }
+.icon-nc-symbol3-9::before { content: ""; }
+.icon-nc-symbol4::before { content: ""; }
+.icon-nc-symbol4-1::before { content: ""; }
+.icon-nc-symbol4-10::before { content: ""; }
+.icon-nc-symbol4-11::before { content: ""; }
+.icon-nc-symbol4-12::before { content: ""; }
+.icon-nc-symbol4-13::before { content: ""; }
+.icon-nc-symbol4-14::before { content: ""; }
+.icon-nc-symbol4-15::before { content: ""; }
+.icon-nc-symbol4-16::before { content: ""; }
+.icon-nc-symbol4-17::before { content: ""; }
+.icon-nc-symbol4-18::before { content: ""; }
+.icon-nc-symbol4-19::before { content: ""; }
+.icon-nc-symbol4-2::before { content: ""; }
+.icon-nc-symbol4-20::before { content: ""; }
+.icon-nc-symbol4-21::before { content: ""; }
+.icon-nc-symbol4-3::before { content: ""; }
+.icon-nc-symbol4-4::before { content: ""; }
+.icon-nc-symbol4-5::before { content: ""; }
+.icon-nc-symbol4-6::before { content: ""; }
+.icon-nc-symbol4-7::before { content: ""; }
+.icon-nc-symbol4-8::before { content: ""; }
+.icon-nc-symbol4-9::before { content: ""; }
+.icon-nc-symbol5::before { content: ""; }
+.icon-nc-symbol5-1::before { content: ""; }
+.icon-nc-symbol5-10::before { content: ""; }
+.icon-nc-symbol5-11::before { content: ""; }
+.icon-nc-symbol5-12::before { content: ""; }
+.icon-nc-symbol5-2::before { content: ""; }
+.icon-nc-symbol5-3::before { content: ""; }
+.icon-nc-symbol5-4::before { content: ""; }
+.icon-nc-symbol5-5::before { content: ""; }
+.icon-nc-symbol5-6::before { content: ""; }
+.icon-nc-symbol5-7::before { content: ""; }
+.icon-nc-symbol5-8::before { content: ""; }
+.icon-nc-symbol5-9::before { content: ""; }
+.icon-nc-wechat::before { content: ""; }
+.icon-nc-weibo::before { content: ""; }
+/* ::::: https://static.nowcoder.com/nc/style/0.0.02/common/global.css ::::: */
+
+html { color: rgb(51, 51, 51); background: rgb(255, 255, 255) none repeat scroll 0% 0%; text-rendering: optimizelegibility; direction: ltr; }
+article, aside, blockquote, body, button, code, dd, details, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul { margin: 0px; padding: 0px; font-weight: 400; }
+body, html { margin: 0px; height: 100%; }
+body { font: 12px/1.5 arial,STHeiti,"Microsoft YaHei",宋体; overflow-wrap: break-word; }
+p { line-height: 1.4em; }
+dd img, li img, p img { vertical-align: middle; }
+button, input, optgroup, option, select, textarea { font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; }
+button, input { line-height: normal; }
+button::-moz-focus-inner, input::-moz-focus-inner { padding: 0px; border: 0px none; }
+button, input[type="button"], input[type="submit"] { cursor: pointer; }
+fieldset, img { border: 0px none; }
+img {  }
+pre { font-size: 14px; position: relative; border-left: 2px solid rgb(26, 188, 156); padding: 10px 0px 10px 10px; margin: 0.8em 0px; background: rgb(250, 250, 250) none repeat scroll 0% 0%; }
+ol, ul { list-style: outside none none; }
+q::after, q::before { content: ""; }
+a, ins { text-decoration: none; }
+code, pre { font-family: Courier,"Courier New",monospace; white-space: pre-wrap; overflow-wrap: break-word; }
+*::-moz-selection { background: rgb(0, 136, 204) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+.font-green, .green-word, .kind-link, a.font-green, a.link-green { color: rgb(37, 187, 155); }
+.nk-invisible { display: block; overflow: hidden; width: 0px; height: 0px; position: absolute; top: -1000px; }
+a { color: rgb(51, 51, 51); }
+a:link, a:visited { text-decoration: none; }
+a:hover { color: rgb(37, 187, 155); }
+.clearfix { display: block; }
+.clearfix::after, .clearfix::before { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.result-answer-item pre, label.checkbox pre, label.radio pre { padding: 0px; margin: 0px; background: transparent none repeat scroll 0px 0px; border: medium none; }
+label.checkbox pre, label.radio pre { display: inline-block; vertical-align: top; max-width: 850px; }
+/* ::::: https://static.nowcoder.com/nc/style/0.0.02/common/ui.css ::::: */
+
+@font-face {
+	font-family: "Flat-UI-Icons";
+	font-style: normal;
+	font-weight: 400;
+	src: url('../other/flat-ui-icons.eot') format("embedded-opentype"), url('../other/flat-ui-icons.woff') format("woff"), url('../other/flat-ui-icons.ttf') format("truetype"), url('../img/flat-ui-icons.svg') format("svg");
+}
+.fui-arrow-right::before { content: ""; }
+.fui-arrow-left::before { content: ""; }
+.fui-cmd::before { content: ""; }
+.fui-check-inverted::before { content: ""; }
+.fui-heart::before { content: ""; }
+.fui-location::before { content: ""; }
+.fui-plus::before { content: ""; }
+.fui-check::before { content: ""; }
+.fui-cross::before { content: ""; }
+.fui-list::before { content: ""; }
+.fui-new::before { content: ""; }
+.fui-video::before { content: ""; }
+.fui-photo::before { content: ""; }
+.fui-volume::before { content: ""; }
+.fui-time::before { content: ""; }
+.fui-eye::before { content: ""; }
+.fui-chat::before { content: ""; }
+.fui-search::before { content: ""; }
+.fui-user::before { content: ""; }
+.fui-mail::before { content: ""; }
+.fui-lock::before { content: ""; }
+.fui-gear::before { content: ""; }
+.fui-radio-unchecked::before { content: ""; }
+.fui-radio-checked::before { content: ""; }
+.fui-checkbox-unchecked::before { content: ""; }
+.fui-checkbox-checked::before { content: ""; }
+.fui-calendar-solid::before { content: ""; }
+.fui-pause::before { content: ""; }
+.fui-play::before { content: ""; }
+.fui-check-inverted-2::before { content: ""; }
+@font-face {
+	font-family: "FontAwesome";
+	font-style: normal;
+	font-weight: 400;
+	src: url('../other/fontawesome-webfont.eot') format("embedded-opentype"), url('../other/fontawesome-webfont.woff') format("woff"), url('../other/fontawesome-webfont.ttf') format("truetype"), url('../img/fontawesome-webfont.svg') format("svg");
+}
+.caret, [class*=" icon-"], [class^="icon-"] { font-family: FontAwesome; font-weight: 400; font-style: normal; text-decoration: inherit; }
+[class*=" icon-"]::before, [class^="icon-"]::before { text-decoration: inherit; display: inline-block; }
+.icon-large::before { vertical-align: -10%; font-size: 1.33333em; }
+[class*=" icon-"], [class^="icon-"] { display: inline; width: auto; height: auto; line-height: normal; vertical-align: baseline; background-image: none; background-position: 0px 0px; background-repeat: repeat; margin-top: 0px; }
+.icon-rotate-90::before { transform: rotate(90deg); }
+.icon-rotate-180::before { transform: rotate(180deg); }
+.icon-rotate-270::before { transform: rotate(270deg); }
+.icon-flip-horizontal::before { transform: scale(-1, 1); }
+.icon-flip-vertical::before { transform: scale(1, -1); }
+a .icon-flip-horizontal::before, a .icon-flip-vertical::before, a .icon-rotate-180::before, a .icon-rotate-270::before, a .icon-rotate-90::before { display: inline-block; }
+.icon-glass::before { content: ""; }
+.icon-music::before { content: ""; }
+.icon-search::before { content: ""; }
+.icon-envelope-alt::before { content: ""; }
+.icon-heart::before { content: ""; }
+.icon-star::before { content: ""; }
+.icon-star-empty::before { content: ""; }
+.icon-user::before { content: ""; }
+.icon-film::before { content: ""; }
+.icon-th-large::before { content: ""; }
+.icon-th::before { content: ""; }
+.icon-th-list::before { content: ""; }
+.icon-ok::before { content: ""; }
+.icon-remove::before { content: ""; }
+.icon-zoom-in::before { content: ""; }
+.icon-zoom-out::before { content: ""; }
+.icon-off::before, .icon-power-off::before { content: ""; }
+.icon-signal::before { content: ""; }
+.icon-cog::before, .icon-gear::before { content: ""; }
+.icon-trash::before { content: ""; }
+.icon-home::before { content: ""; }
+.icon-file-alt::before { content: ""; }
+.icon-time::before { content: ""; }
+.icon-road::before { content: ""; }
+.icon-download-alt::before { content: ""; }
+.icon-download::before { content: ""; }
+.icon-upload::before { content: ""; }
+.icon-inbox::before { content: ""; }
+.icon-play-circle::before { content: ""; }
+.icon-repeat::before, .icon-rotate-right::before { content: ""; }
+.icon-refresh::before { content: ""; }
+.icon-list-alt::before { content: ""; }
+.icon-lock::before { content: ""; }
+.icon-flag::before { content: ""; }
+.icon-headphones::before { content: ""; }
+.icon-volume-off::before { content: ""; }
+.icon-volume-down::before { content: ""; }
+.icon-volume-up::before { content: ""; }
+.icon-qrcode::before { content: ""; }
+.icon-barcode::before { content: ""; }
+.icon-tag::before { content: ""; }
+.icon-tags::before { content: ""; }
+.icon-book::before { content: ""; }
+.icon-bookmark::before { content: ""; }
+.icon-print::before { content: ""; }
+.icon-camera::before { content: ""; }
+.icon-font::before { content: ""; }
+.icon-bold::before { content: ""; }
+.icon-italic::before { content: ""; }
+.icon-text-height::before { content: ""; }
+.icon-text-width::before { content: ""; }
+.icon-align-left::before { content: ""; }
+.icon-align-center::before { content: ""; }
+.icon-align-right::before { content: ""; }
+.icon-align-justify::before { content: ""; }
+.icon-list::before { content: ""; }
+.icon-indent-left::before { content: ""; }
+.icon-indent-right::before { content: ""; }
+.icon-facetime-video::before { content: ""; }
+.icon-picture::before { content: ""; }
+.icon-pencil::before { content: ""; }
+.icon-map-marker::before { content: ""; }
+.icon-adjust::before { content: ""; }
+.icon-tint::before { content: ""; }
+.icon-edit::before { content: ""; }
+.icon-share::before { content: ""; }
+.icon-check::before { content: ""; }
+.icon-move::before { content: ""; }
+.icon-step-backward::before { content: ""; }
+.icon-fast-backward::before { content: ""; }
+.icon-backward::before { content: ""; }
+.icon-play::before { content: ""; }
+.icon-pause::before { content: ""; }
+.icon-stop::before { content: ""; }
+.icon-forward::before { content: ""; }
+.icon-fast-forward::before { content: ""; }
+.icon-step-forward::before { content: ""; }
+.icon-eject::before { content: ""; }
+.icon-chevron-left::before { content: ""; }
+.icon-chevron-right::before { content: ""; }
+.icon-plus-sign::before { content: ""; }
+.icon-minus-sign::before { content: ""; }
+.icon-remove-sign::before { content: ""; }
+.icon-ok-sign::before { content: ""; }
+.icon-question-sign::before { content: ""; }
+.icon-info-sign::before { content: ""; }
+.icon-screenshot::before { content: ""; }
+.icon-remove-circle::before { content: ""; }
+.icon-ok-circle::before { content: ""; }
+.icon-ban-circle::before { content: ""; }
+.icon-arrow-left::before { content: ""; }
+.icon-arrow-right::before { content: ""; }
+.icon-arrow-up::before { content: ""; }
+.icon-arrow-down::before { content: ""; }
+.icon-mail-forward::before, .icon-share-alt::before { content: ""; }
+.icon-resize-full::before { content: ""; }
+.icon-resize-small::before { content: ""; }
+.icon-plus::before { content: ""; }
+.icon-minus::before { content: ""; }
+.icon-asterisk::before { content: ""; }
+.icon-exclamation-sign::before { content: ""; }
+.icon-gift::before { content: ""; }
+.icon-leaf::before { content: ""; }
+.icon-fire::before { content: ""; }
+.icon-eye-open::before { content: ""; }
+.icon-eye-close::before { content: ""; }
+.icon-warning-sign::before { content: ""; }
+.icon-plane::before { content: ""; }
+.icon-calendar::before { content: ""; }
+.icon-random::before { content: ""; }
+.icon-comment::before { content: ""; }
+.icon-magnet::before { content: ""; }
+.icon-chevron-up::before { content: ""; }
+.icon-chevron-down::before { content: ""; }
+.icon-retweet::before { content: ""; }
+.icon-shopping-cart::before { content: ""; }
+.icon-folder-close::before { content: ""; }
+.icon-folder-open::before { content: ""; }
+.icon-resize-vertical::before { content: ""; }
+.icon-resize-horizontal::before { content: ""; }
+.icon-bar-chart::before { content: ""; }
+.icon-twitter-sign::before { content: ""; }
+.icon-facebook-sign::before { content: ""; }
+.icon-camera-retro::before { content: ""; }
+.icon-key::before { content: ""; }
+.icon-cogs::before, .icon-gears::before { content: ""; }
+.icon-comments::before { content: ""; }
+.icon-thumbs-up-alt::before { content: ""; }
+.icon-thumbs-down-alt::before { content: ""; }
+.icon-star-half::before { content: ""; }
+.icon-heart-empty::before { content: ""; }
+.icon-signout::before { content: ""; }
+.icon-linkedin-sign::before { content: ""; }
+.icon-pushpin::before { content: ""; }
+.icon-external-link::before { content: ""; }
+.icon-signin::before { content: ""; }
+.icon-trophy::before { content: ""; }
+.icon-github-sign::before { content: ""; }
+.icon-upload-alt::before { content: ""; }
+.icon-lemon::before { content: ""; }
+.icon-phone::before { content: ""; }
+.icon-check-empty::before, .icon-unchecked::before { content: ""; }
+.icon-bookmark-empty::before { content: ""; }
+.icon-phone-sign::before { content: ""; }
+.icon-twitter::before { content: ""; }
+.icon-facebook::before { content: ""; }
+.icon-github::before { content: ""; }
+.icon-unlock::before { content: ""; }
+.icon-credit-card::before { content: ""; }
+.icon-rss::before { content: ""; }
+.icon-hdd::before { content: ""; }
+.icon-bullhorn::before { content: ""; }
+.icon-bell::before { content: ""; }
+.icon-certificate::before { content: ""; }
+.icon-hand-right::before { content: ""; }
+.icon-hand-left::before { content: ""; }
+.icon-hand-up::before { content: ""; }
+.icon-hand-down::before { content: ""; }
+.icon-circle-arrow-left::before { content: ""; }
+.icon-circle-arrow-right::before { content: ""; }
+.icon-circle-arrow-up::before { content: ""; }
+.icon-circle-arrow-down::before { content: ""; }
+.icon-globe::before { content: ""; }
+.icon-wrench::before { content: ""; }
+.icon-tasks::before { content: ""; }
+.icon-filter::before { content: ""; }
+.icon-briefcase::before { content: ""; }
+.icon-fullscreen::before { content: ""; }
+.icon-group::before { content: ""; }
+.icon-link::before { content: ""; }
+.icon-cloud::before { content: ""; }
+.icon-beaker::before { content: ""; }
+.icon-cut::before { content: ""; }
+.icon-copy::before { content: ""; }
+.icon-paper-clip::before, .icon-paperclip::before { content: ""; }
+.icon-save::before { content: ""; }
+.icon-sign-blank::before { content: ""; }
+.icon-reorder::before { content: ""; }
+.icon-list-ul::before { content: ""; }
+.icon-list-ol::before { content: ""; }
+.icon-strikethrough::before { content: ""; }
+.icon-underline::before { content: ""; }
+.icon-table::before { content: ""; }
+.icon-magic::before { content: ""; }
+.icon-truck::before { content: ""; }
+.icon-pinterest::before { content: ""; }
+.icon-pinterest-sign::before { content: ""; }
+.icon-google-plus-sign::before { content: ""; }
+.icon-google-plus::before { content: ""; }
+.icon-money::before { content: ""; }
+.icon-caret-down::before { content: ""; }
+.icon-caret-up::before { content: ""; }
+.icon-caret-left::before { content: ""; }
+.icon-caret-right::before { content: ""; }
+.icon-columns::before { content: ""; }
+.icon-sort::before { content: ""; }
+.icon-sort-down::before { content: ""; }
+.icon-sort-up::before { content: ""; }
+.icon-envelope::before { content: ""; }
+.icon-linkedin::before { content: ""; }
+.icon-rotate-left::before, .icon-undo::before { content: ""; }
+.icon-legal::before { content: ""; }
+.icon-dashboard::before { content: ""; }
+.icon-comment-alt::before { content: ""; }
+.icon-comments-alt::before { content: ""; }
+.icon-bolt::before { content: ""; }
+.icon-sitemap::before { content: ""; }
+.icon-umbrella::before { content: ""; }
+.icon-paste::before { content: ""; }
+.icon-lightbulb::before { content: ""; }
+.icon-exchange::before { content: ""; }
+.icon-cloud-download::before { content: ""; }
+.icon-cloud-upload::before { content: ""; }
+.icon-user-md::before { content: ""; }
+.icon-stethoscope::before { content: ""; }
+.icon-suitcase::before { content: ""; }
+.icon-bell-alt::before { content: ""; }
+.icon-coffee::before { content: ""; }
+.icon-food::before { content: ""; }
+.icon-file-text-alt::before { content: ""; }
+.icon-building::before { content: ""; }
+.icon-hospital::before { content: ""; }
+.icon-ambulance::before { content: ""; }
+.icon-medkit::before { content: ""; }
+.icon-fighter-jet::before { content: ""; }
+.icon-beer::before { content: ""; }
+.icon-h-sign::before { content: ""; }
+.icon-plus-sign-alt::before { content: ""; }
+.icon-double-angle-left::before { content: ""; }
+.icon-double-angle-right::before { content: ""; }
+.icon-double-angle-up::before { content: ""; }
+.icon-double-angle-down::before { content: ""; }
+.icon-angle-left::before { content: ""; }
+.icon-angle-right::before { content: ""; }
+.icon-angle-up::before { content: ""; }
+.icon-angle-down::before { content: ""; }
+.icon-desktop::before { content: ""; }
+.icon-laptop::before { content: ""; }
+.icon-tablet::before { content: ""; }
+.icon-mobile-phone::before { content: ""; }
+.icon-circle-blank::before { content: ""; }
+.icon-quote-left::before { content: ""; }
+.icon-quote-right::before { content: ""; }
+.icon-spinner::before { content: ""; }
+.icon-circle::before { content: ""; }
+.icon-mail-reply::before, .icon-reply::before { content: ""; }
+.icon-github-alt::before { content: ""; }
+.icon-folder-close-alt::before { content: ""; }
+.icon-folder-open-alt::before { content: ""; }
+.icon-expand-alt::before { content: ""; }
+.icon-collapse-alt::before { content: ""; }
+.icon-smile::before { content: ""; }
+.icon-frown::before { content: ""; }
+.icon-meh::before { content: ""; }
+.icon-gamepad::before { content: ""; }
+.icon-keyboard::before { content: ""; }
+.icon-flag-alt::before { content: ""; }
+.icon-flag-checkered::before { content: ""; }
+.icon-terminal::before { content: ""; }
+.icon-code::before { content: ""; }
+.icon-reply-all::before { content: ""; }
+.icon-mail-reply-all::before { content: ""; }
+.icon-star-half-empty::before, .icon-star-half-full::before { content: ""; }
+.icon-location-arrow::before { content: ""; }
+.icon-crop::before { content: ""; }
+.icon-code-fork::before { content: ""; }
+.icon-unlink::before { content: ""; }
+.icon-question::before { content: ""; }
+.icon-info::before { content: ""; }
+.icon-exclamation::before { content: ""; }
+.icon-superscript::before { content: ""; }
+.icon-subscript::before { content: ""; }
+.icon-eraser::before { content: ""; }
+.icon-puzzle-piece::before { content: ""; }
+.icon-microphone::before { content: ""; }
+.icon-microphone-off::before { content: ""; }
+.icon-shield::before { content: ""; }
+.icon-calendar-empty::before { content: ""; }
+.icon-fire-extinguisher::before { content: ""; }
+.icon-rocket::before { content: ""; }
+.icon-maxcdn::before { content: ""; }
+.icon-chevron-sign-left::before { content: ""; }
+.icon-chevron-sign-right::before { content: ""; }
+.icon-chevron-sign-up::before { content: ""; }
+.icon-chevron-sign-down::before { content: ""; }
+.icon-html5::before { content: ""; }
+.icon-css3::before { content: ""; }
+.icon-anchor::before { content: ""; }
+.icon-unlock-alt::before { content: ""; }
+.icon-bullseye::before { content: ""; }
+.icon-ellipsis-horizontal::before { content: ""; }
+.icon-ellipsis-vertical::before { content: ""; }
+.icon-rss-sign::before { content: ""; }
+.icon-play-sign::before { content: ""; }
+.icon-ticket::before { content: ""; }
+.icon-minus-sign-alt::before { content: ""; }
+.icon-check-minus::before { content: ""; }
+.icon-level-up::before { content: ""; }
+.icon-level-down::before { content: ""; }
+.icon-check-sign::before { content: ""; }
+.icon-edit-sign::before { content: ""; }
+.icon-external-link-sign::before { content: ""; }
+.icon-share-sign::before { content: ""; }
+.icon-compass::before { content: ""; }
+.icon-collapse::before { content: ""; }
+.icon-collapse-top::before { content: ""; }
+.icon-expand::before { content: ""; }
+.icon-eur::before, .icon-euro::before { content: ""; }
+.icon-gbp::before { content: ""; }
+.icon-dollar::before, .icon-usd::before { content: ""; }
+.icon-inr::before, .icon-rupee::before { content: ""; }
+.icon-jpy::before, .icon-yen::before { content: ""; }
+.icon-cny::before, .icon-renminbi::before { content: ""; }
+.icon-krw::before, .icon-won::before { content: ""; }
+.icon-bitcoin::before, .icon-btc::before { content: ""; }
+.icon-file::before { content: ""; }
+.icon-file-text::before { content: ""; }
+.icon-sort-by-alphabet::before { content: ""; }
+.icon-sort-by-alphabet-alt::before { content: ""; }
+.icon-sort-by-attributes::before { content: ""; }
+.icon-sort-by-attributes-alt::before { content: ""; }
+.icon-sort-by-order::before { content: ""; }
+.icon-sort-by-order-alt::before { content: ""; }
+.icon-thumbs-up::before { content: ""; }
+.icon-thumbs-down::before { content: ""; }
+.icon-youtube-sign::before { content: ""; }
+.icon-youtube::before { content: ""; }
+.icon-xing::before { content: ""; }
+.icon-xing-sign::before { content: ""; }
+.icon-youtube-play::before { content: ""; }
+.icon-dropbox::before { content: ""; }
+.icon-stackexchange::before { content: ""; }
+.icon-instagram::before { content: ""; }
+.icon-flickr::before { content: ""; }
+.icon-adn::before { content: ""; }
+.icon-bitbucket::before { content: ""; }
+.icon-bitbucket-sign::before { content: ""; }
+.icon-tumblr::before { content: ""; }
+.icon-tumblr-sign::before { content: ""; }
+.icon-long-arrow-down::before { content: ""; }
+.icon-long-arrow-up::before { content: ""; }
+.icon-long-arrow-left::before { content: ""; }
+.icon-long-arrow-right::before { content: ""; }
+.icon-apple::before { content: ""; }
+.icon-windows::before { content: ""; }
+.icon-android::before { content: ""; }
+.icon-linux::before { content: ""; }
+.icon-dribbble::before { content: ""; }
+.icon-skype::before { content: ""; }
+.icon-foursquare::before { content: ""; }
+.icon-trello::before { content: ""; }
+.icon-female::before { content: ""; }
+.icon-male::before { content: ""; }
+.icon-gittip::before { content: ""; }
+.icon-sun::before { content: ""; }
+.icon-moon::before { content: ""; }
+.icon-archive::before { content: ""; }
+.icon-bug::before { content: ""; }
+.icon-vk::before { content: ""; }
+.icon-weibo::before { content: ""; }
+.icon-renren::before { content: ""; }
+.pop-title h1::before { background: rgb(255, 101, 71) none repeat scroll 0% 0%; content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 5px; margin-bottom: 2px; vertical-align: middle; }
+.nk-container { background: rgb(238, 238, 238) none repeat scroll 0% 0%; position: relative; height: auto; min-height: 100%; }
+.nk-main { padding-top: 70px; padding-bottom: 250px; margin: 0px auto; width: 960px; }
+.module-box { margin-bottom: 10px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; }
+.module-box:last-child { margin-bottom: 0px; }
+.module-head h1::before, .module-head h2::before { background: rgb(255, 101, 71) none repeat scroll 0% 0%; content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 5px; margin-bottom: 2px; vertical-align: middle; }
+.mod-ft::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+button, input {  }
+button::-moz-focus-inner, input::-moz-focus-inner { padding: 0px; border: 0px none; }
+button, input[type="button"], input[type="submit"] { cursor: pointer; }
+.btn { display: inline-block; text-align: center; padding: 10px 0px; width: 110px; color: rgb(255, 255, 255); font-size: 14px; border-radius: 3px; border: 0px none; cursor: pointer; line-height: normal; outline: 0px none; white-space: nowrap; }
+.btn:hover { color: rgb(255, 255, 255); }
+.btn-primary { background: rgb(37, 187, 155) none repeat scroll 0% 0%; }
+.btn-primary:hover { background: rgb(34, 174, 144) none repeat scroll 0% 0%; }
+.uneditable-input, input[type="email"], input[type="password"], input[type="text"], textarea { border: 1px solid rgb(221, 221, 221); color: rgb(52, 73, 94); font-family: Lato,sans-serif; font-size: 14px; padding: 8px 5px 7px; width: 248px; height: 22px; border-radius: 3px; outline: 0px none; }
+.control-group.focus .uneditable-input, .control-group.focus input[type="email"], .control-group.focus input[type="password"], .control-group.focus input[type="text"], .control-group.focus textarea, .uneditable-input:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus, textarea:focus { border-color: rgb(153, 153, 153); }
+.form-group::after, .form-group::before { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.checkbox, .radio { cursor: pointer; font-size: 14px; text-align: left; display: inline-block; }
+.checkbox input, .radio input { display: none; outline: medium none ! important; }
+.checkbox .icons, .radio .icons { border: 1px solid rgb(221, 221, 221); vertical-align: -3px; width: 14px; height: 14px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; display: inline-block; margin-right: 3px; border-radius: 2px; line-height: normal; position: relative; }
+.checkbox.checked, .checkbox:hover, .radio.checked, .radio:hover { color: rgb(37, 187, 155); }
+.checkbox:hover .icons, .radio:hover .icons { border-color: rgb(37, 187, 155); }
+.radio .icons { border-radius: 50%; }
+.radio.checked .icons::before { border-radius: 50%; background: rgb(37, 187, 155) none repeat scroll 0% 0%; width: 8px; height: 8px; display: inline-block; vertical-align: middle; content: ""; position: absolute; left: 3px; top: 3px; }
+.checkbox .icons::before { font-size: 12px; position: absolute; }
+.checkbox.checked .icons::before { content: ""; color: rgb(37, 187, 155); font-size: 16px; margin-top: -1px; margin-left: -1px; }
+.checkbox.label-lg .icons::before { font-size: 18px; }
+.checkbox.label-sm .icons::before { font-size: 12px; }
+.label-lg.checked .icons::before { width: 10px; height: 10px; }
+.label-sm.checked .icons::before { width: 6px; height: 6px; }
+.btn-group { display: inline-block; position: relative; vertical-align: top; }
+.caret::before { content: ""; }
+.open > .dropdown-toggle .caret::before { content: ""; }
+.dropdown-menu { background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(221, 221, 221); border-radius: 0px 0px 3px 3px; display: none; font-size: 14px; margin-top: -1px; box-sizing: border-box; box-shadow: 0px 1px 0px rgb(221, 221, 221); transition: all 0.25s ease 0s; backface-visibility: hidden; overflow: auto; max-height: 300px; width: 100%; position: absolute; float: left; left: 0px; text-align: left; top: 99%; z-index: 99; }
+.simple-dropdown .caret::before { display: none; }
+.with-checkbox-select .caret::before { display: none; }
+.progress { overflow: hidden; background: rgb(235, 237, 239) none repeat scroll 0% 0%; border-radius: 32px; height: 12px; }
+.progress-bar, .progress-bar2 { float: left; width: 0px; height: 100%; font-size: 12px; line-height: 20px; color: rgb(255, 255, 255); text-align: center; background-color: rgb(37, 187, 155); }
+.menu-box::after, .menu-txt-box::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.steps-wrap .item + .item::before { display: inline-block; width: 200px; height: 2px; background: rgb(188, 188, 188) none repeat scroll 0% 0%; content: ""; position: absolute; top: 20px; left: -120px; }
+.steps-wrap .done.item + .done.item::before { width: 192px; top: 22px; background: rgb(0, 188, 155) none repeat scroll 0% 0%; }
+.ke-clearfix::after { content: "."; display: block; clear: both; font-size: 0px; height: 0px; line-height: 0; visibility: hidden; }
+.ke-toolbar::after { content: ""; display: block; clear: both; height: 0px; visibility: hidden; }
+.vjs-play-control div::after, .vjs-play-control div::before { position: absolute; font-family: Flat-UI-Icons; color: rgb(26, 188, 156); font-size: 16px; top: 50%; left: 50%; margin: -0.55em 0px 0px -0.5em; transition: color 0.25s ease 0s, opacity 0.25s ease 0s; backface-visibility: hidden; }
+.vjs-play-control div::after { content: ""; }
+.vjs-play-control div::before { content: ""; }
+.vjs-paused .vjs-play-control:hover div::before { color: rgb(22, 160, 133); }
+.vjs-paused .vjs-play-control div::after { opacity: 0; }
+.vjs-paused .vjs-play-control div::before { opacity: 1; }
+.vjs-playing .vjs-play-control:hover div::after { color: rgb(22, 160, 133); }
+.vjs-playing .vjs-play-control div::after { opacity: 1; }
+.vjs-playing .vjs-play-control div::before { opacity: 0; }
+.tooltip-arrow, .tooltip-arrow i { position: absolute; }
+.tooltip { position: absolute; display: block; line-height: 1.4; visibility: visible; font-size: 14px; z-index: 99; }
+.tooltip.top { padding: 5px 0px 9px; margin-top: -8px; }
+.tooltip.top .tooltip-arrow { content: ""; height: 0px; width: 0px; border-top: 9px solid rgb(52, 73, 94); border-left: 9px dashed transparent; border-right: 9px dashed transparent; bottom: 0px; margin-left: -9px; left: 50%; }
+.tooltip-inner { color: rgb(255, 255, 255); background-color: rgb(52, 73, 94); line-height: 18px; padding: 10px; text-align: center; border-radius: 6px; font-size: 12px; box-shadow: 0px 0px 5px rgb(240, 240, 240); }
+.nk-switch > input.checked + .track::after, .nk-switch > input:checked + .track::after { transform: scale3d(0, 0, 0); }
+.nk-switch > .track::after { position: absolute; left: 1px; content: "关闭"; width: 50px; height: 18px; padding-right: 5px; font-size: 14px; text-align: right; background-color: rgb(250, 250, 250); border-radius: 15px; transition: transform 0.13s ease-out 0s; }
+.nk-switch.switch-mini > .track::after { width: 30px; content: ""; }
+.voice-playbar .voice-icon::before { transform: scale(0.8); margin-left: 2px; }
+.voice-playbar .icon-stop::before { transform: scale(0.7); margin-left: 0px; }
+.voice-lg-bar .voice-icon::before { transform: scale(1); margin-left: 2px; }
+.voice-lg-bar .icon-stop::before { transform: scale(0.9); margin-left: 0px; }
+/* ::::: https://static.nowcoder.com/nowcoder/1.2.1124/stylesheets/common/base.css ::::: */
+
+.nk-main { margin: 0px auto; width: 960px; }
+.bind-login::after, .login-way::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.cut-line::before { content: ""; display: block; height: 1px; width: 100%; background: rgb(221, 221, 221) none repeat scroll 0% 0%; margin-bottom: -15px; }
+.pop-resume .btn-diy, .pop-resume .edu-info, .pop-resume .resume-info, .pop-resume .resume-mail, .pop-resume .resume-menu dd::before, .pop-resume .resume-owner, .pop-resume .resume-tel, .pop-resume .study-ico { background: transparent url('../img/resume-ico2.png') no-repeat scroll 0% 0%; }
+.pop-resume .resume-menu dd::before { display: inline-block; content: ""; width: 16px; height: 16px; vertical-align: sub; margin-right: 15px; }
+.pop-resume .resume-menu .base::before { background-position: 0px 0px; }
+.pop-resume .resume-menu .edu::before { background-position: 0px -36px; }
+.pop-resume .resume-menu .sch::before { background-position: 0px -73px; }
+.pop-resume .resume-menu .job::before { background-position: 0px -118px; }
+.pop-resume .resume-menu .want::before { background-position: 0px -160px; }
+.pop-resume .resume-menu .file::before { background-position: 0px -198px; }
+.pop-resume .resume-menu .award::before { background-position: 0px -242px; }
+.pop-resume .resume-menu .skill::before { background-position: 0px -281px; }
+.pop-resume .resume-menu .self::before { background-position: 0px -322px; }
+.pop-resume .resume-menu .photo::before { background-position: 0px -716px; }
+.card-btn-box .fui-chat::before, .card-btn-box .icon-ok::before, .card-btn-box .icon-plus::before, .card-btn-box .icon-user::before { margin-right: 5px; font-size: 12px; vertical-align: middle; }
+.pop-input-group .icon-mobile-phone::before { vertical-align: middle; }
+.pop-input-group .icon-mobile-phone::before { vertical-align: middle; }
+.pop-interest-box::after { content: ""; display: block; clear: both; font-size: 0px; height: 0px; }
+.pop-pay-box .pay-method::after { content: ""; display: inline-block; width: 1px; height: 15px; background: rgb(126, 126, 126) none repeat scroll 0% 0%; position: absolute; right: -14px; top: 3px; }
+.fixed-menu { position: fixed; z-index: 999; right: 10px; bottom: 120px; }
+.fixed-menu li { margin-bottom: 5px; position: relative; }
+.fixed-menu li a { float: left; width: 35px; height: 35px; line-height: 16px; border-radius: 3px; border: 1px solid rgb(214, 214, 214); background: rgb(255, 255, 255) url('../img/ico-fixed-menu2.png') no-repeat scroll 0% 0%; }
+.fixed-menu li a:hover { background-color: rgb(26, 188, 156); border-color: rgb(26, 188, 156); }
+.fixed-menu li::after, .fixed-menu li::before { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.wx-qrcode img { width: 148px; height: 148px; }
+.fixed-menu li a, .fixed-menu li a.gotop { background-position: 8px -225px; }
+.fixed-menu li a.gotop:hover { background-position: 8px 10px; }
+.fixed-menu li a.fixed-wb { background-position: 8px -262px; }
+.fixed-menu li a.fixed-wb:hover { background-position: 8px -28px; }
+.fixed-menu li a.qq { background-position: 8px -303px; }
+.fixed-menu li a.qq:hover { background-position: 8px -68px; }
+.fixed-menu li a.wx { background-position: 8px -343px; }
+.fixed-menu li a.wx:hover { background-position: 8px -108px; }
+.fixed-menu li a.feedback { background-position: 8px -382px; }
+.fixed-menu li a.feedback:hover { background-position: 8px -148px; }
+.fixed-menu li a.qrcode { background-position: 8px -422px; }
+.fixed-menu li a.qrcode:hover { background-position: 8px -188px; }
+.fixed-menu li a.feedback-letter, .fixed-menu li a.wx-letter { display: none; }
+.fixed-menu li:hover a.feedback-letter { background: rgb(26, 188, 156) none repeat scroll 0% 0%; display: block; color: rgb(255, 255, 255); text-align: center; line-height: 1.5; }
+.fixed-menu li:hover a.wx { display: block; }
+.fixed-menu li:hover a.feedback { display: none; }
+.fixed-menu li .wx-qrcode { height: 178px; width: 158px; background: transparent url('../img/fixed-menu.png') no-repeat scroll 0% 0%; position: absolute; left: -190px; top: -160px; padding: 16px; display: none; }
+.fixed-menu li:hover .wx-qrcode { display: block; }
+.phone-qrcode p, .wx-qrcode p { text-align: center; margin-top: 10px; }
+.phone-qrcode p { margin-top: 5px; }
+.phone-qrcode { position: relative; background: rgb(255, 255, 255) none repeat scroll 0% 0%; width: 70px; padding: 15px 10px 5px; margin-left: -54px; }
+.phone-qrcode img { width: 70px; height: 70px; display: block; }
+.qrcode-close { position: absolute; top: -2px; right: 3px; font-weight: 700; }
+.ft-wrap { position: absolute; bottom: 0px; left: 0px; height: 220px; width: 100%; z-index: 10; background: rgb(42, 47, 53) none repeat scroll 0% 0%; }
+.ft-cont { background: rgb(42, 47, 53) none repeat scroll 0% 0%; width: 960px; margin: 0px auto; padding: 35px 0px 30px; }
+.ft-main { display: inline-block; vertical-align: middle; border-left: 1px solid rgb(100, 111, 124); width: 380px; padding: 0px 0px 0px 30px; }
+.contact-email { margin-left: 20px; }
+.ft-links li { display: inline-block; margin: 0px 15px 5px 0px; }
+.ft-links a { color: rgb(169, 184, 202); }
+.webrights { margin-top: 5px; }
+.webrights li { margin-bottom: 1px; color: rgb(121, 143, 172); }
+.webrights a { color: rgb(121, 143, 172); }
+.ft-web-info { display: inline-block; vertical-align: middle; width: 330px; padding: 0px 15px; }
+.ft-web-name { font-size: 20px; color: rgb(255, 255, 255); margin: -25px 0px 20px; }
+.ft-web-info a { display: inline-block; vertical-align: middle; position: relative; width: 32px; height: 26px; margin-right: 35px; background: transparent url('../img/ft-icons.png') no-repeat scroll 0% 0%; }
+.ft-web-info .ft-qq-ico { width: 22px; background-position: 0px 0px; }
+.ft-web-info .ft-qq-ico:hover { background-position: 0px -26px; }
+.ft-web-info .ft-wx-ico { background-position: -60px 0px; }
+.ft-web-info .ft-wx-ico:hover { background-position: -60px -26px; }
+.ft-web-info .ft-wb-ico { background-position: -126px 0px; }
+.ft-web-info .ft-wb-ico:hover { background-position: -126px -26px; }
+.ft-web-info .ft-zh-ico { background-position: -194px 0px; width: 26px; }
+.ft-web-info .ft-zh-ico:hover { background-position: -194px -26px; }
+.ft-web-info .ft-jian-ico { background-position: -259px 0px; width: 26px; margin-right: 0px; }
+.ft-web-info .ft-jian-ico:hover { background-position: -259px -26px; }
+.ft-web-info .tooltip { display: none; }
+.ft-web-info a:hover .tooltip { display: block; }
+.ft-wrap .tooltip-inner { background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(221, 221, 221); border-radius: 3px; padding: 18px; }
+.ft-wrap .tooltip-inner p { color: rgb(51, 51, 51); margin: 5px 0px 0px; font-size: 14px; text-align: left; }
+.ft-wrap .tooltip.top { bottom: 30px; left: 50%; margin-left: -74px; }
+.ft-wrap .tooltip.top .tooltip-arrow { border-top-color: rgb(255, 255, 255); bottom: 1px; }
+.ft-app { display: inline-block; vertical-align: middle; width: 180px; color: rgb(135, 147, 162); font-size: 14px; margin-top: 0px; text-align: center; }
+.ft-qrcode-box { background: rgb(91, 100, 109) none repeat scroll 0% 0%; padding: 8px; border-radius: 5px; width: 110px; height: 110px; margin: 0px auto 10px; }
+.ft-qrcode-box img { width: 100%; }
+.ad-window-sm { width: 75px; position: fixed; right: 3px; bottom: 3px; border-radius: 3px; padding: 5px 10px 5px 50px; z-index: 99; background: rgb(61, 68, 77) url('../img/video-icon.png') no-repeat scroll 15px center; }
+.ad-close { position: absolute; left: 2px; top: 2px; width: 8px; height: 8px; color: rgb(255, 255, 255); }
+.ad-live-active { color: rgb(255, 255, 255); }
+.nc-post-content > :last-child { margin-bottom: 0px ! important; }
+.nc-post-content table tr:nth-child(2n) { background-color: rgb(246, 248, 250); }
+/* ::::: https://static.nowcoder.com/nowcoder/1.2.1124/stylesheets/pages/subject/exercise.css ::::: */
+
+.subject-box { margin-bottom: 20px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; position: relative; }
+.subject-title { padding: 15px 20px 15px 55px; background: rgb(255, 255, 255) url('../img/q-ico.png') no-repeat scroll 20px 16px; line-height: 1.5; font-size: 16px; border-bottom: 1px solid rgb(238, 238, 238); border-radius: 3px; }
+.subject-progress { padding: 10px 270px 10px 30px; background: rgb(35, 44, 49) none repeat scroll 0% 0%; border-radius: 4px 4px 0px 0px; position: relative; white-space: nowrap; height: 30px; }
+.subject-progress .progress { margin: 0px 10px 0px 0px; width: 90%; display: inline-block; }
+.progress-nums { color: rgb(255, 255, 255); font-size: 20px; }
+.progress-time { font-size: 20px; position: absolute; right: 0px; top: 0px; background: rgb(45, 51, 57) none repeat scroll 0% 0%; border-radius: 0px 6px 0px 0px; color: rgb(255, 255, 255); height: 40px; width: 250px; padding-top: 10px; text-align: center; }
+.progress-time:hover { color: rgb(255, 255, 255); }
+.ico-time-control { display: inline-block; vertical-align: -5px; height: 28px; width: 28px; margin-right: 5px; background: transparent url('../img/ico-media.png') no-repeat scroll 0px -96px; }
+.progress-time:hover .ico-time-control { background-position: 0px -48px; }
+.subject-main { background: rgb(255, 255, 255) none repeat scroll 0% 0%; padding: 20px; }
+.subject-main::after, .subject-main::before { clear: both; content: " "; display: block; }
+.subject-main::after, .subject-main::before { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.subject-main .checkbox, .subject-main .radio { margin: 0px; line-height: 20px; }
+.subject-content { position: relative; margin-bottom: 20px; }
+.subject-question { font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+.subject-options { margin-bottom: 20px; border: 1px solid rgb(212, 212, 212); border-radius: 2px; padding: 12px 20px 13px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; display: block; word-break: break-all; }
+.subject-options:hover { background: rgb(243, 243, 243) none repeat scroll 0% 0%; text-decoration: none; border-color: rgb(144, 144, 144); }
+.result-select .radio.checked .icons::before { background: rgb(255, 101, 47) none repeat scroll 0% 0%; }
+.result-select .checkbox.checked .icons::before { color: rgb(255, 101, 47); }
+.subject-action { margin-bottom: 20px; font-size: 14px; }
+.subject-action .subject-next { float: right; }
+.subject-action .btn { margin-right: 10px; }
+.warning-btn { background: rgb(255, 101, 71) none repeat scroll 0% 0%; float: left; margin-right: 20px; }
+.warning-btn:hover { background-color: rgb(236, 112, 99); }
+.subject-opr { float: left; font-size: 14px; line-height: 20px; margin-top: 13px; }
+.subject-opr-item { margin: 0px 15px; }
+.subject-opr-item i { background: transparent url('../img/icon-subject.png') no-repeat scroll 0% 0%; display: inline-block; width: 16px; height: 16px; vertical-align: middle; }
+.subject-opr-item .ico-collect { background-position: -79px 0px; }
+.subject-opr-item .ico-mark { background-position: -79px -16px; }
+.subject-opr-item .ico-shield { background-position: -95px 0px; }
+.subject-opr-item:hover .ico-collect { background-position: -111px -16px; }
+.subject-opr-item:hover .ico-mark { background-position: -95px -16px; }
+.subject-opr-item:hover .ico-shield { background-position: -111px 0px; }
+.answer-sheet-box { border-top: 1px dashed rgb(221, 221, 221); padding: 20px; font-size: 16px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; }
+.card-fold, .card-unfold { background: transparent url('../img/fold-ico.png') no-repeat scroll right 6px; display: inline-block; padding-right: 20px; }
+.card-unfold { background: transparent url('../img/foldarrow.png') no-repeat scroll right -6px; display: none; }
+.open .card-unfold { display: inline-block; }
+.open .card-fold { display: none; }
+.answer-sheet-num { margin-top: 15px; display: none; }
+.answer-sheet-num li { float: left; margin-right: 10px; }
+.answer-sheet-num a { position: relative; display: block; color: rgb(220, 228, 236); font-size: 16px; width: 40px; text-align: center; height: 40px; line-height: 40px; }
+.answer-sheet-num a.answering-num, .answer-sheet-num a:hover { display: block; background: rgb(89, 181, 156) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+.answer-sheet-num .mark-spot::after { content: ""; position: absolute; right: 3px; top: 3px; background: rgb(170, 170, 170) none repeat scroll 0% 0%; width: 4px; height: 4px; border-radius: 50%; }
+.answer-sheet-num .answer-done.mark-spot::after { background: rgb(26, 188, 156) none repeat scroll 0% 0%; }
+.answer-sheet-num .answering-num.mark-spot::after, .answer-sheet-num .mark-spot:hover::after { background: rgb(255, 255, 255) none repeat scroll 0% 0%; }
+.open .answer-sheet-num { display: block; }
+.nowcoder-topic { background: rgb(255, 255, 255) none repeat scroll 0% 0%; }
+.result-subject-item::after { content: ""; display: block; clear: both; }
+/* ::::: https://static.nowcoder.com/nc/plugin/1.0.14/release/highlighter/style/shCoreDefault.css ::::: */
+
+/* ::::: https://static.nowcoder.com/nowcoder/1.2.1124/stylesheets/common/channel/default.css ::::: */
+
+.nowcoder-header { background: rgb(61, 68, 76) none repeat scroll 0% 0%; position: fixed; width: 100%; z-index: 101; left: 0px; margin-bottom: 30px; }
+.header-main { width: 960px; margin: 0px auto; }
+.nowcoder-logo { background: transparent url('../img/logo-v3.png') no-repeat scroll 0% 0% / 147px 42px; display: block; width: 147px; height: 42px; float: left; margin: 6px 5px 0px 0px; }
+.ico-nav-new { position: absolute; right: 5px; top: 8px; width: 9px; height: 12px; background: transparent url('../img/ico-new.png') no-repeat scroll 0% 0%; }
+.nowcoder-navbar { float: left; }
+.nowcoder-other-nav { float: right; }
+.nowcoder-other-nav li { position: relative; }
+.nowcoder-other-nav > li::after { content: "|"; position: absolute; right: 0px; top: 16px; color: rgb(138, 150, 167); }
+.nowcoder-other-nav .profile-item::after { display: none; }
+.nowcoder-other-nav .profile-item:hover::after { display: block; content: ""; bottom: -1px; right: 24px; border-width: 6px; border-style: solid; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; border-color: transparent transparent rgb(255, 255, 255); }
+.nowcoder-other-nav [class^="icon-"]::before { margin-right: 5px; vertical-align: middle; }
+.nowcoder-other-nav .icon-mobile-phone::before { font-size: 20px; }
+.nowcoder-navbar li { float: left; text-align: center; height: 54px; position: relative; }
+.nowcoder-navbar a { color: rgb(204, 204, 204); font-size: 16px; display: block; line-height: 53px; padding: 0px 15px; }
+.nowcoder-navbar .active a, .nowcoder-navbar a:hover { color: rgb(255, 255, 255); text-decoration: none; }
+.nowcoder-navbar li.active, .nowcoder-navbar li:hover { background-color: rgb(49, 54, 61); }
+.nowcoder-navbar .nav-profile { position: relative; z-index: 2; }
+.nowcoder-navbar .nav-profile .img-box { display: inline-block; width: 36px; height: 36px; overflow: hidden; vertical-align: middle; border-radius: 22px; }
+.nowcoder-navbar .nav-profile img { width: 36px; display: block; }
+.nav-msg-num { display: block; position: absolute; background: rgb(232, 74, 74) none repeat scroll 0% 0%; color: rgb(255, 255, 255); border-radius: 50px; line-height: 14px; min-height: 16px; outline: medium none; padding: 0px 4px; font-size: 12px; text-align: center; left: 20px; top: 8px; }
+.nowcoder-navbar li:hover .sub-nav { display: block; }
+.nowcoder-navbar .sub-nav { display: none; position: absolute; top: 54px; left: 0px; border-top: 1px solid rgb(39, 43, 49); }
+.nowcoder-navbar .sub-nav li { height: auto; border: medium none; width: 100%; background: rgb(49, 54, 61) none repeat scroll 0% 0%; }
+.nowcoder-navbar .sub-nav a { line-height: 36px; color: rgb(204, 204, 204); white-space: nowrap; }
+.nowcoder-navbar .sub-nav a:hover { color: rgb(255, 255, 255); }
+.nowcoder-other-nav a { font-size: 14px; }
+.nowcoder-navbar .nav-search { height: auto; margin-right: 5px; position: relative; }
+.nav-search .nav-search-txt { width: 180px; height: 25px; padding: 0px 5px; line-height: 25px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: medium none; border-radius: 0px; transition: background-color 0.4s ease 0s; }
+.newnav-search-wrap { position: absolute; z-index: 1000; left: 32px; top: 0px; background: rgb(49, 54, 61) none repeat scroll 0% 0%; height: 34px; padding: 10px 10px 10px 0px; display: none; }
+.newnav-search-wrap .nav-search-txt, .newnav-search.onfocus .nav-search-txt { background: transparent none repeat scroll 0px 0px; color: rgb(255, 255, 255); line-height: 32px; height: 32px; width: 180px; transition: background-color 0s ease 0s; }
+.newnav-search-cont { margin-left: -22px; padding-left: 18px; padding-right: 15px; border-bottom: 1px solid rgb(0, 188, 155); }
+.newnav-search-cont .icon-search-colse { padding: 0px; position: absolute; right: 15px; top: 20px; width: 9px; height: 9px; background: transparent url('../img/icon-search-colse.png') no-repeat scroll 0% 0%; }
+.profile-item:hover { cursor: pointer; }
+.profile-item:hover .profile-hover-wrapper { display: block; }
+.profile-hover-wrapper { display: none; position: absolute; right: 0px; top: 54px; font-size: 14px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; width: 260px; padding: 10px; box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2); border-radius: 4px; border: 1px solid rgb(238, 238, 238); }
+.profile-hover-info { text-align: left; border-bottom: 1px solid rgb(232, 234, 237); padding-bottom: 10px; }
+.profile-hover-name { display: inline-block; white-space: nowrap; overflow: hidden; vertical-align: middle; text-overflow: ellipsis; max-width: 10em; }
+.profile-hover-wrapper .profile-hover-btn, .profile-hover-wrapper .profile-hover-btn:hover { display: inline-block; border: 1px solid rgb(37, 187, 155); padding: 4px 5px; font-size: 12px; float: right; border-radius: 4px; color: rgb(37, 187, 155); line-height: 1; }
+.item-profile-box { margin-right: -10px; text-align: left; padding: 10px 0px; }
+.profile-hover-wrapper .item-profile { display: inline-block; vertical-align: top; width: 76px; height: 50px; padding: 13px 0px; color: rgb(111, 111, 111); line-height: 1; text-align: center; margin: 0px 10px 0px 0px; }
+.profile-hover-wrapper .item-profile:hover { background: rgb(245, 245, 245) none repeat scroll 0% 0%; border-radius: 4px; color: rgb(111, 111, 111); }
+.hover-item-ico { background: transparent url('../img/icon-person.png') no-repeat scroll 0% 0%; width: 24px; height: 22px; margin: 0px auto 10px; display: block; }
+.hover-item-ico1 { background-position: 0px 0px; }
+.hover-item-ico2 { background-position: -24px 0px; }
+.hover-item-ico3 { background-position: -48px 0px; }
+.hover-item-ico4 { background-position: -73px 0px; }
+.hover-item-ico5 { background-position: -98px 0px; }
+.hover-item-ico6 { background-position: -123px 0px; }
+.hover-accout-wrapper { border-top: 1px solid rgb(232, 234, 237); }
+.hover-accout-wrapper a { color: rgb(138, 150, 167); display: inline-block; width: 45%; padding: 15px 2% 10px; line-height: 1; }
+.hover-accout-wrapper a:hover { color: rgb(37, 187, 155); }
+.hover-accout-icon, .hover-accout-logout { display: inline-block; vertical-align: middle; width: 16px; height: 16px; margin-bottom: 0px; margin-right: 10px; background-position: -153px 0px; }
+.hover-accout-wrapper a:hover .hover-accout-icon { background-position: -195px 0px; }
+.hover-accout-logout { background-position: -174px 0px; }
+.hover-accout-wrapper a:hover .hover-accout-logout { background-position: -216px 0px; }

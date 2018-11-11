@@ -1,204 +1,432 @@
-<%@ page language="java" pageEncoding="UTF-8" isELIgnored="false" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%> -->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-	<head>
-		<!--<base href="<%=basePath%>">-->
-		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>jQuery在线答题考试系统下载 </title>
-		<link media="all" href="../../static/css/answer/index_1.css" type="text/css" rel="stylesheet">
-	</head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="google-site-verification" content="lFSmn0rlLR-OPkas5c2GxdhTKP4J4PyaahhQ2TNanjs">
+    <meta itemprop="image" content="https://static.nowcoder.com/images/logo_87_87.png">
+    <meta name="description" content="怎样更改一个文件的权限设置？,Linux专项练习,牛客网是IT求职神器,提供海量IT笔试题库,全面提升编程能力">
+    <meta name="keywords" content="Linux专项练习,IT笔试,牛客网">
+    <title>牛客网</title>
 
-	<body onload="start();" onunload="alert('The onunload event was triggered');">
-		<div class="main">
-			<!--nr start-->
-			<div class="test_main">
-				<div class="nr_left">
-					<div class="test">
-						<form action="/index" method="post">
-							<div class="test_title">
-								<font><input name="test_jiaojuan" value="交卷" type="button"></font>
-							</div>
 
-							<div class="test_content">
-								<div class="test_content_title">
-									<h2>单选题</h2>
-									<p>
-										<span>共</span><i class="content_lit">10</i><span>题，</span><span>合计</span><i class="content_fs">10</i><span>分</span>
-									</p>
-								</div>
-							</div>
-							<div class="test_content_nr">
-								<ul>
+    <script charset="utf-8" async="" src="../../static/answer/js/dangxuan.js"></script>
+    <script charset="utf-8" async="" src="../../static/answer/js/questionutil.js"></script>
+    <script charset="utf-8" async="" src="../../static/answer/js/highlighter.js"></script>
+    <link media="all" href="../../static/answer/css/index.css" type="text/css" rel="stylesheet">
+</head>
+<body onload="start();">
 
-									<li id="qu_0_0">
-										<div class="test_content_nr_tt">
-											<i>1</i><span>(1分)</span>
-											<font>在生产管理信息系统中，下列操作步骤能正确将工单推进流程的是（ ）</font><b class="icon iconfont"></b>
-										</div>
+<div class="nk-container     ">
+    <div class="nowcoder-header">
+        <div class="header-main clearfix">
+            <a class="nowcoder-logo" href="/home" title="牛客网"></a>
+            <ul class="nowcoder-navbar">
+                <li class="active">
+                    <a href="/home">首页</a>
+                </li>
+                <li>
+                    <a href="#">题库</a>
+                    <ul class="sub-nav">
+                        <li><a href="#">顺序练习</a></li>
+                        <li><a href="#">随机练习</a></li>
+                        <li><a href="#">章节练习</a></li>
+                        <li><a href="#">专项练习</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">学习</a>
+                    <ul class="sub-nav">
+                        <li><a href="#">课程</a></li>
+                        <li><a href="#">项目实战</a></li>
+                        <li><a href="#">技术栈</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="ico-nav-new"></span>
+                    <a href="#">求职</a>
+                </li>
+                <li>
+                    <a href="#">讨论区</a>
+                </li>
+                <li>
+                    <a href="#" target="_top">发现</a>
+                    <ul class="sub-nav">
+                        <li><a href="#" target="_top">竞赛</a></li>
+                        <li><a href="#">Offer神器</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">牛币兑换中心</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nowcoder-navbar nowcoder-other-nav">
+                <li class="nav-search">
+                    <a href="javascript:void(0);" class="icon-search js-search-btn">搜索</a>
+                    <div class="newnav-search-wrap">
+                        <div class="newnav-search-cont">
+                            <form method="get" action="/#">
+                                <input class="nav-search-txt" name="query" autocomplete="off" value="" type="text">
+                                <input name="type" value="all" type="hidden">
+                                <input class="nk-invisible" type="submit">
+                                <a href="javascript:void(0);" class="icon-search-colse js-close-search-btn"></a>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="icon-mobile-phone">APP</a>
+                </li>
+                <c:choose>
+                    <c:when test="${user!=null}">
+                        <li class="nav-msg">
+                            <a class="icon-envelope"
+                               href="#"
+                               data-unread-conv="">
+                                <span class="nav-msg-num">0</span>消息</a>
+                        </li>
+                        <li class="profile-item">
+                            <a href="/personal" class="nav-profile">
+                                <div class="img-box"><img
+                                        src="${imgstr}">
+                                </div>
+                            </a>
+                            <div class="profile-hover-wrapper">
+                                <div class="profile-hover-info">
+                            <span>
+                                 <span class="profile-hover-name">${username}</span>
+                             </span>
+                                    <a href="/personal" class="profile-hover-btn">个人主页</a>
+                                </div>
+                                <div class="item-profile-box">
+                                    <a href="#" class="item-profile">
+                                        <i class="hover-item-ico hover-item-ico1"></i>
+                                        我的简历
+                                    </a>
+                                    <a href="#" class="item-profile">
+                                        <i class="hover-item-ico hover-item-ico2"></i>
+                                        刷题
+                                    </a>
+                                    <a href="#" class="item-profile">
+                                        <i class="hover-item-ico hover-item-ico3"></i>
+                                        课程
+                                    </a>
+                                    <a href="#" class="item-profile">
+                                        <i class="hover-item-ico hover-item-ico4"></i>
+                                        项目
+                                    </a>
+                                    <a href="#" class="item-profile">
+                                        <i class="hover-item-ico hover-item-ico5"></i>
+                                        笔记
+                                    </a>
+                                    <a href="#" class="item-profile">
+                                        <i class="hover-item-ico hover-item-ico6"></i>
+                                        收藏
+                                    </a>
+                                </div>
+                                <div class="hover-accout-wrapper">
+                                    <a href="/personal"><i
+                                            class="hover-item-ico hover-accout-icon"></i>个人信息</a>
+                                    <a href="/User/exit" class="nc-logout"><i
+                                            class="hover-item-ico hover-accout-logout"></i>退出登录</a>
+                                </div>
+                            </div>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="/login">登陆</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
+        </div>
+    </div>
+    <div class="nk-main  clearfix">
+        <div class="module-box subject-box">
+            <div class="nowcoder-topic">
+                <div class="subject-progress">
+                    <div class="progress">
+                        <div style="width: 10%;" class="progress-bar"></div>
+                    </div>
+                    <span class="progress-nums">1/10</span>
+                    <a href="javascript:void(0);" class="progress-time" title="暂停">
+                        <%--<i class="ico-time-control"></i>--%>
+                        <span data-left="2592000" data-time="0" class="time-text"
+                                                              style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="subject-title">[单选题]</div>
+                <div class="subject-main">
+                    <div class="subject-content">
+                        <div class="subject-question">
+                            怎样更改一个文件的权限设置？
+                        </div>
+                        <a href="javascript:void(0);" class="subject-options" data-id="69554">
+                            <label class="radio" id="jsCpn_2_checkbox_0">
+                                <span class="icons"></span>
+                                <input data-toggle="radio" value="69554" type="radio">
+                                <pre>chmod</pre>
+                            </label>
+                        </a>
+                        <a href="javascript:void(0);" class="subject-options" data-id="69555">
+                            <label class="radio" id="jsCpn_3_checkbox_1">
+                                <span class="icons"></span>
+                                <input data-toggle="radio" value="69555" type="radio">
+                                <pre>file</pre>
+                            </label>
+                        </a>
+                        <a href="javascript:void(0);" class="subject-options" data-id="69556">
+                            <label class="radio" id="jsCpn_4_checkbox_2">
+                                <span class="icons"></span>
+                                <input data-toggle="radio" value="69556" type="radio">
+                                <pre>attrib</pre>
+                            </label>
+                        </a>
+                        <a href="javascript:void(0);" class="subject-options" data-id="69557">
+                            <label class="radio" id="jsCpn_5_checkbox_3">
+                                <span class="icons"></span>
+                                <input data-toggle="radio" value="69557" type="radio">
+                                <pre>change</pre>
+                            </label>
+                        </a>
+                    </div>
+                    <div class="subject-action clearfix">
+                        <div class="subject-opr">
+                            <span class="subject-opr-item"><i class="ico-collect"></i><a href="javascript:void(0);"
+                                                                                         class="js-follow nc-req-auth"
+                                                                                         data-id="53096">收藏本题</a></span>
+                            <span class="subject-opr-item"><i class="ico-mark"></i><a href="javascript:void(0);"
+                                                                                      class="js-mark nc-req-auth"
+                                                                                      data-id="53096"
+                                                                                      data-tid="19951551"
+                                                                                      data-title="标记该题，着重查看。"
+                                                                                      data-tips-index="2">标记一下</a></span>
+                            <span class="subject-opr-item"><i class="ico-shield"></i><a href="javascript:void(0);"
+                                                                                        class="js-shield nc-req-auth"
+                                                                                        data-id="53096"
+                                                                                        data-title="屏蔽该题，该题将不会出现在以后的组卷中。"
+                                                                                        data-tips-index="1">屏蔽本题</a></span>
+                        </div>
+                        <div class="subject-next">
+                            <form id="submitForm" method="post"
+                                  action="https://www.nowcoder.com/question/next?pid=13625559&amp;qid=53096&amp;tid=19951551">
+                                <input name="content" id="answer" type="hidden">
+                                <input id="aheadFinish" name="button" class="btn warning-btn" value="提前交卷"
+                                       type="submit">
+                                <input id="next" name="button" class="btn btn-primary" value="下一题" type="submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- 展开的时候加class:open -->
+                <div class="answer-sheet-box open">
+                    <a href="javascript:void(0)" class="card-unfold">收起答题卡</a>
+                    <a href="javascript:void(0)" class="card-fold">展开答题卡</a>
+                    <ul class="answer-sheet-num clearfix">
+                        <li><a href="javascript:void(0);" class="answering-num " data-qid="53096">1</a></li>
+                        <li><a href="javascript:void(0);" class="" data-qid="55688">2</a></li>
+                        <li><a href="javascript:void(0);" class="" data-qid="57362">3</a></li>
+                        <li><a href="javascript:void(0);" class="" data-qid="55444">4</a></li>
+                        <li><a href="javascript:void(0);" class="" data-qid="36221">5</a></li>
+                        <li><a href="javascript:void(0);" class="" data-qid="25177">6</a></li>
+                        <li><a href="javascript:void(0);" class="" data-qid="7270">7</a></li>
+                        <li><a href="javascript:void(0);" class="" data-qid="56275">8</a></li>
+                        <li><a href="javascript:void(0);" class="" data-qid="36467">9</a></li>
+                        <li><a href="javascript:void(0);" class="" data-qid="55450">10</a></li>
+                    </ul>
+                </div>
 
-										<div class="test_content_nr_main">
-											<ul>
+                <script src="../../static/answer/js/sea.js" type="text/javascript"></script>
 
-												<li class="option">
+                <script src="../../static/answer/js/nc.cpn.js" type="text/javascript"></script>
+                <script src="../../static/answer/js/pc.js" type="text/javascript"></script>
+                <script src="../../static/answer/js/base.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                    seajs.use('nowcoder/1.2.1124/javascripts/site/common/index');
+                    seajs.use('nowcoder/1.2.1124/javascripts/site/common/nav');
+                </script>
 
-													<input class="radioOrCheck" name="answer1" id="0_answer_1_option_1" checked="checked" type="radio">
+                <script>
+                    (function (window, undefined) {
+                        seajs.use('nowcoder/1.2.1124/javascripts/site/question/dangxuan.js');
+                    })(window);
+                </script>
+            </div>
+            <input id="jsQuestionInfo" data-pid="13625559" data-tid="19951551" data-qid="53096" data-total="10"
+                   data-left="10" type="hidden">
+        </div>
+        <div class="fixed-menu">
+            <ul>
+                <li>
+                    <a href="javascript:void(0);" class="gotop js-nav-go-top" title="回到顶部"></a>
+                </li>
+                <li>
+                    <a class="fixed-wb" target="_top" href="http://www.weibo.com/nowcoder"></a>
+                </li>
+                <li>
+                    <a href="tencent://groupwpa/?subcmd=all&amp;param=7B2267726F757055696E223A3135373539343730352C2274696D655374616D70223A313431333130373737387D0A"
+                       class="qq" title="QQ"></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="wx"></a>
+                    <div class="wx-qrcode">
+                        <img src="../../static/answer/img/wx-rcode.jpg" alt="二维码">
+                        <p>扫描二维码，关注牛客网</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://www.nowcoder.com/discuss/30" class="feedback" title="意见反馈"></a>
+                    <a href="https://www.nowcoder.com/discuss/30" class="feedback-letter">意见反馈</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="qrcode"></a>
+                    <div class="wx-qrcode">
+                        <img src="../../static/answer/img/app.png" alt="二维码">
+                        <p>下载牛客APP，随时随地刷题</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="phone-qrcode" style="display: none;">
+                <a href="javascript:void(0);" class="qrcode-close">x</a>
+                <img src="../../static/answer/img/app.png" alt="二维码" style="width: 70px; height: 70px;">
+                <p>扫一扫下载牛客APP</p>
+            </div>
+        </div>
+        <div class="ft-wrap">
+            <div class="ft-cont clearfix">
+                <div class="ft-app">
+                    <div class="ft-qrcode-box">
+                        <img src="../../static/answer/img/app_download.png">
+                    </div>
+                    <p>扫一扫，把题目装进口袋</p>
+                </div>
+                <dl class="ft-web-info">
+                    <dt class="ft-web-name">牛客网，程序员必备求职神器</dt>
+                    <dd>
+                        <a href="javascript:void(0);" class="ft-qq-ico">
+                            <div class="tooltip top">
+                                <div class="tooltip-arrow"></div>
+                                <div class="tooltip-inner">
+                                    <img src="../../static/answer/other/59_1534321710941_41a541f87ae349e1d829b1b0b95c955d"
+                                         width="110">
+                                    <p>扫描二维码，进入QQ群</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="ft-wx-ico">
+                            <div class="tooltip top">
+                                <div class="tooltip-arrow"></div>
+                                <div class="tooltip-inner">
+                                    <img src="../../static/answer/other/59_1534321725995_22162f7114ac793718cc28f7f3f8b789"
+                                         width="110">
+                                    <p>扫描二维码，关注牛客网公众号</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://weibo.com/nowcoder" class="ft-wb-ico" target="_top"></a>
+                        <a href="https://www.zhihu.com/org/niu-ke-wang-53/activities" class="ft-zh-ico"
+                           target="_top"></a>
+                        <a href="https://www.jianshu.com/u/6b440373157d" class="ft-jian-ico" target="_top"></a>
+                    </dd>
+                </dl>
+                <div class="ft-main">
+                    <ul class="ft-links">
+                        <li><a href="https://www.nowcoder.com/html/aboutus">关于我们</a></li>
+                        <li><a href="https://www.nowcoder.com/nowcoder/recruitment">加入我们</a></li>
+                        <li><a href="https://www.nowcoder.com/discuss/30">意见反馈</a></li>
+                        <li><a href="https://hr.nowcoder.com/">企业服务</a></li>
+                        <li><a href="https://www.nowcoder.com/html/cooperation">联系我们</a></li>
+                        <li><a href="https://www.nowcoder.com/html/disclaimer">免责声明</a></li>
+                        <li><a href="https://www.nowcoder.com/html/links">友情链接</a></li>
+                    </ul>
+                    <ul class="webrights">
+                        <li>公司地址：北京市朝阳区大屯路东金泉时代3-808北京牛客科技有限公司</li>
+                        <li>联系方式：010-60728802(电话) <span class="contact-email">admin@nowcoder.com</span></li>
+                        <li>牛客科技©2018 All rights reserved</li>
+                        <li>京ICP备14055008号-4</li>
+                        <li>
+<span style="color: rgb(169, 184, 202);">
+<img src="../../static/answer/img/ghs.png" style="width: 18px; height: 18px;">
+<a style="font-size: 12px;" class="ft-info-item" target="_top"
+   href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
+</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ad-window-sm js-global-tips" style="display: none;">
+            <a href="javascript:void(0);" class="ad-close">X</a>
+            <div class="ad-live-active"></div>
+            <a class="link-green js-global-tips-href" target="_top"
+               href="https://www.nowcoder.com/test/question/14c4cdcb25c4425cb0fdc42774241069?pid=13625559&amp;tid=19951551">点击查看&gt;&gt;</a>
+        </div>
 
-													<label for="0_answer_1_option_1">
-                                                A.
-                                                <p class="ue" style="display: inline;">在工具栏中点击“workflow”标签</p>
-                                            </label>
-												</li>
+    </div>
+    <script>
+        window.selected = {"content": ""};
+        window.isIntelligentPaper = true;
+        window.canPauseTime = true;
+        window.isContest = false;
+        window.leaveCount = 0;
+        // 问题信息
+        window.questionInfo = {
+            pid: '13625559',
+            tid: '19951551',
+            qid: '53096',
+            total: '10',
+            left: '10',
+            type: '1'
+        };
+    </script>
 
-												<li class="option">
 
-													<input class="radioOrCheck" name="answer1" id="0_answer_1_option_2" type="radio">
+</div>
+<div id="jsCpn_1_component_0" style="display: none;">
+    <div id="jsCpn_0_component_0" class="  btn-group" style="display: block; min-width: 297px;">
+        <ul class="dropdown-menu js-menu"
+            style="position: static; float: none; border-bottom: 0px none; overflow-x: hidden;"></ul>
+        <div style="padding: 20px 0px; text-align: center; font-size: 14px; display: none; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(212, 212, 212);"
+             class="js-none">没有结果
+        </div>
+    </div>
+</div>
 
-													<label for="0_answer_1_option_2">
-                                                B.
-                                                <p class="ue" style="display: inline;">在缺陷单界面中点击“推进流程”按钮</p>
-                                            </label>
-												</li>
+<%--定时器--%>
+<script>
+    var hour, minute, second; //时 分 秒
+    hour = minute = second = 0; //初始化
+    var millisecond = 0; //毫秒
+    var int;
 
-												<li class="option">
+    function start() //开始
+    {
+        int = setInterval(timer, 50);
+    }
 
-													<input class="radioOrCheck" name="answer1" id="0_answer_1_option_3" type="radio">
+    function timer() //计时
+    {
+        millisecond = millisecond + 50;
+        if (millisecond >= 1000) {
+            millisecond = 0;
+            second = second + 1;
+        }
+        if (second >= 60) {
+            second = 0;
+            minute = minute + 1;
+        }
 
-													<label for="0_answer_1_option_3">
-                                                C.
-                                                <p class="ue" style="display: inline;">在缺陷单界面中点击“提交”按钮</p>
-                                            </label>
-												</li>
-
-												<li class="option">
-
-													<input class="radioOrCheck" name="answer1" id="0_answer_1_option_4" type="radio">
-
-													<label for="0_answer_1_option_4">
-                                                D.
-                                                <p class="ue" style="display: inline;">后台启动流程推进</p>
-                                            </label>
-												</li>
-
-											</ul>
-										</div>
-									</li>
-
-								</ul>
-							</div>
-
-						</form>
-					</div>
-
-				</div>
-				<div class="nr_right">
-					<div class="nr_rt_main">
-						<div class="rt_nr1">
-							<div class="rt_nr1_title">
-								<h1>
-                            <i class="icon iconfont"></i>答题卡
-                        </h1>
-								<P class="test_time">
-									<input type="text" id="timetext" value="00时00分00秒" style="border: none; width: 100px;" readonly><br>
-								</P>
-							</div>
-
-							<div class="rt_content">
-								<div class="rt_content_tt">
-									<h2>单选题</h2>
-									<p>
-										<span>共</span><i class="content_lit">10</i><span>题</span>
-									</p>
-								</div>
-								<div class="rt_content_nr answerSheet">
-									<ul>
-										<li>
-											<a href="#qu_0_0" class="hasBeenAnswer">1</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!--nr end-->
-			<div class="foot"></div>
-		</div>
-
-		<script src="../../static/js/answer/jquery-1.11.3.min.js"></script>
-		<script src="../../static/js/answer/jquery.easy-pie-chart.js"></script>
-		<!--时间js-->
-		<script src="../../static/js/answer/jquery.countdown.js"></script>
-		<script>
-			window.jQuery(function($) {
-				"use strict";
-
-				$('time').countDown({
-					with_separators: false
-				});
-				$('.alt-1').countDown({
-					css_class: 'countdown-alt-1'
-				});
-				$('.alt-2').countDown({
-					css_class: 'countdown-alt-2'
-				});
-
-			});
-
-			$(function() {
-				$('li.option label').click(function() {
-					debugger;
-					var examId = $(this).closest('.test_content_nr_main').closest('li').attr('id'); // 得到题目ID
-					var cardLi = $('a[href=#' + examId + ']'); // 根据题目ID找到对应答题卡
-					// 设置已答题
-					if(!cardLi.hasClass('hasBeenAnswer')) {
-						cardLi.addClass('hasBeenAnswer');
-					}
-
-				});
-			});
-		</script>
-
-		<script>
-			var hour, minute, second; //时 分 秒
-			hour = minute = second = 0; //初始化
-			var millisecond = 0; //毫秒
-			var int;
-
-			function start() //开始
-			{
-				int = setInterval(timer, 50);
-			}
-
-			function timer() //计时
-			{
-				millisecond = millisecond + 50;
-				if(millisecond >= 1000) {
-					millisecond = 0;
-					second = second + 1;
-				}
-				if(second >= 60) {
-					second = 0;
-					minute = minute + 1;
-				}
-
-				if(minute >= 60) {
-					minute = 0;
-					hour = hour + 1;
-				}
-				document.getElementById('timetext').value = '0' + hour + '时' + minute + '分' + second + '秒';
-
-			}
-		</script>
-
-	</body>
-
+        if (minute >= 60) {
+            minute = 0;
+            hour = hour + 1;
+        }
+        $(".time-text").html(hour + ':' + minute + ':' + second);
+    }
+</script>
+</body>
 </html>
