@@ -558,8 +558,6 @@
             <div class="pop-content pop-diff clearfix">
                 <div id="jsCpn_27_component_1">
                     <div>
-
-
                         <div class="choise-items js-choise-source" id="selectType">
                             <%--<span class="item-label">出题来源：</span>--%>
                             <%--<label class="checkbox" id="jsCpn_34_checkbox_21">--%>
@@ -576,23 +574,29 @@
                         </div>
 
                         <div class="choise-items js-choise-count" style=""><span class="item-label">选择单次题目数量：</span>
-                            <label class="radio" id="jsCpn_30_checkbox_17">
-                                <span class="icons"></span><input name="topicNum" type="radio" value="5">5题
+                            <label class="radio radioNum" id="radioNum1" onclick="radioCheckedAndNoCheck('radioNum1', 'radioNum')">
+                                <span class="icons"></span>
+                                <input class="radioNum radioNum1" type="radio" name="topicNum" value="5">5题
                             </label>
-                            <label class="radio checked" id="jsCpn_31_checkbox_18"><span class="icons"></span>
-                                <input type="radio" name="topicNum" value="10" checked="checked">10题</label>
-                            <label class="radio" id="jsCpn_32_checkbox_19"><span class="icons"></span>
-                                <input type="radio" name="topicNum" value="20">20题</label>
+                            <label class="radio radioNum checked" id="radioNum2" onclick="radioCheckedAndNoCheck('radioNum2', 'radioNum')">
+                                <span class="icons"></span>
+                                <input class="radioNum radioNum2" type="radio" name="topicNum" value="10" checked="checked">10题</label>
+
+                            <label class="radio radioNum" id="radioNum3" onclick="radioCheckedAndNoCheck('radioNum3', 'radioNum')">
+                                <span class="icons"></span>
+                                <input class="radioNum radioNum3" type="radio" name="topicNum" value="20">20题</label>
                         </div>
                         <div class="choise-items js-choise-count" style=""><span class="item-label">选择单次题目数量：</span>
-                            <label class="radio">
+                            <label class="radio radioType" id="radioType1" onclick="radioCheckedAndNoCheck('radioType1', 'radioType')">
                                 <span class="icons"></span>
-                                <input type="radio" name="topicType" value="random">随机练习
+                                <input class="radioType radioType1" type="radio" name="topicType" value="random">随机练习
                             </label>
-                            <label class="radio checked"><span class="icons"></span>
-                                <input type="radio" name="topicType" value="specialItem" checked="checked">专项练习</label>
-                            <label class="radio"><span class="icons"></span>
-                                <input type="radio" name="topicType" value="wrongQuestion">错题练习</label>
+                            <label class="radio radioType checked" id="radioType2" onclick="radioCheckedAndNoCheck('radioType2', 'radioType')">
+                                <span class="icons"></span>
+                                <input class="radioType radioType2" type="radio" name="topicType" value="specialItem" checked="checked">专项练习</label>
+                            <label class="radio radioType" id="radioType3" onclick="radioCheckedAndNoCheck('radioType3', 'radioType')">
+                                <span class="icons"></span>
+                                <input class="radioType radioType3" type="radio" name="topicType" value="wrongQuestion">错题练习</label>
                         </div>
                     </div>
                 </div>

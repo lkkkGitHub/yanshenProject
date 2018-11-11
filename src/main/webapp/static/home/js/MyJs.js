@@ -123,7 +123,7 @@ $(document).on('click', ".nc-js-make-paper", function () {
     }
 });
 
-//点击选中或者取消选中
+//复选框checkbox 点击选中或者取消选中
 function checkedAndNoCheck(classifyId) {
     var classCheckbox = "checkbox" + classifyId;
     //鼠标点击一次触发两次的解决方法
@@ -137,5 +137,24 @@ function checkedAndNoCheck(classifyId) {
     } else {
         check.classList.add("checked");
         $('.'+classCheckbox).attr('checked', true);
+    }
+}
+
+//单选框radio 点击选中或者取消选中
+function radioCheckedAndNoCheck(name, type) {
+    event.preventDefault();
+    var check = document.getElementById(name);
+    var checkout = document.getElementsByClassName(type);
+
+    for (var i = 0; i < checkout.length; i++) {
+        checkout[i].classList.remove("checked");
+        $('.'+type).attr('checked', false);
+    }
+    if (check.className.indexOf("checked")>-1) {
+        check.classList.remove("checked");
+        $('.'+name).attr('checked', false);
+    } else {
+        check.classList.add("checked");
+        $('.'+name).attr('checked', true);
     }
 }

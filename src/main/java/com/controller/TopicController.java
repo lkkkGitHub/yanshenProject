@@ -56,6 +56,6 @@ public class TopicController {
         LinkedList<TbTopic> list = topicServiceImpl.getTopicToExercise(topicNum, topicType,
                 userDidTopicUtil.getMap() ,classifyIds , user.getUid());
 
-        return "";
+        return "answer";
     }
 }
