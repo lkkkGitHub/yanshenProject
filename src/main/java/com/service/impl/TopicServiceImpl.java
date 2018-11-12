@@ -69,7 +69,7 @@ public class TopicServiceImpl implements TopicService {
     /**
      * 判断集合中题目的数量以及需求题目数量的大小
      *
-     * @param size 集合数量
+     * @param size     集合数量
      * @param topicNum 需求题目总数量
      * @return
      */
@@ -135,7 +135,9 @@ public class TopicServiceImpl implements TopicService {
                 }
                 int critical = judgeTopicSize(didtopicList.size(), classifyIds.length, topicNum);
                 for (int j = 0; j < critical; j++) {
-                    list.add(tbTopicDao.selectTopicByTopicId(didtopicList.get(j).getTopicId()));
+                    if (didtopicList.get(j).getError() == 0) {
+                        list.add(tbTopicDao.selectTopicByTopicId(didtopicList.get(j).getTopicId()));
+                    }
                 }
             }
             ifBigRemove(list, topicNum);

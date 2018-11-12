@@ -151,27 +151,27 @@
         <!--主体内容-->
         <div class="nk-content">
             <div class="module-box home-items">
-                <a class="real-exercise" href="#">
+                <a class="real-exercise nc-js-make-paper" href="#">
                     <i></i>
                     <h2 class="new-items-txt">专项练习</h2>
                 </a>
-                <a class="devote-exercise" href="#">
+                <a class="devote-exercise nc-js-make-paper" href="#">
                     <i></i>
                     <h2 class="new-items-txt">随机练习</h2>
                 </a>
-                <a class="wrong-exercise" href="#">
+                <a class="wrong-exercise nc-js-make-paper" href="#">
                     <i></i>
                     <h2 class="new-items-txt">章节练习</h2>
                 </a>
-                <a class="subject-exercise" href="#">
+                <a class="subject-exercise nc-js-make-paper" href="#">
                     <i></i>
                     <h2 class="new-items-txt">顺序练习</h2>
                 </a>
-                <a class="check-discuss" href="#">
+                <a class="check-discuss nc-js-make-paper" href="#">
                     <i></i>
                     <h2 class="new-items-txt">错题练习</h2>
                 </a>
-                <a class="items-collect" href="#">
+                <a class="items-collect nc-js-make-paper" href="#">
                     <i></i>
                     <h2 class="new-items-txt">我的收藏</h2>
                 </a>

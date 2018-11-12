@@ -12,8 +12,20 @@ public class TbTopic {
     private Integer topicId;
     private String topicComment;
     private Integer classifyId;
+    /**
+     * 用于临时保存用户选中的选项id，便于在屏幕上显示
+     */
+    private Integer optionId;
 
     private List<TbOption> optionList;
+
+    public Integer getOptionId() {
+        return optionId;
+    }
+
+    public void setOptionId(Integer optionId) {
+        this.optionId = optionId;
+    }
 
     public List<TbOption> getOptionList() {
         return optionList;
@@ -49,13 +61,5 @@ public class TbTopic {
         this.classifyId = classifyId;
     }
 
-    @Override
-    public String toString() {
-        return "TbTopic{" +
-                "topicId=" + topicId +
-                ", topicComment='" + topicComment + '\'' +
-                ", classifyId=" + classifyId +
-                ", optionList=" + optionList +
-                '}';
-    }
+
 }

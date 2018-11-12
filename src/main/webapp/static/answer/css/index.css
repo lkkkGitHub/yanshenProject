@@ -798,7 +798,9 @@ button, input[type="button"], input[type="submit"] { cursor: pointer; }
 /* ::::: https://static.nowcoder.com/nc/plugin/1.0.14/release/highlighter/style/shCoreDefault.css ::::: */
 
 /* ::::: https://static.nowcoder.com/nowcoder/1.2.1124/stylesheets/common/channel/default.css ::::: */
-
+.answer-sheet-num a.answer-done {
+	color: #59b59c;
+}
 .nowcoder-header { background: rgb(61, 68, 76) none repeat scroll 0% 0%; position: fixed; width: 100%; z-index: 101; left: 0px; margin-bottom: 30px; }
 .header-main { width: 960px; margin: 0px auto; }
 .nowcoder-logo { background: transparent url('../img/logo-v3.png') no-repeat scroll 0% 0% / 147px 42px; display: block; width: 147px; height: 42px; float: left; margin: 6px 5px 0px 0px; }

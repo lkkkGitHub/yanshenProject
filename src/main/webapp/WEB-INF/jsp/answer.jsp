@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,9 +19,11 @@
     <script charset="utf-8" async="" src="../../static/answer/js/dangxuan.js"></script>
     <script charset="utf-8" async="" src="../../static/answer/js/questionutil.js"></script>
     <script charset="utf-8" async="" src="../../static/answer/js/highlighter.js"></script>
+    <script charset="utf-8" async="" src="../../static/answer/js/answerJs.js"></script>
+    <script charset="utf-8" async="" src="../../static/js/jquery-1.8.3.min.js"></script>
     <link media="all" href="../../static/answer/css/index.css" type="text/css" rel="stylesheet">
 </head>
-<body onload="start();">
+<body onload="start();intiTopicInfo(1, -1, -1);">
 
 <div class="nk-container     ">
     <div class="nowcoder-header">
@@ -153,7 +156,7 @@
                     <div class="progress">
                         <div style="width: 10%;" class="progress-bar"></div>
                     </div>
-                    <span class="progress-nums">1/10</span>
+                    <span class="progress-nums">3/10</span>
                     <a href="javascript:void(0);" class="progress-time" title="暂停">
                         <%--<i class="ico-time-control"></i>--%>
                         <span data-left="2592000" data-time="0" class="time-text"
@@ -163,37 +166,37 @@
                 <div class="subject-title">[单选题]</div>
                 <div class="subject-main">
                     <div class="subject-content">
-                        <div class="subject-question">
-                            怎样更改一个文件的权限设置？
-                        </div>
-                        <a href="javascript:void(0);" class="subject-options" data-id="69554">
-                            <label class="radio" id="jsCpn_2_checkbox_0">
-                                <span class="icons"></span>
-                                <input data-toggle="radio" value="69554" type="radio">
-                                <pre>chmod</pre>
-                            </label>
-                        </a>
-                        <a href="javascript:void(0);" class="subject-options" data-id="69555">
-                            <label class="radio" id="jsCpn_3_checkbox_1">
-                                <span class="icons"></span>
-                                <input data-toggle="radio" value="69555" type="radio">
-                                <pre>file</pre>
-                            </label>
-                        </a>
-                        <a href="javascript:void(0);" class="subject-options" data-id="69556">
-                            <label class="radio" id="jsCpn_4_checkbox_2">
-                                <span class="icons"></span>
-                                <input data-toggle="radio" value="69556" type="radio">
-                                <pre>attrib</pre>
-                            </label>
-                        </a>
-                        <a href="javascript:void(0);" class="subject-options" data-id="69557">
-                            <label class="radio" id="jsCpn_5_checkbox_3">
-                                <span class="icons"></span>
-                                <input data-toggle="radio" value="69557" type="radio">
-                                <pre>change</pre>
-                            </label>
-                        </a>
+                        <%--<div class="subject-question">--%>
+                            <%--怎样更改一个文件的权限设置？--%>
+                        <%--</div>--%>
+                        <%--<a href="javascript:void(0);" class="subject-options selected" id="" data-id="69554">--%>
+                            <%--<label class="radio checked" id="option0">--%>
+                                <%--<span class="icons"></span>--%>
+                                <%--<input data-toggle="radio" value="69554" type="radio">--%>
+                                <%--<pre>chmod</pre>--%>
+                            <%--</label>--%>
+                        <%--</a>--%>
+                        <%--<a href="javascript:void(0);" class="subject-options" data-id="69555">--%>
+                            <%--<label class="radio" id="option1">--%>
+                                <%--<span class="icons"></span>--%>
+                                <%--<input data-toggle="radio" value="69555" type="radio">--%>
+                                <%--<pre>file</pre>--%>
+                            <%--</label>--%>
+                        <%--</a>--%>
+                        <%--<a href="javascript:void(0);" class="subject-options" data-id="69556">--%>
+                            <%--<label class="radio" id="option2">--%>
+                                <%--<span class="icons"></span>--%>
+                                <%--<input data-toggle="radio" value="69556" type="radio">--%>
+                                <%--<pre>attrib</pre>--%>
+                            <%--</label>--%>
+                        <%--</a>--%>
+                        <%--<a href="javascript:void(0);" class="subject-options" data-id="69557">--%>
+                            <%--<label class="radio" id="option3">--%>
+                                <%--<span class="icons"></span>--%>
+                                <%--<input data-toggle="radio" value="69557" type="radio">--%>
+                                <%--<pre>change</pre>--%>
+                            <%--</label>--%>
+                        <%--</a>--%>
                     </div>
                     <div class="subject-action clearfix">
                         <div class="subject-opr">
@@ -213,31 +216,49 @@
                                                                                         data-tips-index="1">屏蔽本题</a></span>
                         </div>
                         <div class="subject-next">
-                            <form id="submitForm" method="post"
-                                  action="https://www.nowcoder.com/question/next?pid=13625559&amp;qid=53096&amp;tid=19951551">
-                                <input name="content" id="answer" type="hidden">
-                                <input id="aheadFinish" name="button" class="btn warning-btn" value="提前交卷"
-                                       type="submit">
-                                <input id="next" name="button" class="btn btn-primary" value="下一题" type="submit">
-                            </form>
+                            <%--<form id="submitForm" method="post"--%>
+                                  <%--action="https://www.nowcoder.com/question/next?pid=13625559&amp;qid=53096&amp;tid=19951551">--%>
+                                <%--<input name="content" id="answer" type="hidden">--%>
+                                <%--<input id="aheadFinish" name="button" class="btn warning-btn" value="提前交卷"--%>
+                                       <%--type="submit">--%>
+                                <%--<input id="next" name="button" class="btn btn-primary" value="下一题" type="submit">--%>
+                            <%--</form>--%>
+                            <input id="aheadFinish" name="button" class="btn warning-btn" value="交卷" onclick="">
+                            <input id="next" name="button" class="btn btn-primary" value="下一题" onclick="">
                         </div>
                     </div>
                 </div>
                 <!-- 展开的时候加class:open -->
                 <div class="answer-sheet-box open">
-                    <a href="javascript:void(0)" class="card-unfold">收起答题卡</a>
+                    <a href="javascript:void(0)" class="card-unfold">答题卡</a>
                     <a href="javascript:void(0)" class="card-fold">展开答题卡</a>
                     <ul class="answer-sheet-num clearfix">
-                        <li><a href="javascript:void(0);" class="answering-num " data-qid="53096">1</a></li>
-                        <li><a href="javascript:void(0);" class="" data-qid="55688">2</a></li>
-                        <li><a href="javascript:void(0);" class="" data-qid="57362">3</a></li>
-                        <li><a href="javascript:void(0);" class="" data-qid="55444">4</a></li>
-                        <li><a href="javascript:void(0);" class="" data-qid="36221">5</a></li>
-                        <li><a href="javascript:void(0);" class="" data-qid="25177">6</a></li>
-                        <li><a href="javascript:void(0);" class="" data-qid="7270">7</a></li>
-                        <li><a href="javascript:void(0);" class="" data-qid="56275">8</a></li>
-                        <li><a href="javascript:void(0);" class="" data-qid="36467">9</a></li>
-                        <li><a href="javascript:void(0);" class="" data-qid="55450">10</a></li>
+                        <%--<li><a href="javascript:void(0);" class="answering-num " data-qid="53096">1</a></li>--%>
+                        <%--<li><a href="javascript:void(0);" class="answer-done " data-qid="55688">2</a></li>--%>
+                        <%--<li><a href="javascript:void(0);" class="answer-done" data-qid="57362">3</a></li>--%>
+                        <%--<li><a href="javascript:void(0);" class="answer-done" data-qid="55444">4</a></li>--%>
+                        <%--<li><a href="javascript:void(0);" class="" data-qid="36221">5</a></li>--%>
+                        <%--<li><a href="javascript:void(0);" class="" data-qid="25177">6</a></li>--%>
+                        <%--<li><a href="javascript:void(0);" class="" data-qid="7270">7</a></li>--%>
+                        <%--<li><a href="javascript:void(0);" class="" data-qid="56275">8</a></li>--%>
+                        <%--<li><a href="javascript:void(0);" class="" data-qid="36467">9</a></li>--%>
+                        <%--<li><a href="javascript:void(0);" class="" data-qid="55450">10</a></li>--%>
+                        <c:forEach var="topic" items="${sessionScope.topicList}" varStatus="status">
+                            <c:choose>
+                                <c:when test="${topic.optionId != null}">
+                                    <li><a href="javascript:void(0);" class="answer-done" onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
+                                           id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
+                                </c:when>
+                                <c:when test="${status.index + 1 == 1}">
+                                    <li><a href="javascript:void(0);" class="answering-num" onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
+                                           id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li><a href="javascript:void(0);" class="" onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
+                                           id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
                     </ul>
                 </div>
 
