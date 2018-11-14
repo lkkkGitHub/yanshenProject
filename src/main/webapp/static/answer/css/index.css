@@ -796,7 +796,6 @@ button, input[type="button"], input[type="submit"] { cursor: pointer; }
 .nowcoder-topic { background: rgb(255, 255, 255) none repeat scroll 0% 0%; }
 .result-subject-item::after { content: ""; display: block; clear: both; }
 /* ::::: https://static.nowcoder.com/nc/plugin/1.0.14/release/highlighter/style/shCoreDefault.css ::::: */
-
 /* ::::: https://static.nowcoder.com/nowcoder/1.2.1124/stylesheets/common/channel/default.css ::::: */
 .answer-sheet-num a.answer-done {
 	color: #59b59c;

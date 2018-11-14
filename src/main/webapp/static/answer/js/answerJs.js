@@ -76,9 +76,13 @@ function answeringNum(sequenceNext, topicNum) {
     } else {
         topicIndex.classList.add("answer-done");
     }
-    // alert("sequenceNext" + sequenceNext);
-    // alert("sequenceNext" + optionId);
     document.getElementById("topicIndex" + sequenceNext).classList.add("answering-num");
+    //更换做题的导航栏，做过多少个地题目了，总数是多少等
+    var didTopics = document.getElementsByClassName("answer-done");
+    var didTopicNum = didTopics.length + 1;
+    var didTopicPercentage = didTopicNum / topicNum * 100 + "%";
+    $(".progress-nums").html(didTopicNum+"/"+topicNum);
+    // $(".progress-bar").attr(width, didTopicPercentage);
     //传入当前题目顺序号，以及题目的选择
     intiTopicInfo(sequence, sequenceNext, optionId);
 }

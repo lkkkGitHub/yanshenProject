@@ -32,7 +32,6 @@
     <!--auto generated Code-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.didTopicId">
         INSERT INTO tb_didtopic (
-            `didTopicId`,
             `topicId`,
             `userId`,
             `error`,
@@ -69,11 +68,13 @@
     <!--auto generated Code-->
     <insert id="insertList">
         INSERT INTO tb_didtopic (
-        <include refid="all_column"/>
+        `topicId`,
+        `userId`,
+        `error`,
+        `errorOptionId`
         )VALUES
-        <foreach collection="pojos" item="pojo" index="index" separator=",">
+        <foreach collection="tbDidtopicList" item="pojo" index="index" separator=",">
             (
-            #{pojo.didTopicId},
             #{pojo.topicId},
             #{pojo.userId},
             #{pojo.error},

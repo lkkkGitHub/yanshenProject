@@ -87,7 +87,7 @@ public class TopicController {
                                       int sequenceNext, int optionId) {
         List<TbTopic> topicList = (ArrayList<TbTopic>) session.getAttribute("topicList");
         if (optionId != -1) {
-            if (topicList.get(sequence).getOptionId() != optionId) {
+            if (topicList.get(sequence).getOptionId() == null || topicList.get(sequence).getOptionId() != optionId) {
                 topicList.get(sequence).setOptionId(optionId);
                 session.setAttribute("topicList", topicList);
             }

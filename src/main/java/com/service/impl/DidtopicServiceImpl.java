@@ -3,12 +3,16 @@ package com.service.impl;
 import com.dao.TbDidtopicDao;
 import com.pojo.TbClassify;
 import com.pojo.TbDidtopic;
+import com.pojo.TbOption;
+import com.pojo.TbTopic;
 import com.service.ClassifyService;
 import com.service.DidtopicService;
 import com.tools.pojoexpansion.UserDidTopicUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.listener.Topic;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,5 +78,32 @@ public class DidtopicServiceImpl implements DidtopicService {
         userDidTopicUtil.setMapErrorTopic(mapErrorTopic);
         userDidTopicUtil.setMapDidTopicByClassify(mapDidTopicByClassify);
         return userDidTopicUtil;
+    }
+
+    @Override
+    public List<TbDidtopic> commitTopic(List<TbTopic> topicList, String uid) {
+        List<TbDidtopic> didtopicList = new ArrayList<>(topicList.size());
+        TbDidtopic tbDidtopic = new TbDidtopic();
+        for (TbTopic topic : topicList) {
+            List<TbOption> optionList = topic.getOptionList();
+            tbDidtopic.setTopicId(topic.getTopicId());
+            tbDidtopic.setUserId(uid);
+            for (TbOption option : optionList) {
+                if (option.getCorrect() == 1) {
+                    if (option.getOptionId().equals(topic.getOptionId())) {
+                        didtopicList.add(tbDidtopic);
+                    } else {
+                        tbDidtopic.setError(0);
+                        tbDidtopic.setErrorOptionId(topic.getOptionId());
+                        didtopicList.add(tbDidtopic);
+                    }
+                }
+            }
+        }
+        int i = didtopicDao.insertList(didtopicList);
+        if (i == topicList.size()) {
+            return didtopicList;
+        }
+        return null;
     }
 }

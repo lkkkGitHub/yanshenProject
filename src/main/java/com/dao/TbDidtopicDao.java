@@ -19,4 +19,11 @@ public interface TbDidtopicDao {
      * @return 返回所有用户的做过题目信息
      */
     List<TbDidtopic> findDidTopicByUserIdAndClassifyId(String userId, Integer classifyId);
+
+    /**
+     * 插入用户的做题信息
+     * @param tbDidtopicList 做题的具体信息
+     * @return 影响的行数
+     */
+    int insertList(List<TbDidtopic> tbDidtopicList);
 }
