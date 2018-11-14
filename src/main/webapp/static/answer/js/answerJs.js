@@ -4,7 +4,7 @@ function intiTopicInfo(sequence, sequenceNext, optionId) {
     $.ajax({
         url: "/topic/getTopicPagination",
         type: "get",
-        async: true,
+        async: false,
         //(默认: true) 默认设置下，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。注意，
         // 同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。
         contentType: "application/x-www-form-urlencoded",
@@ -17,25 +17,31 @@ function intiTopicInfo(sequence, sequenceNext, optionId) {
         success: function (data) {
             var str = "";
             str += "<div class=\"subject-question\">\n" +
-                "                            "+data.topicId+"   "+data.topicComment+"\n"+
+                "                            " + data.topicId + "   " + data.topicComment + "\n" +
                 "                        </div>";
             for (var i = 0; i < data.optionList.length; i++) {
-                str += "<a href=\"javascript:void(0);\" class=\"option subject-options\" onclick=\"checkedAndNoChecked("+i+")\" id=\"optionA" + i + "\" data-id=\"69554\">";
-                str += "<label class=\"option radio\" id=\"option"+i+"\">";
+                str += "<a href=\"javascript:void(0);\" class=\"option subject-options\" onclick=\"checkedAndNoChecked(" + i + ")\" id=\"optionA" + i + "\" data-id=\"69554\">";
+                str += "<label class=\"option radio\" id=\"option" + i + "\">";
                 str += "<span class=\"icons\"></span>";
-                str += "<input data-toggle=\"radio\" name=\"option\" class=\"option\" value=\""+data.optionList[i].optionId+"\" id=\"optionInput" + i + "\" type=\"radio\">";
-                str += "<pre>"+data.optionList[i].optionId+"   "+data.optionList[i].optionComment+"</pre></label></a>";
-                if (data.optionId != null) {
-                    checkedAndNoChecked(i);
-                }
+                str += "<input data-toggle=\"radio\" name=\"option\" class=\"option\" value=\"" + data.optionList[i].optionId + "\" id=\"optionInput" + i + "\" type=\"radio\">";
+                str += "<pre>" + data.optionList[i].optionId + "   " + data.optionList[i].optionComment + "</pre></label></a>";
             }
             $(".subject-content").html(str);
+            if (data.optionId != null) {
+                for (var i = 0; i < data.optionList.length; i++) {
+                    if (data.optionId == data.optionList[i].optionId) {
+                        checkedAndNoChecked(i);
+                        break;
+                    }
+                }
+            }
         }
     });
 }
 
 //单选框的选中
 function checkedAndNoChecked(id) {
+    event.preventDefault();
     var chackA = document.getElementById("optionA" + id);
     var chack = document.getElementById("option" + id);
     var nocheckedAll = document.getElementsByClassName("option");
@@ -56,16 +62,23 @@ function answeringNum(sequenceNext, topicNum) {
     var sequence = null;
     //当前作答的题目选项id
     var optionId = $("input[name='option']:checked").val();
-    if (optionId == null) {
-        optionId = -1;
-    }
     //获取当前的题目顺序号
     for (var i = 0; i < topicNum; i++) {
         if ($('#topicIndex' + i).is('.answering-num')) {
             sequence = i;
+            break;
         }
     }
-    alert(optionId);
+    var topicIndex = document.getElementById("topicIndex" + sequence);
+    topicIndex.classList.remove("answering-num");
+    if (optionId == null) {
+        optionId = -1;
+    } else {
+        topicIndex.classList.add("answer-done");
+    }
+    // alert("sequenceNext" + sequenceNext);
+    // alert("sequenceNext" + optionId);
+    document.getElementById("topicIndex" + sequenceNext).classList.add("answering-num");
     //传入当前题目顺序号，以及题目的选择
     intiTopicInfo(sequence, sequenceNext, optionId);
 }
