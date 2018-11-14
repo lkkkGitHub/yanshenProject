@@ -23,7 +23,7 @@
     <script charset="utf-8" async="" src="../../static/js/jquery-1.8.3.min.js"></script>
     <link media="all" href="../../static/answer/css/index.css" type="text/css" rel="stylesheet">
 </head>
-<body onload="start();intiTopicInfo(1, -1, -1);">
+<body onload="start();intiTopicInfo(0, -1, -1);">
 
 <div class="nk-container     ">
     <div class="nowcoder-header">

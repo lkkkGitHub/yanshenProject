@@ -17,21 +17,24 @@ function intiTopicInfo(sequence, sequenceNext, optionId) {
         success: function (data) {
             var str = "";
             str += "<div class=\"subject-question\">\n" +
-                "                            "+data.topicId+"   "+data.topicComment+"\n"+
+                "                            " + data.topicId + "   " + data.topicComment + "\n" +
                 "                        </div>";
             for (var i = 0; i < data.optionList.length; i++) {
-                str += "<a href=\"javascript:void(0);\" class=\"option subject-options\" onclick=\"checkedAndNoChecked("+i+")\" id=\"optionA" + i + "\" data-id=\"69554\">";
-                str += "<label class=\"option radio\" id=\"option"+i+"\">";
+                str += "<a href=\"javascript:void(0);\" class=\"option subject-options\" onclick=\"checkedAndNoChecked(" + i + ")\" id=\"optionA" + i + "\" data-id=\"69554\">";
+                str += "<label class=\"option radio\" id=\"option" + i + "\">";
                 str += "<span class=\"icons\"></span>";
-                str += "<input data-toggle=\"radio\" name=\"option\" class=\"option\" value=\""+data.optionList[i].optionId+"\" id=\"optionInput" + i + "\" type=\"radio\">";
-                str += "<pre>"+data.optionList[i].optionId+"   "+data.optionList[i].optionComment+"</pre></label></a>";
-                if (data.optionId != null) {
+                str += "<input data-toggle=\"radio\" name=\"option\" class=\"option\" value=\"" + data.optionList[i].optionId + "\" id=\"optionInput" + i + "\" type=\"radio\">";
+                str += "<pre>" + data.optionList[i].optionId + "   " + data.optionList[i].optionComment + "</pre></label></a>";
+            }
+            $(".subject-content").html(str);
+            if (data.optionId != null) {
+                for (var i = 0; i < data.optionList.length; i++) {
                     if (data.optionId == data.optionList[i].optionId) {
                         checkedAndNoChecked(i);
+                        break;
                     }
                 }
             }
-            $(".subject-content").html(str);
         }
     });
 }
@@ -49,7 +52,7 @@ function checkedAndNoChecked(id) {
     }
     chackA.classList.add("selected");
     chack.classList.add("checked");
-    $('#optionInput'+id).attr('checked', true);
+    $('#optionInput' + id).attr('checked', true);
 }
 
 //下导航条的题目num刷新   以及想去的下一题序号
@@ -66,7 +69,7 @@ function answeringNum(sequenceNext, topicNum) {
             break;
         }
     }
-    var topicIndex = document.getElementById("topicIndex"+sequence);
+    var topicIndex = document.getElementById("topicIndex" + sequence);
     topicIndex.classList.remove("answering-num");
     if (optionId == null) {
         optionId = -1;
@@ -75,7 +78,7 @@ function answeringNum(sequenceNext, topicNum) {
     }
     // alert("sequenceNext" + sequenceNext);
     // alert("sequenceNext" + optionId);
-    document.getElementById("topicIndex"+sequenceNext).classList.add("answering-num");
+    document.getElementById("topicIndex" + sequenceNext).classList.add("answering-num");
     //传入当前题目顺序号，以及题目的选择
     intiTopicInfo(sequence, sequenceNext, optionId);
 }
