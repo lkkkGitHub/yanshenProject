@@ -7,7 +7,7 @@ public class TbDidtopic {
     private Integer topicId;
     private String userId;
     /**
-     * 0 表示错题，1 表示正确
+     * 1 表示错题， 0 表示正确
      */
     private Integer error;
     private Integer errorOptionId;

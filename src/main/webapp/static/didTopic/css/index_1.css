@@ -1,0 +1,7 @@
+html { margin: 0px; padding: 0px; }
+body { margin: 0px; padding: 5px; }
+body, td { font-size: 14px; line-height: 20px; }
+body, p, div { overflow-wrap: break-word; }
+body { font-size: 14px; background-color: transparent; font-family: arial,STHeiti,"Microsoft YaHei"; line-height: 1.8; }
+body > :last-child { margin-bottom: 0px ! important; }
+table tr:nth-child(2n) { background-color: rgb(246, 248, 250); }
