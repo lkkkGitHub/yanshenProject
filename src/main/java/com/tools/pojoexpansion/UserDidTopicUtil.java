@@ -21,11 +21,11 @@ public class UserDidTopicUtil {
     /**
      * 记录每个类型的题目错题数
      */
-    private Map<Integer, Double> mapErrorTopic;
+    private Map<Integer, Integer> mapErrorTopic;
     /**
      * 记录每个类型用户的正确率
      */
-    private Map<Integer, Double> mapCorrectRate;
+    private Map<Integer, Long> mapCorrectRate;
 
     /**
      * 记录每个类型的作题数量
@@ -39,11 +39,11 @@ public class UserDidTopicUtil {
     /**
      * 用户全部做错的题目数量
      */
-    private Double errorDidTopicNum;
+    private Integer errorDidTopicNum;
     /**
      * 正确率
      */
-    private Double correctRate;
+    private Long correctRate;
 
     public Integer getDidTopicNum() {
         return didTopicNum;
@@ -53,24 +53,24 @@ public class UserDidTopicUtil {
         this.didTopicNum = didTopicNum;
     }
 
-    public Double getErrorDidTopicNum() {
+    public Integer getErrorDidTopicNum() {
         return errorDidTopicNum;
     }
 
-    public void setErrorDidTopicNum(Double errorDidTopicNum) {
+    public void setErrorDidTopicNum(Integer errorDidTopicNum) {
         this.errorDidTopicNum = errorDidTopicNum;
         setCorrectRate();
     }
 
-    public Double getCorrectRate() {
+    public Long getCorrectRate() {
         return correctRate;
     }
 
     private void setCorrectRate() {
         if (errorDidTopicNum == 0) {
-            correctRate = 0d;
+            correctRate = 0L;
         } else {
-            correctRate = ((didTopicNum - errorDidTopicNum) / didTopicNum) * 100;
+            correctRate = Math.round((Double.valueOf(didTopicNum - errorDidTopicNum) / didTopicNum) * 100);
         }
     }
 
@@ -82,19 +82,19 @@ public class UserDidTopicUtil {
         this.map = map;
     }
 
-    public Map<Integer, Double> getMapErrorTopic() {
+    public Map<Integer, Integer> getMapErrorTopic() {
         return mapErrorTopic;
     }
 
-    public void setMapErrorTopic(Map<Integer, Double> mapErrorTopic) {
+    public void setMapErrorTopic(Map<Integer, Integer> mapErrorTopic) {
         this.mapErrorTopic = mapErrorTopic;
     }
 
-    public Map<Integer, Double> getMapCorrectRate() {
+    public Map<Integer, Long> getMapCorrectRate() {
         return mapCorrectRate;
     }
 
-    public void setMapCorrectRate(Map<Integer, Double> mapCorrectRate) {
+    public void setMapCorrectRate(Map<Integer, Long> mapCorrectRate) {
         this.mapCorrectRate = mapCorrectRate;
     }
 

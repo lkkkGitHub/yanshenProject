@@ -4,6 +4,7 @@ import com.pojo.TbTopic;
 import com.tools.pojoexpansion.UserDidTopicUtil;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import com.pojo.TbDidtopic;
 import com.dao.TbDidtopicDao;

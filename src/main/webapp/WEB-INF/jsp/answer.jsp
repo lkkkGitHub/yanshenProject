@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-
+    <meta content="0" http-equiv="expires">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="google-site-verification" content="lFSmn0rlLR-OPkas5c2GxdhTKP4J4PyaahhQ2TNanjs">
@@ -21,6 +21,12 @@
     <script charset="utf-8" async="" src="../../static/answer/js/highlighter.js"></script>
     <script charset="utf-8" async="" src="../../static/answer/js/answerJs.js"></script>
     <link media="all" href="../../static/answer/css/index.css" type="text/css" rel="stylesheet">
+    <%--确认离开--%>
+    <%--<script type="text/javascript">--%>
+        <%--window.onbeforeunload = function () {--%>
+            <%--return "123";--%>
+        <%--};--%>
+    <%--</script>--%>
 </head>
 <body onload="start();intiTopicInfo(0, -1, -1);">
 
@@ -159,42 +165,42 @@
                     <a href="javascript:void(0);" class="progress-time" title="暂停">
                         <%--<i class="ico-time-control"></i>--%>
                         <span data-left="2592000" data-time="0" class="time-text"
-                                                              style="font-size: 20px;"></span>
+                              style="font-size: 20px;"></span>
                     </a>
                 </div>
                 <div class="subject-title">[单选题]</div>
                 <div class="subject-main">
                     <div class="subject-content">
                         <%--<div class="subject-question">--%>
-                            <%--怎样更改一个文件的权限设置？--%>
+                        <%--怎样更改一个文件的权限设置？--%>
                         <%--</div>--%>
                         <%--<a href="javascript:void(0);" class="subject-options selected" id="" data-id="69554">--%>
-                            <%--<label class="radio checked" id="option0">--%>
-                                <%--<span class="icons"></span>--%>
-                                <%--<input data-toggle="radio" value="69554" type="radio">--%>
-                                <%--<pre>chmod</pre>--%>
-                            <%--</label>--%>
+                        <%--<label class="radio checked" id="option0">--%>
+                        <%--<span class="icons"></span>--%>
+                        <%--<input data-toggle="radio" value="69554" type="radio">--%>
+                        <%--<pre>chmod</pre>--%>
+                        <%--</label>--%>
                         <%--</a>--%>
                         <%--<a href="javascript:void(0);" class="subject-options" data-id="69555">--%>
-                            <%--<label class="radio" id="option1">--%>
-                                <%--<span class="icons"></span>--%>
-                                <%--<input data-toggle="radio" value="69555" type="radio">--%>
-                                <%--<pre>file</pre>--%>
-                            <%--</label>--%>
+                        <%--<label class="radio" id="option1">--%>
+                        <%--<span class="icons"></span>--%>
+                        <%--<input data-toggle="radio" value="69555" type="radio">--%>
+                        <%--<pre>file</pre>--%>
+                        <%--</label>--%>
                         <%--</a>--%>
                         <%--<a href="javascript:void(0);" class="subject-options" data-id="69556">--%>
-                            <%--<label class="radio" id="option2">--%>
-                                <%--<span class="icons"></span>--%>
-                                <%--<input data-toggle="radio" value="69556" type="radio">--%>
-                                <%--<pre>attrib</pre>--%>
-                            <%--</label>--%>
+                        <%--<label class="radio" id="option2">--%>
+                        <%--<span class="icons"></span>--%>
+                        <%--<input data-toggle="radio" value="69556" type="radio">--%>
+                        <%--<pre>attrib</pre>--%>
+                        <%--</label>--%>
                         <%--</a>--%>
                         <%--<a href="javascript:void(0);" class="subject-options" data-id="69557">--%>
-                            <%--<label class="radio" id="option3">--%>
-                                <%--<span class="icons"></span>--%>
-                                <%--<input data-toggle="radio" value="69557" type="radio">--%>
-                                <%--<pre>change</pre>--%>
-                            <%--</label>--%>
+                        <%--<label class="radio" id="option3">--%>
+                        <%--<span class="icons"></span>--%>
+                        <%--<input data-toggle="radio" value="69557" type="radio">--%>
+                        <%--<pre>change</pre>--%>
+                        <%--</label>--%>
                         <%--</a>--%>
                     </div>
                     <div class="subject-action clearfix">
@@ -216,11 +222,11 @@
                         </div>
                         <div class="subject-next">
                             <%--<form id="submitForm" method="post"--%>
-                                  <%--action="https://www.nowcoder.com/question/next?pid=13625559&amp;qid=53096&amp;tid=19951551">--%>
-                                <%--<input name="content" id="answer" type="hidden">--%>
-                                <%--<input id="aheadFinish" name="button" class="btn warning-btn" value="提前交卷"--%>
-                                       <%--type="submit">--%>
-                                <%--<input id="next" name="button" class="btn btn-primary" value="下一题" type="submit">--%>
+                            <%--action="https://www.nowcoder.com/question/next?pid=13625559&amp;qid=53096&amp;tid=19951551">--%>
+                            <%--<input name="content" id="answer" type="hidden">--%>
+                            <%--<input id="aheadFinish" name="button" class="btn warning-btn" value="提前交卷"--%>
+                            <%--type="submit">--%>
+                            <%--<input id="next" name="button" class="btn btn-primary" value="下一题" type="submit">--%>
                             <%--</form>--%>
                             <input id="aheadFinish" name="button" class="btn warning-btn" value="交卷" onclick="">
                             <%--<input id="next" name="button" class="btn btn-primary" value="下一题" onclick="">--%>
@@ -245,15 +251,18 @@
                         <c:forEach var="topic" items="${sessionScope.topicList}" varStatus="status">
                             <c:choose>
                                 <c:when test="${topic.optionId != null}">
-                                    <li><a href="javascript:void(0);" class="answer-done" onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
+                                    <li><a href="javascript:void(0);" class="answer-done"
+                                           onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
                                            id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
                                 </c:when>
                                 <c:when test="${status.index + 1 == 1}">
-                                    <li><a href="javascript:void(0);" class="answering-num" onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
+                                    <li><a href="javascript:void(0);" class="answering-num"
+                                           onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
                                            id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li><a href="javascript:void(0);" class="" onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
+                                    <li><a href="javascript:void(0);" class=""
+                                           onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
                                            id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
                                 </c:otherwise>
                             </c:choose>

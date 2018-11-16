@@ -47,21 +47,27 @@ public class DidTopicController {
         return userDidTopicUtil;
     }
 
-
     /**
      * 提交答卷
+     *
      * @param session 获取缓存中的答题题目信息
-     * @return 成功即返回true，失败返回false
+     * @return 成功即返回到答案解析页面
      */
-    @ResponseBody
     @RequestMapping("/commitAnswer")
-    public boolean commitAnswer(HttpSession session) {
+    public String commitAnswer(HttpSession session) {
         List<TbTopic> topicList = (ArrayList<TbTopic>) session.getAttribute("topicList");
-        List<TbDidtopic> didtopicList = tbDidtopicServiceImpl.commitTopic(topicList, ((TbUser) session.getAttribute("user")).getUid());
-        if (didtopicList.size() == topicList.size()) {
-            return true;
+        List<TbDidtopic> didTopicList = tbDidtopicServiceImpl.commitTopic(topicList,
+                ((TbUser) session.getAttribute("user")).getUid());
+        if (didTopicList != null) {
+            if (didTopicList.size() == topicList.size()) {
+                UserDidTopicUtil userDidTopicUtil = tbDidtopicServiceImpl
+                        .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
+                session.setAttribute("UserDidTopicUtil" ,userDidTopicUtil);
+                session.setAttribute("didTopicList", didTopicList);
+                return "didTopic";
+            }
         }
-        return false;
+        return null;
     }
 
 }

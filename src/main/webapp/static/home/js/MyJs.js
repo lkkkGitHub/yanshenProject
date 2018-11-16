@@ -61,7 +61,7 @@ function initUserTopicInfo() {
             //初始化导航条
             str = "" + data.didTopicNum + "题";
             $("#didTopic").html(str);
-            str = "" + data.errorDidTopicNum + "题";
+            str = "" + data.didTopicNum-data.errorDidTopicNum + "题";
             $("#errorDidTopic").html(str);
             str = "" + data.correctRate + "%";
             $("#correctRate").html(str);

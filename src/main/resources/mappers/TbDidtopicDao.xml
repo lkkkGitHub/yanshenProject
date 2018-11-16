@@ -73,7 +73,7 @@
         `error`,
         `errorOptionId`
         )VALUES
-        <foreach collection="tbDidtopicList" item="pojo" index="index" separator=",">
+        <foreach collection="list" item="pojo" index="index" separator=",">
             (
             #{pojo.topicId},
             #{pojo.userId},
