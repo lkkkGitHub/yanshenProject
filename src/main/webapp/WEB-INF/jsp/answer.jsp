@@ -159,7 +159,7 @@
             <div class="nowcoder-topic">
                 <div class="subject-progress">
                     <div class="progress">
-                        <div style="width: 20%" class="progress-bar"></div>
+                        <div style="width: 0%" class="progress-bar"></div>
                     </div>
                     <span class="progress-nums">1/10</span>
                     <a href="javascript:void(0);" class="progress-time" title="暂停">
@@ -228,7 +228,7 @@
                             <%--type="submit">--%>
                             <%--<input id="next" name="button" class="btn btn-primary" value="下一题" type="submit">--%>
                             <%--</form>--%>
-                            <input id="aheadFinish" name="button" class="btn warning-btn" value="交卷" onclick="">
+                                <a href="/didTopic/commitAnswer" id="aheadFinish" name="button" class="btn warning-btn">交卷</a>
                             <%--<input id="next" name="button" class="btn btn-primary" value="下一题" onclick="">--%>
                         </div>
                     </div>

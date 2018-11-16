@@ -1,6 +1,11 @@
 //进入页面即触发一次，初始化第一题的题目信息，之传入sequence = 1
 //之后通过点击下一题，或者点击 12345等答题卡按钮触发
-var selId="";
+
+//选中的选中框id
+var SELID = "";
+//题目总数
+var TOPICNUM = "";
+
 function intiTopicInfo(sequence, sequenceNext, optionId) {
     $.ajax({
         url: "/topic/getTopicPagination",
@@ -16,7 +21,7 @@ function intiTopicInfo(sequence, sequenceNext, optionId) {
             optionId: optionId
         },
         success: function (data) {
-            selId = "";
+            SELID = "";
             var str = "";
             str += "<div class=\"subject-question\">\n" +
                 "                            " + data.topicId + "   " + data.topicComment + "\n" +
@@ -55,16 +60,17 @@ function checkedAndNoChecked(id) {
     chackA.classList.add("selected");
     chack.classList.add("checked");
     $('#optionInput' + id).attr('checked', true);
-    selId="optionInput"+id;
+    SELID = "optionInput" + id;
 }
 
 //下导航条的题目num刷新   以及想去的下一题序号
 //123456789 。。。 传入想去的下一个题目id,以及题目总数
 function answeringNum(sequenceNext, topicNum) {
+    TOPICNUM = topicNum;
     //当前作答的题目序号 answering-num
     var sequence = null;
     //当前作答的题目选项id
-    var optionId=$("#"+selId).val();
+    var optionId = $("#" + SELID).val();
     //获取当前的题目顺序号
     for (var i = 0; i < topicNum; i++) {
         if ($('#topicIndex' + i).is('.answering-num')) {
@@ -85,16 +91,24 @@ function answeringNum(sequenceNext, topicNum) {
     var didTopicNum = didTopics.length;
     var didTopicPercentage = didTopicNum / topicNum * 100 + "%";
     $(".progress-nums").html(didTopicNum + "/" + topicNum);
-    //$(".progress-bar").attr(width, didTopicPercentage);
+    $(".progress-bar").width(didTopicPercentage);
+    // $(".progress-bar").attr(width, didTopicPercentage);
     //传入当前题目顺序号，以及题目的选择
     intiTopicInfo(sequence, sequenceNext, optionId);
 }
 
 //提交答卷
 $("#aheadFinish").click(function () {
-    $.ajax({
-        url: "/didTopic/commitAnswer",
-        type : "get",
-        async: false,
-    });
+    var answer = document.getElementsByClassName("answer-done");
+    var noDid = TOPICNUM - answer.length;
+    if (noDid == 0) {
+        if (confirm("确定要提交答案吗?")) {
+            return true;
+        }
+    } else {
+        if (confirm("还有"+noDid+"题没做完确定要提交答案吗?")) {
+            return true;
+        }
+    }
+    return false;
 });
