@@ -24,17 +24,25 @@ function initUserTopicInfo() {
                 for (i = 6; i < json.length; i++) {
                     id = i + 1;
                     str = "";
-                    str += "<div class=\"statistical-item clearfix js-statistical-item\" data-id=\"636\" style=\"display: none;\">";
-                    str += "<div class=\"s-item-cell s-checkbox\">";
-                    str += "<label class=\"checkbox\" id=\"jsCpn_5_checkbox_3\">";
-                    str += "<span class=\"icons\"></span>";
-                    str += "<input type=\"checkbox\">";
-                    str += " </label></div><div class=\"s-item-cell s-column1\" id=\"column" + id + "\">" + json[i].classifyName + "</div>";
-                    str += "<div class=\"s-item-cell s-column2\"><span id=\"didTopic" + id + "\"></span>/<span id=\"allTopicNum" + id + "\"></span> </div>";
-                    str += "<div class=\"s-item-cell s-column3\"><span id=\"correctRate" + id + "\"></span>%</div><div class=\"s-item-cell s-column4\">";
-                    str += "<form class=\"form-box\" method=\"post\" action=\"https://www.nowcoder.com/makePaper?tagIds=636\">";
-                    str += "<button data-left=\"41\" class=\"btn btn-primary nc-js-make-paper\">开始练习</button></form></div>";
-                    str += "<div class=\"s-item-oprt\"><a class=\"js-del-skill\" href=\"javascript:void(0);\">查看错题</a> </div> </div>";
+                    str += "<div class=\"statistical-item clearfix js-statistical-item\" data-id=\"570\">";
+                    str += "<div onclick=\"checkedAndNoCheck(" + id + ",'classifyClass')\" class=\"s-item-cell s-checkbox\">\n" +
+                        "<label class=\"checkbox\" id=\"classifyClass" + id + "\">\n" +
+                        "<span class=\"icons\"></span>\n" +
+                        "<input type=\"checkbox\" value=\"" + id + "\" name=\"classifyIds\" class=\"classifyClass" + id + "\">\n" +
+                        "</label>\n" +
+                        "</div>";
+                    str += "<div class=\"s-item-cell s-column1\" id=\"column" + id + "\">" + json[i].classifyName + "</div>\n" +
+                        "<div class=\"s-item-cell s-column2\"><span id=\"didTopic" + id + "\"></span>\n" +
+                        "/<span id=\"allTopicNum" + id + "\"></span>\n" +
+                        "</div>";
+                    str += " <div class=\"s-item-cell s-column3\"><span id=\"correctRate" + id + "\"></span>%</div>\n" +
+                        "<div class=\"s-item-cell s-column4\">\n" +
+                        "<button data-left=\"303\" class=\"btn btn-primary nc-js-make-paper\">开始练习</button>\n" +
+                        "</div>\n" +
+                        "<div class=\"s-item-oprt\">\n" +
+                        "<a class=\"js-del-skill\" href=\"javascript:void(0);\">查看错题</a>\n" +
+                        "</div>\n" +
+                        "</div>";
                     $(".statistical-list").append(str);
                 }
             }
@@ -42,11 +50,11 @@ function initUserTopicInfo() {
             str = "";
             str += "<span class=\"item-label\">出题来源：</span>";
             for (i = 0; i < json.length; i++) {
-                str += "<label class=\"checkbox \" onclick=\"checkedAndNoCheck('"+json[i].classifyId+"')\" id=\"checkbox"+json[i].classifyId+"\">";
-                str += "<span class=\"icons\"></span><input class=\"checkbox"+json[i].classifyId+"\" type=\"checkbox\" name=\"classifyIds\" value=\""+json[i].classifyId+"\">"+json[i].classifyName+"</label>";
+                str += "<label class=\"checkbox\" onclick=\"checkedAndNoCheck(" + json[i].classifyId + ",'checkbox')\" id=\"checkbox" + json[i].classifyId + "\">";
+                str += "<span class=\"icons\"></span><input class=\"checkbox" + json[i].classifyId + "\" type=\"checkbox\" name=\"classifyIds\" value=\"" + json[i].classifyId + "\">" + json[i].classifyName + "</label>";
             }
             $("#selectType").html(str);
-
+            checkedAndNoCheck(json[0].classifyId, 'checkbox');
         }
     });
     //初始化做过题目,导航条，每个类型的做题数量，以及每个类型的正确率
@@ -124,8 +132,8 @@ $(document).on('click', ".nc-js-make-paper", function () {
 });
 
 //复选框checkbox 点击选中或者取消选中
-function checkedAndNoCheck(classifyId) {
-    var classCheckbox = "checkbox" + classifyId;
+function checkedAndNoCheck(classifyId, className) {
+    var classCheckbox = className + classifyId;
     //鼠标点击一次触发两次的解决方法
     //阻止冒泡事件
     event.preventDefault();

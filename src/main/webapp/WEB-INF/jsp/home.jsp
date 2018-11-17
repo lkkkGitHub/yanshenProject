@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +19,7 @@
     <script charset="utf-8" async="" src="../../static/home/js/loginedv2.js"></script>
     <script charset="utf-8" async="" src="../../static/home/js/echarts-plain.js"></script>
     <script src="../../static/person/js/jquery-1.8.3.min.js"></script>
-    <script type="application/javascript" src="../../static/home/js/MyJs.js"></script>
+    <script type="application/javascript" src="../../static/home/js/home.js"></script>
     <link media="all" href="../../static/home/css/index.css" type="text/css" rel="stylesheet">
     <link href="../../static/home/css/home.css" type="text/css" rel="stylesheet">
 </head>
@@ -186,176 +187,161 @@
                 <div class="module-head clearfix">
                     <h1>练习情况</h1>
                     <a href="javascript:void(0);" class="icon-drag"></a>
+                    <p style="color:red;">${topicNumZeroMessage}</p>
                 </div>
-                <div class="module-body">
-                    <div class="model-count">
-                        <div class="count-item">
-                            <span>共刷题：</span>
-                            <a href="javascript:void(0);" id="didTopic">1020题</a>
-                        </div>
-                        <div class="count-item">
-                            <span>做对题目：</span>
-                            <a href="javascript:void(0);" id="errorDidTopic">693题</a>
-                        </div>
-                        <div class="count-item">
-                            <span>正确率：</span>
-                            <a href="javascript:void(0);" id="correctRate">56%</a>
-                        </div>
-                        <%--<div class="count-item">--%>
-                        <%--<span>排名：</span>--%>
-                        <%--<!-- 切换相应class出现3种不同效果count-rank-up、count-rank、count-rank-down -->--%>
-                        <%--<a chref="javascript:void(0);">3376</a>--%>
-                        <%--</div>--%>
-                    </div>
-                    <div class="statistical-list">
-                        <div class="statistical-item statistical-item-head clearfix">
-                            <div class="s-item-cell s-checkbox"></div>
-                            <div class="s-item-cell s-column1">知识点</div>
-                            <div class="s-item-cell s-column2">做题数/题目总数</div>
-                            <div class="s-item-cell s-column3">正确率</div>
-                        </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="570">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_4_checkbox_2">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
+                <form action="/topic/getTopicToExercise" method="post">
+                    <div class="module-body">
+                        <div class="model-count">
+                            <div class="count-item">
+                                <span>共刷题：</span>
+                                <a href="javascript:void(0);" id="didTopic">1020题</a>
                             </div>
-                            <div class="s-item-cell s-column1" id="column1">Java</div>
-                            <div class="s-item-cell s-column2"><span id="didTopic1"></span>
-                                /<span id="allTopicNum1"></span>
+                            <div class="count-item">
+                                <span>做对题目：</span>
+                                <a href="javascript:void(0);" id="errorDidTopic">693题</a>
                             </div>
-                            <div class="s-item-cell s-column3"><span id="correctRate1"></span>%</div>
-                            <div class="s-item-cell s-column4">
-                                <%--<form class="form-box" method="post"--%>
-                                <%--action="#">--%>
-                                <button data-left="303" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                <%--</form>--%>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
+                            <div class="count-item">
+                                <span>正确率：</span>
+                                <a href="javascript:void(0);" id="correctRate">56%</a>
                             </div>
                         </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="636">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_5_checkbox_3">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
+                        <div class="statistical-list">
+                            <div class="statistical-item statistical-item-head clearfix">
+                                <div class="s-item-cell s-checkbox"></div>
+                                <div class="s-item-cell s-column1">知识点</div>
+                                <div class="s-item-cell s-column2">做题数/题目总数</div>
+                                <div class="s-item-cell s-column3">正确率</div>
                             </div>
-                            <div class="s-item-cell s-column1" id="column2">C++</div>
-                            <div class="s-item-cell s-column2"><span id="didTopic2"></span>
-                                /<span id="allTopicNum2"></span>
+                            <div class="statistical-item clearfix js-statistical-item" data-id="570">
+                                <div class="s-item-cell s-checkbox" onclick="checkedAndNoCheck(1,'classifyClass')">
+                                    <label class="checkbox" id="classifyClass1">
+                                        <span class="icons"></span>
+                                        <input type="checkbox" value="1" name="classifyIds" class="classifyClass1">
+                                    </label>
+                                </div>
+                                <div class="s-item-cell s-column1" id="column1">Java</div>
+                                <div class="s-item-cell s-column2"><span id="didTopic1"></span>
+                                    /<span id="allTopicNum1"></span>
+                                </div>
+                                <div class="s-item-cell s-column3"><span id="correctRate1"></span>%</div>
+                                <div class="s-item-cell s-column4">
+                                    <button data-left="303" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                </div>
+                                <div class="s-item-oprt">
+                                    <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
+                                </div>
                             </div>
-                            <div class="s-item-cell s-column3"><span id="correctRate2"></span>%</div>
-                            <div class="s-item-cell s-column4">
-                                <%--<form class="form-box" method="post"--%>
-                                <%--action="https://www.nowcoder.com/makePaper?tagIds=636">--%>
-                                <button data-left="41" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                <%--</form>--%>
+                            <div class="statistical-item clearfix js-statistical-item" data-id="636">
+                                <div class="s-item-cell s-checkbox" onclick="checkedAndNoCheck(2,'classifyClass')">
+                                    <label class="checkbox" id="classifyClass2">
+                                        <span class="icons"></span>
+                                        <input type="checkbox" value="2" name="classifyIds" class="classifyClass2">
+                                    </label>
+                                </div>
+                                <div class="s-item-cell s-column1" id="column2">C++</div>
+                                <div class="s-item-cell s-column2"><span id="didTopic2"></span>
+                                    /<span id="allTopicNum2"></span>
+                                </div>
+                                <div class="s-item-cell s-column3"><span id="correctRate2"></span>%</div>
+                                <div class="s-item-cell s-column4">
+                                    <button data-left="41" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                </div>
+                                <div class="s-item-oprt">
+                                    <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
+                                </div>
                             </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
+                            <div class="statistical-item clearfix js-statistical-item" data-id="637">
+                                <div class="s-item-cell s-checkbox" onclick="checkedAndNoCheck(3,'classifyClass')">
+                                    <label class="checkbox" id="classifyClass3">
+                                        <span class="icons"></span>
+                                        <input type="checkbox" value="3" name="classifyIds" class="classifyClass3">
+                                    </label>
+                                </div>
+                                <div class="s-item-cell s-column1" id="column3">C</div>
+                                <div class="s-item-cell s-column2"><span id="didTopic3"></span>
+                                    /<span id="allTopicNum3"></span>
+                                </div>
+                                <div class="s-item-cell s-column3"><span id="correctRate3"></span>%</div>
+                                <div class="s-item-cell s-column4">
+                                    <button data-left="3" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                </div>
+                                <div class="s-item-oprt">
+                                    <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
+                                </div>
+                            </div>
+                            <div class="statistical-item clearfix js-statistical-item" data-id="606"
+                                 style="display: none;">
+                                <div class="s-item-cell s-checkbox" onclick="checkedAndNoCheck(4,'classifyClass')">
+                                    <label class="checkbox" id="classifyClass4">
+                                        <span class="icons"></span>
+                                        <input type="checkbox" value="4" name="classifyIds" class="classifyClass4">
+                                    </label>
+                                </div>
+                                <div class="s-item-cell s-column1" id="column4">Python</div>
+                                <div class="s-item-cell s-column2"><span id="didTopic4"></span>
+                                    /<span id="allTopicNum4"></span>
+                                </div>
+                                <div class="s-item-cell s-column3"><span id="correctRate4"></span>%</div>
+                                <div class="s-item-cell s-column4">
+                                    <button data-left="1869" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                </div>
+                                <div class="s-item-oprt">
+                                    <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
+                                </div>
+                            </div>
+                            <div class="statistical-item clearfix js-statistical-item" data-id="598"
+                                 style="display: none;">
+                                <div class="s-item-cell s-checkbox" onclick="checkedAndNoCheck(5,'classifyClass')">
+                                    <label class="checkbox" id="classifyClass5">
+                                        <span class="icons"></span>
+                                        <input type="checkbox" value="5" name="classifyIds" class="classifyClass5">
+                                    </label>
+                                </div>
+                                <div class="s-item-cell s-column1" id="column5">Spring</div>
+                                <div class="s-item-cell s-column2"><span id="didTopic5"></span>
+                                    /<span id="allTopicNum5"></span>
+                                </div>
+                                <div class="s-item-cell s-column3"><span id="correctRate5"></span>%</div>
+                                <div class="s-item-cell s-column4">
+                                    <button data-left="70" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                </div>
+                                <div class="s-item-oprt">
+                                    <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
+                                </div>
+                            </div>
+                            <div class="statistical-item clearfix js-statistical-item" data-id="578"
+                                 style="display: none;">
+                                <div class="s-item-cell s-checkbox" onclick="checkedAndNoCheck(6,'classifyClass')">
+                                    <label class="checkbox" id="classifyClass6">
+                                        <span class="icons"></span>
+                                        <input type="checkbox" value="6" name="classifyIds" class="classifyClass6">
+                                    </label>
+                                </div>
+                                <div class="s-item-cell s-column1" id="column6">Mybatis</div>
+                                <div class="s-item-cell s-column2"><span id="didTopic6"></span>
+                                    /<span id="allTopicNum6"></span>
+                                </div>
+                                <div class="s-item-cell s-column3"><span id="correctRate6"></span>%</div>
+                                <div class="s-item-cell s-column4">
+                                    <button data-left="310" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                </div>
+                                <div class="s-item-oprt">
+                                    <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="637">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_6_checkbox_4">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1" id="column3">C</div>
-                            <div class="s-item-cell s-column2"><span id="didTopic3"></span>
-                                /<span id="allTopicNum3"></span>
-                            </div>
-                            <div class="s-item-cell s-column3"><span id="correctRate3"></span>%</div>
-                            <div class="s-item-cell s-column4">
-                                <%--<form class="form-box" method="post"--%>
-                                <%--action="https://www.nowcoder.com/makePaper?tagIds=637">--%>
-                                <button data-left="3" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                <%--</form>--%>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
-                            </div>
+                        <div class="statistical-more">
+                            <a href="javascript:void(0);" class="icon-angle-up js-skill-angle"></a>
+                            <a href="javascript:void(0);" class="icon-angle-down js-skill-angle"></a>
                         </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="606" style="display: none;">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_7_checkbox_5">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1" id="column4">Python</div>
-                            <div class="s-item-cell s-column2"><span id="didTopic4"></span>
-                                /<span id="allTopicNum4"></span>
-                            </div>
-                            <div class="s-item-cell s-column3"><span id="correctRate4"></span>%</div>
-                            <div class="s-item-cell s-column4">
-                                <%--<form class="form-box" method="post"--%>
-                                <%--action="https://www.nowcoder.com/makePaper?tagIds=606">--%>
-                                <button data-left="1869" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                <%--</form>--%>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
-                            </div>
-                        </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="598" style="display: none;">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_8_checkbox_6">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1" id="column5">Spring</div>
-                            <div class="s-item-cell s-column2"><span id="didTopic5"></span>
-                                /<span id="allTopicNum5"></span>
-                            </div>
-                            <div class="s-item-cell s-column3"><span id="correctRate5"></span>%</div>
-                            <div class="s-item-cell s-column4">
-                                <%--<form class="form-box" method="post"--%>
-                                <%--action="https://www.nowcoder.com/makePaper?tagIds=598">--%>
-                                <button data-left="70" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                <%--</form>--%>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
-                            </div>
-                        </div>
-                        <div class="statistical-item clearfix js-statistical-item" data-id="578" style="display: none;">
-                            <div class="s-item-cell s-checkbox">
-                                <label class="checkbox" id="jsCpn_9_checkbox_7">
-                                    <span class="icons"></span>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="s-item-cell s-column1" id="column6">Mybatis</div>
-                            <div class="s-item-cell s-column2"><span id="didTopic6"></span>
-                                /<span id="allTopicNum6"></span>
-                            </div>
-                            <div class="s-item-cell s-column3"><span id="correctRate6"></span>%</div>
-                            <div class="s-item-cell s-column4">
-                                <%--<form class="form-box" method="post"--%>
-                                <%--action="https://www.nowcoder.com/makePaper?tagIds=578">--%>
-                                <button data-left="310" class="btn btn-primary nc-js-make-paper">开始练习</button>
-                                <%--</form>--%>
-                            </div>
-                            <div class="s-item-oprt">
-                                <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
-                            </div>
+                        <div class="statistical-list-btn">
+                            <input type="text" value="random" name="topicType" hidden="true"/>
+                            <input type="text" value="10" name="topicNum" hidden="true"/>
+                            <input type="submit" id="jsExeChosen" class="btn btn-primary" value="练习选中技能">
+                            <%--<a href="javascript:void(0);" id="jsExeOther" class="btn btn-default">练习其他技能</a>--%>
                         </div>
                     </div>
-                    <div class="statistical-more">
-                        <a href="javascript:void(0);" class="icon-angle-up js-skill-angle"></a>
-                        <a href="javascript:void(0);" class="icon-angle-down js-skill-angle"></a>
-                    </div>
-                    <div class="statistical-list-btn">
-                        <a href="javascript:void(0);" id="jsExeChosen" class="btn btn-primary">练习选中技能</a>
-                        <a href="javascript:void(0);" id="jsExeOther" class="btn btn-default">练习其他技能</a>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
         <div class="nk-bar">
@@ -574,27 +560,35 @@
                         </div>
 
                         <div class="choise-items js-choise-count" style=""><span class="item-label">选择单次题目数量：</span>
-                            <label class="radio radioNum" id="radioNum1" onclick="radioCheckedAndNoCheck('radioNum1', 'radioNum')">
+                            <label class="radio radioNum" id="radioNum1"
+                                   onclick="radioCheckedAndNoCheck('radioNum1', 'radioNum')">
                                 <span class="icons"></span>
                                 <input class="radioNum radioNum1" type="radio" name="topicNum" value="5">5题
                             </label>
-                            <label class="radio radioNum checked" id="radioNum2" onclick="radioCheckedAndNoCheck('radioNum2', 'radioNum')">
+                            <label class="radio radioNum checked" id="radioNum2"
+                                   onclick="radioCheckedAndNoCheck('radioNum2', 'radioNum')">
                                 <span class="icons"></span>
-                                <input class="radioNum radioNum2" type="radio" name="topicNum" value="10" checked="checked">10题</label>
+                                <input class="radioNum radioNum2" type="radio" name="topicNum" value="10"
+                                       checked="checked">10题</label>
 
-                            <label class="radio radioNum" id="radioNum3" onclick="radioCheckedAndNoCheck('radioNum3', 'radioNum')">
+                            <label class="radio radioNum" id="radioNum3"
+                                   onclick="radioCheckedAndNoCheck('radioNum3', 'radioNum')">
                                 <span class="icons"></span>
                                 <input class="radioNum radioNum3" type="radio" name="topicNum" value="20">20题</label>
                         </div>
                         <div class="choise-items js-choise-count" style=""><span class="item-label">选择单次题目数量：</span>
-                            <label class="radio radioType" id="radioType1" onclick="radioCheckedAndNoCheck('radioType1', 'radioType')">
+                            <label class="radio radioType" id="radioType1"
+                                   onclick="radioCheckedAndNoCheck('radioType1', 'radioType')">
                                 <span class="icons"></span>
                                 <input class="radioType radioType1" type="radio" name="topicType" value="random">随机练习
                             </label>
-                            <label class="radio radioType checked" id="radioType2" onclick="radioCheckedAndNoCheck('radioType2', 'radioType')">
+                            <label class="radio radioType checked" id="radioType2"
+                                   onclick="radioCheckedAndNoCheck('radioType2', 'radioType')">
                                 <span class="icons"></span>
-                                <input class="radioType radioType2" type="radio" name="topicType" value="specialItem" checked="checked">专项练习</label>
-                            <label class="radio radioType" id="radioType3" onclick="radioCheckedAndNoCheck('radioType3', 'radioType')">
+                                <input class="radioType radioType2" type="radio" name="topicType" value="specialItem"
+                                       checked="checked">专项练习</label>
+                            <label class="radio radioType" id="radioType3"
+                                   onclick="radioCheckedAndNoCheck('radioType3', 'radioType')">
                                 <span class="icons"></span>
                                 <input class="radioType radioType3" type="radio" name="topicType" value="wrongQuestion">错题练习</label>
                         </div>
