@@ -225,7 +225,7 @@
                                 </div>
                                 <div class="s-item-cell s-column3"><span id="correctRate1"></span>%</div>
                                 <div class="s-item-cell s-column4">
-                                    <button data-left="303" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                    <a data-left="303" class="btn btn-primary nc-js-make-paper">开始练习</a>
                                 </div>
                                 <div class="s-item-oprt">
                                     <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -244,7 +244,7 @@
                                 </div>
                                 <div class="s-item-cell s-column3"><span id="correctRate2"></span>%</div>
                                 <div class="s-item-cell s-column4">
-                                    <button data-left="41" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                    <a data-left="41" class="btn btn-primary nc-js-make-paper">开始练习</a>
                                 </div>
                                 <div class="s-item-oprt">
                                     <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -263,7 +263,7 @@
                                 </div>
                                 <div class="s-item-cell s-column3"><span id="correctRate3"></span>%</div>
                                 <div class="s-item-cell s-column4">
-                                    <button data-left="3" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                    <a data-left="3" class="btn btn-primary nc-js-make-paper">开始练习</a>
                                 </div>
                                 <div class="s-item-oprt">
                                     <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -283,7 +283,7 @@
                                 </div>
                                 <div class="s-item-cell s-column3"><span id="correctRate4"></span>%</div>
                                 <div class="s-item-cell s-column4">
-                                    <button data-left="1869" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                    <a data-left="1869" class="btn btn-primary nc-js-make-paper">开始练习</a>
                                 </div>
                                 <div class="s-item-oprt">
                                     <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -303,7 +303,7 @@
                                 </div>
                                 <div class="s-item-cell s-column3"><span id="correctRate5"></span>%</div>
                                 <div class="s-item-cell s-column4">
-                                    <button data-left="70" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                    <a data-left="70" class="btn btn-primary nc-js-make-paper">开始练习</a>
                                 </div>
                                 <div class="s-item-oprt">
                                     <a class="js-del-skill" href="javascript:void(0);">查看错题</a>
@@ -323,7 +323,7 @@
                                 </div>
                                 <div class="s-item-cell s-column3"><span id="correctRate6"></span>%</div>
                                 <div class="s-item-cell s-column4">
-                                    <button data-left="310" class="btn btn-primary nc-js-make-paper">开始练习</button>
+                                    <a data-left="310" class="btn btn-primary nc-js-make-paper">开始练习</a>
                                 </div>
                                 <div class="s-item-oprt">
                                     <a class="js-del-skill" href="javascript:void(0);">查看错题</a>

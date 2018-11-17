@@ -93,6 +93,7 @@ public class DidtopicServiceImpl implements DidtopicService {
             List<TbOption> optionList = topic.getOptionList();
             tbDidtopic.setTopicId(topic.getTopicId());
             tbDidtopic.setUserId(uid);
+            tbDidtopic.setTbTopic(topic);
             for (TbOption option : optionList) {
                 if (option.getCorrect() == 1) {
                     if (option.getOptionId().equals(topic.getOptionId())) {

@@ -18,9 +18,10 @@
     <script charset="utf-8" type="text/javascript" src="../../static/didTopic/js/index.js"></script>
     <script charset="utf-8" type="text/javascript" src="../../static/didTopic/js/kindeditor.js"></script>
     <script charset="utf-8" type="text/javascript" src="../../static/didTopic/js/highlighter.js"></script>
+    <script type="text/javascript" src="../../static/didTopic/js/didTopic.js"></script>
     <link media="all" href="../../static/didTopic/css/index.css" type="text/css" rel="stylesheet">
 </head>
-<body>
+<body onload="initTopicToShow(0)">
 
 <div class="nk-container     ">
     <div class="nowcoder-header">
@@ -149,53 +150,71 @@
     <div class="nk-main analytic-page clearfix">
         <div class="menu-box">
             <ul class="menu clearfix">
-                <li class="selected"><a href="https://www.nowcoder.com/test/question/done?tid=20029048&amp;qid=97246">答题情况</a>
-                </li>
+                <li class="selected">答题情况</li>
             </ul>
         </div>
         <div class="module-box clearfix">
             <div class="result-subject-item">
                 <h1>每题得分</h1>
                 <ul class="subject-num-list">
-                    <li class="error-order">
-                        <a class=""
-                           href=""
-                           data-qid="97246">1</a></li>
-                    <li class="error-order">
-                        <a class="done-hover "
-                           href=""
-                           data-qid="25512">2</a></li>
-                    <li class="error-order">
-                        <a class="" href=""
-                           data-qid="256">3</a></li>
-                    <li class="error-order">
-                        <a class="" href=""
-                           data-qid="265">4</a></li>
-                    <li class="correct-order">
-                        <a class="" href=""
-                           data-qid="338">5</a></li>
+                    <c:forEach items="${didTopicList}" var="didTopic" varStatus="status">
+                        <c:choose>
+                            <c:when test="${didTopic.error == 1}">
+                                <li class="error-order" onclick="initTopicToShow(${status.index})">
+                                    <a class="" id="order${status.index + 1}"
+                                       href="javascript:void(0);">${status.index + 1}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="correct-order" onclick="initTopicToShow(${status.index})">
+                                    <a class="" id="order${status.index + 1}"
+                                       href="javascript:void(0);">${status.index + 1}</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    <%--<li class="error-order">--%>
+                    <%--<a class=""--%>
+                    <%--href=""--%>
+                    <%--data-qid="97246">1</a></li>--%>
+                    <%--<li class="error-order">--%>
+                    <%--<a class="done-hover "--%>
+                    <%--href=""--%>
+                    <%--data-qid="25512">2</a></li>--%>
+                    <%--<li class="error-order">--%>
+                    <%--<a class="" href=""--%>
+                    <%--data-qid="256">3</a></li>--%>
+                    <%--<li class="error-order">--%>
+                    <%--<a class="" href=""--%>
+                    <%--data-qid="265">4</a></li>--%>
+                    <%--<li class="correct-order">--%>
+                    <%--<a class="" href=""--%>
+                    <%--data-qid="338">5</a></li>--%>
                 </ul>
             </div>
             <input id="questionType" value="1" type="hidden">
             <input id="questionId" value="25512" type="hidden">
-            <div class="result-question-box">
-                <div class="subject-question">
-                    <span class="question-number">2</span>
-                    <div class="question-main">旅行商问题是NP问题吗？</div>
-                </div>
-            </div>
-            <div class="result-subject-item result-subject-answer">
-                <div class="result-answer-item orange-answer-item">
-                    <pre>否</pre>
-                </div>
-                <div class="result-answer-item green-answer-item">
-                    <pre>是</pre>
-                </div>
-                <div class="result-answer-item">
-                    <pre>至今尚无定论</pre>
-                </div>
-            </div>
-            <div id="referAnchor"></div>
+            <span id="topicShow">
+                <%--<div class="result-question-box">--%>
+                    <%--<div class="subject-question">--%>
+                        <%--<div class="question-main">旅行商问题是NP问题吗？</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="result-subject-item result-subject-answer">--%>
+                    <%--<h1>解析：</h1>--%>
+                    <%--<div class="result-answer-item orange-answer-item">--%>
+                        <%--<pre>否</pre>--%>
+                    <%--</div>--%>
+                    <%--<div class="result-answer-item green-answer-item">--%>
+                        <%--<pre>是</pre>--%>
+                    <%--</div>--%>
+                    <%--<div class="result-answer-item">--%>
+                        <%--<pre>至今尚无定论</pre>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div id="referAnchor"></div>--%>
+            </span>
+            <h1 class="clearfix">
+                <a href="/didTopic/returnHomeAndRemoveSession" id="jsDealAnswer" class="btn float-right btn-primary">返回首页</a>
+            </h1>
             <script src="../../static/didTopic/js/hm.js"></script>
         </div>
 

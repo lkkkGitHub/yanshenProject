@@ -37,7 +37,7 @@ function initUserTopicInfo() {
                         "</div>";
                     str += " <div class=\"s-item-cell s-column3\"><span id=\"correctRate" + id + "\"></span>%</div>\n" +
                         "<div class=\"s-item-cell s-column4\">\n" +
-                        "<button data-left=\"303\" class=\"btn btn-primary nc-js-make-paper\">开始练习</button>\n" +
+                        "<a data-left=\"303\" class=\"btn btn-primary nc-js-make-paper\">开始练习</a>\n" +
                         "</div>\n" +
                         "<div class=\"s-item-oprt\">\n" +
                         "<a class=\"js-del-skill\" href=\"javascript:void(0);\">查看错题</a>\n" +

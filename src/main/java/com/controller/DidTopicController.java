@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,13 +49,13 @@ public class DidTopicController {
     }
 
     /**
-     * 提交答卷
+     * 提交答卷，并清空session中的题目信息
      *
      * @param session 获取缓存中的答题题目信息
      * @return 成功即返回到答案解析页面
      */
     @RequestMapping("/commitAnswer")
-    public String commitAnswer(HttpSession session) {
+    public String commitAnswer(HttpSession session, HttpServletRequest request) {
         List<TbTopic> topicList = (ArrayList<TbTopic>) session.getAttribute("topicList");
         List<TbDidtopic> didTopicList = tbDidtopicServiceImpl.commitTopic(topicList,
                 ((TbUser) session.getAttribute("user")).getUid());
@@ -64,10 +65,37 @@ public class DidTopicController {
                         .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
                 session.setAttribute("UserDidTopicUtil" ,userDidTopicUtil);
                 session.setAttribute("didTopicList", didTopicList);
+                session.removeAttribute("topicList");
                 return "didTopic";
             }
         }
-        return null;
+        request.setAttribute("commitTopicMessage", "提交失败，请联系管理员");
+        return "didTopic";
     }
 
+    /**
+     * 获取用户点击的下一题信息
+     *
+     * @param sequenceNext 下一题
+     * @param session 获取session中的做完题目信息
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/getDidTopicToShow")
+    public TbDidtopic getDidTopicToShow(HttpSession session, Integer sequenceNext) {
+        List<TbDidtopic> didTopicList = (ArrayList<TbDidtopic>) session.getAttribute("didTopicList");
+        return didTopicList.get(sequenceNext);
+    }
+
+    /**
+     * 当用户点击次方法返回home页面时，清除session中的做题信息
+     *
+     * @param session
+     * @return
+     */
+    @RequestMapping("/returnHomeAndRemoveSession")
+    public String returnHomeAndRemoveSession(HttpSession session) {
+        session.removeAttribute("didTopicList");
+        return "redirect:/home";
+    }
 }

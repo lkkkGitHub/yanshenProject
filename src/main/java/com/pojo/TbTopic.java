@@ -12,6 +12,7 @@ public class TbTopic {
     private Integer topicId;
     private String topicComment;
     private Integer classifyId;
+    private String analysis;
     /**
      * 用于临时保存用户选中的选项id，便于在屏幕上显示
      */
@@ -43,6 +44,13 @@ public class TbTopic {
         this.topicId = topicId;
     }
 
+    public String getAnalysis() {
+        return analysis;
+    }
+
+    public void setAnalysis(String analysis) {
+        this.analysis = analysis;
+    }
 
     public String getTopicComment() {
         return topicComment;

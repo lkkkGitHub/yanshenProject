@@ -126,7 +126,7 @@ public class TopicServiceImpl implements TopicService {
                 }
             }
         }
-        //错题练习：顺徐错题练习
+        //错题练习 wrongQuestion
         if ("wrongQuestion".equals(topicType)) {
             for (int i = 0; i < classifyIds.length; i++) {
                 List<TbDidtopic> didtopicList = map.get(classifyIds[i]);
@@ -134,10 +134,12 @@ public class TopicServiceImpl implements TopicService {
                     break;
                 }
                 int critical = judgeTopicSize(didtopicList.size(), classifyIds.length, topicNum);
-                for (int j = 0; j < critical; j++) {
-                    if (didtopicList.get(j).getError() == 0) {
+                int j = 0;
+                while (list.size() < critical) {
+                    if (didtopicList.get(j).getError() == 1) {
                         list.add(tbTopicDao.selectTopicByTopicId(didtopicList.get(j).getTopicId()));
                     }
+                    j++;
                 }
             }
             ifBigRemove(list, topicNum);

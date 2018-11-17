@@ -6,6 +6,7 @@
         <result column="topicId" property="topicId"/>
         <result column="topicComment" property="topicComment"/>
         <result column="classifyId" property="classifyId"/>
+        <result column="analysis" property="analysis"/>
     </resultMap>
 
     <resultMap id="ctxTbOption" type="com.pojo.TbTopic" extends="AllColumnMap">
@@ -16,7 +17,8 @@
     <sql id="all_column">
         `topicId`,
         `topicComment`,
-        `classifyId`
+        `classifyId`,
+        `analysis`
     </sql>
 
     <select id="selectUserNoDidTopicByUidAndClassifyId" resultMap="ctxTbOption">
@@ -43,12 +45,14 @@
             <if test="topicId!=null">`topicId`,</if>
             <if test="topicComment!=null">`topicComment`,</if>
             <if test="classifyId!=null">`classifyId`,</if>
+            <if test="analysis!=null">`analysis`,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="topicId!=null">#{topicId},</if>
             <if test="topicComment!=null">#{topicComment},</if>
             <if test="classifyId!=null">#{classifyId},</if>
+            <if test="analysis!=null">#{analysis},</if>
         </trim>
     </insert>
 
@@ -56,9 +60,10 @@
     <update id="update">
         UPDATE tb_topic
         <set>
-            <if test="pojo.topicId != null">`topic_id` = #{pojo.topicId},</if>
-            <if test="pojo.topicComment != null">`topic_comment` = #{pojo.topicComment},</if>
-            <if test="pojo.classifyId != null">`classify_id` = #{pojo.classifyId}</if>
+            <if test="pojo.topicId != null">`topicId` = #{pojo.topicId},</if>
+            <if test="pojo.topicComment != null">`topicComment` = #{pojo.topicComment},</if>
+            <if test="pojo.classifyId != null">`classifyId` = #{pojo.classifyId}</if>
+            <if test="pojo.analysis != null">`analysis` = #{pojo.analysis}</if>
         </set>
         WHERE topic_id = #{pojo.topicId}
     </update>

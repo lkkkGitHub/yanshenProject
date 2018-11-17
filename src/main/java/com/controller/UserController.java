@@ -155,6 +155,7 @@ public class UserController {
         session.removeAttribute("username");
         session.removeAttribute("imgstr");
         session.removeAttribute("user");
+        session.removeAttribute("UserDidTopicUtil");
         return "index";
     }
 
