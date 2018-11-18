@@ -38,5 +38,15 @@ function initTopicToShow(sequenceNext) {
             $("#topicShow").html(str);
 
         }
-    })
+    });
+    //done-hover
+    //标记选中的当前的题目序号
+    var orders = document.getElementsByClassName("order");
+    //清除之前选中
+    for (var i = 0; i < orders.length; i++) {
+        orders[i].classList.remove("done-hover");
+    }
+    //选中当前的题目序号
+    var orderA = document.getElementById("order"+sequenceNext);
+    orderA.classList.add("done-hover");
 }

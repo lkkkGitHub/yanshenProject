@@ -161,12 +161,12 @@
                         <c:choose>
                             <c:when test="${didTopic.error == 1}">
                                 <li class="error-order" onclick="initTopicToShow(${status.index})">
-                                    <a class="" id="order${status.index + 1}"
+                                    <a class="order" id="order${status.index}"
                                        href="javascript:void(0);">${status.index + 1}</a></li>
                             </c:when>
                             <c:otherwise>
                                 <li class="correct-order" onclick="initTopicToShow(${status.index})">
-                                    <a class="" id="order${status.index + 1}"
+                                    <a class="order" id="order${status.index}"
                                        href="javascript:void(0);">${status.index + 1}</a></li>
                             </c:otherwise>
                         </c:choose>

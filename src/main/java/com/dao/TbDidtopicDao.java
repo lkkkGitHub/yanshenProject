@@ -26,4 +26,12 @@ public interface TbDidtopicDao {
      * @return 影响的行数
      */
     int insertList(List<TbDidtopic> tbDidtopicList);
+
+    /**
+     * 更新用户所作的错题信息
+     *
+     * @param tbDidtopicList 做题信息
+     * @return 影响的行数
+     */
+    int updateDidTopic(List<TbDidtopic> tbDidtopicList);
 }

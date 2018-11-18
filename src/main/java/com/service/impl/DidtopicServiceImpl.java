@@ -86,7 +86,7 @@ public class DidtopicServiceImpl implements DidtopicService {
 
     @Transactional
     @Override
-    public List<TbDidtopic> commitTopic(List<TbTopic> topicList, String uid) {
+    public List<TbDidtopic> commitTopic(List<TbTopic> topicList,String topicType, String uid) {
         List<TbDidtopic> didTopicList = new ArrayList<>(topicList.size());
         for (TbTopic topic : topicList) {
             TbDidtopic tbDidtopic = new TbDidtopic();
@@ -98,26 +98,37 @@ public class DidtopicServiceImpl implements DidtopicService {
                 if (option.getCorrect() == 1) {
                     if (option.getOptionId().equals(topic.getOptionId())) {
                         tbDidtopic.setError(0);
+                        tbDidtopic.setErrorOptionId(-1);
                         didTopicList.add(tbDidtopic);
-
                     } else {
                         tbDidtopic.setError(1);
-                        tbDidtopic.setErrorOptionId(topic.getOptionId());
+                        if (topic.getOptionId() == null) {
+                            tbDidtopic.setErrorOptionId(-1);
+                        } else {
+                            tbDidtopic.setErrorOptionId(topic.getOptionId());
+                        }
                         didTopicList.add(tbDidtopic);
                     }
                 }
             }
         }
-        int i = didtopicDao.insertList(didTopicList);
-        if (i == topicList.size()) {
+        int i = 0;
+        //错题练习即为更新数据库字段，否则即使插入
+        if ("wrongQuestion".equals(topicType)) {
+            i = didtopicDao.updateDidTopic(didTopicList);
             return didTopicList;
         } else {
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                e.printStackTrace();
+            i = didtopicDao.insertList(didTopicList);
+            if (i == topicList.size()) {
+                return didTopicList;
+            } else {
+                try {
+                    throw new Exception();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
             }
-            return null;
         }
     }
 }
