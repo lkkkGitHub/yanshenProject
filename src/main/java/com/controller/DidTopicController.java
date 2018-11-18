@@ -57,7 +57,7 @@ public class DidTopicController {
     @RequestMapping("/commitAnswer")
     public String commitAnswer(HttpSession session, HttpServletRequest request) {
         List<TbTopic> topicList = (ArrayList<TbTopic>) session.getAttribute("topicList");
-        List<TbDidtopic> didTopicList = tbDidtopicServiceImpl.commitTopic(topicList,
+        List<TbDidtopic> didTopicList = tbDidtopicServiceImpl.commitTopic(topicList, (String) session.getAttribute("topicType"),
                 ((TbUser) session.getAttribute("user")).getUid());
         if (didTopicList != null) {
             if (didTopicList.size() == topicList.size()) {
@@ -65,7 +65,6 @@ public class DidTopicController {
                         .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
                 session.setAttribute("UserDidTopicUtil" ,userDidTopicUtil);
                 session.setAttribute("didTopicList", didTopicList);
-                session.removeAttribute("topicList");
                 return "didTopic";
             }
         }
@@ -96,6 +95,8 @@ public class DidTopicController {
     @RequestMapping("/returnHomeAndRemoveSession")
     public String returnHomeAndRemoveSession(HttpSession session) {
         session.removeAttribute("didTopicList");
+        session.removeAttribute("topicList");
+        session.removeAttribute("topicType");
         return "redirect:/home";
     }
 }

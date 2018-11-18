@@ -27,7 +27,8 @@ public interface DidtopicService {
      *
      * @param list 所有的题目信息
      * @param uid 用户id信息
+     * @param topicType 题目类型
      * @return 影响的行数，用于controller判断是否成功插入
      */
-    List<TbDidtopic> commitTopic(List<TbTopic> list, String uid);
+    List<TbDidtopic> commitTopic(List<TbTopic> list, String topicType, String uid);
 }

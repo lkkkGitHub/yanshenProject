@@ -73,6 +73,7 @@ public class TopicController {
             request.setAttribute("topicNumZeroMessage", "当前分类已经没有题目可以做了，换个类别或者做做错题把");
             return "home";
         } else {
+            session.setAttribute("topicType", topicType);
             session.setAttribute("topicList", topicList);
             return "answer";
         }

@@ -84,16 +84,15 @@
     </insert>
 
     <!--auto generated Code-->
-    <update id="update">
-        UPDATE tb_didtopic
-        <set>
-            <if test="pojo.didTopicId != null">`didTopicId` = #{pojo.didTopicId},</if>
-            <if test="pojo.topicId != null">`topicId` = #{pojo.topicId},</if>
-            <if test="pojo.userId != null">`userId` = #{pojo.userId},</if>
-            <if test="pojo.error != null">`error` = #{pojo.error},</if>
-            <if test="pojo.errorOptionId != null">`errorOptionId` = #{pojo.errorOptionId}</if>
-        </set>
-        WHERE didTopicId = #{pojo.didTopicId}
+    <update id="updateDidTopic">
+        <foreach collection="list" item="pojo" index="index" separator=";">
+            UPDATE tb_didtopic
+            <set>
+                <if test="pojo.error != null">`error` = #{pojo.error},</if>
+                <if test="pojo.errorOptionId != null">`errorOptionId` = #{pojo.errorOptionId},</if>
+            </set>
+            WHERE `userId` = #{pojo.userId} and `topicId` = #{pojo.topicId}
+        </foreach>
     </update>
 </mapper>
 
