@@ -5,6 +5,7 @@ import com.pojo.TbTopic;
 import com.pojo.TbUser;
 import com.service.DidtopicService;
 import com.tools.pojoexpansion.UserDidTopicUtil;
+import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/didTopic")
 public class DidTopicController {
+
+    @Autowired
+    private JedisClient jedisClient;
 
     @Autowired
     private DidtopicService tbDidtopicServiceImpl;
@@ -65,6 +69,11 @@ public class DidTopicController {
                         .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
                 session.setAttribute("UserDidTopicUtil" ,userDidTopicUtil);
                 session.setAttribute("didTopicList", didTopicList);
+                session.removeAttribute("topicList");
+                session.removeAttribute("topicType");
+                session.removeAttribute("notDoneTopic");
+                jedisClient.hdel("notDoneTopic", (String) session.getAttribute("username"));
+                jedisClient.hdel("topicType", (String) session.getAttribute("username"));
                 return "didTopic";
             }
         }
@@ -89,14 +98,11 @@ public class DidTopicController {
     /**
      * 当用户点击次方法返回home页面时，清除session中的做题信息
      *
-     * @param session
-     * @return
+     * @return 转发到topic/中的removeNotDoneTopic方法，清除session中的信息
+     * 以及清除redis中的信息
      */
     @RequestMapping("/returnHomeAndRemoveSession")
-    public String returnHomeAndRemoveSession(HttpSession session) {
-        session.removeAttribute("didTopicList");
-        session.removeAttribute("topicList");
-        session.removeAttribute("topicType");
-        return "redirect:/home";
+    public String returnHomeAndRemoveSession() {
+        return "redirect:/topic/removeNotDoneTopic";
     }
 }

@@ -22,11 +22,7 @@
     <script charset="utf-8" async="" src="../../static/answer/js/answerJs.js"></script>
     <link media="all" href="../../static/answer/css/index.css" type="text/css" rel="stylesheet">
     <%--确认离开--%>
-    <%--<script type="text/javascript">--%>
-        <%--window.onbeforeunload = function () {--%>
-            <%--return "123";--%>
-        <%--};--%>
-    <%--</script>--%>
+
 </head>
 <body onload="start();intiTopicInfo(0, -1, -1);">
 
@@ -228,7 +224,8 @@
                             <%--type="submit">--%>
                             <%--<input id="next" name="button" class="btn btn-primary" value="下一题" type="submit">--%>
                             <%--</form>--%>
-                                <a href="/didTopic/commitAnswer" id="aheadFinish" name="button" class="btn warning-btn">交卷</a>
+                            <a href="/didTopic/commitAnswer" id="aheadFinish" name="button"
+                               class="btn warning-btn">交卷</a>
                             <%--<input id="next" name="button" class="btn btn-primary" value="下一题" onclick="">--%>
                         </div>
                     </div>
@@ -250,13 +247,13 @@
                         <%--<li><a href="javascript:void(0);" class="" data-qid="55450">10</a></li>--%>
                         <c:forEach var="topic" items="${sessionScope.topicList}" varStatus="status">
                             <c:choose>
-                                <c:when test="${topic.optionId != null}">
-                                    <li><a href="javascript:void(0);" class="answer-done"
+                                <c:when test="${status.index + 1 == 1}">
+                                    <li><a href="javascript:void(0);" class="answering-num"
                                            onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
                                            id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
                                 </c:when>
-                                <c:when test="${status.index + 1 == 1}">
-                                    <li><a href="javascript:void(0);" class="answering-num"
+                                <c:when test="${topic.optionId != null}">
+                                    <li><a href="javascript:void(0);" class="answer-done"
                                            onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
                                            id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
                                 </c:when>

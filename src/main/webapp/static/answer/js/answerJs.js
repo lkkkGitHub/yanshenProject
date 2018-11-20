@@ -5,7 +5,6 @@
 var SELID = "";
 //题目总数
 var TOPICNUM = "";
-
 function intiTopicInfo(sequence, sequenceNext, optionId) {
     $.ajax({
         url: "/topic/getTopicPagination",

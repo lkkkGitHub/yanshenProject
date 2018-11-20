@@ -1,8 +1,12 @@
 package com.controller;
 
+import com.tools.utils.jedis.JedisClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -13,8 +17,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
+    @Autowired
+    private JedisClient jedisClient;
+
     @RequestMapping("/{page}")
-    public String page(@PathVariable(value = "page") String page) {
+    public String page(@PathVariable(value = "page") String page, HttpSession session) {
+        if ("home".equals(page)) {
+            String notDoneTopic = jedisClient.hget("notDoneTopic", (String) session.getAttribute("username"));
+            if (notDoneTopic !=null){
+                session.setAttribute("notDoneTopic", "1");
+            }
+        }
         return page;
     }
 

@@ -13,12 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.imageio.stream.FileImageOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -174,8 +178,9 @@ public class UserController {
     }
 
     /**
-     * 登陆，检查账号密码时候正确，并将 用户名 以及 图片的url 用户所有信息 存入session中 分别命名为 “usrename” “imgstr”
-     * “user”
+     * 登陆，检查账号密码时候正确，并将 用户名 以及 图片的url 用户所有信息 存入session中
+     * 分别命名为 “usrename” “imgstr” “user”
+     * 同时判断用户是否含有未作完的题目，断点续做
      *
      * @return
      */

@@ -56,12 +56,14 @@ public class TopicServiceImpl implements TopicService {
      *
      * @param list     生成的最后的题目集合
      * @param topicNum 题目总数需要的
+     * @param length 类别的个数
      * @return 处理好的LinkedList集合
      */
-    private void ifBigRemove(LinkedList<TbTopic> list, int topicNum) {
+    private void ifBigRemove(LinkedList<TbTopic> list, int topicNum, int length) {
         if (list.size() > topicNum) {
-            for (int i = 0; i < list.size() - topicNum + 1; i++) {
-                list.removeLast();
+            int index = topicNum / length + 1;
+            for (int i = list.size() - topicNum; i > 0; i--) {
+                list.remove(index * (i + 1) - 1);
             }
         }
     }
@@ -112,7 +114,7 @@ public class TopicServiceImpl implements TopicService {
                 }
             }
             //移除多于的题目，如果题目数量过大
-            ifBigRemove(list, topicNum);
+            ifBigRemove(list, topicNum, classifyIds.length);
         }
         //专项练习 specialItem
         if ("specialItem".equals(topicType)) {
@@ -133,16 +135,16 @@ public class TopicServiceImpl implements TopicService {
                 if (didtopicList == null) {
                     break;
                 }
-                int critical = judgeTopicSize(didtopicList.size(), classifyIds.length, topicNum);
-                int j = 0;
-                while (list.size() < critical) {
-                    if (didtopicList.get(j).getError() == 1) {
-                        list.add(tbTopicDao.selectTopicByTopicId(didtopicList.get(j).getTopicId()));
+                for (TbDidtopic tbDidtopic : didtopicList) {
+                    if (tbDidtopic.getError() == 1) {
+                        list.add(JsonUtils.jsonToPojo(jedisClient.hget("topic", String.valueOf(tbDidtopic.getTopicId())),TbTopic.class));
                     }
-                    j++;
+                    if (list.size() >= topicNum) {
+                        break;
+                    }
                 }
             }
-            ifBigRemove(list, topicNum);
+            ifBigRemove(list, topicNum, classifyIds.length);
         }
         return list;
     }

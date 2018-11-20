@@ -182,6 +182,18 @@
 
                 </div>
             </div>
+            <span>
+                <c:choose>
+                    <c:when test="${sessionScope.notDoneTopic != null}">
+                       <div class="module-body clearfix">
+                            <a class="tips-close" href="/topic/removeNotDoneTopic"></a>
+                            <a class="btn btn-primary tips-btn"
+                               href="/topic/getNotDoneTopic">继续做题</a>
+                            <div class="tips-msg">你上次的练习还未完成。</div>
+                       </div>
+                    </c:when>
+                </c:choose>
+            </span>
             <!-- mod-toggle默认添加open,当去掉open时模块内容隐藏 -->
             <div class="module-box mod-toggle  open" id="jsPartSetSkill" data-type="1">
                 <div class="module-head clearfix">

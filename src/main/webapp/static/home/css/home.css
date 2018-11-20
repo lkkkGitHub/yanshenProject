@@ -14,6 +14,10 @@ article, aside, blockquote, body, button, code, dd, details, dl, dt, fieldset, f
     font-weight: 400
 }
 
+.module-body{
+    background-color: #3aabe4
+}
+
 body, html {
     margin: 0;
     height: 100%
