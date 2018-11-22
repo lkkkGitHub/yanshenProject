@@ -95,19 +95,3 @@ function answeringNum(sequenceNext, topicNum) {
     //传入当前题目顺序号，以及题目的选择
     intiTopicInfo(sequence, sequenceNext, optionId);
 }
-
-//提交答卷
-$("#aheadFinish").click(function () {
-    var answer = document.getElementsByClassName("answer-done");
-    var noDid = TOPICNUM - answer.length;
-    if (noDid == 0) {
-        if (confirm("确定要提交答案吗?")) {
-            return true;
-        }
-    } else {
-        if (confirm("还有"+noDid+"题没做完确定要提交答案吗?")) {
-            return true;
-        }
-    }
-    return false;
-});

@@ -185,12 +185,13 @@
             <span>
                 <c:choose>
                     <c:when test="${sessionScope.notDoneTopic != null}">
-                       <div class="module-body clearfix">
+                       <div class="module-body" id="clearfix1">
                             <a class="tips-close" href="/topic/removeNotDoneTopic"></a>
                             <a class="btn btn-primary tips-btn"
                                href="/topic/getNotDoneTopic">继续做题</a>
                             <div class="tips-msg">你上次的练习还未完成。</div>
                        </div>
+
                     </c:when>
                 </c:choose>
             </span>

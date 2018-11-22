@@ -14,8 +14,8 @@ article, aside, blockquote, body, button, code, dd, details, dl, dt, fieldset, f
     font-weight: 400
 }
 
-.module-body{
-    background-color: #3aabe4
+#clearfix1{
+    background-color:#ffffff;
 }
 
 body, html {
