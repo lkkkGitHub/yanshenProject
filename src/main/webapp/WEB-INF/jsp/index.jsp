@@ -49,10 +49,10 @@
                 <li>
                     <a href="#">题库</a>
                     <ul class="sub-nav">
-                        <li><a href="#">顺序练习</a></li>
-                        <li><a href="#">随机练习</a></li>
-                        <li><a href="#">章节练习</a></li>
-                        <li><a href="#">专项练习</a></li>
+                        <li><a href="javascript:void(0)" >顺序练习</a></li>
+                        <li><a href="javascript:void(0)" >随机练习</a></li>
+                        <li><a href="javascript:void(0)" >章节练习</a></li>
+                        <li><a href="javascript:void(0)" >专项练习</a></li>
                     </ul>
                 </li>
                 <li>

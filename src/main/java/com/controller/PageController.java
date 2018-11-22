@@ -20,6 +20,13 @@ public class PageController {
     @Autowired
     private JedisClient jedisClient;
 
+    /**
+     * 检查用户是否存在未完成的题目
+     *
+     * @param page
+     * @param session
+     * @return
+     */
     @RequestMapping("/{page}")
     public String page(@PathVariable(value = "page") String page, HttpSession session) {
         if ("home".equals(page)) {

@@ -73,7 +73,7 @@ public class TopicServiceImpl implements TopicService {
      *
      * @param size     集合数量
      * @param topicNum 需求题目总数量
-     * @return
+     * @return 实际集合的容量
      */
     private int judgeTopicSize(int size, int classifyIdsLength, int topicNum) {
         int i = topicNum / classifyIdsLength;
