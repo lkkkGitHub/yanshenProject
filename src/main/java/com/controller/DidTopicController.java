@@ -5,6 +5,7 @@ import com.pojo.TbTopic;
 import com.pojo.TbUser;
 import com.service.DidtopicService;
 import com.tools.pojoexpansion.UserDidTopicUtil;
+import com.tools.utils.JsonUtils;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,13 +42,14 @@ public class DidTopicController {
     @ResponseBody
     @RequestMapping("/getDidTopicUtil")
     public UserDidTopicUtil getDidTopicUtil(HttpSession session) {
-        UserDidTopicUtil userDidTopicUtil = null;
-        if (session.getAttribute("UserDidTopicUtil") == null) {
+        String userName = (String) session.getAttribute("username");
+        UserDidTopicUtil userDidTopicUtil =
+                JsonUtils.jsonToPojo(jedisClient.hget("UserDidTopicUtil", userName), UserDidTopicUtil.class);
+        if (userDidTopicUtil == null) {
             userDidTopicUtil = tbDidtopicServiceImpl
                     .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
-            session.setAttribute("UserDidTopicUtil", userDidTopicUtil);
-        } else {
-            userDidTopicUtil = (UserDidTopicUtil) (session.getAttribute("UserDidTopicUtil"));
+            jedisClient.hset("UserDidTopicUtil", userName, JsonUtils.objectToJson(userDidTopicUtil));
+            return userDidTopicUtil;
         }
         return userDidTopicUtil;
     }
