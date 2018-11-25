@@ -26,7 +26,8 @@
     <select id="findDidTopicByUserIdAndClassifyId" resultMap="ctxTbTopic">
         SELECT * FROM tb_topic a JOIN tb_didtopic b ON a.`topicId` = b.`topicId`
         WHERE EXISTS
-        (SELECT * FROM tb_didtopic b WHERE userId = #{param1} AND a.`topicId` = b.`topicId`) AND classifyId = #{param2}
+        (SELECT * FROM tb_didtopic b WHERE userId = #{param1} AND a.`topicId` = b.`topicId`)
+         AND classifyId = #{param2} AND userId = #{param1}
     </select>
 
     <!--auto generated Code-->
