@@ -100,7 +100,8 @@ public class TopicServiceImpl implements TopicService {
         if ("random".equals(topicType)) {
             for (int i = 0; i < classifyIds.length; i++) {
                 int classifyId = classifyIds[i];
-                List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, topicNum * 2);
+                List<TbTopic> noDidTopicList =
+                        tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, topicNum * 2);
                 if (noDidTopicList == null) {
                     break;
                 }

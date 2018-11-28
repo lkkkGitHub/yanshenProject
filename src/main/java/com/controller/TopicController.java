@@ -66,7 +66,9 @@ public class TopicController {
             classifyIds[0] = 1;
         }
         TbUser user = (TbUser) session.getAttribute("user");
-        UserDidTopicUtil userDidTopicUtil = (UserDidTopicUtil) session.getAttribute("UserDidTopicUtil");
+        UserDidTopicUtil userDidTopicUtil =
+                JsonUtils.jsonToPojo(jedisClient.hget("UserDidTopicUtil",
+                        (String) session.getAttribute("username")), UserDidTopicUtil.class);
         LinkedList<TbTopic> list = topicServiceImpl.getTopicToExercise(topicNum, topicType,
                 userDidTopicUtil.getMap(), classifyIds, user.getUid());
         List<TbTopic> topicList = new ArrayList<>(list);

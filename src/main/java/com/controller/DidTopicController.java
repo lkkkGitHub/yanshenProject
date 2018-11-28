@@ -33,10 +33,10 @@ public class DidTopicController {
     private DidtopicService tbDidtopicServiceImpl;
 
     /**
-     * 获取用户所有类别中所做的题目信息，存入session
+     * 获取用户所有类别中所做的题目信息，存入到redis中
      * 包括错题数，正确率，错题题目
      *
-     * @param session 将信息存入到session中，
+     * @param session 获取session中的用户信息
      * @return 返回这个工具类
      */
     @ResponseBody
@@ -69,7 +69,8 @@ public class DidTopicController {
             if (didTopicList.size() == topicList.size()) {
                 UserDidTopicUtil userDidTopicUtil = tbDidtopicServiceImpl
                         .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
-                session.setAttribute("UserDidTopicUtil" ,userDidTopicUtil);
+                jedisClient.hset("UserDidTopicUtil", (String) session.getAttribute("username"),
+                        JsonUtils.objectToJson(userDidTopicUtil));
                 session.setAttribute("didTopicList", didTopicList);
                 session.removeAttribute("topicList");
                 session.removeAttribute("topicType");
