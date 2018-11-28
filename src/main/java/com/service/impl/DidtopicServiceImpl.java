@@ -9,12 +9,9 @@ import com.service.ClassifyService;
 import com.service.DidtopicService;
 import com.tools.pojoexpansion.UserDidTopicUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.listener.Topic;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpSession;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,9 +83,20 @@ public class DidtopicServiceImpl implements DidtopicService {
 
     @Transactional
     @Override
-    public List<TbDidtopic> commitTopic(List<TbTopic> topicList,String topicType, String uid) {
+    public List<TbDidtopic> commitTopic(List<TbTopic> topicList,String topicType, String uid,
+                                        UserDidTopicUtil userDidTopicUtil) {
         List<TbDidtopic> didTopicList = new ArrayList<>(topicList.size());
+
+        Map<Integer, List<TbDidtopic>> map = userDidTopicUtil.getMap();
+        Map<Integer, Integer> mapDidTopicByClassify = userDidTopicUtil.getMapDidTopicByClassify();
+        Map<Integer, Integer> mapErrorTopic = userDidTopicUtil.getMapErrorTopic();
+        userDidTopicUtil.setDidTopicNum(userDidTopicUtil.getDidTopicNum() + topicList.size());
+
         for (TbTopic topic : topicList) {
+            //开始维护UserDidTopicUtil
+            Integer classifyId = topic.getClassifyId();
+            List<TbDidtopic> tbDidtopicList = map.get(classifyId);
+            mapDidTopicByClassify.put(classifyId, mapDidTopicByClassify.get(classifyId) + 1);
             TbDidtopic tbDidtopic = new TbDidtopic();
             List<TbOption> optionList = topic.getOptionList();
             tbDidtopic.setTopicId(topic.getTopicId());
@@ -99,7 +107,6 @@ public class DidtopicServiceImpl implements DidtopicService {
                     if (option.getOptionId().equals(topic.getOptionId())) {
                         tbDidtopic.setError(0);
                         tbDidtopic.setErrorOptionId(-1);
-                        didTopicList.add(tbDidtopic);
                     } else {
                         tbDidtopic.setError(1);
                         if (topic.getOptionId() == null) {
@@ -107,11 +114,18 @@ public class DidtopicServiceImpl implements DidtopicService {
                         } else {
                             tbDidtopic.setErrorOptionId(topic.getOptionId());
                         }
-                        didTopicList.add(tbDidtopic);
+                        mapErrorTopic.put(classifyId, mapErrorTopic.get(classifyId) + 1);
+                        userDidTopicUtil.setErrorDidTopicNum(userDidTopicUtil.getErrorDidTopicNum() + 1);
                     }
+                    didTopicList.add(tbDidtopic);
+                    tbDidtopicList.add(tbDidtopic);
                 }
             }
+            map.put(classifyId, tbDidtopicList);
         }
+        userDidTopicUtil.setMap(map);
+        userDidTopicUtil.setMapErrorTopic(mapErrorTopic);
+        userDidTopicUtil.setMapDidTopicByClassify(mapDidTopicByClassify);
         int i = 0;
         //错题练习即为更新数据库字段，否则即使插入
         if ("wrongQuestion".equals(topicType)) {

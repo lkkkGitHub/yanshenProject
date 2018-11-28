@@ -62,14 +62,15 @@ public class DidTopicController {
      */
     @RequestMapping("/commitAnswer")
     public String commitAnswer(HttpSession session, HttpServletRequest request) {
+        String userName = (String) session.getAttribute("username");
+        UserDidTopicUtil userDidTopicUtil = JsonUtils.jsonToPojo(jedisClient.hget("UserDidTopicUtil", userName),
+                UserDidTopicUtil.class);
         List<TbTopic> topicList = (ArrayList<TbTopic>) session.getAttribute("topicList");
         List<TbDidtopic> didTopicList = tbDidtopicServiceImpl.commitTopic(topicList, (String) session.getAttribute("topicType"),
-                ((TbUser) session.getAttribute("user")).getUid());
+                ((TbUser) session.getAttribute("user")).getUid(), userDidTopicUtil);
         if (didTopicList != null) {
             if (didTopicList.size() == topicList.size()) {
-                UserDidTopicUtil userDidTopicUtil = tbDidtopicServiceImpl
-                        .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
-                jedisClient.hset("UserDidTopicUtil", (String) session.getAttribute("username"),
+                jedisClient.hset("UserDidTopicUtil", userName,
                         JsonUtils.objectToJson(userDidTopicUtil));
                 session.setAttribute("didTopicList", didTopicList);
                 session.removeAttribute("topicList");
@@ -88,7 +89,7 @@ public class DidTopicController {
      * 获取用户点击的下一题信息
      *
      * @param sequenceNext 下一题
-     * @param session 获取session中的做完题目信息
+     * @param session      获取session中的做完题目信息
      * @return
      */
     @ResponseBody

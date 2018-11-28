@@ -98,11 +98,23 @@ public class UserDidTopicUtil {
         this.mapCorrectRate = mapCorrectRate;
     }
 
+    /**
+     * 重载设置正确率方法 通过该方法重设正确率
+     */
+    public void setMapCorrectRate() {
+        for (int i = 1; i < map.size() + 1; i++) {
+            Double correctRate = ((Double.valueOf(mapDidTopicByClassify.get(i)) - mapErrorTopic.get(i))
+                    / mapDidTopicByClassify.get(i)) * 100;
+            mapCorrectRate.put(i, Math.round(correctRate));
+        }
+    }
+
     public Map<Integer, Integer> getMapDidTopicByClassify() {
         return mapDidTopicByClassify;
     }
 
     public void setMapDidTopicByClassify(Map<Integer, Integer> mapDidTopicByClassify) {
         this.mapDidTopicByClassify = mapDidTopicByClassify;
+        setMapCorrectRate();
     }
 }
