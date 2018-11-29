@@ -1,3 +1,6 @@
+//指向当前的题目序号
+var SEQUENCENEXT = "";
+
 function initTopicToShow(sequenceNext) {
     $.ajax({
         url: "/didTopic/getDidTopicToShow",
@@ -36,7 +39,8 @@ function initTopicToShow(sequenceNext) {
             }
             str += "<div id=\"referAnchor\"></div></div>";
             $("#topicShow").html(str);
-
+            SEQUENCENEXT = data.topicId;
+            checkCollection();
         }
     });
     //done-hover
@@ -47,6 +51,53 @@ function initTopicToShow(sequenceNext) {
         orders[i].classList.remove("done-hover");
     }
     //选中当前的题目序号
-    var orderA = document.getElementById("order"+sequenceNext);
+    var orderA = document.getElementById("order" + sequenceNext);
     orderA.classList.add("done-hover");
+}
+
+function checkCollection() {
+    $.ajax({
+        url: "/didTopic/checkCollection",
+        type: "get",
+        async: true,
+        data: {
+            topicId: SEQUENCENEXT
+        },
+        success: function (flag) {
+            var str = "";
+            if (flag == true) {
+                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confiryChecked(" + 0 + ")\" href=\"javascript:void(0);\">";
+                str += "已收藏";
+            } else {
+                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confiryChecked(" + 1 + ")\" href=\"javascript:void(0);\">";
+                str += "收藏";
+            }
+            str += "</a>";
+            $("#collection").html(str);
+        }
+    });
+}
+
+function confiryChecked(collection) {
+    $.ajax({
+        url: "/didTopic/collectionTopic",
+        type: "get",
+        async: true,
+        data: {
+            topicId: SEQUENCENEXT,
+            collection: collection
+        },
+        success: function (data) {
+            var str = "";
+            if (collection == 1) {
+                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confiryChecked(" + 0 + ")\" href=\"javascript:void(0);\">";
+                str += "已收藏";
+            } else {
+                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confiryChecked(" + 1 + ")\" href=\"javascript:void(0);\">";
+                str += "收藏";
+            }
+            str += "</a>";
+            $("#collection").html(str);
+        }
+    });
 }

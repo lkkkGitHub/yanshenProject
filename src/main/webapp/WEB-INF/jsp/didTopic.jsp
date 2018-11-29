@@ -212,6 +212,28 @@
                 <%--</div>--%>
                 <%--<div id="referAnchor"></div>--%>
             </span>
+            <ul class="oprt-tool clearfix">
+                <%--<li>--%>
+                    <%--<a href="javascript:void(0);" class="oprt-item oprt-del js-shield nc-req-auth">--%>
+                        <%--屏蔽本题--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                    <%--<a href="javascript:void(0);" class="oprt-item oprt-note js-add-note nc-req-auth">--%>
+                        <%--添加笔记--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <li>
+                    <a data-type="asking" data-count="3" class="oprt-item oprt-ask js-click-ask nc-req-auth" href="javascript:void(0);">
+                        求解答(3)
+                    </a>
+                </li>
+                <li id="collection">
+                    <a class="oprt-item oprt-collect click-follow nc-req-auth" href="javascript:void(0);">
+                        收藏
+                    </a>
+                </li>
+            </ul>
             <h1 class="clearfix">
                 <a href="/didTopic/returnHomeAndRemoveSession" id="jsDealAnswer" class="btn float-right btn-primary">返回首页</a>
             </h1>

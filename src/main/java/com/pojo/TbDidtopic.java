@@ -11,7 +11,19 @@ public class TbDidtopic {
      */
     private Integer error;
     private Integer errorOptionId;
+    /**
+     * 0 没有收藏 1 收藏
+     */
+    private Integer collection;
     private TbTopic tbTopic;
+
+    public Integer getCollection() {
+        return collection;
+    }
+
+    public void setCollection(Integer collection) {
+        this.collection = collection;
+    }
 
     public TbTopic getTbTopic() {
         return tbTopic;

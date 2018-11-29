@@ -8,6 +8,7 @@
         <result column="userId" property="userId"/>
         <result column="error" property="error"/>
         <result column="errorOptionId" property="errorOptionId"/>
+        <result column="collection" property="collection"/>
     </resultMap>
 
     <resultMap id="ctxTbTopic" type="com.pojo.TbDidtopic" extends="AllColumnMap">
@@ -20,7 +21,8 @@
         `topicId`,
         `userId`,
         `error`,
-        `errorOptionId`
+        `errorOptionId`,
+        `collection`
     </sql>
 
     <select id="findDidTopicByUserIdAndClassifyId" resultMap="ctxTbTopic">
@@ -95,5 +97,14 @@
             WHERE `userId` = #{pojo.userId} and `topicId` = #{pojo.topicId}
         </foreach>
     </update>
+
+    <update id="updateDidTopicCollection">
+        UPDATE tb_didtopic set `collection` = #{param1}
+        WHERE `userId` = #{param2} and `topicId` = #{param3}
+    </update>
+
+    <select id="checkCollection" resultType="java.lang.Integer">
+        SELECT `collection` FROM `tb_didtopic` WHERE `userId` = #{param1} AND `topicId` = #{param2}
+    </select>
 </mapper>
 
