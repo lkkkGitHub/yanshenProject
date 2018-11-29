@@ -38,8 +38,6 @@ public class DidtopicServiceImpl implements DidtopicService {
     public UserDidTopicUtil findDidTopicByUserIdAndClassifyId(String userId) {
         //获取分类的list集合，该方法中已经封装好了缓存机制
         List<TbClassify> tbClassifyList = classifyServiceImpl.allClassify();
-        //使用分类id，存放每个类别用户做的所有的题目的具体信息
-        Map<Integer, List<TbDidtopic>> map = new HashMap<>(tbClassifyList.size());
         //记录每个类型的题目错题数
         Map<Integer, Integer> mapErrorTopic = new HashMap<>(tbClassifyList.size());
         //记录每个类型用户的正确率
@@ -53,7 +51,6 @@ public class DidtopicServiceImpl implements DidtopicService {
         for (int i = 0; i < tbClassifyList.size(); i++) {
             //获取用户每个类型下做的题目信息
             List<TbDidtopic> list = didtopicDao.findDidTopicByUserIdAndClassifyId(userId, i + 1);
-            map.put(i + 1, list);
             mapDidTopicByClassify.put(i + 1, list.size());
             countAllDidTopic += list.size();
             //记录用户每个类型的错题数
@@ -74,7 +71,6 @@ public class DidtopicServiceImpl implements DidtopicService {
         }
         userDidTopicUtil.setDidTopicNum(countAllDidTopic);
         userDidTopicUtil.setErrorDidTopicNum(errorAllCount);
-        userDidTopicUtil.setMap(map);
         userDidTopicUtil.setMapCorrectRate(mapCorrectRate);
         userDidTopicUtil.setMapErrorTopic(mapErrorTopic);
         userDidTopicUtil.setMapDidTopicByClassify(mapDidTopicByClassify);
@@ -83,55 +79,44 @@ public class DidtopicServiceImpl implements DidtopicService {
 
     @Transactional
     @Override
-    public List<TbDidtopic> commitTopic(List<TbTopic> topicList,String topicType, String uid,
+    public List<TbDidtopic> commitTopic(List<TbTopic> topicList, String topicType, String uid,
                                         UserDidTopicUtil userDidTopicUtil) {
         List<TbDidtopic> didTopicList = new ArrayList<>(topicList.size());
-
-        Map<Integer, List<TbDidtopic>> map = userDidTopicUtil.getMap();
-        Map<Integer, Integer> mapDidTopicByClassify = userDidTopicUtil.getMapDidTopicByClassify();
-        Map<Integer, Integer> mapErrorTopic = userDidTopicUtil.getMapErrorTopic();
-        userDidTopicUtil.setDidTopicNum(userDidTopicUtil.getDidTopicNum() + topicList.size());
-
-        for (TbTopic topic : topicList) {
-            //开始维护UserDidTopicUtil
-            Integer classifyId = topic.getClassifyId();
-            List<TbDidtopic> tbDidtopicList = map.get(classifyId);
-            mapDidTopicByClassify.put(classifyId, mapDidTopicByClassify.get(classifyId) + 1);
-            TbDidtopic tbDidtopic = new TbDidtopic();
-            List<TbOption> optionList = topic.getOptionList();
-            tbDidtopic.setTopicId(topic.getTopicId());
-            tbDidtopic.setUserId(uid);
-            tbDidtopic.setTbTopic(topic);
-            for (TbOption option : optionList) {
-                if (option.getCorrect() == 1) {
-                    if (option.getOptionId().equals(topic.getOptionId())) {
-                        tbDidtopic.setError(0);
-                        tbDidtopic.setErrorOptionId(-1);
-                    } else {
-                        tbDidtopic.setError(1);
-                        if (topic.getOptionId() == null) {
+        int i = 0;
+        if (!"wrongQuestion".equals(topicType)) {
+            Map<Integer, Integer> mapDidTopicByClassify = userDidTopicUtil.getMapDidTopicByClassify();
+            Map<Integer, Integer> mapErrorTopic = userDidTopicUtil.getMapErrorTopic();
+            userDidTopicUtil.setDidTopicNum(userDidTopicUtil.getDidTopicNum() + topicList.size());
+            for (TbTopic topic : topicList) {
+                //开始维护UserDidTopicUtil
+                Integer classifyId = topic.getClassifyId();
+                mapDidTopicByClassify.put(classifyId, mapDidTopicByClassify.get(classifyId) + 1);
+                TbDidtopic tbDidtopic = new TbDidtopic();
+                List<TbOption> optionList = topic.getOptionList();
+                tbDidtopic.setTopicId(topic.getTopicId());
+                tbDidtopic.setUserId(uid);
+                tbDidtopic.setTbTopic(topic);
+                for (TbOption option : optionList) {
+                    if (option.getCorrect() == 1) {
+                        if (option.getOptionId().equals(topic.getOptionId())) {
+                            tbDidtopic.setError(0);
                             tbDidtopic.setErrorOptionId(-1);
                         } else {
-                            tbDidtopic.setErrorOptionId(topic.getOptionId());
+                            tbDidtopic.setError(1);
+                            if (topic.getOptionId() == null) {
+                                tbDidtopic.setErrorOptionId(-1);
+                            } else {
+                                tbDidtopic.setErrorOptionId(topic.getOptionId());
+                            }
+                            mapErrorTopic.put(classifyId, mapErrorTopic.get(classifyId) + 1);
+                            userDidTopicUtil.setErrorDidTopicNum(userDidTopicUtil.getErrorDidTopicNum() + 1);
                         }
-                        mapErrorTopic.put(classifyId, mapErrorTopic.get(classifyId) + 1);
-                        userDidTopicUtil.setErrorDidTopicNum(userDidTopicUtil.getErrorDidTopicNum() + 1);
+                        didTopicList.add(tbDidtopic);
                     }
-                    didTopicList.add(tbDidtopic);
-                    tbDidtopicList.add(tbDidtopic);
                 }
             }
-            map.put(classifyId, tbDidtopicList);
-        }
-        userDidTopicUtil.setMap(map);
-        userDidTopicUtil.setMapErrorTopic(mapErrorTopic);
-        userDidTopicUtil.setMapDidTopicByClassify(mapDidTopicByClassify);
-        int i = 0;
-        //错题练习即为更新数据库字段，否则即使插入
-        if ("wrongQuestion".equals(topicType)) {
-            i = didtopicDao.updateDidTopic(didTopicList);
-            return didTopicList;
-        } else {
+            userDidTopicUtil.setMapErrorTopic(mapErrorTopic);
+            userDidTopicUtil.setMapDidTopicByClassify(mapDidTopicByClassify);
             i = didtopicDao.insertList(didTopicList);
             if (i == topicList.size()) {
                 return didTopicList;
@@ -143,6 +128,34 @@ public class DidtopicServiceImpl implements DidtopicService {
                 }
                 return null;
             }
+            //错题练习即为更新数据库字段，否则即使插入
+//        if (!"wrongQuestion".equals(topicType)) {
+        } else {
+            for (TbTopic topic : topicList) {
+                TbDidtopic tbDidtopic = new TbDidtopic();
+                List<TbOption> optionList = topic.getOptionList();
+                tbDidtopic.setTopicId(topic.getTopicId());
+                tbDidtopic.setUserId(uid);
+                tbDidtopic.setTbTopic(topic);
+                for (TbOption option : optionList) {
+                    if (option.getCorrect() == 1) {
+                        if (option.getOptionId().equals(topic.getOptionId())) {
+                            tbDidtopic.setError(0);
+                            tbDidtopic.setErrorOptionId(-1);
+                        } else {
+                            tbDidtopic.setError(1);
+                            if (topic.getOptionId() == null) {
+                                tbDidtopic.setErrorOptionId(-1);
+                            } else {
+                                tbDidtopic.setErrorOptionId(topic.getOptionId());
+                            }
+                        }
+                        didTopicList.add(tbDidtopic);
+                    }
+                }
+            }
+            i = didtopicDao.updateDidTopic(didTopicList);
+            return didTopicList;
         }
     }
 }

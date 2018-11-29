@@ -2,7 +2,6 @@ package com.service.impl;
 
 import com.dao.TbTopicDao;
 import com.pojo.TbClassify;
-import com.pojo.TbDidtopic;
 import com.pojo.TbTopic;
 import com.service.ClassifyService;
 import com.service.TopicService;
@@ -92,9 +91,24 @@ public class TopicServiceImpl implements TopicService {
         }
     }
 
+    /**
+     * 开始为LinkedeList 集合赋值
+     * @param list 传入数据库查出的题目
+     * @param length 类型数组的长度
+     * @param topicNum 需求题目数量
+     * @return LinkedList集合
+     */
+    private LinkedList<TbTopic> setLinkedList(List<TbTopic> list, Integer length, Integer topicNum) {
+        LinkedList<TbTopic> linkedList = new LinkedList<>();
+        int critical = judgeTopicSize(list.size(), length, topicNum);
+        for (int j = 0; j < critical; j++) {
+            linkedList.add(list.get(j));
+        }
+        return linkedList;
+    }
+
     @Override
-    public LinkedList<TbTopic> getTopicToExercise(int topicNum, String topicType,
-                                                  Map<Integer, List<TbDidtopic>> map, int[] classifyIds, String uid) {
+    public LinkedList<TbTopic> getTopicToExercise(int topicNum, String topicType, int[] classifyIds, String uid) {
         LinkedList<TbTopic> list = new LinkedList<>();
         //随机生成题目 random
         if ("random".equals(topicType)) {
@@ -107,12 +121,8 @@ public class TopicServiceImpl implements TopicService {
                 }
                 //打乱集合
                 Collections.shuffle(noDidTopicList);
-                //判断集合和需求的题目大小关系
-                int critical = judgeTopicSize(noDidTopicList.size(), classifyIds.length, topicNum);
-                //赋值题目
-                for (int j = 0; j < critical; j++) {
-                    list.add(noDidTopicList.get(j));
-                }
+                //开始赋值
+                list.addAll(setLinkedList(noDidTopicList, classifyIds.length, topicNum));
             }
             //移除多于的题目，如果题目数量过大
             ifBigRemove(list, topicNum, classifyIds.length);
@@ -122,28 +132,16 @@ public class TopicServiceImpl implements TopicService {
             int classifyId = classifyIds[0];
             List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, topicNum * 2);
             if (noDidTopicList != null) {
-                //判断集合和需求的题目大小关系
-                int critical = judgeTopicSize(noDidTopicList.size(), 1, topicNum);
-                for (int j = 0; j < critical; j++) {
-                    list.add(noDidTopicList.get(j));
-                }
+                list.addAll(setLinkedList(noDidTopicList, 1, topicNum));
             }
         }
         //错题练习 wrongQuestion
+        //暂时做了当有类别的错题数量不足时，该题目缺少一个，总题数少一个；随机练习也将如此
+        //以后希望在该类别题目少了之后，其他类型的题目数量多，则通过起来类别弥补总题数的缺失
         if ("wrongQuestion".equals(topicType)) {
-            for (int i = 0; i < classifyIds.length; i++) {
-                List<TbDidtopic> didtopicList = map.get(classifyIds[i]);
-                if (didtopicList == null) {
-                    break;
-                }
-                for (TbDidtopic tbDidtopic : didtopicList) {
-                    if (tbDidtopic.getError() == 1) {
-                        list.add(JsonUtils.jsonToPojo(jedisClient.hget("topic", String.valueOf(tbDidtopic.getTopicId())),TbTopic.class));
-                    }
-                    if (list.size() >= topicNum) {
-                        break;
-                    }
-                }
+            for (int i = 1; i < classifyIds.length + 1; i++) {
+                List<TbTopic> noDidTopicList = tbTopicDao.selectErrorTopic(uid, 1, classifyIds[i - 1]);
+                list.addAll(setLinkedList(noDidTopicList, classifyIds.length, topicNum));
             }
             ifBigRemove(list, topicNum, classifyIds.length);
         }

@@ -1,12 +1,8 @@
 package com.dao;
 
-import com.pojo.TbOption;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import com.pojo.TbTopic;
 
 import java.util.List;
-import com.pojo.TbTopic;
-import org.springframework.data.redis.listener.Topic;
 
 /**
  * @author 疯自
@@ -41,4 +37,14 @@ public interface TbTopicDao {
      * @return 题目信息
      */
     TbTopic selectTopicByTopicId(Integer topicId);
+
+    /**
+     * 获取用户做对的题目信息，以及做错的题目信息
+     *
+     * @param userId 用户id
+     * @param error 正确与否 0 1
+     * @param classifyId 类别的id分类获取
+     * @return 题目信息以及选项
+     */
+    List<TbTopic> selectErrorTopic(String userId,Integer error, Integer classifyId);
 }
