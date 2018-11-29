@@ -5,6 +5,7 @@ import com.pojo.TbTopic;
 import com.pojo.TbUser;
 import com.service.DidtopicService;
 import com.tools.pojoexpansion.UserDidTopicUtil;
+import com.tools.utils.JsonUtils;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,22 +33,23 @@ public class DidTopicController {
     private DidtopicService tbDidtopicServiceImpl;
 
     /**
-     * 获取用户所有类别中所做的题目信息，存入session
+     * 获取用户所有类别中所做的题目信息，存入到redis中
      * 包括错题数，正确率，错题题目
      *
-     * @param session 将信息存入到session中，
+     * @param session 获取session中的用户信息
      * @return 返回这个工具类
      */
     @ResponseBody
     @RequestMapping("/getDidTopicUtil")
     public UserDidTopicUtil getDidTopicUtil(HttpSession session) {
-        UserDidTopicUtil userDidTopicUtil = null;
-        if (session.getAttribute("UserDidTopicUtil") == null) {
+        String userName = (String) session.getAttribute("username");
+        UserDidTopicUtil userDidTopicUtil =
+                JsonUtils.jsonToPojo(jedisClient.hget("UserDidTopicUtil", userName), UserDidTopicUtil.class);
+        if (userDidTopicUtil == null) {
             userDidTopicUtil = tbDidtopicServiceImpl
                     .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
-            session.setAttribute("UserDidTopicUtil", userDidTopicUtil);
-        } else {
-            userDidTopicUtil = (UserDidTopicUtil) (session.getAttribute("UserDidTopicUtil"));
+            jedisClient.hset("UserDidTopicUtil", userName, JsonUtils.objectToJson(userDidTopicUtil));
+            return userDidTopicUtil;
         }
         return userDidTopicUtil;
     }
@@ -60,14 +62,16 @@ public class DidTopicController {
      */
     @RequestMapping("/commitAnswer")
     public String commitAnswer(HttpSession session, HttpServletRequest request) {
+        String userName = (String) session.getAttribute("username");
+        UserDidTopicUtil userDidTopicUtil = JsonUtils.jsonToPojo(jedisClient.hget("UserDidTopicUtil", userName),
+                UserDidTopicUtil.class);
         List<TbTopic> topicList = (ArrayList<TbTopic>) session.getAttribute("topicList");
         List<TbDidtopic> didTopicList = tbDidtopicServiceImpl.commitTopic(topicList, (String) session.getAttribute("topicType"),
-                ((TbUser) session.getAttribute("user")).getUid());
+                ((TbUser) session.getAttribute("user")).getUid(), userDidTopicUtil);
         if (didTopicList != null) {
             if (didTopicList.size() == topicList.size()) {
-                UserDidTopicUtil userDidTopicUtil = tbDidtopicServiceImpl
-                        .findDidTopicByUserIdAndClassifyId(((TbUser) (session.getAttribute("user"))).getUid());
-                session.setAttribute("UserDidTopicUtil" ,userDidTopicUtil);
+                jedisClient.hset("UserDidTopicUtil", userName,
+                        JsonUtils.objectToJson(userDidTopicUtil));
                 session.setAttribute("didTopicList", didTopicList);
                 session.removeAttribute("topicList");
                 session.removeAttribute("topicType");
@@ -85,7 +89,7 @@ public class DidTopicController {
      * 获取用户点击的下一题信息
      *
      * @param sequenceNext 下一题
-     * @param session 获取session中的做完题目信息
+     * @param session      获取session中的做完题目信息
      * @return
      */
     @ResponseBody

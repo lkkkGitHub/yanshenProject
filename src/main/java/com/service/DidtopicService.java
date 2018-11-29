@@ -1,13 +1,10 @@
 package com.service;
 
+import com.pojo.TbDidtopic;
 import com.pojo.TbTopic;
 import com.tools.pojoexpansion.UserDidTopicUtil;
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
+
 import java.util.List;
-import com.pojo.TbDidtopic;
-import com.dao.TbDidtopicDao;
 
 /**
  * @author 疯自
@@ -30,5 +27,5 @@ public interface DidtopicService {
      * @param topicType 题目类型
      * @return 影响的行数，用于controller判断是否成功插入
      */
-    List<TbDidtopic> commitTopic(List<TbTopic> list, String topicType, String uid);
+    List<TbDidtopic> commitTopic(List<TbTopic> list, String topicType, String uid, UserDidTopicUtil userDidTopicUtil);
 }

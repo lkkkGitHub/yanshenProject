@@ -1,9 +1,7 @@
 package com.tools.pojoexpansion;
 
-import com.pojo.TbDidtopic;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,10 +12,6 @@ import java.util.Map;
 @Repository
 public class UserDidTopicUtil {
 
-    /**
-     * 使用分类id，存放每个类别用户做的所有的题目的具体信息
-     */
-    private Map<Integer, List<TbDidtopic>> map;
     /**
      * 记录每个类型的题目错题数
      */
@@ -74,14 +68,6 @@ public class UserDidTopicUtil {
         }
     }
 
-    public Map<Integer, List<TbDidtopic>> getMap() {
-        return map;
-    }
-
-    public void setMap(Map<Integer, List<TbDidtopic>> map) {
-        this.map = map;
-    }
-
     public Map<Integer, Integer> getMapErrorTopic() {
         return mapErrorTopic;
     }
@@ -98,11 +84,23 @@ public class UserDidTopicUtil {
         this.mapCorrectRate = mapCorrectRate;
     }
 
+    /**
+     * 重载设置正确率方法 通过该方法重设正确率
+     */
+    public void setMapCorrectRate() {
+        for (int i = 1; i < mapDidTopicByClassify.size() + 1; i++) {
+            Double correctRate = ((Double.valueOf(mapDidTopicByClassify.get(i)) - mapErrorTopic.get(i))
+                    / mapDidTopicByClassify.get(i)) * 100;
+            mapCorrectRate.put(i, Math.round(correctRate));
+        }
+    }
+
     public Map<Integer, Integer> getMapDidTopicByClassify() {
         return mapDidTopicByClassify;
     }
 
     public void setMapDidTopicByClassify(Map<Integer, Integer> mapDidTopicByClassify) {
         this.mapDidTopicByClassify = mapDidTopicByClassify;
+        setMapCorrectRate();
     }
 }

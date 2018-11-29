@@ -3,7 +3,6 @@ package com.controller;
 import com.pojo.TbTopic;
 import com.pojo.TbUser;
 import com.service.TopicService;
-import com.tools.pojoexpansion.UserDidTopicUtil;
 import com.tools.utils.JsonUtils;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,9 +65,7 @@ public class TopicController {
             classifyIds[0] = 1;
         }
         TbUser user = (TbUser) session.getAttribute("user");
-        UserDidTopicUtil userDidTopicUtil = (UserDidTopicUtil) session.getAttribute("UserDidTopicUtil");
-        LinkedList<TbTopic> list = topicServiceImpl.getTopicToExercise(topicNum, topicType,
-                userDidTopicUtil.getMap(), classifyIds, user.getUid());
+        LinkedList<TbTopic> list = topicServiceImpl.getTopicToExercise(topicNum, topicType, classifyIds, user.getUid());
         List<TbTopic> topicList = new ArrayList<>(list);
         if (topicList.size() == 0) {
             request.setAttribute("topicNumZeroMessage", "当前分类已经没有题目可以做了，换个类别或者做做错题把");

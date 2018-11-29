@@ -56,6 +56,13 @@
         </trim>
     </insert>
 
+    <select id="selectErrorTopic" resultMap="ctxTbOption">
+        SELECT * FROM `tb_topic` WHERE `topicId` IN (
+            SELECT `topicId` FROM `tb_didtopic` WHERE
+            `userId` = #{param1} AND `error` = #{param2})
+        AND `classifyId` = #{param3}
+    </select>
+
     <!--auto generated Code-->
     <update id="update">
         UPDATE tb_topic
