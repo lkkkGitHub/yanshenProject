@@ -8,7 +8,6 @@
         <result column="userId" property="userId"/>
         <result column="error" property="error"/>
         <result column="errorOptionId" property="errorOptionId"/>
-        <result column="collection" property="collection"/>
     </resultMap>
 
     <resultMap id="ctxTbTopic" type="com.pojo.TbDidtopic" extends="AllColumnMap">
@@ -21,8 +20,7 @@
         `topicId`,
         `userId`,
         `error`,
-        `errorOptionId`,
-        `collection`
+        `errorOptionId`
     </sql>
 
     <select id="findDidTopicByUserIdAndClassifyId" resultMap="ctxTbTopic">

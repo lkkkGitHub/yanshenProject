@@ -57,19 +57,23 @@ function initTopicToShow(sequenceNext) {
 
 function checkCollection() {
     $.ajax({
-        url: "/didTopic/checkCollection",
+        url: "/collection/checkCollection",
         type: "get",
         async: true,
         data: {
             topicId: SEQUENCENEXT
         },
-        success: function (flag) {
+        success: function (data) {
+            var flag = data;
             var str = "";
-            if (flag == true) {
-                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confiryChecked(" + 0 + ")\" href=\"javascript:void(0);\">";
+            if (flag == 0) {
+                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confirmChecked(" + 1 + "," + 1 + ")\" href=\"javascript:void(0);\">";
                 str += "已收藏";
-            } else {
-                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confiryChecked(" + 1 + ")\" href=\"javascript:void(0);\">";
+            } else if (flag == -1) {
+                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confirmChecked(" + 0 + "," + 0 + ")\" href=\"javascript:void(0);\">";
+                str += "收藏";
+            } else if (flag == 1) {
+                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confirmChecked(" + 0 + "," + 1 + ")\" href=\"javascript:void(0);\">";
                 str += "收藏";
             }
             str += "</a>";
@@ -78,22 +82,23 @@ function checkCollection() {
     });
 }
 
-function confiryChecked(collection) {
+function confirmChecked(deleteFlag, flag) {
     $.ajax({
-        url: "/didTopic/collectionTopic",
+        url: "/collection/insertCollection",
         type: "get",
         async: true,
         data: {
             topicId: SEQUENCENEXT,
-            collection: collection
+            deleteFlag: deleteFlag,
+            flag: flag
         },
         success: function (data) {
             var str = "";
-            if (collection == 1) {
-                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confiryChecked(" + 0 + ")\" href=\"javascript:void(0);\">";
+            if (deleteFlag == 0) {
+                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confirmChecked(" + 1 + "," + 1 + ")\" href=\"javascript:void(0);\">";
                 str += "已收藏";
             } else {
-                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confiryChecked(" + 1 + ")\" href=\"javascript:void(0);\">";
+                str += " <a class=\"oprt-item oprt-collect click-follow nc-req-auth\" onclick=\"confirmChecked(" + 0 + "," + 1 + ")\" href=\"javascript:void(0);\">";
                 str += "收藏";
             }
             str += "</a>";

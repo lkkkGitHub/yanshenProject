@@ -110,29 +110,4 @@ public class DidTopicController {
         return "redirect:/topic/removeNotDoneTopic";
     }
 
-    /**
-     * 更新用户关注歌曲信息
-     * @param session 获取用户信息
-     * @param topicId 题目id
-     * @param collection 收藏的信息，
-     * @return 成功返回true，失败即返回
-     */
-    @ResponseBody
-    @RequestMapping("/collectionTopic")
-    public boolean collectionTopic(HttpSession session, Integer topicId, Integer collection) {
-        return tbDidtopicServiceImpl.updateDidTopicCollection(collection,
-                ((TbUser) session.getAttribute("user")).getUid(), topicId);
-    }
-
-    /**
-     * 检查用户是否收藏该题目
-     * @param session 获取用户信息
-     * @param topicId 题目id
-     * @return 收藏及返回true，没有则返回false
-     */
-    @ResponseBody
-    @RequestMapping("/checkCollection")
-    public boolean checkCollection(HttpSession session, Integer topicId) {
-        return tbDidtopicServiceImpl.checkCollection(((TbUser) session.getAttribute("user")).getUid(), topicId);
-    }
 }

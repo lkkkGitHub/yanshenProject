@@ -30,23 +30,4 @@ public interface DidtopicService {
      * @return 影响的行数，用于controller判断是否成功插入
      */
     List<TbDidtopic> commitTopic(List<TbTopic> list, String topicType, String uid, UserDidTopicUtil userDidTopicUtil);
-
-    /**
-     * 用户收藏题目，以及取消收藏
-     *
-     * @param collection 收藏信息
-     * @param uid 用户id
-     * @param topicId 题目信息
-     * @return 成功及返回true
-     */
-    boolean updateDidTopicCollection(Integer collection, String uid, Integer topicId);
-
-    /**
-     * 检查是否收藏了该题目
-     *
-     * @param uid 用户id
-     * @param topicId 题目id
-     * @return 收藏了返回true 失败返回false
-     */
-    boolean checkCollection(String uid, Integer topicId);
 }

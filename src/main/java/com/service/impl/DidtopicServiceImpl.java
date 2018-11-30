@@ -159,13 +159,4 @@ public class DidtopicServiceImpl implements DidtopicService {
         }
     }
 
-    @Override
-    public boolean updateDidTopicCollection(Integer collection, String uid, Integer topicId) {
-        return didtopicDao.updateDidTopicCollection(collection, uid, topicId) == 1;
-    }
-
-    @Override
-    public boolean checkCollection(String uid, Integer topicId) {
-        return didtopicDao.checkCollection(uid, topicId) == 1;
-    }
 }
