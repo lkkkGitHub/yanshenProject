@@ -95,3 +95,14 @@ function answeringNum(sequenceNext, topicNum) {
     //传入当前题目顺序号，以及题目的选择
     intiTopicInfo(sequence, sequenceNext, optionId);
 }
+
+$(document).on('click', ".answer-sheet-box", function () {
+    var answer_sheet_box = $(".answer-sheet-box");
+    if (answer_sheet_box.hasClass("open")) {
+        answer_sheet_box.removeClass("open");
+        answer_sheet_box.addClass("close");
+    } else {
+        answer_sheet_box.removeClass("close");
+        answer_sheet_box.addClass("open");
+    }
+});

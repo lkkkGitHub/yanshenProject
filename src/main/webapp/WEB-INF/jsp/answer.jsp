@@ -201,20 +201,9 @@
                     </div>
                     <div class="subject-action clearfix">
                         <div class="subject-opr">
-                            <span class="subject-opr-item"><i class="ico-collect"></i><a href="javascript:void(0);"
-                                                                                         class="js-follow nc-req-auth"
-                                                                                         data-id="53096">收藏本题</a></span>
-                            <span class="subject-opr-item"><i class="ico-mark"></i><a href="javascript:void(0);"
-                                                                                      class="js-mark nc-req-auth"
-                                                                                      data-id="53096"
-                                                                                      data-tid="19951551"
-                                                                                      data-title="标记该题，着重查看。"
-                                                                                      data-tips-index="2">标记一下</a></span>
-                            <span class="subject-opr-item"><i class="ico-shield"></i><a href="javascript:void(0);"
-                                                                                        class="js-shield nc-req-auth"
-                                                                                        data-id="53096"
-                                                                                        data-title="屏蔽该题，该题将不会出现在以后的组卷中。"
-                                                                                        data-tips-index="1">屏蔽本题</a></span>
+                            <%--<span class="subject-opr-item"><i class="ico-collect"></i><a href="javascript:void(0);"--%>
+                                                                                         <%--class="js-follow nc-req-auth"--%>
+                                                                                         <%--data-id="53096">收藏本题</a></span>--%>
                         </div>
                         <div class="subject-next">
                             <%--<form id="submitForm" method="post"--%>
