@@ -96,7 +96,7 @@ function answeringNum(sequenceNext, topicNum) {
     intiTopicInfo(sequence, sequenceNext, optionId);
 }
 
-$(document).on('click', ".answer-sheet-box", function () {
+$(document).on('click', ".answer-box", function () {
     var answer_sheet_box = $(".answer-sheet-box");
     if (answer_sheet_box.hasClass("open")) {
         answer_sheet_box.removeClass("open");

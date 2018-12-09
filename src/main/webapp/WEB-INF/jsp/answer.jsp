@@ -45,7 +45,7 @@
                 </li>
                 <li>
                     <a href="#">学习</a>
-                    <ul class="sub-nav">
+                    <ul class="sub-nav">answer-sheet-box open
                         <li><a href="#">课程</a></li>
                         <li><a href="#">项目实战</a></li>
                         <li><a href="#">技术栈</a></li>
@@ -221,8 +221,10 @@
                 </div>
                 <!-- 展开的时候加class:open -->
                 <div class="answer-sheet-box open">
-                    <a href="javascript:void(0)" class="card-unfold">答题卡</a>
-                    <a href="javascript:void(0)" class="card-fold">展开答题卡</a>
+                    <span class="answer-box">
+                        <a href="javascript:void(0)" class="card-unfold">答题卡</a>
+                        <a href="javascript:void(0)" class="card-fold">展开答题卡</a>
+                    </span>
                     <ul class="answer-sheet-num clearfix">
                         <%--<li><a href="javascript:void(0);" class="answering-num " data-qid="53096">1</a></li>--%>
                         <%--<li><a href="javascript:void(0);" class="answer-done " data-qid="55688">2</a></li>--%>
