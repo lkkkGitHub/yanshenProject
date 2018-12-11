@@ -1,12 +1,9 @@
 package com.service;
 
-import org.springframework.stereotype.Service;
-
 /**
  * @author lk
  * 2018/11/30 15:24
  */
-@Service
 public interface CollectionService {
     /**
      * 插入收藏信息，用户收藏该题目

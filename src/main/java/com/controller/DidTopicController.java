@@ -73,9 +73,11 @@ public class DidTopicController {
                 jedisClient.hset("UserDidTopicUtil", userName,
                         JsonUtils.objectToJson(userDidTopicUtil));
                 session.setAttribute("didTopicList", didTopicList);
+                /*
                 session.removeAttribute("topicList");
                 session.removeAttribute("topicType");
                 session.removeAttribute("notDoneTopic");
+                */
                 jedisClient.hdel("notDoneTopic", (String) session.getAttribute("username"));
                 jedisClient.hdel("topicType", (String) session.getAttribute("username"));
                 return "didTopic";

@@ -10,7 +10,6 @@ function initTopicToShow(sequenceNext) {
         success: function (data) {
             var str = "";
             str += "<div class=\"result-question-box\"> <div class=\"subject-question\"> " +
-
                 "<div class=\"question-main\">" + data.tbTopic.topicId + "    " + data.tbTopic.topicComment + "</div> </div> </div>";
             str += "<div class=\"result-subject-item result-subject-answer\">";
             str += "<h1>解析：" + data.tbTopic.analysis + "</h1>";
@@ -40,7 +39,14 @@ function initTopicToShow(sequenceNext) {
             str += "<div id=\"referAnchor\"></div></div>";
             $("#topicShow").html(str);
             SEQUENCENEXT = data.topicId;
+            /**
+             * 判断是否收藏
+             */
             checkCollection();
+            /**
+             * 生成评论信息
+             */
+            findComment();
         }
     });
     //done-hover
@@ -103,6 +109,18 @@ function confirmChecked(deleteFlag, flag) {
             }
             str += "</a>";
             $("#collection").html(str);
+        }
+    });
+}
+
+//显示评论，信息，回复点击展开之后再显示
+function  findComment() {
+    $.ajax({
+        url : "/comment/findCommentByTopicId",
+        type : "get",
+        data : {topicId : SEQUENCENEXT},
+        success: function (data) {
+
         }
     });
 }

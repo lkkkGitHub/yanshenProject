@@ -378,7 +378,7 @@
     where `uname` = #{uname,jdbcType=CHAR}
     </update>
     
-    <select id="selectUserInfo" parameterType="com.pojo.TbUser" resultType="com.pojo.TbUser">
+    <select id="selectUserInfo" parameterType="java.lang.String" resultType="com.pojo.TbUser">
     	select * from tb_user where uid = #{value}
     </select>
     
