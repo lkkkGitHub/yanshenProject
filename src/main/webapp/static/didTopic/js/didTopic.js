@@ -114,13 +114,49 @@ function confirmChecked(deleteFlag, flag) {
 }
 
 //显示评论，信息，回复点击展开之后再显示
-function  findComment() {
+function findComment() {
     $.ajax({
-        url : "/comment/findCommentByTopicId",
-        type : "get",
-        data : {topicId : SEQUENCENEXT},
+        url: "/comment/findCommentByTopicId",
+        type: "get",
+        data: {topicId: SEQUENCENEXT},
         success: function (data) {
+            var str = "";
+            if (data.length != 0) {
+                str += "<span class=\"analytic-discuss-num\">共有"+data[0].count+"条讨论</span>";
+                $("#clearfix").html(str);
+                str = "";
+                var date = "";
+                for (var i = 0; i < data.length; i++) {
+                    date = timeStamp2String(data[i].commentCreateDate);
+                    str += "<li class=\"answer-list-item clearfix\"> <div class=\"answer-content clearfix\" data-cmt-id=\"1155848\" data-dislikecnt=\"0\" data-isdisliked=\"\" data-recommend=\"0\">";
+                    str += " <div class=\"answer-info\"><a href=\"/profile/759736\" class=\"answer-head\" data-card-uid=\"759736\" data-card-index=\"1\">";
+                    str += "<img src=\"" + data[i].tbUser.image + "\" alt=\"\"></a>";
+                    str += "<a class=\"answer-name 梦境迷离头像level-color-9\" data-card-uid=\"759736\" href=\"/profile/759736\" data-card-index=\"2\">" + data[i].tbUser.uname + "</a>";
+                    str += "</div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
+                    str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span>";
+                    str += "<a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
+                    str += "  </div>  </div> </li>";
+                }
+                $("#commentList").html(str);
+            } else {
+                str += "<span class=\"analytic-discuss-num\">暂时没有评论</span>";
+                $("#clearfix").html(str);
+            }
 
         }
     });
+}
+
+//时间处理函数
+
+function timeStamp2String(time){
+    var datetime = new Date();
+    datetime.setTime(time);
+    var year = datetime.getFullYear();
+    var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+    var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+    var hour = datetime.getHours()< 10 ? "0" + datetime.getHours() : datetime.getHours();
+    var minute = datetime.getMinutes()< 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+    var second = datetime.getSeconds()< 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+    return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second;
 }

@@ -2,6 +2,8 @@ package com.service;
 
 import com.pojo.TbComment;
 
+import java.util.List;
+
 /**
  * @author lk
  * 2018/12/11 22:04
@@ -9,10 +11,10 @@ import com.pojo.TbComment;
 public interface CommentService {
 
     /**
-     * 根据题目id，查询评论信息，并且查询评论的用户信息
+     * 查询评论的内容
      *
-     * @param topicId
-     * @return
+     * @param topicId 题目id
+     * @return 评论以及评论的用户信息
      */
-    TbComment findCommentByTopicId(Integer topicId);
+    List<TbComment> findCommentByTopicId(Integer topicId);
 }

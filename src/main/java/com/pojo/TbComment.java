@@ -1,18 +1,53 @@
 package com.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
- * @author 疯自
+ * @author lk
+ * @date 2018/12/12 15:44
  */
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 public class TbComment {
 
-    private Long commentId;
+    /**
+     * 评论id
+     */
+    private Integer commentId;
+    /**
+     * 评论内容
+     */
     private String commentContent;
+    /***
+     * 时间
+     */
     private java.sql.Timestamp commentCreateDate;
-    private Long topicId;
+    /**
+     * 题目id
+     */
+    private Integer topicId;
+    /**
+     * 用户id
+     */
     private String uid;
 
+    /**
+     * 关联用户信息
+     */
     private TbUser tbUser;
+
+    /**
+     * 评论的数量
+     */
+    private Integer count;
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
 
     public TbUser getTbUser() {
         return tbUser;
@@ -22,11 +57,11 @@ public class TbComment {
         this.tbUser = tbUser;
     }
 
-    public Long getCommentId() {
+    public Integer getCommentId() {
         return commentId;
     }
 
-    public void setCommentId(Long commentId) {
+    public void setCommentId(Integer commentId) {
         this.commentId = commentId;
     }
 
@@ -49,11 +84,11 @@ public class TbComment {
     }
 
 
-    public Long getTopicId() {
+    public Integer getTopicId() {
         return topicId;
     }
 
-    public void setTopicId(Long topicId) {
+    public void setTopicId(Integer topicId) {
         this.topicId = topicId;
     }
 

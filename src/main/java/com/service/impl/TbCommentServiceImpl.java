@@ -6,6 +6,7 @@ import com.service.CommentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author 疯自
@@ -17,7 +18,13 @@ public class TbCommentServiceImpl implements CommentService {
     private TbCommentDao tbCommentDao;
 
     @Override
-    public TbComment findCommentByTopicId(Integer topicId) {
-        return tbCommentDao.findCommentByTopicId(topicId);
+    public List<TbComment> findCommentByTopicId(Integer topicId) {
+        Integer commentCount = tbCommentDao.findCommentCountByTopicId(topicId);
+        List<TbComment> commentList = null;
+        if (commentCount != 0) {
+            commentList = tbCommentDao.findCommentByTopicId(topicId);
+            commentList.get(0).setCount(commentCount);
+        }
+        return commentList;
     }
 }

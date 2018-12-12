@@ -1,8 +1,6 @@
 package com.pojo;
 
-/**
- * 用户关注信息
- */
+
 public class TbCollection {
 
   private Integer collectionId;
