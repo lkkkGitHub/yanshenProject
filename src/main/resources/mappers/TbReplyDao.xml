@@ -11,6 +11,10 @@
         <result column="uid" property="uid"/>
     </resultMap>
 
+    <resultMap id="ctxUser" type="com.pojo.TbReply" extends="AllColumnMap">
+        <association property="tbUser" column="uid" select="com.dao.TbUserMapper.selectUserInfo"/>
+    </resultMap>
+
     <!--auto generated Code-->
     <sql id="all_column">
         `replyId`,
@@ -86,5 +90,13 @@
         </set>
         WHERE replyId = #{pojo.replyId}
     </update>
+
+    <select id="findReplyByCommentId" parameterType="java.lang.Integer" resultMap="ctxUser">
+        select <include refid="all_column"/> from `tb_reply` where `commentId` = #{commentId}
+    </select>
+
+    <select id="findReplyCountByCommentId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(1) from `tb_reply` where `commentId` = #{commentId}
+    </select>
 </mapper>
 

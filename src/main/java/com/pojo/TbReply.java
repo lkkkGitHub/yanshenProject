@@ -1,8 +1,12 @@
 package com.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 回复表
+ * @author 疯自
  */
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 public class TbReply {
 
   /**
@@ -30,6 +34,19 @@ public class TbReply {
    * 用户id
    */
   private String uid;
+
+  /**
+   * 回复的用户信息
+   */
+  private TbUser tbUser;
+
+  public TbUser getTbUser() {
+    return tbUser;
+  }
+
+  public void setTbUser(TbUser tbUser) {
+    this.tbUser = tbUser;
+  }
 
   public String getUid() {
     return uid;

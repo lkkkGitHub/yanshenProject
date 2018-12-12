@@ -118,11 +118,12 @@ function findComment() {
     $.ajax({
         url: "/comment/findCommentByTopicId",
         type: "get",
+        async: true,
         data: {topicId: SEQUENCENEXT},
         success: function (data) {
             var str = "";
             if (data.length != 0) {
-                str += "<span class=\"analytic-discuss-num\">共有"+data[0].count+"条讨论</span>";
+                str += "<span class=\"analytic-discuss-num\">共有" + data[0].count + "条讨论</span>";
                 $("#clearfix").html(str);
                 str = "";
                 var date = "";
@@ -133,9 +134,10 @@ function findComment() {
                     str += "<img src=\"" + data[i].tbUser.image + "\" alt=\"\"></a>";
                     str += "<a class=\"answer-name 梦境迷离头像level-color-9\" data-card-uid=\"759736\" href=\"/profile/759736\" data-card-index=\"2\">" + data[i].tbUser.uname + "</a>";
                     str += "</div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
-                    str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span>";
+                    str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span><span id=\"replyCount" + data[i].commentId + "\">";
                     str += "<a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
-                    str += "  </div>  </div> </li>";
+                    str += "</span>  </div>  </div> </li>";
+                    findReplyCount(data[i].commentId);
                 }
                 $("#commentList").html(str);
             } else {
@@ -148,15 +150,33 @@ function findComment() {
 }
 
 //时间处理函数
-
-function timeStamp2String(time){
+function timeStamp2String(time) {
     var datetime = new Date();
     datetime.setTime(time);
     var year = datetime.getFullYear();
     var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
     var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-    var hour = datetime.getHours()< 10 ? "0" + datetime.getHours() : datetime.getHours();
-    var minute = datetime.getMinutes()< 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-    var second = datetime.getSeconds()< 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-    return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second;
+    var hour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+    var minute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+    var second = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+    return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+}
+
+//显示评论回复的个数，0以上显示查看回复，0则显示回复
+function findReplyCount(commentId) {
+    $.ajax({
+        url: "/reply/findReplyCountByCommentId",
+        type: "get",
+        async: false,
+        data: {commentId: commentId},
+        success: function (data) {
+            var str = "";
+            if (data != 0) {
+                str += "<a class=\"click-reply\" href=\"javascript:void(0);\"> 查看回复(" + data + ") </a>";
+            } else {
+                str += "<a class=\"click-reply\" href=\"javascript:void(0);\"> 回复 </a>";
+            }
+            $("#replyCount" + commentId).html(str);
+        }
+    })
 }
