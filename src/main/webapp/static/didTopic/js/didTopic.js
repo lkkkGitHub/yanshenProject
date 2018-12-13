@@ -44,7 +44,7 @@ function initTopicToShow(sequenceNext) {
              */
             checkCollection();
             /**
-             * 生成评论信息
+             * 生成评论信息,以及显示回复的数量；
              */
             findComment();
         }
@@ -174,11 +174,48 @@ function findReplyCount(commentId) {
         success: function (data) {
             var str = "";
             if (data != 0) {
-                str += "<a class=\"click-reply\" href=\"javascript:void(0);\"> 查看回复(" + data + ") </a>";
+                str += "<a class=\"click-reply\" onclick=\"findReply("+commentId+")\" href=\"javascript:void(0);\"> 查看回复(" + data + ") </a>";
             } else {
-                str += "<a class=\"click-reply\" href=\"javascript:void(0);\"> 回复 </a>";
+                str += "<a class=\"click-reply\" onclick=\"findReply("+commentId+")\" href=\"javascript:void(0);\"> 回复 </a>";
             }
             $("#replyCount" + commentId).html(str);
         }
     })
+}
+
+//显示评论信息
+function findReply(commentId) {
+    $.ajax({
+        url: "/reply/findReplyByCommentId",
+        type: "get",
+        async: false,
+        data: {commentId: commentId},
+        success: function (data) {
+            var str = "";
+            str += "<div class=\"reply-container js-container\" style=\"\"> <ul class=\"reply-list js-list\" style=\"\">";
+            var date = "";
+            for (let i = 0; i < data.length; i++) {
+                date = timeStamp2String(data[i].replyCreateDate);
+                str += "<li class=\"ui-subcmt-item\" > <div class=\"reply-main clearfix\">";
+                str += "<div class=\"reply-person\" style=\"margin-right:5px;\"><a href=\"/profile/8816416\"";
+                str += "class=\"level-color-7\">"+data[i].tbUser.uname+"</a>： </div>";
+                str += " <div class=\"reply-content\">"+data[i].replyContent+"</div>";
+                str += "</div> <div class=\"answer-legend reply-info\"><span class=\"reply-time\">"+date+"</span><a";
+                str += "href=\"javascript:void(0);\" class=\"reply-answer js-reply-answer\">回复</a> </div> </li>";
+            }
+            str += " </ul> <div class=\"js-pager\" style=\"display: none;\">";
+            str += "<div id=\"jsCpn_63_component_6\" class=\" pagination\" style=\"display: none;\"> ";
+            str += "<ul></ul> </div> </div> </div>";
+            $("#jsCpn_62_component_6").html(str);
+        }
+    });
+}
+
+function appendInput() {
+    var str = "<div class=\"reply-editbox clearfix cmt-reply-to-main\" style=\"margin-top:10px;\">";
+    str += "div class=\"reply-write\"><textarea placeholder=\"请输入你的观点\"";
+    str += "class=\"reply-input reply-input-textarea nc-req-auth js-main-ipt\"";
+    str += "style=\"width: 798px; resize: none; height: 20px;\"></textarea> </div>";
+    str += "<a class=\"btn btn-primary reply-btn js-main-reply\" href=\"javascript:void(0);\">回复</a> </div>";
+    $("")
 }
