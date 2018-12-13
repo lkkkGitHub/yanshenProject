@@ -136,10 +136,12 @@ function findComment() {
                     str += "</div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
                     str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span><span id=\"replyCount" + data[i].commentId + "\">";
                     str += "<a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
-                    str += "</span>  </div>  </div> </li>";
-                    findReplyCount(data[i].commentId);
+                    str += "</span>  </div>  </div> </li>"
                 }
                 $("#commentList").html(str);
+                for (let i = 0; i < data.length; i++) {
+                    findReplyCount(data[i].commentId);
+                }
             } else {
                 str += "<span class=\"analytic-discuss-num\">暂时没有评论</span>";
                 $("#clearfix").html(str);

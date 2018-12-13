@@ -29,6 +29,7 @@ public class ReplyController {
     @ResponseBody
     @RequestMapping("/findReplyCommentId")
     public List<TbReply> findReplyByCommentId(Integer commentId) {
+
         return replyServiceImpl.findReplyByCommentId(commentId);
     }
 
