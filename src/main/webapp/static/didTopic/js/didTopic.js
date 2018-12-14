@@ -138,7 +138,7 @@ function findComment() {
                     str += "</div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
                     str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span><span id=\"replyCount" + data[i].commentId + "\">";
                     str += "<a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
-                    str += "</span>  </div>  <div id=\"jsCpn_62_component_6\" class=\" reply-box\"></div></div> </li>"
+                    str += "</span>  </div>  <div id=\"jsCpn_62_component_"+data[i].commentId+"\" class=\" reply-box\"></div></div> </li>"
                 }
                 $("#commentList").html(str);
                 for (var i = 0; i < data.length; i++) {
@@ -188,7 +188,7 @@ function findReplyCount(commentId) {
 
 //显示回复信息
 function findReply(commentId) {
-    $("#jsCpn_62_component_6").show();
+    $("#jsCpn_62_component_"+commentId).show();
     $.ajax({
         url: "/reply/findReplyByCommentId",
         type: "get",
@@ -208,9 +208,9 @@ function findReply(commentId) {
                 str += "</div> </li>";
             }
             str += "</ul> <div class=\"js-pag   er\" style=\"display: none;\">";
-            str += "<div id=\"jsCpn_63_component_6\" class=\" pagination\" style=\"display: none;\">  <ul> </ul> </div> </div>";
-            $("#jsCpn_62_component_6").html(str);
-            str = "<a class=\"click-reply\" onclick=\"hideHtml('jsCpn_62_component_6'," + commentId + ")\" href=\"javascript:void(0);\"> 隐藏回复 </a>";
+            str += "<div id=\"jsCpn_63_component_"+commentId+"\" class=\" pagination\" style=\"display: none;\">  <ul> </ul> </div> </div>";
+            $("#jsCpn_62_component_"+commentId).html(str);
+            str = "<a class=\"click-reply\" onclick=\"hideHtml('jsCpn_62_component_'," + commentId + ")\" href=\"javascript:void(0);\"> 隐藏回复 </a>";
             $("#replyCount" + commentId).html(str);
         }
     });
@@ -228,6 +228,6 @@ function appendInput() {
 
 //掩藏评论
 function hideHtml(id, commentId) {
-    $("#" + id).toggle();
+    $("#" + id + commentId).toggle();
     findReplyCount(commentId);
 }
