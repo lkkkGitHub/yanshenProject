@@ -1,6 +1,7 @@
 //指向当前的题目序号
 var SEQUENCENEXT = "";
 
+// 初始化题目显示
 function initTopicToShow(sequenceNext) {
     $.ajax({
         url: "/didTopic/getDidTopicToShow",
@@ -61,6 +62,7 @@ function initTopicToShow(sequenceNext) {
     orderA.classList.add("done-hover");
 }
 
+//检查是否收藏
 function checkCollection() {
     $.ajax({
         url: "/collection/checkCollection",
@@ -87,7 +89,7 @@ function checkCollection() {
         }
     });
 }
-
+//收藏
 function confirmChecked(deleteFlag, flag) {
     $.ajax({
         url: "/collection/insertCollection",
@@ -113,7 +115,7 @@ function confirmChecked(deleteFlag, flag) {
     });
 }
 
-//显示评论，信息，回复点击展开之后再显示
+//显示评论，信息
 function findComment() {
     $.ajax({
         url: "/comment/findCommentByTopicId",
@@ -136,14 +138,14 @@ function findComment() {
                     str += "</div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
                     str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span><span id=\"replyCount" + data[i].commentId + "\">";
                     str += "<a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
-                    str += "</span>  </div>  </div> </li>"
-                    str += "<div id=\"jsCpn_62_component_6\" class=\" reply-box\"></div>";
+                    str += "</span>  </div>  <div id=\"jsCpn_62_component_6\" class=\" reply-box\"></div></div> </li>"
                 }
                 $("#commentList").html(str);
                 for (var i = 0; i < data.length; i++) {
                     findReplyCount(data[i].commentId);
                 }
             } else {
+                $("#commentList").html("");
                 str += "<span class=\"analytic-discuss-num\">暂时没有评论</span>";
                 $("#clearfix").html(str);
             }
@@ -186,6 +188,7 @@ function findReplyCount(commentId) {
 
 //显示回复信息
 function findReply(commentId) {
+    $("#jsCpn_62_component_6").show();
     $.ajax({
         url: "/reply/findReplyByCommentId",
         type: "get",
@@ -198,19 +201,22 @@ function findReply(commentId) {
                 date = timeStamp2String(data[i].replyCreateDate);
                 str += "<li class=\"ui-subcmt-item\" data-id=\"684660\"> <div class=\"reply-main clearfixjsCpn_62_component_6\">";
                 str += "<div class=\"reply-person\" style=\"margin-right:5px;\"><a href=\"/profile/8816416\" data-card-uid=\"8816416\"";
-                str += " class=\"level-color-7\" data-card-index=\"9\">" + data[i].tbUser.uname + "</a>：</div>";
-                str += "<div class=\"reply-content\">" + data[i].replyContent + "</div> </div>";
+                str += " class=\"level-color-7\" data-cardjsCpn_62_component_6-index=\"9\" style=\"font-size: 12px\">" + data[i].tbUser.uname + "</a>：</div>";
+                str += "<div class=\"reply-content\" style=\"font-size: 15px\" >" + data[i].replyContent + "</div> </div>";
                 str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span><a ";
                 str += "href=\"javascript:void(0);\" class=\"reply-answer js-reply-answer\">回复</a>";
                 str += "</div> </li>";
             }
-            str += "</ul> <div class=\"js-pager\" style=\"display: none;\">";
+            str += "</ul> <div class=\"js-pag   er\" style=\"display: none;\">";
             str += "<div id=\"jsCpn_63_component_6\" class=\" pagination\" style=\"display: none;\">  <ul> </ul> </div> </div>";
             $("#jsCpn_62_component_6").html(str);
+            str = "<a class=\"click-reply\" onclick=\"hideHtml('jsCpn_62_component_6'," + commentId + ")\" href=\"javascript:void(0);\"> 隐藏回复 </a>";
+            $("#replyCount" + commentId).html(str);
         }
     });
 }
 
+//添加输入框
 function appendInput() {
     var str = "<div class=\"reply-editbox clearfix cmt-reply-to-main\" style=\"margin-top:10px;\">";
     str += "div class=\"reply-write\"><textarea placeholder=\"请输入你的观点\"";
@@ -218,4 +224,10 @@ function appendInput() {
     str += "style=\"width: 798px; resize: none; height: 20px;\"></textarea> </div>";
     str += "<a class=\"btn btn-primary reply-btn js-main-reply\" href=\"javascript:void(0);\">回复</a> </div>";
     $("")
+}
+
+//掩藏评论
+function hideHtml(id, commentId) {
+    $("#" + id).toggle();
+    findReplyCount(commentId);
 }

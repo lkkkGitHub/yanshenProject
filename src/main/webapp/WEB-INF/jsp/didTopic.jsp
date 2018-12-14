@@ -19,6 +19,7 @@
     <script charset="utf-8" type="text/javascript" src="../../static/didTopic/js/kindeditor.js"></script>
     <script charset="utf-8" type="text/javascript" src="../../static/didTopic/js/highlighter.js"></script>
     <script type="text/javascript" src="../../static/didTopic/js/didTopic.js"></script>
+    <script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
     <link media="all" href="../../static/didTopic/css/index.css" type="text/css" rel="stylesheet">
     <link href="../../static/didTopic/css/didTopicCss.css" type="text/css" rel="stylesheet">
 </head>
@@ -328,127 +329,127 @@
                 <%--</div>--%>
                 <%--</div>--%>
                 <ul class="answer-list" id="commentList">
-                    <li class="answer-list-item clearfix">
-                        <div class="answer-content clearfix" data-cmt-id="1155848" data-dislikecnt="0"
-                             data-isdisliked="" data-recommend="0">
-                            <div class="answer-info">
-                                <a href="/profile/759736" class="answer-head" data-card-uid="759736"
-                                   data-card-index="1"><img
-                                        src="https://images.nowcoder.com/images/20180618/759736_1529306501107_E97F9DED6CA601234AACEB9DFA543B6F@0e_100w_100h_0c_1i_1o_90Q_1x"
-                                        alt=""></a>
-                                <a class="answer-name 梦境迷离头像level-color-9" data-card-uid="759736" href="/profile/759736"
-                                   data-card-index="2">梦境迷离</a>
-                                <a href="/user/authentication" target="_blank" class=""
-                                   data-title="趣头条_测试部_工具组_测试开发工程师(实习生)" data-tips-index="3"><img class="identity-icon"
-                                                                                                  data-identity="2"
-                                                                                                  src="//static.nowcoder.com/nc/image/identity/2.png"></a>
-                            </div>
-                            <div class="answer-brief">
-                                我也觉得 选B &nbsp;链表的节点与节点之间当然是连续与否是无关的，，但是对于该节点内部的数据项和指针域应该是连续的
-                            </div>
-                            <div class="answer-legend">
-                                <span class="answer-time">
-                                发表于  2018-01-27 18:49:47
-                                </span>
-                                <a class="click-reply" href="javascript:void(0);">
-                                    回复(0)
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="answer-list-item clearfix">
-                        <div class="answer-content clearfix" data-cmt-id="755452" data-dislikecnt="0" data-isdisliked=""
-                             data-recommend="0">
-                            <div class="answer-info">
-                                <a href="/profile/3251312" class="answer-head" data-card-uid="3251312"
-                                   data-card-index="3"><img
-                                        src="https://images.nowcoder.com/head/149m.png@0e_100w_100h_0c_1i_1o_90Q_1x.png"
-                                        alt="0xbadc0de头像"></a>
-                                <a class="answer-name level-color-7" data-card-uid="3251312" href="/profile/3251312"
-                                   data-card-index="4">0xbadc0de</a>
-                            </div>
-                            <div class="answer-brief">
-                                个人认为选b，单个元素的内存地址必须连续，各元素间的内存地址不必连续。
-                            </div>
-                            <div class="answer-legend">
-                                <span class="answer-time">
-                                发表于  2017-09-08 09:55:31
-                                </span>
-                                <a class="click-reply" href="javascript:void(0);">
-                                    回复(0)
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="answer-list-item clearfix">
-                        <div class="answer-content clearfix" data-cmt-id="556450" data-dislikecnt="0" data-isdisliked=""
-                             data-recommend="0">
-                            <div class="answer-info">
-                                <a href="/profile/223529" class="answer-head" data-card-uid="223529"
-                                   data-card-index="5"><img
-                                        src="https://images.nowcoder.com/images/20160303/223529_1457007518789_7C2C60506876716CCF0E706DB13D4511@0e_100w_100h_0c_1i_1o_90Q_1x"
-                                        alt="杨尼玛头像"></a>
-                                <a class="answer-name level-color-8" data-card-uid="223529" href="/profile/223529"
-                                   data-card-index="6">杨尼玛</a>
-                            </div>
-                            <div class="answer-brief">
-                                链表不需要存储空间连续，只需链表指针记录下一个地址即可
-                            </div>
-                            <div class="answer-legend">
-                                <span class="answer-time">
-                                发表于  2017-06-26 10:25:44
-                                </span>
-                                <a class="click-reply" href="javascript:void(0);">
-                                    回复(2)
-                                </a>
-                            </div>
-                            <div id="jsCpn_62_component_6" class=" reply-box">
-                                <div class="reply-container js-container" style="">
-                                    <ul class="reply-list js-list" style="">
-                                        <li class="ui-subcmt-item" data-id="684660">
-                                            <div class="reply-main clearfixjsCpn_62_component_6">
-                                                <div class="reply-person" style="margin-right:5px;"><a
-                                                        href="/profile/8816416" data-card-uid="8816416"
-                                                        class="level-color-7" data-card-index="9">withoutio</a>：
-                                                </div>
-                                                <div class="reply-content">是不需要空间连续，但是你存储数据的地址和下一个元素的指针不应该必须连续吗</div>
-                                            </div>
-                                            <div class="answer-legend reply-info"><span class="reply-time">2017-08-26 20:53:50</span><a
-                                                    href="javascript:void(0);"
-                                                    class="reply-answer js-reply-answer">回复</a>
-                                            </div>
-                                        </li>
-                                        <li class="ui-subcmt-item" data-id="731732">
-                                            <div class="reply-main clearfix">
-                                                <div class="reply-person" style="margin-right:5px;"><a
-                                                        href="/profile/673221" data-card-uid="673221"
-                                                        class="level-color-7" data-card-index="10">BernardKuo</a>：
-                                                </div>
-                                                <div class="reply-content">这里的存储单元大小是指链表中一个元素大小，不是指内存单元大小</div>
-                                            </div>
-                                            <div class="answer-legend reply-info"><span class="reply-time">2017-09-03 16:56:43</span><a
-                                                    href="javascript:void(0);"
-                                                    class="reply-answer js-reply-answer">回复</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="js-pager" style="display: none;">
-                                        <div id="jsCpn_63_component_6" class=" pagination" style="display: none;">
-                                            <ul></ul>
-                                        </div>
-                                    </div>
-                                    <div class="reply-editbox clearfix cmt-reply-to-main" style="margin-top:10px;">
-                                        <div class="reply-write"><textarea placeholder="请输入你的观点"
-                                                                           class="reply-input reply-input-textarea nc-req-auth js-main-ipt"
-                                                                           style="width: 798px; resize: none; height: 20px;"></textarea>
-                                        </div>
-                                        <a class="btn btn-primary reply-btn js-main-reply"
-                                           href="javascript:void(0);">回复</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    <%--<li class="answer-list-item clearfix">--%>
+                        <%--<div class="answer-content clearfix" data-cmt-id="1155848" data-dislikecnt="0"--%>
+                             <%--data-isdisliked="" data-recommend="0">--%>
+                            <%--<div class="answer-info">--%>
+                                <%--<a href="/profile/759736" class="answer-head" data-card-uid="759736"--%>
+                                   <%--data-card-index="1"><img--%>
+                                        <%--src="https://images.nowcoder.com/images/20180618/759736_1529306501107_E97F9DED6CA601234AACEB9DFA543B6F@0e_100w_100h_0c_1i_1o_90Q_1x"--%>
+                                        <%--alt=""></a>--%>
+                                <%--<a class="answer-name 梦境迷离头像level-color-9" data-card-uid="759736" href="/profile/759736"--%>
+                                   <%--data-card-index="2">梦境迷离</a>--%>
+                                <%--<a href="/user/authentication" target="_blank" class=""--%>
+                                   <%--data-title="趣头条_测试部_工具组_测试开发工程师(实习生)" data-tips-index="3"><img class="identity-icon"--%>
+                                                                                                  <%--data-identity="2"--%>
+                                                                                                  <%--src="//static.nowcoder.com/nc/image/identity/2.png"></a>--%>
+                            <%--</div>--%>
+                            <%--<div class="answer-brief">--%>
+                                <%--我也觉得 选B &nbsp;链表的节点与节点之间当然是连续与否是无关的，，但是对于该节点内部的数据项和指针域应该是连续的--%>
+                            <%--</div>--%>
+                            <%--<div class="answer-legend">--%>
+                                <%--<span class="answer-time">--%>
+                                <%--发表于  2018-01-27 18:49:47--%>
+                                <%--</span>--%>
+                                <%--<a class="click-reply" href="javascript:void(0);">--%>
+                                    <%--回复(0)--%>
+                                <%--</a>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</li>--%>
+                    <%--<li class="answer-list-item clearfix">--%>
+                        <%--<div class="answer-content clearfix" data-cmt-id="755452" data-dislikecnt="0" data-isdisliked=""--%>
+                             <%--data-recommend="0">--%>
+                            <%--<div class="answer-info">--%>
+                                <%--<a href="/profile/3251312" class="answer-head" data-card-uid="3251312"--%>
+                                   <%--data-card-index="3"><img--%>
+                                        <%--src="https://images.nowcoder.com/head/149m.png@0e_100w_100h_0c_1i_1o_90Q_1x.png"--%>
+                                        <%--alt="0xbadc0de头像"></a>--%>
+                                <%--<a class="answer-name level-color-7" data-card-uid="3251312" href="/profile/3251312"--%>
+                                   <%--data-card-index="4">0xbadc0de</a>--%>
+                            <%--</div>--%>
+                            <%--<div class="answer-brief">--%>
+                                <%--个人认为选b，单个元素的内存地址必须连续，各元素间的内存地址不必连续。--%>
+                            <%--</div>--%>
+                            <%--<div class="answer-legend">--%>
+                                <%--<span class="answer-time">--%>
+                                <%--发表于  2017-09-08 09:55:31--%>
+                                <%--</span>--%>
+                                <%--<a class="click-reply" href="javascript:void(0);">--%>
+                                    <%--回复(0)--%>
+                                <%--</a>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</li>--%>
+                    <%--<li class="answer-list-item clearfix">--%>
+                        <%--<div class="answer-content clearfix" data-cmt-id="556450" data-dislikecnt="0" data-isdisliked=""--%>
+                             <%--data-recommend="0">--%>
+                            <%--<div class="answer-info">--%>
+                                <%--<a href="/profile/223529" class="answer-head" data-card-uid="223529"--%>
+                                   <%--data-card-index="5"><img--%>
+                                        <%--src="https://images.nowcoder.com/images/20160303/223529_1457007518789_7C2C60506876716CCF0E706DB13D4511@0e_100w_100h_0c_1i_1o_90Q_1x"--%>
+                                        <%--alt="杨尼玛头像"></a>--%>
+                                <%--<a class="answer-name level-color-8" data-card-uid="223529" href="/profile/223529"--%>
+                                   <%--data-card-index="6">杨尼玛</a>--%>
+                            <%--</div>--%>
+                            <%--<div class="answer-brief">--%>
+                                <%--链表不需要存储空间连续，只需链表指针记录下一个地址即可--%>
+                            <%--</div>--%>
+                            <%--<div class="answer-legend">--%>
+                                <%--<span class="answer-time">--%>
+                                <%--发表于  2017-06-26 10:25:44--%>
+                                <%--</span>--%>
+                                <%--<a class="click-reply" href="javascript:void(0);">--%>
+                                    <%--回复(2)--%>
+                                <%--</a>--%>
+                            <%--</div>--%>
+                            <%--<div id="jsCpn_62_component_6" class=" reply-box">--%>
+                                <%--<div class="reply-container js-container" style="">--%>
+                                    <%--<ul class="reply-list js-list" style="">--%>
+                                        <%--<li class="ui-subcmt-item" data-id="684660">--%>
+                                            <%--<div class="reply-main clearfixjsCpn_62_component_6">--%>
+                                                <%--<div class="reply-person" style="margin-right:5px;"><a--%>
+                                                        <%--href="/profile/8816416" data-card-uid="8816416"--%>
+                                                        <%--class="level-color-7" data-card-index="9">withoutio</a>：--%>
+                                                <%--</div>--%>
+                                                <%--<div class="reply-content">是不需要空间连续，但是你存储数据的地址和下一个元素的指针不应该必须连续吗</div>--%>
+                                            <%--</div>--%>
+                                            <%--<div class="answer-legend reply-info"><span class="reply-time">2017-08-26 20:53:50</span><a--%>
+                                                    <%--href="javascript:void(0);"--%>
+                                                    <%--class="reply-answer js-reply-answer">回复</a>--%>
+                                            <%--</div>--%>
+                                        <%--</li>--%>
+                                        <%--<li class="ui-subcmt-item" data-id="731732">--%>
+                                            <%--<div class="reply-main clearfix">--%>
+                                                <%--<div class="reply-person" style="margin-right:5px;"><a--%>
+                                                        <%--href="/profile/673221" data-card-uid="673221"--%>
+                                                        <%--class="level-color-7" data-card-index="10">BernardKuo</a>：--%>
+                                                <%--</div>--%>
+                                                <%--<div class="reply-content">这里的存储单元大小是指链表中一个元素大小，不是指内存单元大小</div>--%>
+                                            <%--</div>--%>
+                                            <%--<div class="answer-legend reply-info"><span class="reply-time">2017-09-03 16:56:43</span><a--%>
+                                                    <%--href="javascript:void(0);"--%>
+                                                    <%--class="reply-answer js-reply-answer">回复</a>--%>
+                                            <%--</div>--%>
+                                        <%--</li>--%>
+                                    <%--</ul>--%>
+                                    <%--<div class="js-pager" style="display: none;">--%>
+                                        <%--<div id="jsCpn_63_component_6" class=" pagination" style="display: none;">--%>
+                                            <%--<ul></ul>--%>
+                                        <%--</div>--%>
+                                    <%--</div>--%>
+                                    <%--<div class="reply-editbox clearfix cmt-reply-to-main" style="margin-top:10px;">--%>
+                                        <%--<div class="reply-write"><textarea placeholder="请输入你的观点"--%>
+                                                                           <%--class="reply-input reply-input-textarea nc-req-auth js-main-ipt"--%>
+                                                                           <%--style="width: 798px; resize: none; height: 20px;"></textarea>--%>
+                                        <%--</div>--%>
+                                        <%--<a class="btn btn-primary reply-btn js-main-reply"--%>
+                                           <%--href="javascript:void(0);">回复</a>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</li>--%>
                 </ul>
             </div>
             <div class="reply-editbox clearfix cmt-reply-to-main" style="margin-top:10px;">
