@@ -137,9 +137,10 @@ function findComment() {
                     str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span><span id=\"replyCount" + data[i].commentId + "\">";
                     str += "<a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
                     str += "</span>  </div>  </div> </li>"
+                    str += "<div id=\"jsCpn_62_component_6\" class=\" reply-box\"></div>";
                 }
                 $("#commentList").html(str);
-                for (let i = 0; i < data.length; i++) {
+                for (var i = 0; i < data.length; i++) {
                     findReplyCount(data[i].commentId);
                 }
             } else {
@@ -174,16 +175,16 @@ function findReplyCount(commentId) {
         success: function (data) {
             var str = "";
             if (data != 0) {
-                str += "<a class=\"click-reply\" onclick=\"findReply("+commentId+")\" href=\"javascript:void(0);\"> 查看回复(" + data + ") </a>";
+                str += "<a class=\"click-reply\" onclick=\"findReply(" + commentId + ")\" href=\"javascript:void(0);\"> 查看回复(" + data + ") </a>";
             } else {
-                str += "<a class=\"click-reply\" onclick=\"findReply("+commentId+")\" href=\"javascript:void(0);\"> 回复 </a>";
+                str += "<a class=\"click-reply\" onclick=\"findReply(" + commentId + ")\" href=\"javascript:void(0);\"> 回复 </a>";
             }
             $("#replyCount" + commentId).html(str);
         }
     })
 }
 
-//显示评论信息
+//显示回复信息
 function findReply(commentId) {
     $.ajax({
         url: "/reply/findReplyByCommentId",
@@ -191,21 +192,20 @@ function findReply(commentId) {
         async: false,
         data: {commentId: commentId},
         success: function (data) {
-            var str = "";
-            str += "<div class=\"reply-container js-container\" style=\"\"> <ul class=\"reply-list js-list\" style=\"\">";
             var date = "";
-            for (let i = 0; i < data.length; i++) {
+            var str = "<div class=\"reply-container js-container\" style=\"\"><ul class=\"reply-list js-list\" style=\"\">";
+            for (var i = 0; i < data.length; i++) {
                 date = timeStamp2String(data[i].replyCreateDate);
-                str += "<li class=\"ui-subcmt-item\" > <div class=\"reply-main clearfix\">";
-                str += "<div class=\"reply-person\" style=\"margin-right:5px;\"><a href=\"/profile/8816416\"";
-                str += "class=\"level-color-7\">"+data[i].tbUser.uname+"</a>： </div>";
-                str += " <div class=\"reply-content\">"+data[i].replyContent+"</div>";
-                str += "</div> <div class=\"answer-legend reply-info\"><span class=\"reply-time\">"+date+"</span><a";
-                str += "href=\"javascript:void(0);\" class=\"reply-answer js-reply-answer\">回复</a> </div> </li>";
+                str += "<li class=\"ui-subcmt-item\" data-id=\"684660\"> <div class=\"reply-main clearfixjsCpn_62_component_6\">";
+                str += "<div class=\"reply-person\" style=\"margin-right:5px;\"><a href=\"/profile/8816416\" data-card-uid=\"8816416\"";
+                str += " class=\"level-color-7\" data-card-index=\"9\">" + data[i].tbUser.uname + "</a>：</div>";
+                str += "<div class=\"reply-content\">" + data[i].replyContent + "</div> </div>";
+                str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span><a ";
+                str += "href=\"javascript:void(0);\" class=\"reply-answer js-reply-answer\">回复</a>";
+                str += "</div> </li>";
             }
-            str += " </ul> <div class=\"js-pager\" style=\"display: none;\">";
-            str += "<div id=\"jsCpn_63_component_6\" class=\" pagination\" style=\"display: none;\"> ";
-            str += "<ul></ul> </div> </div> </div>";
+            str += "</ul> <div class=\"js-pager\" style=\"display: none;\">";
+            str += "<div id=\"jsCpn_63_component_6\" class=\" pagination\" style=\"display: none;\">  <ul> </ul> </div> </div>";
             $("#jsCpn_62_component_6").html(str);
         }
     });
