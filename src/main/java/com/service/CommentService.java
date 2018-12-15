@@ -17,4 +17,12 @@ public interface CommentService {
      * @return 评论以及评论的用户信息
      */
     List<TbComment> findCommentByTopicId(Integer topicId);
+
+    /**
+     * 插入评论信息
+     *
+     * @param tbComment 评论内容，用户id，题目id
+     * @return
+     */
+    boolean insertComment(TbComment tbComment);
 }

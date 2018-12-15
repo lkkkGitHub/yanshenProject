@@ -3,6 +3,7 @@ package com.service.impl;
 import com.dao.TbCommentDao;
 import com.pojo.TbComment;
 import com.service.CommentService;
+import com.tools.utils.TimeUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,5 +27,11 @@ public class TbCommentServiceImpl implements CommentService {
             commentList.get(0).setCount(commentCount);
         }
         return commentList;
+    }
+
+    @Override
+    public boolean insertComment(TbComment tbComment) {
+        tbComment.setCommentCreateDate(TimeUtils.getNowTimestamp());
+        return tbCommentDao.insertSelective(tbComment) == 1;
     }
 }

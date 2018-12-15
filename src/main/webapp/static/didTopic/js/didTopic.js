@@ -89,6 +89,7 @@ function checkCollection() {
         }
     });
 }
+
 //收藏
 function confirmChecked(deleteFlag, flag) {
     $.ajax({
@@ -138,7 +139,7 @@ function findComment() {
                     str += "</div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
                     str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span><span id=\"replyCount" + data[i].commentId + "\">";
                     str += "<a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
-                    str += "</span>  </div>  <div id=\"jsCpn_62_component_"+data[i].commentId+"\" class=\" reply-box\"></div></div> </li>"
+                    str += "</span>  </div>  <div id=\"jsCpn_62_component_" + data[i].commentId + "\" class=\" reply-box\"></div></div> </li>"
                 }
                 $("#commentList").html(str);
                 for (var i = 0; i < data.length; i++) {
@@ -188,7 +189,7 @@ function findReplyCount(commentId) {
 
 //显示回复信息
 function findReply(commentId) {
-    $("#jsCpn_62_component_"+commentId).show();
+    $("#jsCpn_62_component_" + commentId).show();
     $.ajax({
         url: "/reply/findReplyByCommentId",
         type: "get",
@@ -203,13 +204,13 @@ function findReply(commentId) {
                 str += "<div class=\"reply-person\" style=\"margin-right:5px;\"><a href=\"/profile/8816416\" data-card-uid=\"8816416\"";
                 str += " class=\"level-color-7\" data-cardjsCpn_62_component_6-index=\"9\" style=\"font-size: 12px\">" + data[i].tbUser.uname + "</a>：</div>";
                 str += "<div class=\"reply-content\" style=\"font-size: 15px\" >" + data[i].replyContent + "</div> </div>";
-                str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span><a ";
-                str += "href=\"javascript:void(0);\" class=\"reply-answer js-reply-answer\">回复</a>";
-                str += "</div> </li>";
+                str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span> <span id='show" + data[i].replyId + "'><a ";
+                str += "href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + data[i].replyId + ")\" class=\"reply-answer js-reply-answer\">回复</a>";
+                str += "</span>  </div><span id='reply" + data[i].replyId + "'></span> </li>";
             }
             str += "</ul> <div class=\"js-pag   er\" style=\"display: none;\">";
-            str += "<div id=\"jsCpn_63_component_"+commentId+"\" class=\" pagination\" style=\"display: none;\">  <ul> </ul> </div> </div>";
-            $("#jsCpn_62_component_"+commentId).html(str);
+            str += "<div id=\"jsCpn_63_component_" + commentId + "\" class=\" pagination\" style=\"display: none;\">  <ul> </ul> </div> </div>";
+            $("#jsCpn_62_component_" + commentId).html(str);
             str = "<a class=\"click-reply\" onclick=\"hideHtml('jsCpn_62_component_'," + commentId + ")\" href=\"javascript:void(0);\"> 隐藏回复 </a>";
             $("#replyCount" + commentId).html(str);
         }
@@ -217,17 +218,26 @@ function findReply(commentId) {
 }
 
 //添加输入框
-function appendInput() {
-    var str = "<div class=\"reply-editbox clearfix cmt-reply-to-main\" style=\"margin-top:10px;\">";
-    str += "div class=\"reply-write\"><textarea placeholder=\"请输入你的观点\"";
+function appendInput(fatherId, replyId) {
+    var str = "<span id='input" + replyId + "'><div class=\"reply-editbox clearfix cmt-reply-to-main\" style=\"margin-top:10px;\">";
+    str += "<div class=\"reply-write\"><textarea placeholder=\"请输入你的观点\"";
     str += "class=\"reply-input reply-input-textarea nc-req-auth js-main-ipt\"";
     str += "style=\"width: 798px; resize: none; height: 20px;\"></textarea> </div>";
-    str += "<a class=\"btn btn-primary reply-btn js-main-reply\" href=\"javascript:void(0);\">回复</a> </div>";
-    $("")
+    str += "<a class=\"btn btn-primary reply-btn js-main-reply\" href=\"javascript:void(0);\">回复</a> </div> </span> ";
+    $("#" + fatherId + replyId).append(str);
+    str = "<a href=\"javascript:void(0);\" onclick=\"delInput('input'," + replyId + ")\" class=\"reply-answer js-reply-answer\">收起</a>";
+    $("#show" + replyId).html(str);
+}
+
+//收起评论框
+function delInput(fatherId, replyId) {
+    $("#"+fatherId + replyId).remove();
+    var str = "<a href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + replyId + ")\" class=\"reply-answer js-reply-answer\">回复</a>";
+    $("#show" + replyId).html(str);
 }
 
 //掩藏评论
-function hideHtml(id, commentId) {
-    $("#" + id + commentId).toggle();
-    findReplyCount(commentId);
+function hideHtml(id, replyId) {
+    $("#" + id + replyId).toggle();
+    findReplyCount(replyId);
 }

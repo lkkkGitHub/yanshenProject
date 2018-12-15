@@ -43,22 +43,21 @@
     </insert>
 
     <!--auto generated Code-->
-    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.replyId">
-        INSERT INTO tb_reply
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="replyId">
+        INSERT INTO `tb_reply`
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.replyId!=null"> `replyId`,</if>
-            <if test="pojo.replyContent!=null"> `replyContent`,</if>
-            <if test="pojo.replyCreateDate!=null"> `replyCreateDate`,</if>
-            <if test="pojo.commentId!=null"> `commentId`,</if>
-            <if test="pojo.replyFatherId!=null"> `replyFatherId`,</if>
+            <if test="replyId!=null"> `replyId`,</if>
+            <if test="replyContent!=null"> `replyContent`,</if>
+            <if test="replyCreateDate!=null"> `replyCreateDate`,</if>
+            <if test="commentId!=null"> `commentId`,</if>
+            <if test="replyFatherId!=null"> `replyFatherId`,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.replyId!=null">#{pojo.replyId},</if>
-            <if test="pojo.replyContent!=null">#{pojo.replyContent},</if>
-            <if test="pojo.replyCreateDate!=null">#{pojo.replyCreateDate},</if>
-            <if test="pojo.commentId!=null">#{pojo.commentId},</if>
-            <if test="pojo.replyFatherId!=null">#{pojo.replyFatherId},</if>
+            <if test="replyContent!=null">#{replyContent},</if>
+            <if test="replyCreateDate!=null">#{replyCreateDate},</if>
+            <if test="commentId!=null">#{commentId},</if>
+            <if test="replyFatherId!=null">#{replyFatherId},</if>
         </trim>
     </insert>
 
@@ -98,5 +97,6 @@
     <select id="findReplyCountByCommentId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
         select count(1) from `tb_reply` where `commentId` = #{commentId}
     </select>
+
 </mapper>
 

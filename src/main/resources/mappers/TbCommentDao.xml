@@ -40,22 +40,20 @@
     </insert>
 
     <!--auto generated Code-->
-    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.commentId">
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="commentId">
         INSERT INTO tb_comment
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.commentId!=null">`commentId`,</if>
-            <if test="pojo.commentContent!=null">`commentContent`,</if>
-            <if test="pojo.commentCreateDate!=null">`commentCreateDate`,</if>
-            <if test="pojo.topicId!=null">`topicId`,</if>
-            <if test="pojo.uid!=null">`uid`,</if>
+            <if test="commentContent!=null">`commentContent`,</if>
+            <if test="commentCreateDate!=null">`commentCreateDate`,</if>
+            <if test="topicId!=null">`topicId`,</if>
+            <if test="uid!=null">`uid`,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.commentId!=null">#{pojo.commentId},</if>
-            <if test="pojo.commentContent!=null">#{pojo.commentContent},</if>
-            <if test="pojo.commentCreateDate!=null">#{pojo.commentCreateDate},</if>
-            <if test="pojo.topicId!=null">#{pojo.topicId},</if>
-            <if test="pojo.uid!=null">#{pojo.uid},</if>
+            <if test="commentContent!=null">#{commentContent},</if>
+            <if test="commentCreateDate!=null">#{commentCreateDate},</if>
+            <if test="topicId!=null">#{topicId},</if>
+            <if test="uid!=null">#{uid},</if>
         </trim>
     </insert>
 

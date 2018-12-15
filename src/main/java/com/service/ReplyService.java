@@ -25,4 +25,12 @@ public interface ReplyService {
      * @return
      */
     Integer findReplyCountByCommentId(Integer commentId);
+
+    /**
+     * 插入评论信息，初始化时间，为当前时间
+     *
+     * @param tbReply 用户id，父if，评论id，回复内容
+     * @return
+     */
+    boolean insertReply(TbReply tbReply);
 }

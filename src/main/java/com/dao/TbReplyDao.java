@@ -23,4 +23,12 @@ public interface TbReplyDao {
      * @return
      */
     Integer findReplyCountByCommentId(Integer commentId);
+
+    /**
+     * 插入回复的信息
+     *
+     * @param tbReply 回复内容，父id，评论id，用户id，创建时间
+     * @return 影响的行数
+     */
+    Integer insertSelective(TbReply tbReply);
 }

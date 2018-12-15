@@ -23,4 +23,12 @@ public interface TbCommentDao {
      * @return 评论的数量
      */
     Integer findCommentCountByTopicId(Integer topicId);
+
+    /**
+     * 插入题目评论信息
+     *
+     * @param tbComment
+     * @return
+     */
+    Integer insertSelective(TbComment tbComment);
 }
