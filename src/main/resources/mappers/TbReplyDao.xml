@@ -46,7 +46,7 @@
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="replyId">
         INSERT INTO `tb_reply`
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="replyId!=null"> `replyId`,</if>
+            <if test="uid!=null"> `uid`,</if>
             <if test="replyContent!=null"> `replyContent`,</if>
             <if test="replyCreateDate!=null"> `replyCreateDate`,</if>
             <if test="commentId!=null"> `commentId`,</if>
@@ -54,6 +54,7 @@
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid!=null">#{uid},</if>
             <if test="replyContent!=null">#{replyContent},</if>
             <if test="replyCreateDate!=null">#{replyCreateDate},</if>
             <if test="commentId!=null">#{commentId},</if>

@@ -6,6 +6,7 @@ import com.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -54,7 +55,7 @@ public class ReplyController {
      * @return 影响的行数
      */
     @ResponseBody
-    @RequestMapping("/insertReply")
+    @RequestMapping(method = {RequestMethod.POST}, value = "/insertReply")
     public boolean insertReply(TbReply tbReply, HttpSession session) {
         tbReply.setUid(((TbUser) session.getAttribute("user")).getUid());
         return replyServiceImpl.insertReply(tbReply);
