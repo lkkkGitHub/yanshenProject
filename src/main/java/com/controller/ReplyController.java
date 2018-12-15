@@ -55,7 +55,7 @@ public class ReplyController {
      * @return 影响的行数
      */
     @ResponseBody
-    @RequestMapping(method = {RequestMethod.POST}, value = "/insertReply")
+    @RequestMapping(method = {RequestMethod.POST},value = "/insertReply")
     public boolean insertReply(TbReply tbReply, HttpSession session) {
         tbReply.setUid(((TbUser) session.getAttribute("user")).getUid());
         return replyServiceImpl.insertReply(tbReply);

@@ -6,6 +6,7 @@ import com.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -42,7 +43,7 @@ public class CommentController {
      * @return true 插入成功
      */
     @ResponseBody
-    @RequestMapping("/insertComment")
+    @RequestMapping(value = "/insertComment", method = {RequestMethod.POST})
     public boolean insertComment(TbComment tbComment, HttpSession session) {
         tbComment.setUid(((TbUser) session.getAttribute("user")).getUid());
         return commentServiceImpl.insertComment(tbComment);

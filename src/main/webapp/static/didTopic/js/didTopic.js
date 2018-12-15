@@ -1,5 +1,7 @@
 //指向当前的题目序号
 var SEQUENCENEXT = "";
+// 当前题目的题目id
+var TOPICId = "";
 
 // 初始化题目显示
 function initTopicToShow(sequenceNext) {
@@ -9,6 +11,7 @@ function initTopicToShow(sequenceNext) {
         async: false,
         data: {sequenceNext: sequenceNext},
         success: function (data) {
+            TOPICId = data.tbTopic.topicId;
             var str = "";
             str += "<div class=\"result-question-box\"> <div class=\"subject-question\"> " +
                 "<div class=\"question-main\">" + data.tbTopic.topicId + "    " + data.tbTopic.topicComment + "</div> </div> </div>";
@@ -220,7 +223,7 @@ function findReply(commentId) {
 //添加输入框
 function appendInput(fatherId, replyId, commentId) {
     var str = "<span id='input" + replyId + "'><div class=\"reply-editbox clearfix cmt-reply-to-main\" style=\"margin-top:10px;\">";
-    str += "<div class=\"reply-write\"><textarea id='textarea" + replyId + "' placeholder=\"请输入你的观点\"";
+    str += "<div class=\"reply-write\"><textarea id='textarea" + replyId + "' placeholder=\"请输入你的回复\"";
     str += "class=\"reply-input reply-input-textarea nc-req-auth js-main-ipt\"";
     str += "style=\"width: 798px; resize: none; height: 20px;\"></textarea> </div>";
     str += "<a class=\"btn btn-primary reply-btn js-main-reply\" onclick='sendReply(" + commentId + "," + replyId + ")' href=\"javascript:void(0);\">回复</a> </div> </span> ";
@@ -259,4 +262,24 @@ function sendReply(commendId, replyId) {
             }
         }
     });
+}
+
+//发送题目评论
+function sendComment() {
+    var textareValue = $("#textareaComment").val();
+    $.ajax({
+        url:"/comment/insertComment",
+        type:"post",
+        async: false,
+        data:{commentContent: textareValue, topicId: TOPICId},
+        success:function (data) {
+            if (data == false) {
+                alert("插入失败，。。。");
+            } else {
+                alert("评论成功");
+                findComment();
+                $("#textareaComment").val('');
+            }
+        }
+    })
 }
