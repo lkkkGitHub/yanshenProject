@@ -31,4 +31,12 @@ public interface TbCommentDao {
      * @return
      */
     Integer insertSelective(TbComment tbComment);
+
+    /**
+     * 删除评论的信息
+     *
+     * @param commentId
+     * @return
+     */
+    Integer deleteByCommentId(Integer commentId);
 }

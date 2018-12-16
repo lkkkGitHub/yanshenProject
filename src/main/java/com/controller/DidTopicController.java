@@ -73,7 +73,7 @@ public class DidTopicController {
                 jedisClient.hset("UserDidTopicUtil", userName,
                         JsonUtils.objectToJson(userDidTopicUtil));
                 session.setAttribute("didTopicList", didTopicList);
-                /*
+                /* 加上此段注释，即做题的流程不能回退，回退即报错
                 session.removeAttribute("topicList");
                 session.removeAttribute("topicType");
                 session.removeAttribute("notDoneTopic");

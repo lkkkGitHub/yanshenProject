@@ -93,5 +93,9 @@
     <select id="findCommentCountByTopicId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
         select count(1) from `tb_comment` where `topicId` = #{topicId}
     </select>
+
+    <delete id="deleteByCommentId" parameterType="java.lang.Integer">
+        delete from tb_comment where commentId = #{commentId}
+    </delete>
 </mapper>
 

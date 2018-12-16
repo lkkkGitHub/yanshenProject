@@ -31,4 +31,20 @@ public interface TbReplyDao {
      * @return 影响的行数
      */
     Integer insertSelective(TbReply tbReply);
+
+    /**
+     * 根据单个id删除回复信息
+     *
+     * @param replyId
+     * @return
+     */
+    Integer deleteById(Integer replyId);
+
+    /**
+     * 根据id，删除多个回复
+     *
+     * @param replyIdList
+     * @return
+     */
+    Integer deleteByIds(List<Integer> replyIdList);
 }

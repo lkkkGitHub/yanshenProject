@@ -55,9 +55,21 @@ public class ReplyController {
      * @return 影响的行数
      */
     @ResponseBody
-    @RequestMapping(method = {RequestMethod.POST},value = "/insertReply")
+    @RequestMapping(method = {RequestMethod.POST}, value = "/insertReply")
     public boolean insertReply(TbReply tbReply, HttpSession session) {
         tbReply.setUid(((TbUser) session.getAttribute("user")).getUid());
         return replyServiceImpl.insertReply(tbReply);
+    }
+
+    /**
+     * 根据id 删除回复的信息
+     *
+     * @param replyIds replyIds
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/deleteReplyById")
+    public boolean deleteReplyById(Integer[] replyIds) {
+        return replyServiceImpl.deleteReplyById(replyIds);
     }
 }

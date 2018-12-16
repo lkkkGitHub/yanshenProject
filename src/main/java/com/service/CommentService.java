@@ -25,4 +25,12 @@ public interface CommentService {
      * @return
      */
     boolean insertComment(TbComment tbComment);
+
+    /**
+     * 根据评论id，删除评论信息以及评论下的回复信息
+     *
+     * @param commentId
+     * @return
+     */
+    boolean deleteById(Integer commentId);
 }

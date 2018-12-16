@@ -33,4 +33,12 @@ public interface ReplyService {
      * @return
      */
     boolean insertReply(TbReply tbReply);
+
+    /**
+     * 根据id，删除回复的信息；当id数组为1时，调用直接删除，不为1时，使用in删除
+     *
+     * @param replyIds 回复id s
+     * @return
+     */
+    boolean deleteReplyById(Integer[] replyIds);
 }

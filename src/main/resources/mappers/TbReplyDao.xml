@@ -46,11 +46,11 @@
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="replyId">
         INSERT INTO `tb_reply`
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="uid!=null"> `uid`,</if>
-            <if test="replyContent!=null"> `replyContent`,</if>
-            <if test="replyCreateDate!=null"> `replyCreateDate`,</if>
-            <if test="commentId!=null"> `commentId`,</if>
-            <if test="replyFatherId!=null"> `replyFatherId`,</if>
+            <if test="uid!=null">`uid`,</if>
+            <if test="replyContent!=null">`replyContent`,</if>
+            <if test="replyCreateDate!=null">`replyCreateDate`,</if>
+            <if test="commentId!=null">`commentId`,</if>
+            <if test="replyFatherId!=null">`replyFatherId`,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -82,22 +82,34 @@
     <update id="update">
         UPDATE tb_reply
         <set>
-            <if test="pojo.replyId != null"> `replyId` = #{pojo.replyId}, </if>
-            <if test="pojo.replyContent != null"> `replyContent` = #{pojo.replyContent}, </if>
-            <if test="pojo.replyCreateDate != null"> `replyCreateDate` = #{pojo.replyCreateDate}, </if>
-            <if test="pojo.commentId != null"> `commentId` = #{pojo.commentId}, </if>
-            <if test="pojo.replyFatherId != null"> `replyFatherId` = #{pojo.replyFatherId} </if>
+            <if test="pojo.replyId != null">`replyId` = #{pojo.replyId},</if>
+            <if test="pojo.replyContent != null">`replyContent` = #{pojo.replyContent},</if>
+            <if test="pojo.replyCreateDate != null">`replyCreateDate` = #{pojo.replyCreateDate},</if>
+            <if test="pojo.commentId != null">`commentId` = #{pojo.commentId},</if>
+            <if test="pojo.replyFatherId != null">`replyFatherId` = #{pojo.replyFatherId}</if>
         </set>
         WHERE replyId = #{pojo.replyId}
     </update>
 
     <select id="findReplyByCommentId" parameterType="java.lang.Integer" resultMap="ctxUser">
-        select <include refid="all_column"/> from `tb_reply` where `commentId` = #{commentId}
+        select
+        <include refid="all_column"/>
+        from `tb_reply` where `commentId` = #{commentId}
     </select>
 
     <select id="findReplyCountByCommentId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
         select count(1) from `tb_reply` where `commentId` = #{commentId}
     </select>
 
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from `tb_reply` where `replyId` = #{replyId}
+    </delete>
+
+    <delete id="deleteByIds" parameterType="java.util.List">
+        delete from `tb_reply` where `replyId` in
+        <foreach collection="list" open="(" close=")" item="replyIdList" index="index" separator=",">
+            #{replyIdList}
+        </foreach>
+    </delete>
 </mapper>
 

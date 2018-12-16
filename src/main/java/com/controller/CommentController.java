@@ -39,7 +39,7 @@ public class CommentController {
      * 插入评论信息,对题目的评论
      *
      * @param tbComment 评论内容，题目id
-     * @param session 获取用户id
+     * @param session   获取用户id
      * @return true 插入成功
      */
     @ResponseBody
@@ -49,5 +49,16 @@ public class CommentController {
         return commentServiceImpl.insertComment(tbComment);
     }
 
+    /**
+     * 根据评论id删除评论信息，以及之下的回复信息
+     *
+     * @param commentId
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/deleteCommentById")
+    public boolean deleteById(Integer commentId) {
+        return commentServiceImpl.deleteById(commentId);
+    }
 
 }
