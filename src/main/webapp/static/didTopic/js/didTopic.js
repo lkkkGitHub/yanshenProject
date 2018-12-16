@@ -205,8 +205,20 @@ function findReply(commentId) {
                 date = timeStamp2String(data[i].replyCreateDate);
                 str += "<li class=\"ui-subcmt-item\" data-id=\"684660\"> <div class=\"reply-main clearfixjsCpn_62_component_6\">";
                 str += "<div class=\"reply-person\" style=\"margin-right:5px;\"><a href=\"/profile/8816416\" data-card-uid=\"8816416\"";
-                str += " class=\"level-color-7\" data-cardjsCpn_62_component_6-index=\"9\" style=\"font-size: 12px\">" + data[i].tbUser.uname + "</a>：</div>";
-                str += "<div class=\"reply-content\" style=\"font-size: 15px\" >" + data[i].replyContent + "</div> </div>";
+                if (data[i].replyFatherId == -1) {
+                    str += " class=\"level-color-7\" data-cardjsCpn_62_component_6-index=\"9\" style=\"font-size: 14px;color: #00A1CB\">" + data[i].tbUser.uname + "</a>：</div>";
+                } else {
+                    for (var j = 0; j < data.length; j++) {
+                        if (data[i].replyFatherId == data[j].replyId) {
+                            str += " class=\"level-color-7\" data-cardjsCpn_62_component_6-index=\"9\" style=\"font-size: 14px;color: #00A1CB\">" + data[i].tbUser.uname + "</a>：";
+                            str += "回复 <a href=\"/profile/8816416\" data-card-uid=\"8816416\"";
+                            str += " class=\"level-color-7\" data-cardjsCpn_62_component_6-index=\"9\" style=\"font-size: 14px;color: #00A1CB\">" + data[j].tbUser.uname + "</a>：";
+                            str += "<span class=\"reply-content\" style=\"font-size: 14px;color: #00A1CB\" >" + data[j].replyContent + "</span> </div>";
+                            break;
+                        }
+                    }
+                }
+                str += "<div class=\"reply-content\" style=\"font-size: 14px\" >" + data[i].replyContent + "</div> </div>";
                 str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span> <span id='show" + data[i].replyId + "'><a ";
                 str += "href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + data[i].replyId + ", " + data[i].commentId + ", 'show')\" class=\"reply-answer js-reply-answer\">回复</a>";
                 str += "</span>  </div><span id='reply" + data[i].replyId + "'></span> </li>";
