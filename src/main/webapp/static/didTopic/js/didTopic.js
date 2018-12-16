@@ -284,6 +284,7 @@ function sendReply(commendId, replyId) {
                 alert("插入失败，。。。");
             } else {
                 findReply(commendId);
+                $("#textarea" + replyId).val('');
             }
         }
     });
@@ -292,6 +293,10 @@ function sendReply(commendId, replyId) {
 //发送题目评论
 function sendComment() {
     var textareValue = $("#textareaComment").val();
+    if (!textareValue) {
+        alert("输入不能为空");
+        return;
+    }
     $.ajax({
         url: "/comment/insertComment",
         type: "post",
