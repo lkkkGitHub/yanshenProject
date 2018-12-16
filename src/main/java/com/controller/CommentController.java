@@ -36,7 +36,7 @@ public class CommentController {
     }
 
     /**
-     * 插入评论信息
+     * 插入评论信息,对题目的评论
      *
      * @param tbComment 评论内容，题目id
      * @param session 获取用户id

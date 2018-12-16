@@ -139,10 +139,10 @@ function findComment() {
                     str += " <div class=\"answer-info\"><a href=\"/profile/759736\" class=\"answer-head\" data-card-uid=\"759736\" data-card-index=\"1\">";
                     str += "<img src=\"" + data[i].tbUser.image + "\" alt=\"\"></a>";
                     str += "<a class=\"answer-name 梦境迷离头像level-color-9\" data-card-uid=\"759736\" href=\"/profile/759736\" data-card-index=\"2\">" + data[i].tbUser.uname + "</a>";
-                    str += "</div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
+                    str += "<span id=\"showComment" + data[i].commentId + "\" style='float: right'><a href=\"javascript:void(0);\" onclick=\"appendInput('commentInput', -1, " + data[i].commentId + ", 'showComment')\" class=\"reply-answer js-reply-answer\">回复</a></span> </div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
                     str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span><span id=\"replyCount" + data[i].commentId + "\">";
                     str += "<a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
-                    str += "</span>  </div>  <div id=\"jsCpn_62_component_" + data[i].commentId + "\" class=\" reply-box\"></div></div> </li>"
+                    str += "</span>  </div> <span id='commentInput" + data[i].commentId + "'></span> <div id=\"jsCpn_62_component_" + data[i].commentId + "\" class=\" reply-box\"></div></div> </li>"
                 }
                 $("#commentList").html(str);
                 for (var i = 0; i < data.length; i++) {
@@ -153,10 +153,10 @@ function findComment() {
                 str += "<span class=\"analytic-discuss-num\">暂时没有评论</span>";
                 $("#clearfix").html(str);
             }
-
         }
     });
 }
+
 
 //时间处理函数
 function timeStamp2String(time) {
@@ -183,7 +183,7 @@ function findReplyCount(commentId) {
             if (data != 0) {
                 str += "<a class=\"click-reply\" onclick=\"findReply(" + commentId + ")\" href=\"javascript:void(0);\"> 查看回复(" + data + ") </a>";
             } else {
-                str += "<a class=\"click-reply\" onclick=\"findReply(" + commentId + ")\" href=\"javascript:void(0);\"> 回复 </a>";
+                str += "<a class=\"click-reply\" href=\"javascript:void(0);\"> 暂时没有回复 </a>";
             }
             $("#replyCount" + commentId).html(str);
         }
@@ -208,7 +208,7 @@ function findReply(commentId) {
                 str += " class=\"level-color-7\" data-cardjsCpn_62_component_6-index=\"9\" style=\"font-size: 12px\">" + data[i].tbUser.uname + "</a>：</div>";
                 str += "<div class=\"reply-content\" style=\"font-size: 15px\" >" + data[i].replyContent + "</div> </div>";
                 str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span> <span id='show" + data[i].replyId + "'><a ";
-                str += "href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + data[i].replyId + ", " + data[i].commentId + ")\" class=\"reply-answer js-reply-answer\">回复</a>";
+                str += "href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + data[i].replyId + ", " + data[i].commentId + ", 'show')\" class=\"reply-answer js-reply-answer\">回复</a>";
                 str += "</span>  </div><span id='reply" + data[i].replyId + "'></span> </li>";
             }
             str += "</ul> <div class=\"js-pag   er\" style=\"display: none;\">";
@@ -220,23 +220,45 @@ function findReply(commentId) {
     });
 }
 
-//添加输入框
-function appendInput(fatherId, replyId, commentId) {
-    var str = "<span id='input" + replyId + "'><div class=\"reply-editbox clearfix cmt-reply-to-main\" style=\"margin-top:10px;\">";
+//添加输入框:：fatherId添加评论框的位置，showStyle：修改《回复，收起》状态
+function appendInput(fatherId, replyId, commentId, showStyle) {
+    var str = "";
+    if (replyId != -1) {
+        str += "<span id='input" + fatherId + "" + replyId + "'>";
+    } else {
+        str += "<span id='input" + fatherId + "" + commentId + "'>";
+    }
+    str += "<div class=\"reply-editbox clearfix cmt-reply-to-main\" style=\"margin-top:10px;\">";
     str += "<div class=\"reply-write\"><textarea id='textarea" + replyId + "' placeholder=\"请输入你的回复\"";
     str += "class=\"reply-input reply-input-textarea nc-req-auth js-main-ipt\"";
     str += "style=\"width: 798px; resize: none; height: 20px;\"></textarea> </div>";
     str += "<a class=\"btn btn-primary reply-btn js-main-reply\" onclick='sendReply(" + commentId + "," + replyId + ")' href=\"javascript:void(0);\">回复</a> </div> </span> ";
-    $("#" + fatherId + replyId).append(str);
-    str = "<a href=\"javascript:void(0);\" onclick=\"delInput('input'," + replyId + ", " + commentId + ")\" class=\"reply-answer js-reply-answer\">收起</a>";
-    $("#show" + replyId).html(str);
+    if (replyId != -1) {
+        $("#" + fatherId + replyId).append(str);
+    } else {
+        $("#" + fatherId + commentId).append(str);
+    }
+    str = "<a href=\"javascript:void(0);\" onclick=\"delInput('input' ,'" + fatherId + "'," + replyId + ", " + commentId + ", '" + showStyle + "')\" class=\"reply-answer js-reply-answer\">收起</a>";
+    if (replyId != -1) {
+        $("#" + showStyle + replyId).html(str);
+    } else {
+        $("#" + showStyle + commentId).html(str);
+    }
 }
 
-//收起评论框
-function delInput(fatherId, replyId, commentId) {
-    $("#" + fatherId + replyId).remove();
-    var str = "<a href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + replyId + ", " + commentId + ")\" class=\"reply-answer js-reply-answer\">回复</a>";
-    $("#show" + replyId).html(str);
+//收起评论框  fatherId添加评论框的位置，showStyle：修改《回复，收起》状态
+function delInput(input, fatherId, replyId, commentId, showStyle) {
+    if (replyId != -1) {
+        $("#" + input + fatherId + replyId).remove();
+    } else {
+        $("#" + input + fatherId + commentId).remove();
+    }
+    var str = "<a href=\"javascript:void(0);\" onclick=\"appendInput('" + fatherId + "', " + replyId + ", " + commentId + ", '" + showStyle + "')\" class=\"reply-answer js-reply-answer\">回复</a>";
+    if (replyId != -1) {
+        $("#" + showStyle + replyId).html(str);
+    } else {
+        $("#" + showStyle + commentId).html(str);
+    }
 }
 
 //掩藏评论
@@ -248,6 +270,10 @@ function hideHtml(id, replyId) {
 //发送回复
 function sendReply(commendId, replyId) {
     var textareValue = $("#textarea" + replyId).val();
+    if (!textareValue) {
+        alert("输入不能为空");
+        return;
+    }
     $.ajax({
         url: "/reply/insertReply",
         type: "post",
@@ -257,7 +283,6 @@ function sendReply(commendId, replyId) {
             if (data == false) {
                 alert("插入失败，。。。");
             } else {
-                alert("回复成功");
                 findReply(commendId);
             }
         }
@@ -268,15 +293,14 @@ function sendReply(commendId, replyId) {
 function sendComment() {
     var textareValue = $("#textareaComment").val();
     $.ajax({
-        url:"/comment/insertComment",
-        type:"post",
+        url: "/comment/insertComment",
+        type: "post",
         async: false,
-        data:{commentContent: textareValue, topicId: TOPICId},
-        success:function (data) {
+        data: {commentContent: textareValue, topicId: TOPICId},
+        success: function (data) {
             if (data == false) {
                 alert("插入失败，。。。");
             } else {
-                alert("评论成功");
                 findComment();
                 $("#textareaComment").val('');
             }
