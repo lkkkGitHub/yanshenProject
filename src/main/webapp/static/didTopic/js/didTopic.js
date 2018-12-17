@@ -140,8 +140,11 @@ function findComment() {
                     str += "<img src=\"" + data[i].tbUser.image + "\" alt=\"\"></a>";
                     str += "<a class=\"answer-name 梦境迷离头像level-color-9\" data-card-uid=\"759736\" href=\"/profile/759736\" data-card-index=\"2\">" + data[i].tbUser.uname + "</a>";
                     str += "<span id=\"showComment" + data[i].commentId + "\" style='float: right'><a href=\"javascript:void(0);\" onclick=\"appendInput('commentInput', -1, " + data[i].commentId + ", 'showComment')\" class=\"reply-answer js-reply-answer\">回复</a></span> </div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
-                    str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span><span id=\"replyCount" + data[i].commentId + "\">";
-                    str += "<a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
+                    str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span>";
+                    if (data[i].tbUser.uid == uid) {
+                        str += "<a class=\"click-reply\" onclick='deleteCommentConfirm('" + data[i].commentId + "')' href=\"javascript:void(0);\">删除</a>";
+                    }
+                    str += "<span id=\"replyCount" + data[i].commentId + "\"> <a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
                     str += "</span>  </div> <span id='commentInput" + data[i].commentId + "'></span> <div id=\"jsCpn_62_component_" + data[i].commentId + "\" class=\" reply-box\"></div></div> </li>"
                 }
                 $("#commentList").html(str);
@@ -219,9 +222,12 @@ function findReply(commentId) {
                     }
                 }
                 str += "<div class=\"reply-content\" style=\"font-size: 14px\" >" + data[i].replyContent + "</div> </div>";
-                str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span> <span id='show" + data[i].replyId + "'><a ";
-                str += "href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + data[i].replyId + ", " + data[i].commentId + ", 'show')\" class=\"reply-answer js-reply-answer\">回复</a>";
-                str += "</span>  </div><span id='reply" + data[i].replyId + "'></span> </li>";
+                str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span> <span id='show" + data[i].replyId + "'>";
+                str += "<a href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + data[i].replyId + ", " + data[i].commentId + ", 'show')\" class=\"reply-answer js-reply-answer\">回复</a></span>";
+                if (data[i].tbUser.uid == uid) {
+                    str += "<a class=\"click-reply\" onclick='deleteReplyConfirm('" + data[i].replyId + "')' href=\"javascript:void(0);\">删除</a>";
+                }
+                str += "</div><span id='reply" + data[i].replyId + "'></span> </li>";
             }
             str += "</ul> <div class=\"js-pag   er\" style=\"display: none;\">";
             str += "<div id=\"jsCpn_63_component_" + commentId + "\" class=\" pagination\" style=\"display: none;\">  <ul> </ul> </div> </div>";
@@ -323,4 +329,57 @@ function sendComment() {
             }
         }
     })
+}
+//确认是否删除提醒
+function deleteReplyConfirm(replyId) {
+    if (replyId == -1) {
+        if (event.returnValue = confirm("删除该回复，会删除之下的所有回复，你确认要删除吗？")) {
+            deleteReply(replyId); ++++
+        }
+    } else {
+        if (event.returnValue = confirm("确认删除？")) {
+            deleteReply(replyId);
+        }
+    }
+}
+
+function deleteCommentConfirm(commentId) {
+    if (commentId == -1) {
+        if (event.returnValue = confirm("删除该回复，会删除之下的所有回复，你确认要删除吗？")) {
+            deleteComment(commentId);
+        }
+    } else {
+        if (event.returnValue = confirm("确认删除？")) {
+            deleteComment(commentId);
+        }
+    }
+}
+
+//删除功能（评论或者回复）
+function deleteComment(commentId) {
+    $.ajax({
+        url: "/comment/deleteCommentById",
+        type: "post",
+        async: false,
+        data: {commentId: commentId},
+        success: function (data) {
+            if(!data) {
+                alert("删除失败！");
+            }
+        }
+    });
+}
+
+function deleteReply(replyId) {
+    $.ajax({
+        url: "/comment/deleteCommentById",
+        type: "post",
+        async: false,
+        data: {replyIds: replyId},
+        success: function (data) {
+            if(!data) {
+                alert("删除失败！");
+            }
+        }
+    });
 }

@@ -22,6 +22,9 @@
     <script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
     <link media="all" href="../../static/didTopic/css/index.css" type="text/css" rel="stylesheet">
     <link href="../../static/didTopic/css/didTopicCss.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+        var uid = "${sessionScope.user.uid}";
+    </script>
 </head>
 <body onload="initTopicToShow(0)">
 
