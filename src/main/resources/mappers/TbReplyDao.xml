@@ -113,7 +113,7 @@
     </delete>
 
     <select id="findReplyFatherId" resultType="java.lang.Integer">
-        SELECT `replyId` FROM `tb_reply` WHERE `replyFatherId` = = #{replyId}
+        SELECT `replyId` FROM `tb_reply` WHERE `replyFatherId` = #{replyId}
     </select>
 </mapper>
 

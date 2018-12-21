@@ -7,9 +7,8 @@ import com.tools.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @author 疯自
@@ -46,16 +45,18 @@ public class ReplyServiceImpl implements ReplyService {
                 List<Integer> list = new ArrayList<>();
                 Integer replyId;
                 list.add(fatherReplyId);
-                replyId = tbReplyDao.findReplyFatherId(fatherReplyId);
+                List<Integer> findList = tbReplyDao.findReplyFatherId(fatherReplyId);
+                Queue<Integer> queue = new LinkedBlockingQueue<>(findList);
                 while (true) {
-                   if (replyId == null) {
-                       tbReplyDao.deleteByIds(list);
-                       break;
-                   } else {
-                       list.add(replyId);
-                       fatherReplyId = replyId;
-                       replyId = tbReplyDao.findReplyFatherId(fatherReplyId);
-                   }
+                    replyId = queue.poll();
+                    if (replyId == null) {
+                        tbReplyDao.deleteByIds(list);
+                        break;
+                    } else {
+                        list.add(replyId);
+                        fatherReplyId = replyId;
+                        queue.addAll(tbReplyDao.findReplyFatherId(fatherReplyId));
+                    }
                 }
                 return true;
             }

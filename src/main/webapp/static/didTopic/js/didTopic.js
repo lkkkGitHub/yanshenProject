@@ -142,7 +142,7 @@ function findComment() {
                     str += "<span id=\"showComment" + data[i].commentId + "\" style='float: right'><a href=\"javascript:void(0);\" onclick=\"appendInput('commentInput', -1, " + data[i].commentId + ", 'showComment')\" class=\"reply-answer js-reply-answer\">回复</a></span> </div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
                     str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span>";
                     if (data[i].tbUser.uid == uid) {
-                        str += "<a class=\"click-reply\" onclick='deleteCommentConfirm('" + data[i].commentId + "')' href=\"javascript:void(0);\">删除</a>";
+                        str += "<a class=\"click-reply\" onclick='deleteCommentConfirm(" + data[i].commentId + ")' href=\"javascript:void(0);\">删除</a>";
                     }
                     str += "<span id=\"replyCount" + data[i].commentId + "\"> <a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
                     str += "</span>  </div> <span id='commentInput" + data[i].commentId + "'></span> <div id=\"jsCpn_62_component_" + data[i].commentId + "\" class=\" reply-box\"></div></div> </li>"
@@ -203,6 +203,7 @@ function findReply(commentId) {
         data: {commentId: commentId},
         success: function (data) {
             var date = "";
+            var str = "";
             var str = "<div class=\"reply-container js-container\" style=\"\"><ul class=\"reply-list js-list\" style=\"\">";
             for (var i = 0; i < data.length; i++) {
                 date = timeStamp2String(data[i].replyCreateDate);
@@ -225,7 +226,7 @@ function findReply(commentId) {
                 str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span> <span id='show" + data[i].replyId + "'>";
                 str += "<a href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + data[i].replyId + ", " + data[i].commentId + ", 'show')\" class=\"reply-answer js-reply-answer\">回复</a></span>";
                 if (data[i].tbUser.uid == uid) {
-                    str += "<a class=\"click-reply\" onclick='deleteReplyConfirm('" + data[i].replyId + "')' href=\"javascript:void(0);\">删除</a>";
+                    str += "<a class=\"click-reply\" onclick='deleteReplyConfirm(" + data[i].replyId + ")' href=\"javascript:void(0);\">删除</a>";
                 }
                 str += "</div><span id='reply" + data[i].replyId + "'></span> </li>";
             }
@@ -334,7 +335,7 @@ function sendComment() {
 function deleteReplyConfirm(replyId) {
     if (replyId == -1) {
         if (event.returnValue = confirm("删除该回复，会删除之下的所有回复，你确认要删除吗？")) {
-            deleteReply(replyId); ++++
+            deleteReply(replyId);
         }
     } else {
         if (event.returnValue = confirm("确认删除？")) {
@@ -365,6 +366,8 @@ function deleteComment(commentId) {
         success: function (data) {
             if(!data) {
                 alert("删除失败！");
+            } else {
+                findComment();
             }
         }
     });
@@ -372,13 +375,15 @@ function deleteComment(commentId) {
 
 function deleteReply(replyId) {
     $.ajax({
-        url: "/comment/deleteCommentById",
+        url: "/reply/deleteReplyById",
         type: "post",
         async: false,
         data: {replyIds: replyId},
         success: function (data) {
             if(!data) {
                 alert("删除失败！");
+            } else {
+                findComment();
             }
         }
     });

@@ -16,7 +16,7 @@ import java.util.List;
  * @author 疯自
  */
 @Service
-public class TbCommentServiceImpl implements CommentService {
+public class CommentServiceImpl implements CommentService {
 
     @Resource
     private TbCommentDao tbCommentDao;
