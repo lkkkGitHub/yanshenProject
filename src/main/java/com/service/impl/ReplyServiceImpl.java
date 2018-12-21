@@ -7,6 +7,7 @@ import com.tools.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,7 +42,22 @@ public class ReplyServiceImpl implements ReplyService {
             if (replyIds.length > 1) {
                 return tbReplyDao.deleteByIds(Arrays.asList(replyIds)) > 1;
             } else {
-                return tbReplyDao.deleteById(replyIds[0]) == 1;
+                Integer fatherReplyId = replyIds[0];
+                List<Integer> list = new ArrayList<>();
+                Integer replyId;
+                list.add(fatherReplyId);
+                replyId = tbReplyDao.findReplyFatherId(fatherReplyId);
+                while (true) {
+                   if (replyId == null) {
+                       tbReplyDao.deleteByIds(list);
+                       break;
+                   } else {
+                       list.add(replyId);
+                       fatherReplyId = replyId;
+                       replyId = tbReplyDao.findReplyFatherId(fatherReplyId);
+                   }
+                }
+                return true;
             }
         } else {
             return false;

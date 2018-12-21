@@ -47,4 +47,12 @@ public interface TbReplyDao {
      * @return
      */
     Integer deleteByIds(List<Integer> replyIdList);
+
+    /**
+     * 根据id，父id，
+     *
+     * @param replyId
+     * @return
+     */
+    Integer findReplyFatherId(Integer replyId);
 }
