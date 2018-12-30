@@ -5,6 +5,8 @@ import com.pojo.TbClassify;
 import com.pojo.TbTopic;
 import com.service.ClassifyService;
 import com.service.TopicService;
+import com.tools.finaltools.ClassifyFinalTool;
+import com.tools.finaltools.TopicFinalTool;
 import com.tools.utils.JsonUtils;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +40,10 @@ public class TopicServiceImpl implements TopicService {
         // 根据类别的数量，进行循环并判断缓存中是否存在，不存在即更新缓存
         for (int i = 0; i < tbClassifyList.size(); i++) {
             int x = i + 1;
-            Integer integer = JsonUtils.jsonToPojo(jedisClient.hget("classifyNum", String.valueOf(x)), Integer.class);
+            Integer integer = JsonUtils.jsonToPojo(jedisClient.hget(ClassifyFinalTool.CLASSIFY_NUM, String.valueOf(x)), Integer.class);
             if (integer == null) {
                 List<TbTopic> tbTopicList = tbTopicDao.selectTopicByClassifyId(x);
-                jedisClient.hset("classifyNum", String.valueOf(x), String.valueOf(tbTopicList.size()));
+                jedisClient.hset(ClassifyFinalTool.CLASSIFY_NUM, String.valueOf(x), String.valueOf(tbTopicList.size()));
                 map.put(x, tbTopicList.size());
             } else {
                 map.put(x, integer);
@@ -111,7 +113,7 @@ public class TopicServiceImpl implements TopicService {
     public LinkedList<TbTopic> getTopicToExercise(int topicNum, String topicType, int[] classifyIds, String uid) {
         LinkedList<TbTopic> list = new LinkedList<>();
         //随机生成题目 random
-        if ("random".equals(topicType)) {
+        if (TopicFinalTool.RANDOM.equals(topicType)) {
             for (int i = 0; i < classifyIds.length; i++) {
                 int classifyId = classifyIds[i];
                 List<TbTopic> noDidTopicList =
@@ -128,7 +130,7 @@ public class TopicServiceImpl implements TopicService {
             ifBigRemove(list, topicNum, classifyIds.length);
         }
         //专项练习 specialItem
-        if ("specialItem".equals(topicType)) {
+        if (TopicFinalTool.SPECIAL_ITEM.equals(topicType)) {
             int classifyId = classifyIds[0];
             List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, topicNum * 2);
             if (noDidTopicList != null) {
@@ -138,7 +140,7 @@ public class TopicServiceImpl implements TopicService {
         //错题练习 wrongQuestion
         //暂时做了当有类别的错题数量不足时，该题目缺少一个，总题数少一个；随机练习也将如此
         //以后希望在该类别题目少了之后，其他类型的题目数量多，则通过起来类别弥补总题数的缺失
-        if ("wrongQuestion".equals(topicType)) {
+        if (TopicFinalTool.WRONG_QUESTION.equals(topicType)) {
             for (int i = 1; i < classifyIds.length + 1; i++) {
                 List<TbTopic> noDidTopicList = tbTopicDao.selectErrorTopic(uid, 1, classifyIds[i - 1]);
                 list.addAll(setLinkedList(noDidTopicList, classifyIds.length, topicNum));

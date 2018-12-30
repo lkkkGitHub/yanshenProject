@@ -3,6 +3,7 @@ package com.controller;
 import com.pojo.TbReply;
 import com.pojo.TbUser;
 import com.service.ReplyService;
+import com.tools.finaltools.UserFinalTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,7 +58,7 @@ public class ReplyController {
     @ResponseBody
     @RequestMapping(method = {RequestMethod.POST}, value = "/insertReply")
     public boolean insertReply(TbReply tbReply, HttpSession session) {
-        tbReply.setUid(((TbUser) session.getAttribute("user")).getUid());
+        tbReply.setUid(((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
         return replyServiceImpl.insertReply(tbReply);
     }
 

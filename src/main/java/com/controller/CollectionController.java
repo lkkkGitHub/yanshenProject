@@ -2,11 +2,11 @@ package com.controller;
 
 import com.pojo.TbUser;
 import com.service.CollectionService;
+import com.tools.finaltools.UserFinalTool;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
  * @author lk
  * 2018/11/30 15:33
  */
-@Controller
+@RestController
 @RequestMapping("/collection")
 public class CollectionController {
 
@@ -31,36 +31,40 @@ public class CollectionController {
      *                   没有收藏过即添加数据 0
      * @return 是否操作成功
      */
-    @ResponseBody
     @RequestMapping("/insertCollection")
     public boolean insertCollection(HttpSession session, Integer topicId,
                                     @RequestParam(required = false) Integer deleteFlag, Integer flag) {
+        String uid = ((TbUser) session.getAttribute(UserFinalTool.USER)).getUid();
         if (flag == 0) {
-            return collectionServiceImpl.insertCollection(((TbUser) session.getAttribute("user")).getUid()
-                    , topicId);
+            return collectionServiceImpl.insertCollection(uid, topicId);
         } else {
-            return collectionServiceImpl.deleteCollection(((TbUser) session.getAttribute("user")).getUid()
-                    , topicId, deleteFlag);
+            return collectionServiceImpl.deleteCollection(uid, topicId, deleteFlag);
         }
     }
 
     /**
-     * 在查询是否关注的时候，不返回true false，返回deleteFlag和null，有数据就返回deleteFlag区分是否收藏
-     * 收藏取消收藏，即更新数据库字段
-     * 没有数据返回null，表示没有收藏，插入收藏，
-     */
-
-    /**
      * 检查用户是否之前关注了该题目，以及是否关注
+     *
      * @param session 获取用户id
      * @param topicId 题目id
      * @return 之前已经关注，0 表示已经收藏， 1 表示没有收藏 ；没有关注返回-1
      */
-    @ResponseBody
     @RequestMapping("/checkCollection")
     public Integer checkCollection(HttpSession session, Integer topicId) {
-        return collectionServiceImpl.checkCollection(((TbUser) session.getAttribute("user")).getUid()
-                    , topicId);
+        return collectionServiceImpl.checkCollection(((TbUser) session.getAttribute(UserFinalTool.USER)).getUid()
+                , topicId);
+    }
+
+    /**
+     * 获取用户收藏的题目个数
+     *
+     * @param session 获取用户信息
+     * @return 收藏题目的个数
+     */
+    @RequestMapping("/getNum")
+    public Integer getCollectionNum(HttpSession session) {
+        return collectionServiceImpl.getCollectionNum(
+                ((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
     }
 
 }

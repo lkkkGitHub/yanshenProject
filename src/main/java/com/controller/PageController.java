@@ -1,5 +1,8 @@
 package com.controller;
 
+import com.tools.finaltools.PagerFinalTool;
+import com.tools.finaltools.TopicFinalTool;
+import com.tools.finaltools.UserFinalTool;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,10 +32,10 @@ public class PageController {
      */
     @RequestMapping("/{page}")
     public String page(@PathVariable(value = "page") String page, HttpSession session) {
-        if ("home".equals(page)) {
-            String notDoneTopic = jedisClient.hget("notDoneTopic", (String) session.getAttribute("username"));
+        if ((PagerFinalTool.HOME).equals(page)) {
+            String notDoneTopic = jedisClient.hget(TopicFinalTool.NOTDONE_TOPIC, (String) session.getAttribute(UserFinalTool.USER_NAME));
             if (notDoneTopic !=null){
-                session.setAttribute("notDoneTopic", "1");
+                session.setAttribute(TopicFinalTool.NOTDONE_TOPIC, "1");
             }
         }
         return page;

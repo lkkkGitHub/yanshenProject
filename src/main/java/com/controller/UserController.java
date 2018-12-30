@@ -5,6 +5,8 @@ import com.pojo.TbCity;
 import com.pojo.TbProvince;
 import com.pojo.TbUser;
 import com.service.UserService;
+import com.tools.finaltools.DidTopicFinalTool;
+import com.tools.finaltools.UserFinalTool;
 import com.tools.utils.Base64;
 import com.tools.utils.MD5Utils;
 import com.tools.utils.SendEmail;
@@ -60,12 +62,12 @@ public class UserController {
     @RequestMapping(value = "/changUserInfo", method = {RequestMethod.POST})
     public String changeUserInfo(TbUser user, HttpServletRequest request, HttpSession session) {
         userService.changeUserInfo(user);
-        String uid = ((TbUser) request.getSession().getAttribute("user")).getUid();
+        String uid = ((TbUser) request.getSession().getAttribute(UserFinalTool.USER)).getUid();
         // 用户简单个人信息
         TbUser userInfo = userService.selectUserInfo(uid);
-        session.setAttribute("username", userInfo.getUname());
-        session.setAttribute("imgstr", userInfo.getImage());
-        session.setAttribute("user", userInfo);
+        session.setAttribute(UserFinalTool.USER_NAME, userInfo.getUname());
+        session.setAttribute(UserFinalTool.USER_IMG, userInfo.getImage());
+        session.setAttribute(UserFinalTool.USER, userInfo);
         return "personal";
     }
 
@@ -78,7 +80,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping("/upHeadImage")
     public Boolean upHeadImage(String imgDate, HttpSession session) {
-        TbUser user = (TbUser) session.getAttribute("user");
+        TbUser user = (TbUser) session.getAttribute(UserFinalTool.USER);
         String str = imgDate.substring(imgDate.indexOf(",") + 1);
         byte[] bs = Base64.GenerateImage(str);
         if (bs == null) {
@@ -106,7 +108,7 @@ public class UserController {
         int flag = userService.upHeadImage(user);
         // 更新session中的图片的数据
         if (flag == 1) {
-            session.setAttribute("imgstr", uploadPath + userImg);
+            session.setAttribute(UserFinalTool.USER_IMG, uploadPath + userImg);
             return true;
         } else {
             return false;
@@ -156,10 +158,10 @@ public class UserController {
      */
     @RequestMapping("/exit")
     public String exitUser(HttpSession session) {
-        session.removeAttribute("username");
-        session.removeAttribute("imgstr");
-        session.removeAttribute("user");
-        session.removeAttribute("UserDidTopicUtil");
+        session.removeAttribute(UserFinalTool.USER_NAME);
+        session.removeAttribute(UserFinalTool.USER_IMG);
+        session.removeAttribute(UserFinalTool.USER);
+        session.removeAttribute(DidTopicFinalTool.USER_DIDTOPIC_UTIL);
         return "index";
     }
 
@@ -190,9 +192,9 @@ public class UserController {
         TbUser user = userService.login(userName, passWord);
         if (user != null) {
             if (user.getStatus()) {
-                session.setAttribute("username", user.getUname());
-                session.setAttribute("imgstr", user.getImage());
-                session.setAttribute("user", user);
+                session.setAttribute(UserFinalTool.USER_NAME, user.getUname());
+                session.setAttribute(UserFinalTool.USER_IMG, user.getImage());
+                session.setAttribute(UserFinalTool.USER, user);
                 return true;
             } else {
                 return null;
@@ -289,24 +291,24 @@ public class UserController {
     public Boolean sendEmail(String email, String sendFlag, HttpSession session, HttpServletRequest request) {
         boolean flag = false;
         String code = null;
-        Date codeOverTime = (Date) request.getSession().getAttribute("codeOverTime");
+        Date codeOverTime = (Date) request.getSession().getAttribute(UserFinalTool.CODE_OVER_TIME);
         if (codeOverTime != null) {
             if (TimeUtils.compareTime(codeOverTime, TimeUtils.getNowTime())) {
                 code = SendEmail.sendEamilCode(email, sendFlag);
                 if (code != null) {
-                    session.setAttribute("code", code);
-                    session.setAttribute("codeOverTime", TimeUtils.addMinuteTime(3));
+                    session.setAttribute(UserFinalTool.CODE, code);
+                    session.setAttribute(UserFinalTool.CODE_OVER_TIME, TimeUtils.addMinuteTime(3));
                     flag = true;
                 }
             } else {
                 // 此判断供测试及演示使用，打印出每次的code；
-                code = (String) session.getAttribute("code");
+                code = (String) session.getAttribute(UserFinalTool.CODE);
             }
         } else {
             code = SendEmail.sendEamilCode(email, sendFlag);
             if (code != null) {
-                session.setAttribute("code", code);
-                session.setAttribute("codeOverTime", TimeUtils.addMinuteTime(3));
+                session.setAttribute(UserFinalTool.CODE, code);
+                session.setAttribute(UserFinalTool.CODE_OVER_TIME, TimeUtils.addMinuteTime(3));
                 flag = true;
             }
         }
@@ -326,15 +328,15 @@ public class UserController {
     public Boolean verifyCode(String verifyNo, HttpServletRequest request) {
         boolean flag = false;
         HttpSession session = request.getSession();
-        Date codeOverTime = (Date) session.getAttribute("codeOverTime");
+        Date codeOverTime = (Date) session.getAttribute(UserFinalTool.CODE_OVER_TIME);
         if (codeOverTime != null) {
             if (TimeUtils.compareTime(codeOverTime, TimeUtils.getNowTime())) {
-                session.removeAttribute("code");
-                session.removeAttribute("codeOverTime");
+                session.removeAttribute(UserFinalTool.CODE);
+                session.removeAttribute(UserFinalTool.CODE_OVER_TIME);
                 return flag;
             }
         }
-        String code = (String) session.getAttribute("code");
+        String code = (String) session.getAttribute(UserFinalTool.CODE);
         if (code.equals(verifyNo)) {
             flag = true;
         }

@@ -7,6 +7,7 @@ import com.pojo.TbOption;
 import com.pojo.TbTopic;
 import com.service.ClassifyService;
 import com.service.DidtopicService;
+import com.tools.finaltools.TopicFinalTool;
 import com.tools.pojoexpansion.UserDidTopicUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,7 +84,7 @@ public class DidtopicServiceImpl implements DidtopicService {
                                         UserDidTopicUtil userDidTopicUtil) {
         List<TbDidtopic> didTopicList = new ArrayList<>(topicList.size());
         int i = 0;
-        if (!"wrongQuestion".equals(topicType)) {
+        if (!TopicFinalTool.WRONG_QUESTION.equals(topicType)) {
             Map<Integer, Integer> mapDidTopicByClassify = userDidTopicUtil.getMapDidTopicByClassify();
             Map<Integer, Integer> mapErrorTopic = userDidTopicUtil.getMapErrorTopic();
             userDidTopicUtil.setDidTopicNum(userDidTopicUtil.getDidTopicNum() + topicList.size());
@@ -129,7 +130,7 @@ public class DidtopicServiceImpl implements DidtopicService {
                 return null;
             }
             //错题练习即为更新数据库字段，否则即使插入
-//        if (!"wrongQuestion".equals(topicType)) {
+//        if (!TopicFinalTool.WRONG_QUESTION.equals(topicType)) {
         } else {
             for (TbTopic topic : topicList) {
                 TbDidtopic tbDidtopic = new TbDidtopic();
@@ -154,7 +155,7 @@ public class DidtopicServiceImpl implements DidtopicService {
                     }
                 }
             }
-            i = didtopicDao.updateDidTopic(didTopicList);
+            didtopicDao.updateDidTopic(didTopicList);
             return didTopicList;
         }
     }

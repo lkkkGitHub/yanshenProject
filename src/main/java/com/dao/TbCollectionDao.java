@@ -30,4 +30,12 @@ public interface TbCollectionDao {
      * @return deleteFlag 内容
      */
     Integer checkCollection(String uid, Integer topicId);
+
+    /**
+     * 获取收藏个数
+     *
+     * @param uid 用户id
+     * @return 收藏的个数
+     */
+    Integer getCollectionNum(String uid);
 }

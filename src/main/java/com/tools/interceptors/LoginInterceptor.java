@@ -1,6 +1,7 @@
 package com.tools.interceptors;
 
 import com.pojo.TbUser;
+import com.tools.finaltools.UserFinalTool;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,7 +24,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest httpServletRequest,
                            HttpServletResponse httpServletResponse, Object o,
                            ModelAndView modelAndView) throws Exception {
-        TbUser user = (TbUser) (httpServletRequest.getSession().getAttribute("user"));
+        TbUser user = (TbUser) (httpServletRequest.getSession().getAttribute(UserFinalTool.USER));
         if (user == null) {
             httpServletResponse.sendRedirect("/login");
         }

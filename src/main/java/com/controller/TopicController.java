@@ -3,6 +3,8 @@ package com.controller;
 import com.pojo.TbTopic;
 import com.pojo.TbUser;
 import com.service.TopicService;
+import com.tools.finaltools.TopicFinalTool;
+import com.tools.finaltools.UserFinalTool;
 import com.tools.utils.JsonUtils;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +31,6 @@ public class TopicController {
     @Autowired
     private JedisClient jedisClient;
 
-    /**
-     *
-     */
     @Autowired
     private TopicService topicServiceImpl;
 
@@ -64,15 +63,15 @@ public class TopicController {
             classifyIds = new int[1];
             classifyIds[0] = 1;
         }
-        TbUser user = (TbUser) session.getAttribute("user");
+        TbUser user = (TbUser) session.getAttribute(UserFinalTool.USER);
         LinkedList<TbTopic> list = topicServiceImpl.getTopicToExercise(topicNum, topicType, classifyIds, user.getUid());
         List<TbTopic> topicList = new ArrayList<>(list);
         if (topicList.size() == 0) {
             request.setAttribute("topicNumZeroMessage", "当前分类已经没有题目可以做了，换个类别或者做做错题把");
             return "home";
         } else {
-            session.setAttribute("topicType", topicType);
-            session.setAttribute("topicList", topicList);
+            session.setAttribute(TopicFinalTool.TOPIC_TYPE, topicType);
+            session.setAttribute(TopicFinalTool.TOPIC_LIST, topicList);
             return "answer";
         }
     }
@@ -92,13 +91,13 @@ public class TopicController {
     @RequestMapping("/getTopicPagination")
     public TbTopic getTopicPagination(HttpSession session, int sequence,
                                       int sequenceNext, int optionId) {
-        String userName = (String) session.getAttribute("username");
-        String topicType = (String) session.getAttribute("topicType");
-        List<TbTopic> topicList = (ArrayList<TbTopic>) session.getAttribute("topicList");
+        String userName = (String) session.getAttribute(UserFinalTool.USER_NAME);
+        String topicType = (String) session.getAttribute(TopicFinalTool.TOPIC_TYPE);
+        List<TbTopic> topicList = (ArrayList<TbTopic>) session.getAttribute(TopicFinalTool.TOPIC_LIST);
         if (optionId != -1) {
             if (topicList.get(sequence).getOptionId() == null || topicList.get(sequence).getOptionId() != optionId) {
                 topicList.get(sequence).setOptionId(optionId);
-                session.setAttribute("topicList", topicList);
+                session.setAttribute(TopicFinalTool.TOPIC_LIST, topicList);
                 saveNotDoneTopic(userName, topicType, topicList);
             }
         }
@@ -115,8 +114,8 @@ public class TopicController {
      * @return 添加成功返回true
      */
     public void saveNotDoneTopic(String userName, String topicType, List<TbTopic> topicList) {
-        jedisClient.hset("notDoneTopic", userName, JsonUtils.objectToJson(topicList));
-        jedisClient.hset("topicType", userName, topicType);
+        jedisClient.hset(TopicFinalTool.NOTDONE_TOPIC, userName, JsonUtils.objectToJson(topicList));
+        jedisClient.hset(TopicFinalTool.TOPIC_TYPE, userName, topicType);
     }
 
     /**
@@ -127,13 +126,13 @@ public class TopicController {
      */
     @RequestMapping("/getNotDoneTopic")
     public String getNotDoneTopic(HttpSession session) {
-        String userName = (String) session.getAttribute("username");
-        List<TbTopic> topicList = JsonUtils.jsonToList(jedisClient.hget("notDoneTopic", userName), TbTopic.class);
-        String topicType = jedisClient.hget("topicType", userName);
+        String userName = (String) session.getAttribute(UserFinalTool.USER_NAME);
+        List<TbTopic> topicList = JsonUtils.jsonToList(jedisClient.hget(TopicFinalTool.NOTDONE_TOPIC, userName), TbTopic.class);
+        String topicType = jedisClient.hget(TopicFinalTool.TOPIC_TYPE, userName);
         if (topicList != null && topicType != null) {
-            session.setAttribute("topicList", topicList);
-            session.setAttribute("topicType", topicType);
-            session.removeAttribute("notDoneTopic");
+            session.setAttribute(TopicFinalTool.TOPIC_LIST, topicList);
+            session.setAttribute(TopicFinalTool.TOPIC_TYPE, topicType);
+            session.removeAttribute(TopicFinalTool.NOTDONE_TOPIC);
             return "answer";
         } else {
             return "home";
@@ -149,11 +148,11 @@ public class TopicController {
     @RequestMapping("/removeNotDoneTopic")
     public String removeNotDoneTopic(HttpSession session) {
         session.removeAttribute("didTopicList");
-        session.removeAttribute("topicType");
-        session.removeAttribute("topicList");
-        session.removeAttribute("notDoneTopic");
-        jedisClient.hdel("notDoneTopic", (String) session.getAttribute("username"));
-        jedisClient.hdel("topicType", (String) session.getAttribute("username"));
+        session.removeAttribute(TopicFinalTool.TOPIC_TYPE);
+        session.removeAttribute(TopicFinalTool.TOPIC_LIST);
+        session.removeAttribute(TopicFinalTool.NOTDONE_TOPIC);
+        jedisClient.hdel(TopicFinalTool.NOTDONE_TOPIC, (String) session.getAttribute(UserFinalTool.USER_NAME));
+        jedisClient.hdel(TopicFinalTool.TOPIC_TYPE, (String) session.getAttribute(UserFinalTool.USER_NAME));
         return "home";
     }
 }

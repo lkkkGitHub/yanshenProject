@@ -3,6 +3,7 @@ package com.controller;
 import com.pojo.TbComment;
 import com.pojo.TbUser;
 import com.service.CommentService;
+import com.tools.finaltools.UserFinalTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,7 +46,7 @@ public class CommentController {
     @ResponseBody
     @RequestMapping(value = "/insertComment", method = {RequestMethod.POST})
     public boolean insertComment(TbComment tbComment, HttpSession session) {
-        tbComment.setUid(((TbUser) session.getAttribute("user")).getUid());
+        tbComment.setUid(((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
         return commentServiceImpl.insertComment(tbComment);
     }
 

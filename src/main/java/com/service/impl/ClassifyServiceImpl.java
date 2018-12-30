@@ -3,6 +3,7 @@ package com.service.impl;
 import com.dao.TbClassifyDao;
 import com.pojo.TbClassify;
 import com.service.ClassifyService;
+import com.tools.finaltools.ClassifyFinalTool;
 import com.tools.utils.JsonUtils;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +27,11 @@ public class ClassifyServiceImpl implements ClassifyService {
 
     @Override
     public List<TbClassify> allClassify() {
-        List<TbClassify> list = JsonUtils.jsonToList(jedisClient.hget("classify", "comment"), TbClassify.class);
+        List<TbClassify> list = JsonUtils.jsonToList(jedisClient.hget(ClassifyFinalTool.CLASSIFY,
+                ClassifyFinalTool.COMMENT), TbClassify.class);
         if (list == null) {
             list = tbClassifyDao.allClassify();
-            jedisClient.hset("classify", "comment", JsonUtils.objectToJson(list));
+            jedisClient.hset(ClassifyFinalTool.CLASSIFY, ClassifyFinalTool.COMMENT, JsonUtils.objectToJson(list));
         }
         return list;
     }

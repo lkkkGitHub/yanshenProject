@@ -65,5 +65,9 @@
     <select id="checkCollection" resultType="java.lang.Integer">
         select `deleteFlag` from `tb_collection` where `userId` = #{param1} and `topicId` = #{param2}
     </select>
+
+    <select id="getCollectionNum" resultType="java.lang.Integer">
+        SELECT count(1) FROM `tb_collection` GROUP BY `userId` HAVING `userId` = #{uid}
+    </select>
 </mapper>
 
