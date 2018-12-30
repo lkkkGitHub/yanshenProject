@@ -6,26 +6,19 @@
 <html>
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <meta content="0" http-equiv="expires">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="google-site-verification" content="lFSmn0rlLR-OPkas5c2GxdhTKP4J4PyaahhQ2TNanjs">
-    <meta itemprop="image" content="https://static.nowcoder.com/images/logo_87_87.png">
-    <meta name="description" content="怎样更改一个文件的权限设置？,Linux专项练习,牛客网是IT求职神器,提供海量IT笔试题库,全面提升编程能力">
-    <meta name="keywords" content="Linux专项练习,IT笔试,牛客网">
-    <title>牛客网</title>
+    <title>疯自的个人主页_牛客网</title>
+    <meta name="description" content="牛客网是IT求职神器,提供海量IT笔试题库,全面提升编程能力">
+    <meta name="keywords" content="个人主页,笔试练习,编程学习,牛客网">
 
-    <script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
-    <script charset="utf-8" async="" src="../../static/answer/js/dangxuan.js"></script>
-    <script charset="utf-8" async="" src="../../static/answer/js/questionutil.js"></script>
-    <script charset="utf-8" async="" src="../../static/answer/js/highlighter.js"></script>
-    <script charset="utf-8" async="" src="../../static/answer/js/answerJs.js"></script>
-    <link media="all" href="../../static/answer/css/index.css" type="text/css" rel="stylesheet">
-    <%--确认离开--%>
-
+    <script charset="utf-8" async="" src="../../static/collection/js/ownerprofile.js"></script>
+    <script charset="utf-8" async="" src="../../static/collection/js/questions.js"></script>
+    <script charset="utf-8" async="" src="../../static/collection/js/popupedittag.js"></script>
+    <link media="all" href="../../static/collection/css/index.css" type="text/css" rel="stylesheet">
 </head>
-<body onload="start();intiTopicInfo(0, -1, -1);">
-
+<body>
 <div class="nk-container     ">
     <div class="nowcoder-header">
         <div class="header-main clearfix">
@@ -45,7 +38,7 @@
                 </li>
                 <li>
                     <a href="#">学习</a>
-                    <ul class="sub-nav">answer-sheet-box open
+                    <ul class="sub-nav">
                         <li><a href="#">课程</a></li>
                         <li><a href="#">项目实战</a></li>
                         <li><a href="#">技术栈</a></li>
@@ -150,134 +143,102 @@
             </ul>
         </div>
     </div>
-    <div class="nk-main  clearfix">
-        <div class="module-box subject-box">
-            <div class="nowcoder-topic">
-                <div class="subject-progress">
-                    <div class="progress">
-                        <div style="width: 0%" class="progress-bar"></div>
-                    </div>
-                    <span class="progress-nums">1/10</span>
-                    <a href="javascript:void(0);" class="progress-time" title="暂停">
-                        <%--<i class="ico-time-control"></i>--%>
-                        <span data-left="2592000" data-time="0" class="time-text"
-                              style="font-size: 20px;"></span>
-                    </a>
-                </div>
-                <div class="subject-title">[单选题]</div>
-                <div class="subject-main">
-                    <div class="subject-content">
-                        <%--<div class="subject-question">--%>
-                        <%--怎样更改一个文件的权限设置？--%>
-                        <%--</div>--%>
-                        <%--<a href="javascript:void(0);" class="subject-options selected" id="" data-id="69554">--%>
-                        <%--<label class="radio checked" id="option0">--%>
-                        <%--<span class="icons"></span>--%>
-                        <%--<input data-toggle="radio" value="69554" type="radio">--%>
-                        <%--<pre>chmod</pre>--%>
-                        <%--</label>--%>
-                        <%--</a>--%>
-                        <%--<a href="javascript:void(0);" class="subject-options" data-id="69555">--%>
-                        <%--<label class="radio" id="option1">--%>
-                        <%--<span class="icons"></span>--%>
-                        <%--<input data-toggle="radio" value="69555" type="radio">--%>
-                        <%--<pre>file</pre>--%>
-                        <%--</label>--%>
-                        <%--</a>--%>
-                        <%--<a href="javascript:void(0);" class="subject-options" data-id="69556">--%>
-                        <%--<label class="radio" id="option2">--%>
-                        <%--<span class="icons"></span>--%>
-                        <%--<input data-toggle="radio" value="69556" type="radio">--%>
-                        <%--<pre>attrib</pre>--%>
-                        <%--</label>--%>
-                        <%--</a>--%>
-                        <%--<a href="javascript:void(0);" class="subject-options" data-id="69557">--%>
-                        <%--<label class="radio" id="option3">--%>
-                        <%--<span class="icons"></span>--%>
-                        <%--<input data-toggle="radio" value="69557" type="radio">--%>
-                        <%--<pre>change</pre>--%>
-                        <%--</label>--%>
-                        <%--</a>--%>
-                    </div>
-                    <div class="subject-action clearfix">
-                        <div class="subject-opr">
-                            <%--<span class="subject-opr-item"><i class="ico-collect"></i><a href="javascript:void(0);"--%>
-                                                                                         <%--class="js-follow nc-req-auth"--%>
-                                                                                         <%--data-id="53096">收藏本题</a></span>--%>
-                        </div>
-                        <div class="subject-next">
-                            <%--<form id="submitForm" method="post"--%>
-                            <%--action="https://www.nowcoder.com/question/next?pid=13625559&amp;qid=53096&amp;tid=19951551">--%>
-                            <%--<input name="content" id="answer" type="hidden">--%>
-                            <%--<input id="aheadFinish" name="button" class="btn warning-btn" value="提前交卷"--%>
-                            <%--type="submit">--%>
-                            <%--<input id="next" name="button" class="btn btn-primary" value="下一题" type="submit">--%>
-                            <%--</form>--%>
-                            <a href="/didTopic/commitAnswer" id="aheadFinish" name="button"
-                               class="btn warning-btn">交卷</a>
-                            <%--<input id="next" name="button" class="btn btn-primary" value="下一题" onclick="">--%>
-                        </div>
-                    </div>
-                </div>
-                <!-- 展开的时候加class:open -->
-                <div class="answer-sheet-box open">
-                    <span class="answer-box">
-                        <a href="javascript:void(0)" class="card-unfold">答题卡</a>
-                        <a href="javascript:void(0)" class="card-fold">展开答题卡</a>
-                    </span>
-                    <ul class="answer-sheet-num clearfix">
-                        <%--<li><a href="javascript:void(0);" class="answering-num " data-qid="53096">1</a></li>--%>
-                        <%--<li><a href="javascript:void(0);" class="answer-done " data-qid="55688">2</a></li>--%>
-                        <%--<li><a href="javascript:void(0);" class="answer-done" data-qid="57362">3</a></li>--%>
-                        <%--<li><a href="javascript:void(0);" class="answer-done" data-qid="55444">4</a></li>--%>
-                        <%--<li><a href="javascript:void(0);" class="" data-qid="36221">5</a></li>--%>
-                        <%--<li><a href="javascript:void(0);" class="" data-qid="25177">6</a></li>--%>
-                        <%--<li><a href="javascript:void(0);" class="" data-qid="7270">7</a></li>--%>
-                        <%--<li><a href="javascript:void(0);" class="" data-qid="56275">8</a></li>--%>
-                        <%--<li><a href="javascript:void(0);" class="" data-qid="36467">9</a></li>--%>
-                        <%--<li><a href="javascript:void(0);" class="" data-qid="55450">10</a></li>--%>
-                        <c:forEach var="topic" items="${sessionScope.topicList}" varStatus="status">
-                            <c:choose>
-                                <c:when test="${status.index + 1 == 1}">
-                                    <li><a href="javascript:void(0);" class="answering-num"
-                                           onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
-                                           id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
-                                </c:when>
-                                <c:when test="${topic.optionId != null}">
-                                    <li><a href="javascript:void(0);" class="answer-done"
-                                           onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
-                                           id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
-                                </c:when>
-                                <c:otherwise>
-                                    <li><a href="javascript:void(0);" class=""
-                                           onclick="answeringNum(${status.index}, ${fn:length(topicList)})"
-                                           id="topicIndex${status.index}" data-qid="55450">${status.index + 1}</a></li>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:forEach>
+    <div class="nk-main profile-page clearfix">
+        <div class="profile-info-wrapper fixed" style="display: none;">
+            <div class="profile-level level1"></div>
+            <div class="profile-info-main">
+                <a class="head-pic  js-self-avatar ">
+                    <img alt="头像"
+                         src="../../static/collection/no/328031526_1533893421047_7c2c60506876716ccf0e706db13d4511@0e_200w_200h_0c_1i_1o_90q_1x">
+                    <div class="change-photo"></div>
+                </a>
+                <div class="profile-info-cont">
+                    <section>
+                        <a class="profile-user-name level-color-7" href="javascript:void(0);" data-title="疯自"
+                           data-tips-index="3">疯自</a>
+                        <span>
+                        <a href="https://www.nowcoder.com/user/authentication" target="_top" class="profile-noauth" data-title="点击图标，点亮职业身份"
+                           data-tips-index="4"><img class="identity-icon" data-identity="" src="../../static/collection/img/0.png"></a>
+                        </span>
+                    </section>
+                    <ul class="profile-cont clearfix">
+                        <li class="profile-city"><i class="ico-pcity"></i>未填写所在地区</li>
+                        <li class="profile-work"><i class="ico-pwork"></i>道一</li>
+                        <li class="profile-edu"><i class="ico-pedu"></i>吉首大学</li>
+                        <li class="work-authentica"><i class="ico-auth"></i>暂未认证<a
+                                href="https://www.nowcoder.com/user/authentication" class="link-green">点击申请 &gt; </a>
+                        </li>
                     </ul>
                 </div>
-
-                <script src="../../static/answer/js/sea.js" type="text/javascript"></script>
-
-                <script src="../../static/answer/js/nc.cpn.js" type="text/javascript"></script>
-                <script src="../../static/answer/js/pc.js" type="text/javascript"></script>
-                <script src="../../static/answer/js/base.js" type="text/javascript"></script>
-                <script type="text/javascript">
-                    seajs.use('nowcoder/1.2.1124/javascripts/site/common/index');
-                    seajs.use('nowcoder/1.2.1124/javascripts/site/common/nav');
-                </script>
-
-                <script>
-                    (function (window, undefined) {
-                        seajs.use('nowcoder/1.2.1124/javascripts/site/question/dangxuan.js');
-                    })(window);
-                </script>
             </div>
-            <input id="jsQuestionInfo" data-pid="13625559" data-tid="19951551" data-qid="53096" data-total="10"
-                   data-left="10" type="hidden">
+            <div class="profile-oprt-box">
+                <a class="btn btn-primary btn-sm" href="https://www.nowcoder.com/profile/328031526/basicinfo#menubox"><i
+                        class="icon-pencil"></i>编辑</a>
+                <a href="javascript:void(0);" class="btn btn-primary btn-sm js-log-clock nc-req-auth" data-count="0"><i
+                        class="icon-time"></i>打卡</a>
+            </div>
         </div>
-        <div class="fixed-menu">
+        <script src="../../static/collection/js/hm.js"></script>
+        <script>
+        </script>
+
+        <div class="nk-content">
+            <div class="module-box">
+
+                <div class="module-head clearfix">
+                    <h1>收藏的试题数(23)</h1>
+                </div>
+                <div class="module-body">
+                    <ul class="common-list">
+                        <li>
+                            <div class="cont-brief">
+                                <a href="https://www.nowcoder.com/profile/328031526/myFollowings/detail/7095788"
+                                   target="_top">增加一个用户的命令是什么</a>
+                            </div>
+                            <div class="tags-box">
+                                <a href="https://www.nowcoder.com/questionCenter?mutiTagIds=618" class="tag-label"
+                                   target="_top">Linux</a>
+                            </div>
+                            <div class="feed-foot">
+                                <div class="feed-origin">
+                                    <span>
+                                    来自<a href="https://www.nowcoder.com/test/13484/summary" target="_top">运维工程师能力评估</a>
+                                    </span>
+                                </div>
+                                <div class="feed-legend">
+                                    <span><a href="javascript:void(0);" class="link-green click-editfollow nc-req-auth"
+                                             data-id="23239">编辑收藏</a></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <%--<div class="pagination">--%>
+                        <%--<div class="pagination">--%>
+                            <%--<ul data-total="3">--%>
+                                <%--<li class="txt-pager disabled js-first-pager"><a data-page="1"--%>
+                                                                                 <%--href="javascript:void(0)">首页</a></li>--%>
+                                <%--<li class="txt-pager disabled js-pre-pager"><a data-page="1" href="javascript:void(0)">上一页</a>--%>
+                                <%--</li>--%>
+                                <%--<li class="active js-1-pager"><a href="javascript:void(0)" data-page="1">1</a></li>--%>
+                                <%--<li class="js-2-pager"><a--%>
+                                        <%--href="https://www.nowcoder.com/profile/328031526/myFollowings?tags=&amp;page=2"--%>
+                                        <%--data-page="2">2</a></li>--%>
+                                <%--<li class="js-3-pager"><a--%>
+                                        <%--href="https://www.nowcoder.com/profile/328031526/myFollowings?tags=&amp;page=3"--%>
+                                        <%--data-page="3">3</a></li>--%>
+                                <%--<li class="txt-pager js-next-pager"><a data-page="2"--%>
+                                                                       <%--href="https://www.nowcoder.com/profile/328031526/myFollowings?tags=&amp;page=2">下一页</a>--%>
+                                <%--</li>--%>
+                                <%--<li class="txt-pager js-last-pager"><a data-page="3"--%>
+                                                                       <%--href="https://www.nowcoder.com/profile/328031526/myFollowings?tags=&amp;page=3">末页</a>--%>
+                                <%--</li>--%>
+                            <%--</ul>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                </div>
+            </div>
+        </div>
+        <div class="fixed-menu" style="display: block; bottom: 132px;">
             <ul>
                 <li>
                     <a href="javascript:void(0);" class="gotop js-nav-go-top" title="回到顶部"></a>
@@ -292,7 +253,7 @@
                 <li>
                     <a href="javascript:void(0);" class="wx"></a>
                     <div class="wx-qrcode">
-                        <img src="../../static/answer/img/wx-rcode.jpg" alt="二维码">
+                        <img src="../../static/collection/img/wx-rcode.jpg" alt="二维码">
                         <p>扫描二维码，关注牛客网</p>
                     </div>
                 </li>
@@ -303,22 +264,17 @@
                 <li>
                     <a href="javascript:void(0);" class="qrcode"></a>
                     <div class="wx-qrcode">
-                        <img src="../../static/answer/img/app.png" alt="二维码">
+                        <img src="../../static/collection/img/app.png" alt="二维码">
                         <p>下载牛客APP，随时随地刷题</p>
                     </div>
                 </li>
             </ul>
-            <div class="phone-qrcode" style="display: none;">
-                <a href="javascript:void(0);" class="qrcode-close">x</a>
-                <img src="../../static/answer/img/app.png" alt="二维码" style="width: 70px; height: 70px;">
-                <p>扫一扫下载牛客APP</p>
-            </div>
         </div>
         <div class="ft-wrap">
             <div class="ft-cont clearfix">
                 <div class="ft-app">
                     <div class="ft-qrcode-box">
-                        <img src="../../static/answer/img/app_download.png">
+                        <img src="../../static/collection/img/app_download.png">
                     </div>
                     <p>扫一扫，把题目装进口袋</p>
                 </div>
@@ -329,7 +285,7 @@
                             <div class="tooltip top">
                                 <div class="tooltip-arrow"></div>
                                 <div class="tooltip-inner">
-                                    <img src="../../static/answer/other/59_1534321710941_41a541f87ae349e1d829b1b0b95c955d"
+                                    <img src="../../static/collection/no/59_1534321710941_41a541f87ae349e1d829b1b0b95c955d"
                                          width="110">
                                     <p>扫描二维码，进入QQ群</p>
                                 </div>
@@ -339,7 +295,7 @@
                             <div class="tooltip top">
                                 <div class="tooltip-arrow"></div>
                                 <div class="tooltip-inner">
-                                    <img src="../../static/answer/other/59_1534321725995_22162f7114ac793718cc28f7f3f8b789"
+                                    <img src="../../static/collection/no/59_1534321725995_22162f7114ac793718cc28f7f3f8b789"
                                          width="110">
                                     <p>扫描二维码，关注牛客网公众号</p>
                                 </div>
@@ -362,13 +318,13 @@
                         <li><a href="https://www.nowcoder.com/html/links">友情链接</a></li>
                     </ul>
                     <ul class="webrights">
-                        <li>公司地址：北京市朝阳区大屯路东金泉时代3-808北京牛客科技有限公司</li>
+                        <li>公司地址：北京市朝阳区大屯路东金泉时代3-2708北京牛客科技有限公司</li>
                         <li>联系方式：010-60728802(电话) <span class="contact-email">admin@nowcoder.com</span></li>
                         <li>牛客科技©2018 All rights reserved</li>
                         <li>京ICP备14055008号-4</li>
                         <li>
                             <span style="color: rgb(169, 184, 202);">
-                            <img src="../../static/answer/img/ghs.png" style="width: 18px; height: 18px;">
+                            <img src="../../static/collection/img/ghs.png" style="width: 18px; height: 18px;">
                             <a style="font-size: 12px;" class="ft-info-item" target="_top"
                                href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
                             </span>
@@ -381,28 +337,10 @@
             <a href="javascript:void(0);" class="ad-close">X</a>
             <div class="ad-live-active"></div>
             <a class="link-green js-global-tips-href" target="_top"
-               href="https://www.nowcoder.com/test/question/14c4cdcb25c4425cb0fdc42774241069?pid=13625559&amp;tid=19951551">点击查看&gt;&gt;</a>
+               href="https://www.nowcoder.com/profile/328031526/myFollowings">点击查看&gt;&gt;</a>
         </div>
 
     </div>
-    <script>
-        window.selected = {"content": ""};
-        window.isIntelligentPaper = true;
-        window.canPauseTime = true;
-        window.isContest = false;
-        window.leaveCount = 0;
-        // 问题信息
-        window.questionInfo = {
-            pid: '13625559',
-            tid: '19951551',
-            qid: '53096',
-            total: '10',
-            left: '10',
-            type: '1'
-        };
-    </script>
-
-
 </div>
 <div id="jsCpn_1_component_0" style="display: none;">
     <div id="jsCpn_0_component_0" class="  btn-group" style="display: block; min-width: 297px;">
@@ -413,37 +351,15 @@
         </div>
     </div>
 </div>
-
-<%--定时器--%>
-<script>
-    var hour, minute, second; //时 分 秒
-    hour = minute = second = 0; //初始化
-    var millisecond = 0; //毫秒
-    var int;
-
-    function start() //开始
-    {
-        int = setInterval(timer, 50);
-    }
-
-    function timer() //计时
-    {
-        millisecond = millisecond + 50;
-        if (millisecond >= 1000) {
-            millisecond = 0;
-            second = second + 1;
-        }
-        if (second >= 60) {
-            second = 0;
-            minute = minute + 1;
-        }
-
-        if (minute >= 60) {
-            minute = 0;
-            hour = hour + 1;
-        }
-        $(".time-text").html(hour + ':' + minute + ':' + second);
-    }
-</script>
+<div id="jsCpn_3_component_1" style="display: none;">
+    <div id="jsCpn_2_component_0" style="overflow: hidden; cursor: pointer; width: 60px; height: 60px;"><input
+            class="  js-upload" style="display: block; opacity: 0; cursor: pointer; width: 60px; height: 60px;"
+            type="file"></div>
+</div>
+<div id="jsCpn_5_component_2" style="display: none;">
+    <div id="jsCpn_4_component_1" style="overflow: hidden; cursor: pointer; width: 40px; height: 40px;"><input
+            class="  js-upload" style="display: block; opacity: 0; cursor: pointer; width: 40px; height: 40px;"
+            type="file"></div>
+</div>
 </body>
 </html>

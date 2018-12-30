@@ -169,10 +169,10 @@
                     <h2 class="new-items-txt">顺序练习</h2>
                 </a>
                 <a class="check-discuss nc-js-make-paper" href="#">
-                    <i></i>
+                    <i></i>`
                     <h2 class="new-items-txt">错题练习</h2>
                 </a>
-                <a class="items-collect nc-js-make-paper" href="#">
+                <a class="items-collect" href="/collection">
                     <i></i>
                     <h2 class="new-items-txt">我的收藏</h2>
                 </a>
