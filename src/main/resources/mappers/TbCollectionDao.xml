@@ -69,5 +69,16 @@
     <select id="getCollectionNum" resultType="java.lang.Integer">
         SELECT count(1) FROM `tb_collection` GROUP BY `userId` HAVING `userId` = #{uid}
     </select>
+
+    <select id="getTopicToPager" resultType="com.pojo.TbTopic">
+        SELECT t.`topicComment`, t.`analysis`, t.`topicId`,cl.`classifyName`
+        FROM tb_topic t, tb_collection c, `tb_classify` cl
+        WHERE userId = #{param1} AND t.`topicId` = c.`topicId` AND cl.`classifyId` = t.`classifyId`
+        LIMIT #{param2.currentPosition}, #{param2.pageSize}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM `tb_collection` WHERE `topicId` = #{param1} AND `userId` = #{param2}
+    </delete>
 </mapper>
 

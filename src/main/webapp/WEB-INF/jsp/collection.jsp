@@ -12,13 +12,14 @@
     <title>疯自的个人主页_牛客网</title>
     <meta name="description" content="牛客网是IT求职神器,提供海量IT笔试题库,全面提升编程能力">
     <meta name="keywords" content="个人主页,笔试练习,编程学习,牛客网">
-
+    <script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
     <script charset="utf-8" async="" src="../../static/collection/js/ownerprofile.js"></script>
     <script charset="utf-8" async="" src="../../static/collection/js/questions.js"></script>
     <script charset="utf-8" async="" src="../../static/collection/js/popupedittag.js"></script>
+    <script charset="utf-8" async="" src="../../static/collection/js/collection.js"></script>
     <link media="all" href="../../static/collection/css/index.css" type="text/css" rel="stylesheet">
 </head>
-<body>
+<body onload="getNum()">
 <div class="nk-container     ">
     <div class="nowcoder-header">
         <div class="header-main clearfix">
@@ -189,29 +190,32 @@
                     <h1>收藏的试题数(23)</h1>
                 </div>
                 <div class="module-body">
-                    <ul class="common-list">
-                        <li>
-                            <div class="cont-brief">
-                                <a href="https://www.nowcoder.com/profile/328031526/myFollowings/detail/7095788"
-                                   target="_top">增加一个用户的命令是什么</a>
-                            </div>
-                            <div class="tags-box">
-                                <a href="https://www.nowcoder.com/questionCenter?mutiTagIds=618" class="tag-label"
-                                   target="_top">Linux</a>
-                            </div>
-                            <div class="feed-foot">
-                                <div class="feed-origin">
-                                    <span>
-                                    来自<a href="https://www.nowcoder.com/test/13484/summary" target="_top">运维工程师能力评估</a>
-                                    </span>
-                                </div>
-                                <div class="feed-legend">
-                                    <span><a href="javascript:void(0);" class="link-green click-editfollow nc-req-auth"
-                                             data-id="23239">编辑收藏</a></span>
-                                </div>
-                            </div>
-                        </li>
+                    <ul class="common-list" id="commentList">
+                        <%--<li>--%>
+                            <%--<div class="cont-brief">--%>
+                                <%--<a href="https://www.nowcoder.com/profile/328031526/myFollowings/detail/7095788"--%>
+                                   <%--target="_top">增加一个用户的命令是什么</a>--%>
+                            <%--</div>--%>
+                            <%--<div class="tags-box">--%>
+                                <%--<a href="https://www.nowcoder.com/questionCenter?mutiTagIds=618" class="tag-label"--%>
+                                   <%--target="_top">Linux</a>--%>
+                            <%--</div>--%>
+                            <%--<div class="feed-foot">--%>
+                                <%--<div class="feed-origin">--%>
+                                    <%--<span>--%>
+                                    <%--来自<a href="https://www.nowcoder.com/test/13484/summary" target="_top">运维工程师能力评估</a>--%>
+                                    <%--</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="feed-legend">--%>
+                                    <%--<span><a href="javascript:void(0);" class="link-green click-editfollow nc-req-auth"--%>
+                                             <%--data-id="23239">编辑收藏</a></span>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</li>--%>
                     </ul>
+                    <div class="statistical-list-btn" id="jsExeChosen">
+                        <a href="javascript:void(0);" onclick="" class="btn btn-primary">加载更多</a>
+                    </div>
                     <%--<div class="pagination">--%>
                         <%--<div class="pagination">--%>
                             <%--<ul data-total="3">--%>

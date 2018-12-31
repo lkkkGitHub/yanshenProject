@@ -18,6 +18,19 @@ public class TbTopic {
      */
     private Integer optionId;
 
+    /**
+     * 分类名
+     */
+    private String classifyName;
+
+    public String getClassifyName() {
+        return classifyName;
+    }
+
+    public void setClassifyName(String classifyName) {
+        this.classifyName = classifyName;
+    }
+
     private List<TbOption> optionList;
 
     public Integer getOptionId() {

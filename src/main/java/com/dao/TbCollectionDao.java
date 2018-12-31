@@ -1,6 +1,10 @@
 package com.dao;
 
 import com.pojo.TbCollection;
+import com.pojo.TbTopic;
+import com.tools.pojoexpansion.Pager;
+
+import java.util.List;
 
 
 public interface TbCollectionDao {
@@ -38,4 +42,22 @@ public interface TbCollectionDao {
      * @return 收藏的个数
      */
     Integer getCollectionNum(String uid);
+
+    /**
+     * 获取分页数据
+     *
+     * @param pager 分页数据开始位置，页面大小
+     * @param uid   用户id
+     * @return 题目的基本信息
+     */
+    List<TbTopic> getTopicToPager(String uid, Pager<TbTopic> pager);
+
+    /**
+     * 物理删除用户收藏信息
+     *
+     * @param topicId 题目id
+     * @param uid     用户id
+     * @return 影响的行数
+     */
+    Integer delete(Integer topicId, String uid);
 }

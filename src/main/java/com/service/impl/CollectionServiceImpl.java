@@ -2,11 +2,15 @@ package com.service.impl;
 
 import com.dao.TbCollectionDao;
 import com.pojo.TbCollection;
+import com.pojo.TbTopic;
 import com.service.CollectionService;
 import com.tools.finaltools.CollectionFinalTool;
+import com.tools.pojoexpansion.Pager;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author leike
@@ -71,5 +75,24 @@ public class CollectionServiceImpl implements CollectionService {
         }
         jedisClient.hset(CollectionFinalTool.COLLECTION_NUM, uid, String.valueOf(numInt));
         return numInt;
+    }
+
+    @Override
+    public List<TbTopic> getCollectionTopic(String uid, Pager<TbTopic> pager) {
+        return tbCollectionDao.getTopicToPager(uid, pager);
+    }
+
+    @Override
+    public Boolean delete(Integer topicId, String uid) {
+        if (topicId != null && uid != null && uid.length() != 0) {
+            Boolean flag = tbCollectionDao.delete(topicId, uid) == 1;
+            if (flag) {
+                jedisClient.hset(CollectionFinalTool.COLLECTION_NUM, uid, String.valueOf(
+                        Integer.valueOf(jedisClient.hget(CollectionFinalTool.COLLECTION_NUM, uid)) - 1));
+            }
+            return flag;
+        } else {
+            return false;
+        }
     }
 }

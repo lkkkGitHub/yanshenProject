@@ -1,5 +1,10 @@
 package com.service;
 
+import com.pojo.TbTopic;
+import com.tools.pojoexpansion.Pager;
+
+import java.util.List;
+
 /**
  * @author lk
  * 2018/11/30 15:24
@@ -40,4 +45,22 @@ public interface CollectionService {
      * @return 收藏信息个数
      */
     Integer getCollectionNum(String uid);
+
+    /**
+     * 根据用户id 获取用户收藏的所有题目信息
+     *
+     * @param uid   用户id
+     * @param pager 分页类，再sql后加上限制
+     * @return 用户所有题目信息
+     */
+    List<TbTopic> getCollectionTopic(String uid, Pager<TbTopic> pager);
+
+    /**
+     * 根据用户id，题目id，删除用户的收藏信息
+     *
+     * @param topicId 题目id
+     * @param uid     用户id
+     * @return 删除成功 true
+     */
+    Boolean delete(Integer topicId, String uid);
 }

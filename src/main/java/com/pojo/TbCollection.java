@@ -1,6 +1,8 @@
 package com.pojo;
 
-
+/**
+ * @author 疯自
+ */
 public class TbCollection {
 
   private Integer collectionId;

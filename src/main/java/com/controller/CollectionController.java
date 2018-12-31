@@ -1,14 +1,17 @@
 package com.controller;
 
+import com.pojo.TbTopic;
 import com.pojo.TbUser;
 import com.service.CollectionService;
 import com.tools.finaltools.UserFinalTool;
+import com.tools.pojoexpansion.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @author lk
@@ -58,13 +61,39 @@ public class CollectionController {
     /**
      * 获取用户收藏的题目个数
      *
-     * @param session 获取用户信息
+     * @param uid 获取用户信息
      * @return 收藏题目的个数
      */
-    @RequestMapping("/getNum")
-    public Integer getCollectionNum(HttpSession session) {
-        return collectionServiceImpl.getCollectionNum(
-                ((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
+    private Integer getCollectionNum(String uid) {
+        return collectionServiceImpl.getCollectionNum(uid);
     }
 
+    /**
+     * 获取用户收藏的所有题目
+     *
+     * @param session     获取用户id
+     * @param currentSize 当前页码
+     * @return 返回收藏的所有题目
+     */
+    @RequestMapping("/getCollectionTopic")
+    public Pager<TbTopic> getCollectionTopic(HttpSession session, Integer currentSize) {
+        String uid = ((TbUser) session.getAttribute(UserFinalTool.USER)).getUid();
+        Pager<TbTopic> pager = new Pager<>(5, currentSize, getCollectionNum(uid));
+        List<TbTopic> list = collectionServiceImpl.getCollectionTopic(uid, pager);
+        pager.setDateList(list);
+        return pager;
+    }
+
+    /**
+     * 删除用户的收藏信息
+     *
+     * @param topicId 题目信息
+     * @param session 获取用户id
+     * @return 是否删除成功
+     */
+    @RequestMapping("/deleteCollection")
+    public Boolean deleteCollection(Integer topicId, HttpSession session) {
+        return collectionServiceImpl.delete(topicId,
+                ((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
+    }
 }
