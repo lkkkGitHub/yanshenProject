@@ -75,7 +75,7 @@ public class DidTopicController {
             if (didTopicList.size() == topicList.size()) {
                 jedisClient.hset(DidTopicFinalTool.USER_DIDTOPIC_UTIL, userName,
                         JsonUtils.objectToJson(userDidTopicUtil));
-                session.setAttribute("didTopicList", didTopicList);
+                session.setAttribute(DidTopicFinalTool.DIDTOPIC_LIST, didTopicList);
                 jedisClient.hdel(TopicFinalTool.NOTDONE_TOPIC, (String) session.getAttribute(UserFinalTool.USER_NAME));
                 jedisClient.hdel(TopicFinalTool.TOPIC_TYPE, (String) session.getAttribute(UserFinalTool.USER_NAME));
                 return "didTopic";
@@ -95,7 +95,7 @@ public class DidTopicController {
     @ResponseBody
     @RequestMapping("/getDidTopicToShow")
     public TbDidtopic getDidTopicToShow(HttpSession session, Integer sequenceNext) {
-        List<TbDidtopic> didTopicList = (ArrayList<TbDidtopic>) session.getAttribute("didTopicList");
+        List<TbDidtopic> didTopicList = (ArrayList<TbDidtopic>) session.getAttribute(DidTopicFinalTool.DIDTOPIC_LIST);
         return didTopicList.get(sequenceNext);
     }
 

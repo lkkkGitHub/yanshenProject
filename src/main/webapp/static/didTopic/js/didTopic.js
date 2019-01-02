@@ -3,13 +3,75 @@ var SEQUENCENEXT = "";
 // 当前题目的题目id
 var TOPICId = "";
 
-// 初始化题目显示
+// 做完题之后 初始化题目显示
 function initTopicToShow(sequenceNext) {
     $.ajax({
         url: "/didTopic/getDidTopicToShow",
         type: "get",
         async: false,
         data: {sequenceNext: sequenceNext},
+        success: function (data) {
+            TOPICId = data.tbTopic.topicId;
+            var str = "";
+            str += "<div class=\"result-question-box\"> <div class=\"subject-question\"> " +
+                "<div class=\"question-main\">" + data.tbTopic.topicId + "    " + data.tbTopic.topicComment + "</div> </div> </div>";
+            str += "<div class=\"result-subject-item result-subject-answer\">";
+            str += "<h1>解析：" + data.tbTopic.analysis + "</h1>";
+            for (var i = 0; i < data.tbTopic.optionList.length; i++) {
+                if (data.tbTopic.optionList[i].correct == 1) {
+                    str += "<div class=\"result-answer-item green-answer-item\">\n" +
+                        "        <pre>" + data.tbTopic.optionList[i].optionId + "   " + data.tbTopic.optionList[i].optionComment + "</pre>\n" +
+                        "        </div>";
+                } else {
+                    if (data.errorOptionId != null) {
+                        if (data.tbTopic.optionList[i].optionId == data.errorOptionId) {
+                            str += "<div class=\"result-answer-item orange-answer-item\">\n" +
+                                "        <pre>" + data.tbTopic.optionList[i].optionId + "   " + data.tbTopic.optionList[i].optionComment + "</pre>\n" +
+                                "        </div>";
+                        } else {
+                            str += "<div class=\"result-answer-item\">\n" +
+                                "        <pre>" + data.tbTopic.optionList[i].optionId + "   " + data.tbTopic.optionList[i].optionComment + "</pre>\n" +
+                                "        </div>";
+                        }
+                    } else {
+                        str += "<div class=\"result-answer-item\">\n" +
+                            "        <pre>" + data.tbTopic.optionList[i].optionId + "   " + data.tbTopic.optionList[i].optionComment + "</pre>\n" +
+                            "        </div>";
+                    }
+                }
+            }
+            str += "<div id=\"referAnchor\"></div></div>";
+            $("#topicShow").html(str);
+            SEQUENCENEXT = data.topicId;
+            /**
+             * 判断是否收藏
+             */
+            checkCollection();
+            /**
+             * 生成评论信息,以及显示回复的数量；
+             */
+            findComment();
+        }
+    });
+    //done-hover
+    //标记选中的当前的题目序号
+    var orders = document.getElementsByClassName("order");
+    //清除之前选中
+    for (var i = 0; i < orders.length; i++) {
+        orders[i].classList.remove("done-hover");
+    }
+    //选中当前的题目序号
+    var orderA = document.getElementById("order" + sequenceNext);
+    orderA.classList.add("done-hover");
+}
+
+//收藏题目显示
+function topicDetail(topicId) {
+    $.ajax({
+        url: "/collection/getTopicDetail",
+        type: "get",
+        async: false,
+        data: {topicId: topicId},
         success: function (data) {
             TOPICId = data.tbTopic.topicId;
             var str = "";

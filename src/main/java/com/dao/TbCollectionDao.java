@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.pojo.TbCollection;
+import com.pojo.TbDidtopic;
 import com.pojo.TbTopic;
 import com.tools.pojoexpansion.Pager;
 
@@ -60,4 +61,13 @@ public interface TbCollectionDao {
      * @return 影响的行数
      */
     Integer delete(Integer topicId, String uid);
+
+    /**
+     * 查询用户收藏的题目具体信息
+     *
+     * @param uid     用户id
+     * @param topicId 题目id
+     * @return 做题信息，选项等
+     */
+    TbDidtopic getDidTopic(String uid, Integer topicId);
 }

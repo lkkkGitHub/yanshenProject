@@ -3,6 +3,7 @@ package com.controller;
 import com.pojo.TbTopic;
 import com.pojo.TbUser;
 import com.service.TopicService;
+import com.tools.finaltools.DidTopicFinalTool;
 import com.tools.finaltools.TopicFinalTool;
 import com.tools.finaltools.UserFinalTool;
 import com.tools.utils.JsonUtils;
@@ -147,7 +148,7 @@ public class TopicController {
      */
     @RequestMapping("/removeNotDoneTopic")
     public String removeNotDoneTopic(HttpSession session) {
-        session.removeAttribute("didTopicList");
+        session.removeAttribute(DidTopicFinalTool.DIDTOPIC_LIST);
         session.removeAttribute(TopicFinalTool.TOPIC_TYPE);
         session.removeAttribute(TopicFinalTool.TOPIC_LIST);
         session.removeAttribute(TopicFinalTool.NOTDONE_TOPIC);

@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.pojo.TbDidtopic;
 import com.pojo.TbTopic;
 import com.pojo.TbUser;
 import com.service.CollectionService;
@@ -95,5 +96,11 @@ public class CollectionController {
     public Boolean deleteCollection(Integer topicId, HttpSession session) {
         return collectionServiceImpl.delete(topicId,
                 ((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
+    }
+
+    @RequestMapping("/getTopicDetail")
+    public TbDidtopic getTopicDetail(Integer topicId, HttpSession session) {
+        return collectionServiceImpl.getDidTopic(
+                ((TbUser) session.getAttribute(UserFinalTool.USER)).getUid(), topicId);
     }
 }

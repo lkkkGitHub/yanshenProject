@@ -2,6 +2,7 @@ package com.service.impl;
 
 import com.dao.TbCollectionDao;
 import com.pojo.TbCollection;
+import com.pojo.TbDidtopic;
 import com.pojo.TbTopic;
 import com.service.CollectionService;
 import com.tools.finaltools.CollectionFinalTool;
@@ -94,5 +95,11 @@ public class CollectionServiceImpl implements CollectionService {
         } else {
             return false;
         }
+    }
+
+
+    @Override
+    public TbDidtopic getDidTopic(String uid, Integer topicId) {
+        return tbCollectionDao.getDidTopic(uid, topicId);
     }
 }

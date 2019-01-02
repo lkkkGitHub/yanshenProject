@@ -47,7 +47,7 @@ function addTopic(topicList) {
     for (var i = 0; i < topicList.length; i++) {
         var topic = topicList[i];
         str += "<li id='li"+topic.topicId+"'> <div class=\"cont-brief\"> <a href=\" 跳转题目详情 \" target=\"_top\">"+topic.topicComment+"</a> </div>";
-        str += "<div style='color: #1b82d6;' class=\"tags-box\">"+topic.classifyName+"</div>";
+        str += "<div style='color: #1b82d6;' class=\"tags-box\">来自："+topic.classifyName+"</div>";
         str += "<div class=\"feed-legend\"> <span><a href=\"javascript:void(0);\" " +
             "class=\"link-green click-editfollow nc-req-auth\" onclick='deleteCollection("+topic.topicId+")'" +
             " data-id=\"23239\">取消收藏</a></span> ";

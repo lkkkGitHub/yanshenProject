@@ -9,6 +9,15 @@
         <result column="deleteFlag" property="deleteFlag"/>
     </resultMap>
 
+    <resultMap id="ctxTopicOption" type="com.pojo.TbDidtopic">
+        <result column="didTopicId" property="didTopicId"/>
+        <result column="topicId" property="topicId"/>
+        <result column="userId" property="userId"/>
+        <result column="error" property="error"/>
+        <result column="errorOptionId" property="errorOptionId"/>
+        <association property="tbTopic" column="topicId" select="com.dao.TbTopicDao.selectTopicByTopicId"/>
+    </resultMap>
+
     <!--auto generated Code-->
     <sql id="all_column">
         `topicId`,
@@ -80,5 +89,9 @@
     <delete id="delete">
         DELETE FROM `tb_collection` WHERE `topicId` = #{param1} AND `userId` = #{param2}
     </delete>
+
+    <select id="getDidTopic" resultMap="ctxTopicOption">
+        SELECT * FROM tb_didtopic WHERE userId = #{param1} AND topicId = #{param2}
+    </select>
 </mapper>
 

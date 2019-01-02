@@ -1,5 +1,6 @@
 package com.service;
 
+import com.pojo.TbDidtopic;
 import com.pojo.TbTopic;
 import com.tools.pojoexpansion.Pager;
 
@@ -63,4 +64,13 @@ public interface CollectionService {
      * @return 删除成功 true
      */
     Boolean delete(Integer topicId, String uid);
+
+    /**
+     * 根据用户id 题目id 查询用户收藏的题目具体信息
+     *
+     * @param uid     用户id
+     * @param topicId 题目id
+     * @return
+     */
+    TbDidtopic getDidTopic(String uid, Integer topicId);
 }

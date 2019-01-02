@@ -9,4 +9,9 @@ public class DidTopicFinalTool {
      * redis 中用户存储的工具类名称
      */
     public static final String USER_DIDTOPIC_UTIL = "UserDidTopicUtil";
+
+    /**
+     * 做完题目
+     */
+    public static final String DIDTOPIC_LIST = "didTopicList";
 }
