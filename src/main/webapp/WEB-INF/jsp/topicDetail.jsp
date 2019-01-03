@@ -30,10 +30,9 @@
             if (r != null) return unescape(r[2]);
             return null;
         }
-        var topicId = getQueryString("topicId");
     </script>
 </head>
-<body onload="topicDetail(topicId)">
+<body onload="topicDetail()">
 
 <div class="nk-container">
     <div class="nowcoder-header">

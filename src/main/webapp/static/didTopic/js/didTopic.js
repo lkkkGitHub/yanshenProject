@@ -66,7 +66,8 @@ function initTopicToShow(sequenceNext) {
 }
 
 //收藏题目显示
-function topicDetail(topicId) {
+function topicDetail() {
+    var topicId = getQueryString("topicId");
     $.ajax({
         url: "/collection/getTopicDetail",
         type: "get",
