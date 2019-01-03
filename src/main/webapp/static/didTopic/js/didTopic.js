@@ -186,14 +186,19 @@ function findComment() {
                 str = "";
                 var date = "";
                 for (var i = 0; i < data.length; i++) {
+                    var flag = data[i].tbUser.uid == uid;
                     date = timeStamp2String(data[i].commentCreateDate);
                     str += "<li class=\"answer-list-item clearfix\"> <div class=\"answer-content clearfix\" data-cmt-id=\"1155848\" data-dislikecnt=\"0\" data-isdisliked=\"\" data-recommend=\"0\">";
                     str += " <div class=\"answer-info\"><a href=\"/profile/759736\" class=\"answer-head\" data-card-uid=\"759736\" data-card-index=\"1\">";
                     str += "<img src=\"" + data[i].tbUser.image + "\" alt=\"\"></a>";
                     str += "<a class=\"answer-name 梦境迷离头像level-color-9\" data-card-uid=\"759736\" href=\"/profile/759736\" data-card-index=\"2\">" + data[i].tbUser.uname + "</a>";
-                    str += "<span id=\"showComment" + data[i].commentId + "\" style='float: right'><a href=\"javascript:void(0);\" onclick=\"appendInput('commentInput', -1, " + data[i].commentId + ", 'showComment')\" class=\"reply-answer js-reply-answer\">回复</a></span> </div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
+                    str += "<span id=\"showComment" + data[i].commentId + "\" style='float: right'>";
+                    if (!flag) {
+                        str += "<a href=\"javascript:void(0);\" onclick=\"appendInput('commentInput', -1, " + data[i].commentId + ", 'showComment')\" class=\"reply-answer js-reply-answer\">回复</a>";
+                    }
+                    str += "</span> </div><div class=\"answer-brief\">" + data[i].commentContent + "</div>";
                     str += " <div class=\"answer-legend\"><span class=\"answer-time\">发表于" + date + "</span>";
-                    if (data[i].tbUser.uid == uid) {
+                    if (flag) {
                         str += "<a class=\"click-reply\" onclick='deleteCommentConfirm(" + data[i].commentId + ")' href=\"javascript:void(0);\">删除</a>";
                     }
                     str += "<span id=\"replyCount" + data[i].commentId + "\"> <a class=\"click-reply\" href=\"javascript:void(0);\">回复（回复数量待查）</a>";
@@ -258,6 +263,7 @@ function findReply(commentId) {
             var str = "";
             var str = "<div class=\"reply-container js-container\" style=\"\"><ul class=\"reply-list js-list\" style=\"\">";
             for (var i = 0; i < data.length; i++) {
+                var flag = data[i].tbUser.uid == uid;
                 date = timeStamp2String(data[i].replyCreateDate);
                 str += "<li class=\"ui-subcmt-item\" data-id=\"684660\"> <div class=\"reply-main clearfixjsCpn_62_component_6\">";
                 str += "<div class=\"reply-person\" style=\"margin-right:5px;\"><a href=\"/profile/8816416\" data-card-uid=\"8816416\"";
@@ -276,8 +282,11 @@ function findReply(commentId) {
                 }
                 str += "<div class=\"reply-content\" style=\"font-size: 14px\" >" + data[i].replyContent + "</div> </div>";
                 str += "<div class=\"answer-legend reply-info\"><span class=\"reply-time\">" + date + "</span> <span id='show" + data[i].replyId + "'>";
-                str += "<a href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + data[i].replyId + ", " + data[i].commentId + ", 'show')\" class=\"reply-answer js-reply-answer\">回复</a></span>";
-                if (data[i].tbUser.uid == uid) {
+                if (!flag) {
+                    str += "<a href=\"javascript:void(0);\" onclick=\"appendInput('reply', " + data[i].replyId + ", " + data[i].commentId + ", 'show')\" class=\"reply-answer js-reply-answer\">回复</a>";
+                }
+                str += "</span>";
+                if (flag) {
                     str += "<a class=\"click-reply\" onclick='deleteReplyConfirm(" + data[i].replyId + ")' href=\"javascript:void(0);\">删除</a>";
                 }
                 str += "</div><span id='reply" + data[i].replyId + "'></span> </li>";
@@ -383,6 +392,7 @@ function sendComment() {
         }
     })
 }
+
 //确认是否删除提醒
 function deleteReplyConfirm(replyId) {
     if (replyId == -1) {
@@ -416,7 +426,7 @@ function deleteComment(commentId) {
         async: false,
         data: {commentId: commentId},
         success: function (data) {
-            if(!data) {
+            if (!data) {
                 alert("删除失败！");
             } else {
                 findComment();
@@ -432,7 +442,7 @@ function deleteReply(replyId) {
         async: false,
         data: {replyIds: replyId},
         success: function (data) {
-            if(!data) {
+            if (!data) {
                 alert("删除失败！");
             } else {
                 findComment();
