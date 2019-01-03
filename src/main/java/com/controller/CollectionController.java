@@ -98,6 +98,13 @@ public class CollectionController {
                 ((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
     }
 
+    /**
+     * 根据用户id以及题目id 获取用户收藏的题目具体信息
+     *
+     * @param topicId 题目信息
+     * @param session 获取用户id
+     * @return 返回做题信息
+     */
     @RequestMapping("/getTopicDetail")
     public TbDidtopic getTopicDetail(Integer topicId, HttpSession session) {
         return collectionServiceImpl.getDidTopic(

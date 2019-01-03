@@ -1,7 +1,5 @@
 package com.pojo;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 public class TbOption {
 
     private Integer optionId;

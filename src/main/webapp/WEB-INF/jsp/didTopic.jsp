@@ -458,11 +458,11 @@
             <div id="commentInput">
                 <div class="reply-editbox clearfix cmt-reply-to-main" style="margin:0 auto">
                     <div class="reply-write" style="float: left"><textarea placeholder="请输入你的观点" id="textareaComment"
-                                                       class="reply-input reply-input-textarea nc-req-auth js-main-ipt"
-                                                       style="width: 798px; resize: none; height: 20px;"></textarea>
+                                                                           class="reply-input reply-input-textarea nc-req-auth js-main-ipt"
+                                                                           style="width: 798px; resize: none; height: 20px;"></textarea>
                     </div>
                     <span class="btn btn-primary reply-btn js-main-reply" onclick="sendComment()" style="float: right;"
-                       href="javascript:void(0);">评论</span>
+                          href="javascript:void(0);">评论</span>
                 </div>
             </div>
             <h1 class="clearfix">
@@ -576,11 +576,11 @@
                         <li>牛客科技©2018 All rights reserved</li>
                         <li>京ICP备14055008号-4</li>
                         <li>
-<span style="color: rgb(169, 184, 202);">
-<img src="../../static/didTopic/img/ghs.png" style="width: 18px; height: 18px;">
-<a style="font-size: 12px;" class="ft-info-item" target="_top"
-   href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
-</span>
+                            <span style="color: rgb(169, 184, 202);">
+                            <img src="../../static/didTopic/img/ghs.png" style="width: 18px; height: 18px;">
+                            <a style="font-size: 12px;" class="ft-info-item" target="_top"
+                            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036488">京公网安备 11010502036488号</a>
+                            </span>
                         </li>
                     </ul>
                 </div>

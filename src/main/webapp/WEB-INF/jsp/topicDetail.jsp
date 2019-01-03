@@ -24,11 +24,18 @@
     <link href="../../static/didTopic/css/didTopicCss.css" type="text/css" rel="stylesheet">
     <script type="text/javascript">
         var uid = "${sessionScope.user.uid}";
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        var topicId = getQueryString("topicId");
     </script>
 </head>
-<body>
+<body onload="topicDetail(topicId)">
 
-<div class="nk-container     ">
+<div class="nk-container">
     <div class="nowcoder-header">
         <div class="header-main clearfix">
             <a class="nowcoder-logo" href="/home" title="牛客网"></a>
@@ -153,6 +160,7 @@
         </div>
     </div>
     <div class="nk-main analytic-page clearfix">
+        <span><a style="color: #00A1CB" href="/collection">我的收藏></a>题目详情</span>
         <div class="menu-box">
             <ul class="menu clearfix">
                 <li class="selected">题目详情</li>
@@ -422,11 +430,11 @@
             <div id="commentInput">
                 <div class="reply-editbox clearfix cmt-reply-to-main" style="margin:0 auto">
                     <div class="reply-write" style="float: left"><textarea placeholder="请输入你的观点" id="textareaComment"
-                                                       class="reply-input reply-input-textarea nc-req-auth js-main-ipt"
-                                                       style="width: 798px; resize: none; height: 20px;"></textarea>
+                                                                           class="reply-input reply-input-textarea nc-req-auth js-main-ipt"
+                                                                           style="width: 798px; resize: none; height: 20px;"></textarea>
                     </div>
                     <span class="btn btn-primary reply-btn js-main-reply" onclick="sendComment()" style="float: right;"
-                       href="javascript:void(0);">评论</span>
+                          href="javascript:void(0);">评论</span>
                 </div>
             </div>
             <script src="../../static/didTopic/js/hm.js"></script>

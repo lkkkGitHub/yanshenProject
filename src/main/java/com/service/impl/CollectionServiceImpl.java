@@ -97,7 +97,6 @@ public class CollectionServiceImpl implements CollectionService {
         }
     }
 
-
     @Override
     public TbDidtopic getDidTopic(String uid, Integer topicId) {
         return tbCollectionDao.getDidTopic(uid, topicId);

@@ -1,6 +1,8 @@
 package com.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 public class TbDidtopic {
 
     private Integer didTopicId;
