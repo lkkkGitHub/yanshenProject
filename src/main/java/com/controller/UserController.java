@@ -90,9 +90,9 @@ public class UserController {
         String realUploadPath = session.getServletContext().getRealPath(uploadPath);
         String userImg = "/" + user.getUid() + ".jpg";
         File file = new File(realUploadPath + userImg);
-        FileImageOutputStream imageOutput = null ;
+        FileImageOutputStream imageOutput = null;
         try {
-            imageOutput =new FileImageOutputStream(file);
+            imageOutput = new FileImageOutputStream(file);
             imageOutput.write(bs, 0, bs.length);
         } catch (IOException e) {
             e.printStackTrace();
@@ -294,23 +294,32 @@ public class UserController {
         Date codeOverTime = (Date) request.getSession().getAttribute(UserFinalTool.CODE_OVER_TIME);
         if (codeOverTime != null) {
             if (TimeUtils.compareTime(codeOverTime, TimeUtils.getNowTime())) {
-                code = SendEmail.sendEamilCode(email, sendFlag);
-                if (code != null) {
-                    session.setAttribute(UserFinalTool.CODE, code);
-                    session.setAttribute(UserFinalTool.CODE_OVER_TIME, TimeUtils.addMinuteTime(3));
-                    flag = true;
-                }
+                flag = this.sendCode(email, sendFlag, session);
             } else {
                 // 此判断供测试及演示使用，打印出每次的code；
                 code = (String) session.getAttribute(UserFinalTool.CODE);
             }
         } else {
-            code = SendEmail.sendEamilCode(email, sendFlag);
-            if (code != null) {
-                session.setAttribute(UserFinalTool.CODE, code);
-                session.setAttribute(UserFinalTool.CODE_OVER_TIME, TimeUtils.addMinuteTime(3));
-                flag = true;
-            }
+            flag = this.sendCode(email, sendFlag, session);
+        }
+        return flag;
+    }
+
+    /**
+     * 发送验证码，并且存储到session中
+     *
+     * @param email    收邮件的地址
+     * @param sendFlag 发送验证码的种类
+     * @param session  session存储验证码
+     * @return 是否发送成功
+     */
+    private boolean sendCode(String email, String sendFlag, HttpSession session) {
+        boolean flag = false;
+        String code = SendEmail.sendEamilCode(email, sendFlag);
+        if (code != null) {
+            session.setAttribute(UserFinalTool.CODE, code);
+            session.setAttribute(UserFinalTool.CODE_OVER_TIME, TimeUtils.addMinuteTime(3));
+            flag = true;
         }
         System.out.println(code);
         return flag;
@@ -337,7 +346,7 @@ public class UserController {
             }
         }
         String code = (String) session.getAttribute(UserFinalTool.CODE);
-        if (code.equals(verifyNo)) {
+        if (code.equals(verifyNo.trim())) {
             flag = true;
         }
         return flag;

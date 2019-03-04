@@ -8,7 +8,7 @@
     <!-- 配置spring配置文件 路径 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
+        <param-value>classpath:spring/applicationContext.xml</param-value>
     </context-param>
 
     <!--解决中文乱码问题-->
@@ -41,7 +41,7 @@
         <!--加载springMVC配置文件  如果配置文件没有在默认路径下（WEB-INF下）-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:applicationContext-mvc.xml</param-value>
+            <param-value>classpath:spring/applicationContextMVC.xml</param-value>
         </init-param>
         <!--表示前端控制器与应用程序一起启动-->
         <load-on-startup>1</load-on-startup>

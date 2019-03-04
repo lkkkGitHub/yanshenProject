@@ -2,39 +2,27 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/mvc
-		http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://www.springframework.org/schema/aop
-		http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx
-		http://www.springframework.org/schema/tx/spring-tx.xsd
-		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd"
+		http://www.springframework.org/schema/tx/spring-tx.xsd"
        default-lazy-init="true">
+
+    <import resource="classpath:spring/applicationContext-*.xml"/>
 
     <!-- 只需扫描 业务逻辑层的类，因为控制层由springMVC配置文件扫描，，实体对象和Dao层数据访问接口由 MyBatis配置文件扫描. -->
     <context:component-scan base-package="com"/>
 
     <!--加载数据库的属性文件-->
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location">
-            <value>classpath:jdbc.properties</value>
-        </property>
-    </bean>
+    <context:property-placeholder location="classpath:properties/jdbc.properties"  ignore-unresolvable="true"  />
 
     <!-- 配置数据源 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${jdbc.driver}"/>
-        <property name="url"
-                  value="${jdbc.url}"/>
+        <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
         <property name="initialSize" value="${jdbc.initialSize}"/>
@@ -50,7 +38,7 @@
         <!-- 加载数据访问接口映射文件 -->
         <property name="mapperLocations" value="classpath:mappers/*.xml"/>
         <!-- 加载MyBatis的主配置文件 -->
-        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="configLocation" value="classpath:spring/mybatis-config.xml"/>
         <!--加载实体类的别名 <property name="typeAliases" value="classpath:com.etc.entity"/> -->
     </bean>
 
@@ -68,11 +56,4 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!--以注解的形式加载dao接口-->
     <!--<mybatis-spring:scan base-package="lk.mapper"/>-->
-    <context:annotation-config/>
-    <!-- 配置单机版redis -->
-    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
-        <constructor-arg name="host" value="127.0.0.1"/>
-        <constructor-arg name="port" value="6379"/>
-    </bean>
-    <bean id="jedisClientPool" class="com.tools.utils.jedis.JedisClientPool"/>
 </beans>
