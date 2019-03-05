@@ -14,37 +14,14 @@
             port="${RabbitMQ.port}"
             username="${RabbitMQ.username}"
             password="${RabbitMQ.password}"
-            virtual-host="${RabbitMQ.virtual-host}"/>
+            virtual-host="${RabbitMQ.vhost}"/>
 
-    <!-- 定义Rabbit模板，指定连接工厂以及定义exchange -->
-    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="replyExchange"/>
-    <!-- <rabbit:template id="amqpTemplate" connection-factory="connectionFactory"
-        exchange="fanoutExchange" routing-key="foo.bar" /> -->
-
-    <!-- MQ的管理，包括队列、交换器等 -->
+    <!--自动生成交换机-->
     <rabbit:admin connection-factory="connectionFactory"/>
 
-    <!-- 定义队列，自动声明 -->
-    <rabbit:queue name="replyQueue" auto-declare="true"/>
+    <!--定义交换机-->
+    <rabbit:topic-exchange name="REPLY_EXCHANGE" auto-declare="true" durable="true"/>
 
-    <!-- 定义交换器，自动声明 -->
-    <rabbit:fanout-exchange name="replyExchange" auto-declare="true">
-        <rabbit:bindings>
-            <rabbit:binding queue="replyQueue"/>
-        </rabbit:bindings>
-    </rabbit:fanout-exchange>
-
-    <!-- 	<rabbit:topic-exchange name="myExchange">
-            <rabbit:bindings>
-                <rabbit:binding queue="myQueue" pattern="foo.*" />
-            </rabbit:bindings>
-        </rabbit:topic-exchange> -->
-
-    <!-- 队列监听 -->
-    <rabbit:listener-container connection-factory="connectionFactory">
-        <rabbit:listener ref="foo" method="listen" queue-names="replyQueue"/>
-    </rabbit:listener-container>
-
-    <bean id="foo" class="com.tools.utils.rabbit.Foo"/>
-
+    <!--指定交换机模板-->
+    <rabbit:template id="rabbit" connection-factory="connectionFactory" exchange="REPLY_EXCHANGE"/>
 </beans>
