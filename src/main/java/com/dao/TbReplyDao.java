@@ -62,5 +62,5 @@ public interface TbReplyDao {
      * @param fatherId
      * @return
      */
-    TbReply findReplyByFatherId(Integer fatherId);
+    List<TbReply> findReplyByFatherId(Integer fatherId);
 }

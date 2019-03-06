@@ -73,9 +73,9 @@ public class ReplyController {
         TbReply reply = null;
         TbComment comment = null;
         if (tbReply.getReplyFatherId() != -1) {
-            reply = replyServiceImpl.findReplyById(tbReply.getReplyFatherId());
+            reply = replyServiceImpl.findReplyById(tbReply.getReplyFatherId()).get(0);
         } else {
-            comment = commentService.findCommentById(tbReply.getCommentId());
+            comment = commentService.findCommentById(tbReply.getCommentId()).get(0);
         }
         if (comment != null) {
             rabbit.convertAndSend("reply" + comment.getUid(), JsonUtils.objectToJson(comment));

@@ -70,7 +70,7 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     @Override
-    public TbReply findReplyById(Integer replyFatherId) {
+    public List<TbReply> findReplyById(Integer replyFatherId) {
         return tbReplyDao.findReplyByFatherId(replyFatherId);
     }
 }

@@ -46,5 +46,5 @@ public interface TbCommentDao {
      * @param commentId
      * @return
      */
-    TbComment findCommentById(Integer commentId);
+    List<TbComment> findCommentById(Integer commentId);
 }

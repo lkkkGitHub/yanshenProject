@@ -48,5 +48,5 @@ public interface ReplyService {
      * @param replyId
      * @return
      */
-    TbReply findReplyById(Integer replyId);
+    List<TbReply> findReplyById(Integer replyId);
 }
