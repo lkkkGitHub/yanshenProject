@@ -6,6 +6,7 @@ import com.pojo.TbUser;
 import com.service.CommentService;
 import com.service.ReplyService;
 import com.tools.finaltools.UserFinalTool;
+import com.tools.utils.JsonUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,9 +78,9 @@ public class ReplyController {
             comment = commentService.findCommentById(tbReply.getCommentId());
         }
         if (comment != null) {
-            rabbit.convertAndSend("reply" + comment.getUid(), comment);
+            rabbit.convertAndSend("reply" + comment.getUid(), JsonUtils.objectToJson(comment));
         } else if (reply != null) {
-            rabbit.convertAndSend("reply" + reply.getUid(), reply);
+            rabbit.convertAndSend("reply" + reply.getUid(), JsonUtils.objectToJson(reply));
         }
         return replyServiceImpl.insertReply(tbReply);
     }
