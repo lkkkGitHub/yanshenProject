@@ -55,4 +55,12 @@ public interface TbReplyDao {
      * @return
      */
     List<Integer> findReplyFatherId(Integer replyId);
+
+    /**
+     * 根据父id 查询评论信息
+     *
+     * @param fatherId
+     * @return
+     */
+    TbReply findReplyByFatherId(Integer fatherId);
 }

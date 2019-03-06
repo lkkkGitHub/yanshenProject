@@ -1,9 +1,12 @@
 package com.controller;
 
+import com.pojo.TbComment;
 import com.pojo.TbReply;
 import com.pojo.TbUser;
+import com.service.CommentService;
 import com.service.ReplyService;
 import com.tools.finaltools.UserFinalTool;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -23,6 +27,12 @@ public class ReplyController {
 
     @Autowired
     private ReplyService replyServiceImpl;
+
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private RabbitTemplate rabbit;
 
     /**
      * 根据评论id，查询评论的回复信息，以及回复的用户信息
@@ -59,6 +69,18 @@ public class ReplyController {
     @RequestMapping(method = {RequestMethod.POST}, value = "/insertReply")
     public boolean insertReply(TbReply tbReply, HttpSession session) {
         tbReply.setUid(((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
+        TbReply reply = null;
+        TbComment comment = null;
+        if (tbReply.getReplyFatherId() != -1) {
+            reply = replyServiceImpl.findReplyById(tbReply.getReplyFatherId());
+        } else {
+            comment = commentService.findCommentById(tbReply.getCommentId());
+        }
+        if (comment != null) {
+            rabbit.convertAndSend("reply" + comment.getUid(), comment);
+        } else if (reply != null) {
+            rabbit.convertAndSend("reply" + reply.getUid(), reply);
+        }
         return replyServiceImpl.insertReply(tbReply);
     }
 

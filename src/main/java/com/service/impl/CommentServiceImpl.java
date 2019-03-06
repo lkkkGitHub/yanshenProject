@@ -60,4 +60,9 @@ public class CommentServiceImpl implements CommentService {
             return false;
         }
     }
+
+    @Override
+    public TbComment findCommentById(Integer commentId) {
+        return tbCommentDao.findCommentById(commentId);
+    }
 }

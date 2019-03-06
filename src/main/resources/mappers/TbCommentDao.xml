@@ -97,5 +97,9 @@
     <delete id="deleteByCommentId" parameterType="java.lang.Integer">
         delete from tb_comment where commentId = #{commentId}
     </delete>
+
+    <select id="findCommentById" parameterType="java.lang.Integer" resultMap="ctxUser">
+        SELECT <include refid="all_column"/> FROM `tb_comment` WHERE `commentId` = #{commentId}
+    </select>
 </mapper>
 

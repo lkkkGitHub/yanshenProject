@@ -115,5 +115,10 @@
     <select id="findReplyFatherId" resultType="java.lang.Integer">
         SELECT `replyId` FROM `tb_reply` WHERE `replyFatherId` = #{replyId}
     </select>
+
+    <select id="findReplyByFatherId" resultMap="ctxUser" parameterType="java.lang.Integer">
+        SELECT <include refid="all_column"/> FROM `tb_reply` WHERE `replyFatherId` = #{fatherId}
+    </select>
+
 </mapper>
 

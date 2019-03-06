@@ -41,4 +41,12 @@ public interface ReplyService {
      * @return
      */
     boolean deleteReplyById(Integer[] replyIds);
+
+    /**
+     * 根据回复的父id查询回复消息
+     *
+     * @param replyId
+     * @return
+     */
+    TbReply findReplyById(Integer replyId);
 }

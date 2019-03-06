@@ -33,4 +33,12 @@ public interface CommentService {
      * @return
      */
     boolean deleteById(Integer commentId);
+
+    /**
+     * 根据评论id查询评论信息
+     *
+     * @param commentId
+     * @return
+     */
+    TbComment findCommentById(Integer commentId);
 }

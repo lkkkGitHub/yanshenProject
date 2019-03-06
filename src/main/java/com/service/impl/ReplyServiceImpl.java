@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import com.dao.TbCommentDao;
 import com.dao.TbReplyDao;
 import com.pojo.TbReply;
 import com.service.ReplyService;
@@ -18,6 +19,9 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Autowired
     private TbReplyDao tbReplyDao;
+
+    @Autowired
+    private TbCommentDao tbCommentDao;
 
     @Override
     public List<TbReply> findReplyByCommentId(Integer commentId) {
@@ -63,5 +67,10 @@ public class ReplyServiceImpl implements ReplyService {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public TbReply findReplyById(Integer replyFatherId) {
+        return tbReplyDao.findReplyByFatherId(replyFatherId);
     }
 }
