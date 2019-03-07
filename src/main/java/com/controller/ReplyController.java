@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.google.gson.GsonBuilder;
 import com.pojo.TbComment;
 import com.pojo.TbReply;
 import com.pojo.TbUser;
@@ -7,15 +8,17 @@ import com.service.CommentService;
 import com.service.ReplyService;
 import com.tools.finaltools.UserFinalTool;
 import com.tools.utils.JsonUtils;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import com.tools.utils.websocket.entity.Message;
+import com.tools.utils.websocket.websocket.MyWebSocketHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.socket.TextMessage;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -33,7 +36,7 @@ public class ReplyController {
     private CommentService commentService;
 
     @Autowired
-    private RabbitTemplate rabbit;
+    MyWebSocketHandler handler;
 
     /**
      * 根据评论id，查询评论的回复信息，以及回复的用户信息
@@ -78,9 +81,17 @@ public class ReplyController {
             comment = commentService.findCommentById(tbReply.getCommentId()).get(0);
         }
         if (comment != null) {
-            rabbit.convertAndSend("reply" + comment.getUid(), JsonUtils.objectToJson(comment));
+            try {
+                handler.sendMessageToUser(comment.getUid(), new TextMessage(JsonUtils.objectToJson(comment)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else if (reply != null) {
-            rabbit.convertAndSend("reply" + reply.getUid(), JsonUtils.objectToJson(reply));
+            try {
+                handler.sendMessageToUser(reply.getUid(),  new TextMessage(JsonUtils.objectToJson(reply)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return replyServiceImpl.insertReply(tbReply);
     }

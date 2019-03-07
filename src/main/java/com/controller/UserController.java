@@ -195,6 +195,7 @@ public class UserController {
                 session.setAttribute(UserFinalTool.USER_NAME, user.getUname());
                 session.setAttribute(UserFinalTool.USER_IMG, user.getImage());
                 session.setAttribute(UserFinalTool.USER, user);
+                session.setAttribute(UserFinalTool.UID, user.getUid());
                 return true;
             } else {
                 return null;

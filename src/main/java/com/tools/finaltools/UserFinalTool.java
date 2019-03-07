@@ -29,4 +29,9 @@ public class UserFinalTool {
      * session 存储的验证码
      */
     public static final String CODE  = "code";
+
+    /**
+     * session 中用户id唯一标识
+     */
+    public static final String UID = "uid";
 }
