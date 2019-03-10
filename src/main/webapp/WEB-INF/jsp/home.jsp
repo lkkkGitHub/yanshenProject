@@ -3,6 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
@@ -20,16 +24,18 @@
     <script charset="utf-8" async="" src="../../static/home/js/echarts-plain.js"></script>
     <script src="../../static/person/js/jquery-1.8.3.min.js"></script>
     <script type="application/javascript" src="../../static/home/js/home.js"></script>
+    <script type="application/javascript" src="../../static/js/socket-0-3.js"></script>
+    <script type="application/javascript" src="../../static/js/stomp.js"></script>
     <link media="all" href="../../static/home/css/index.css" type="text/css" rel="stylesheet">
     <link href="../../static/home/css/home.css" type="text/css" rel="stylesheet">
 
     <script>
-        var uid ='${sessionScope.uid}';
+        var uid = '${sessionScope.uid}';
         var from = uid;
         var fromName = '${name}';
         var to = uid == 1 ? 2 : 1;
 
-        var websocket = new WebSocket("ws://localhost:8081/myHandler");
+        var websocket = new WebSocket("ws://<%=basePath%>>/websocket?uid=" + uid);
 
         websocket.onopen = function (event) {
             console.log("WebSocket:已连接");

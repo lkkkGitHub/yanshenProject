@@ -1,4 +1,4 @@
-package com.tools.utils.websocket.websocket;
+package com.tools.utils.websocket;
 
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;

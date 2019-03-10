@@ -1,4 +1,4 @@
-package com.tools.utils.websocket.entity;
+package com.tools.utils.websocket;
 
 
 import java.util.Date;

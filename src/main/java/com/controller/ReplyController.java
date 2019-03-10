@@ -1,6 +1,5 @@
 package com.controller;
 
-import com.google.gson.GsonBuilder;
 import com.pojo.TbComment;
 import com.pojo.TbReply;
 import com.pojo.TbUser;
@@ -8,8 +7,7 @@ import com.service.CommentService;
 import com.service.ReplyService;
 import com.tools.finaltools.UserFinalTool;
 import com.tools.utils.JsonUtils;
-import com.tools.utils.websocket.entity.Message;
-import com.tools.utils.websocket.websocket.MyWebSocketHandler;
+import com.tools.utils.websocket.MyWebSocketHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.socket.TextMessage;
 
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -82,13 +79,13 @@ public class ReplyController {
         }
         if (comment != null) {
             try {
-                handler.sendMessageToUser(comment.getUid(), new TextMessage(JsonUtils.objectToJson(comment)));
+                handler.sendMessageToUser(comment.getUid(), JsonUtils.objectToJson(comment));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else if (reply != null) {
             try {
-                handler.sendMessageToUser(reply.getUid(),  new TextMessage(JsonUtils.objectToJson(reply)));
+                handler.sendMessageToUser(reply.getUid(), JsonUtils.objectToJson(reply));
             } catch (Exception e) {
                 e.printStackTrace();
             }
