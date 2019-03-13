@@ -27,4 +27,12 @@ public interface TopicService {
      * @return
      */
     LinkedList<TbTopic> getTopicToExercise(int topicNum, String topicType, int[] classifyIds, String uid);
+
+    /**
+     * 根据题目id查询题目信息
+     *
+     * @param topicId 题目id
+     * @return 题目信息
+     */
+    TbTopic getTopic(Integer topicId);
 }

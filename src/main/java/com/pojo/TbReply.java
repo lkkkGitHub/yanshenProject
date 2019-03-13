@@ -40,6 +40,32 @@ public class TbReply {
    */
   private TbUser tbUser;
 
+  /**
+   * 题目id
+   */
+  private Integer topicId;
+
+  /**
+   * 题目信息
+   */
+  private TbTopic tbTopic;
+
+  public TbTopic getTbTopic() {
+    return tbTopic;
+  }
+
+  public void setTbTopic(TbTopic tbTopic) {
+    this.tbTopic = tbTopic;
+  }
+
+  public Integer getTopicId() {
+    return topicId;
+  }
+
+  public void setTopicId(Integer topicId) {
+    this.topicId = topicId;
+  }
+
   public TbUser getTbUser() {
     return tbUser;
   }

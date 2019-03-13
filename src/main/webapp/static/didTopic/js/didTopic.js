@@ -359,7 +359,7 @@ function sendReply(commendId, replyId) {
         url: "/reply/insertReply",
         type: "post",
         async: false,
-        data: {commentId: commendId, replyFatherId: replyId, replyContent: textareValue},
+        data: {commentId: commendId, replyFatherId: replyId, replyContent: textareValue, topicId: TOPICId},
         success: function (data) {
             if (data == false) {
                 alert("插入失败，。。。");

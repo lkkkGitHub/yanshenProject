@@ -150,4 +150,8 @@ public class TopicServiceImpl implements TopicService {
         return list;
     }
 
+    @Override
+    public TbTopic getTopic(Integer topicId) {
+        return tbTopicDao.selectTopicByTopicId(topicId);
+    }
 }

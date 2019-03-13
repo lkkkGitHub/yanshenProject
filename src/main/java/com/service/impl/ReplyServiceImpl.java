@@ -35,7 +35,6 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Override
     public boolean insertReply(TbReply tbReply) {
-        tbReply.setReplyCreateDate(TimeUtils.getNowTimestamp());
         return tbReplyDao.insertSelective(tbReply) == 1;
     }
 
