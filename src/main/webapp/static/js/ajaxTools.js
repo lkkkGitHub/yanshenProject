@@ -1,13 +1,15 @@
 function ajaxCyclic() {
-    ajax({
-        url: "/reply/getRedisReplyList",
-        type: "get",
-        async: false,
-        contentType: "application/x-www-form-urlencoded",
-        dataType: 'json',
-        success: function (data) {
+    setInterval(function () {
+        $.ajax({
+            async: false,
+            url: "/reply/getRedisReplyList",
+            type: "get",
+            contentType: "application/x-www-form-urlencoded",
+            dataType: 'json',
+            timeout: 20000,
+            success: function (data) {
 
-            ajaxCyclic();
-        }
-    });
+            }
+        })
+    },30000);
 }
