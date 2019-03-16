@@ -13,3 +13,17 @@ function ajaxCyclic() {
         })
     },30000);
 }
+
+
+function findReplyCount() {
+    $.ajax({
+        async: false,
+        url: "/reply/getRedisReplyList",
+        type: "get",
+        contentType: "application/x-www-form-urlencoded",
+        dataType: 'json',
+        success: function (data) {
+
+        }
+    })
+}

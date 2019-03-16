@@ -73,31 +73,9 @@ public class ReplyController {
     @ResponseBody
     @RequestMapping(method = {RequestMethod.POST}, value = "/insertReply")
     public boolean insertReply(TbReply tbReply, HttpSession session) {
-        TbReply reply = null;
-        TbComment comment = null;
-        if (tbReply.getReplyFatherId() != -1) {
-            reply = replyServiceImpl.findReplyById(tbReply.getReplyFatherId()).get(0);
-        } else {
-            comment = commentService.findCommentById(tbReply.getCommentId()).get(0);
-        }
-        StringBuffer uid;
-        if (comment != null) {
-            uid = new StringBuffer(comment.getUid());
-        } else {
-            uid = new StringBuffer(reply.getUid());
-        }
-        List<TbReply> replyList = this.getRedisReplyList(session, uid);
-        TbUser tbUser = ((TbUser) session.getAttribute(UserFinalTool.USER));
-        tbReply.setUid(tbUser.getUid());
-        tbReply.setTbUser(tbUser);
+        tbReply.setFromUid(((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
         tbReply.setReplyCreateDate(TimeUtils.getNowTimestamp());
-        tbReply.setTbTopic(topicService.getTopic(tbReply.getTopicId()));
-        replyList.add(tbReply);
-        boolean insert = replyServiceImpl.insertReply(tbReply);
-        if (insert) {
-            jedisClient.hset(ReplyFinalTool.REPLY, uid.append(ReplyFinalTool.REPLY_LIST).toString(), JsonUtils.objectToJson(replyList));
-        }
-        return insert;
+        return replyServiceImpl.insertReply(tbReply);
     }
 
     /**

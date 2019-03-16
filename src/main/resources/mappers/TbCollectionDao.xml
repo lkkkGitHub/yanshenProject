@@ -36,36 +36,6 @@
     </insert>
 
     <!--auto generated Code-->
-    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.collectionId">
-        INSERT INTO tb_collection
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.collectionId!=null"> `collectionId`,</if>
-            <if test="pojo.topicId!=null"> `topicId`,</if>
-            <if test="pojo.userId!=null"> `userId`,</if>
-        </trim>
-        VALUES
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.collectionId!=null">#{pojo.collectionId},</if>
-            <if test="pojo.topicId!=null">#{pojo.topicId},</if>
-            <if test="pojo.userId!=null">#{pojo.userId},</if>
-        </trim>
-    </insert>
-
-    <!--auto generated Code-->
-    <insert id="insertList">
-        INSERT INTO tb_collection (
-        <include refid="all_column"/>
-        )VALUES
-        <foreach collection="pojos" item="pojo" index="index" separator=",">
-            (
-            #{pojo.collectionId},
-            #{pojo.topicId},
-            #{pojo.userId}
-            )
-        </foreach>
-    </insert>
-
-    <!--auto generated Code-->
     <update id="updateCollection">
         UPDATE tb_collection set `deleteFlag` = #{param3}
         WHERE `userId` = #{param1} and `topicId` = #{param2}
