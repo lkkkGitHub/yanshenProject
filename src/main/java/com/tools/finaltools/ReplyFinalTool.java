@@ -15,4 +15,14 @@ public class ReplyFinalTool {
      * redis kye 回复的hset总key
      */
     public static final String REPLY = "REPLY";
+
+    /**
+     * 已读
+     */
+    public static final Integer IS_READ = 1;
+
+    /**
+     * 未读
+     */
+    public static final Integer NO_READ = 0;
 }

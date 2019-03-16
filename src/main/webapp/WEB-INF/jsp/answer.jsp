@@ -20,11 +20,12 @@
     <script charset="utf-8" async="" src="../../static/answer/js/questionutil.js"></script>
     <script charset="utf-8" async="" src="../../static/answer/js/highlighter.js"></script>
     <script charset="utf-8" async="" src="../../static/answer/js/answerJs.js"></script>
+    <script src="../../static/js/ajaxTools.js"></script>
     <link media="all" href="../../static/answer/css/index.css" type="text/css" rel="stylesheet">
     <%--确认离开--%>
 
 </head>
-<body onload="start();intiTopicInfo(0, -1, -1);">
+<body onload="start();intiTopicInfo(0, -1, -1),ajaxCyclic(),findReplyCount();">
 
 <div class="nk-container     ">
     <div class="nowcoder-header">
@@ -91,7 +92,7 @@
                             <a class="icon-envelope"
                                href="#"
                                data-unread-conv="">
-                                <span class="nav-msg-num">0</span>消息</a>
+                                <span class="nav-msg-num" id="replyCount">0</span>消息</a>
                         </li>
                         <li class="profile-item">
                             <a href="/personal" class="nav-profile">

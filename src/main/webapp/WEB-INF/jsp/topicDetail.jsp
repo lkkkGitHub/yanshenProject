@@ -31,8 +31,9 @@
             return null;
         }
     </script>
+    <script src="../../static/js/ajaxTools.js"></script>
 </head>
-<body onload="topicDetail()">
+<body onload="topicDetail(),ajaxCyclic(),findReplyCount()">
 
 <div class="nk-container">
     <div class="nowcoder-header">
@@ -99,7 +100,7 @@
                             <a class="icon-envelope"
                                href="#"
                                data-unread-conv="">
-                                <span class="nav-msg-num">0</span>消息</a>
+                                <span class="nav-msg-num" id="replyCount">0</span>消息</a>
                         </li>
                         <li class="profile-item">
                             <a href="/personal" class="nav-profile">

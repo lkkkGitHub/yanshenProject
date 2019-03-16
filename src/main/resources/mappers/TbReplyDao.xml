@@ -84,5 +84,12 @@
         SELECT <include refid="all_column"/> FROM `tb_reply` WHERE `replyFatherId` = #{fatherId}
     </select>
 
+    <select id="getReplyCountByIsRead" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM `tb_reply` WHERE `toUid` = #{param1}  AND `isRead` = #{param2};
+    </select>
+
+    <select id="getReplyByIsRead" resultMap="ctxUser">
+        SELECT * FROM `tb_reply` WHERE `toUid` = #{param1} AND `isRead` = #{param2} ORDER BY `replyCreateDate` DESC;
+    </select>
 </mapper>
 

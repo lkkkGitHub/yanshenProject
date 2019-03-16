@@ -27,7 +27,7 @@ body::-webkit-scrollbar-track-piece {
 }
 
 ::-webkit-scrollbar-track-piece:no-button {
-	
+
 }
 
 ::-webkit-scrollbar-thumb {
@@ -58,36 +58,36 @@ body::-webkit-scrollbar-track-piece {
 <script src="../../static/js/jquery.base64.js"></script>
 
 <script language="javascript" type="text/javascript">
-	function setCookie() { //设置cookie    
-		var loginCode = $("#username").val(); //获取用户名信息    
-		var pwd = $("#password").val(); //获取登陆密码信息    
-		var checked = $("input[type='checkbox']").is(':checked');//获取“是否记住密码”复选框  
-		if (checked) { //判断是否选中了“记住密码”复选框    
-			$.cookie("username", loginCode);//调用jquery.cookie.js中的方法设置cookie中的用户名    
-			$.cookie("pwd", $.base64.encode(pwd));//调用jquery.cookie.js中的方法设置cookie中的登陆密码，并使用base64（jquery.base64.js）进行加密    
+	function setCookie() { //设置cookie
+		var loginCode = $("#username").val(); //获取用户名信息
+		var pwd = $("#password").val(); //获取登陆密码信息
+		var checked = $("input[type='checkbox']").is(':checked');//获取“是否记住密码”复选框
+		if (checked) { //判断是否选中了“记住密码”复选框
+			$.cookie("username", loginCode);//调用jquery.cookie.js中的方法设置cookie中的用户名
+			$.cookie("pwd", $.base64.encode(pwd));//调用jquery.cookie.js中的方法设置cookie中的登陆密码，并使用base64（jquery.base64.js）进行加密
 		} else {
 			$.cookie("pwd", null);
 		}
 	}
-	function getCookie() { //获取cookie    
-		var loginCode = $.cookie("username"); //获取cookie中的用户名    
-		var pwd = $.cookie("pwd"); //获取cookie中的登陆密码    
+	function getCookie() { //获取cookie
+		var loginCode = $.cookie("username"); //获取cookie中的用户名
+		var pwd = $.cookie("pwd"); //获取cookie中的登陆密码
 		var pwdlength = $.base64.decode(pwd).length;
-		if (pwdlength != 0) {//密码存在的话把“记住用户名和密码”复选框勾选住    
+		if (pwdlength != 0) {//密码存在的话把“记住用户名和密码”复选框勾选住
 			//alert("123");
 			$("[type='checkbox']").attr("checked", "true");
 		}
-		if (loginCode) {//用户名存在的话把用户名填充到用户名文本框    
+		if (loginCode) {//用户名存在的话把用户名填充到用户名文本框
 			$("#username").val(loginCode);
 		}
-		if (pwd) {//密码存在的话把密码填充到密码文本框    
+		if (pwd) {//密码存在的话把密码填充到密码文本框
 			$("#password").val($.base64.decode(pwd));
 		}
 	}
 
 	function checkUserNamePass() {
 		if ($("input[type='checkbox']").is(':checked')) {
-			//添加cookie    
+			//添加cookie
 			setCookie();
 		}
 		$.ajax({
@@ -165,7 +165,7 @@ body::-webkit-scrollbar-track-piece {
 								<a href="/forgetPassword"
 									style="float: right; margin-right: 40px; text-decoration: none;">忘记密码？</a>
 							</div>
-							
+
 							<div class="row btnArea">
 								<a style="background-color: #1969B1;" class="login-btn" id="submit" onclick="regist(validate)">登录</a>
 							</div>

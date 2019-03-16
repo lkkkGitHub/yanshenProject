@@ -25,7 +25,7 @@
     <link href="../../static/home/css/home.css" type="text/css" rel="stylesheet">
 
 </head>
-<body onload="initUserTopicInfo(),ajaxCyclic()">
+<body onload="initUserTopicInfo(),ajaxCyclic(),findReplyCount()">
 <div class="nk-container     ">
     <div class="nowcoder-header">
         <div class="header-main clearfix">
@@ -91,7 +91,7 @@
                             <a class="icon-envelope"
                                href="#"
                                data-unread-conv="">
-                                <span class="nav-msg-num">0</span>消息</a>
+                                <span class="nav-msg-num" id="replyCount">0</span>消息</a>
                         </li>
                         <li class="profile-item">
                             <a href="/personal" class="nav-profile">

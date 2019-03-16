@@ -1,14 +1,11 @@
 package com.controller;
 
-import com.pojo.TbComment;
 import com.pojo.TbReply;
 import com.pojo.TbUser;
 import com.service.CommentService;
 import com.service.ReplyService;
 import com.service.TopicService;
-import com.tools.finaltools.ReplyFinalTool;
 import com.tools.finaltools.UserFinalTool;
-import com.tools.utils.JsonUtils;
 import com.tools.utils.TimeUtils;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -91,23 +87,26 @@ public class ReplyController {
     }
 
     /**
-     * 获取redis缓存中的自己评论信息
+     * 获取自己未读的或者已读回复数量
      *
-     * @param toUid   传入此参数时，则是指定的人的回复信息
      * @param session
      * @return
      */
     @ResponseBody
-    @GetMapping("/getRedisReplyList")
-    public List<TbReply> getRedisReplyList(HttpSession session, @RequestParam(required = false) StringBuffer toUid) {
-        if (toUid == null || toUid.length() != 0) {
-            toUid = new StringBuffer((String) session.getAttribute(UserFinalTool.UID));
-        }
-        List<TbReply> replyList = JsonUtils.jsonToList(jedisClient.hget(ReplyFinalTool.REPLY, toUid.append(ReplyFinalTool.REPLY_LIST).toString()), TbReply.class);
-        if (replyList == null) {
-            replyList = new ArrayList<>();
-            jedisClient.hset(ReplyFinalTool.REPLY, toUid.append(ReplyFinalTool.REPLY_LIST).toString(), JsonUtils.objectToJson(replyList));
-        }
-        return replyList;
+    @GetMapping("/getReplyCount")
+    public Integer getReplyCount(HttpSession session, Integer isRead) {
+        return replyServiceImpl.getReplyCount((String) session.getAttribute(UserFinalTool.UID), isRead);
+    }
+
+    /**
+     * 获取自己未读的或者已读消息内容，按照时间降序排列
+     *
+     * @param session
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/getReplyIsRead")
+    public List<TbReply> getReplyIsRead(HttpSession session, Integer isRead) {
+        return replyServiceImpl.getReplyByIsRead((String) session.getAttribute(UserFinalTool.UID), isRead);
     }
 }

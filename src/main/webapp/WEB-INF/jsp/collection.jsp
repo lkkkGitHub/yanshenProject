@@ -17,9 +17,10 @@
     <script charset="utf-8" async="" src="../../static/collection/js/questions.js"></script>
     <script charset="utf-8" async="" src="../../static/collection/js/popupedittag.js"></script>
     <script charset="utf-8" async="" src="../../static/collection/js/collection.js"></script>
+    <script src="../../static/js/ajaxTools.js"></script>
     <link media="all" href="../../static/collection/css/index.css" type="text/css" rel="stylesheet">
 </head>
-<body onload="getNum()">
+<body onload="getNum(),ajaxCyclic(),findReplyCount()">
 <div class="nk-container     ">
     <div class="nowcoder-header">
         <div class="header-main clearfix">
@@ -85,7 +86,7 @@
                             <a class="icon-envelope"
                                href="#"
                                data-unread-conv="">
-                                <span class="nav-msg-num">0</span>消息</a>
+                                <span class="nav-msg-num" id="replyCount">0</span>消息</a>
                         </li>
                         <li class="profile-item">
                             <a href="/personal" class="nav-profile">

@@ -34,8 +34,9 @@
     <link rel="stylesheet" href="../../static/index/css/main.css">
     <link rel="stylesheet" href="../../static/index/css/colors/blue.css">
     <script src="../../static/index/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="../../static/js/ajaxTools.js"></script>
 </head>
-<body>
+<body onload="ajaxCyclic(),findReplyCount()">
 
 
 <div class="nk-container     ">
@@ -103,7 +104,7 @@
                             <a class="icon-envelope"
                                href="#"
                                data-unread-conv="">
-                                <span class="nav-msg-num">0</span>消息</a>
+                                <span class="nav-msg-num" id="replyCount">0</span>消息</a>
                         </li>
                         <li class="profile-item">
                             <a href="/personal" class="nav-profile">
