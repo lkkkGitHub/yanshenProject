@@ -93,5 +93,9 @@
     <select id="getReplyByIsRead" resultMap="ctxUser">
         SELECT * FROM `tb_reply` WHERE `toUid` = #{param1} AND `isRead` = #{param2} ORDER BY `replyCreateDate` DESC;
     </select>
+
+    <update id="updateIsRead" parameterType="java.lang.Integer">
+        UPDATE `tb_reply` SET `isRead` = 1 WHERE `replyId` = #{replyId}
+    </update>
 </mapper>
 

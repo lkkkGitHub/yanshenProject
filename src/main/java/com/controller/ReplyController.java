@@ -104,4 +104,16 @@ public class ReplyController {
     public List<TbReply> getReplyIsRead(HttpSession session, Integer isRead) {
         return replyServiceImpl.getReplyByIsRead((String) session.getAttribute(UserFinalTool.UID), isRead);
     }
+
+    /**
+     * 更新未读消息状态
+     *
+     * @param replyId
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/updateIsRead")
+    public boolean updateIsRead(Integer replyId) {
+        return replyServiceImpl.updateIsRead(replyId);
+    }
 }

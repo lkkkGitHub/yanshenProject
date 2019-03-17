@@ -81,4 +81,12 @@ public interface TbReplyDao {
      * @return
      */
     List<TbReply> getReplyByIsRead(String toUid, Integer isRead);
+
+    /**
+     * 更新阅读状态
+     *
+     * @param replyId
+     * @return
+     */
+    Integer updateIsRead(Integer replyId);
 }
