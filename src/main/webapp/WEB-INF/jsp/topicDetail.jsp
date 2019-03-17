@@ -19,6 +19,7 @@
     <script charset="utf-8" type="text/javascript" src="../../static/didTopic/js/kindeditor.js"></script>
     <script charset="utf-8" type="text/javascript" src="../../static/didTopic/js/highlighter.js"></script>
     <script type="text/javascript" src="../../static/didTopic/js/didTopic.js"></script>
+    <script src="../../static/js/ajaxTools.js"></script>
     <script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
     <link media="all" href="../../static/didTopic/css/index.css" type="text/css" rel="stylesheet">
     <link href="../../static/didTopic/css/didTopicCss.css" type="text/css" rel="stylesheet">
@@ -32,7 +33,7 @@
         }
     </script>
 </head>
-<body onload="topicDetail()">
+<body onload="topicDetail(),ajaxCyclic(),findReplyCount()">
 
 <div class="nk-container">
     <div class="nowcoder-header">
@@ -99,7 +100,7 @@
                             <a class="icon-envelope"
                                href="#"
                                data-unread-conv="">
-                                <span class="nav-msg-num">0</span>消息</a>
+                                <span class="nav-msg-num" id="replyCount">0</span>消息</a>
                         </li>
                         <li class="profile-item">
                             <a href="/personal" class="nav-profile">

@@ -63,4 +63,22 @@ public interface TbReplyDao {
      * @return
      */
     List<TbReply> findReplyByFatherId(Integer fatherId);
+
+    /**
+     * 根据是否已读获取用户的回复数量
+     *
+     * @param toUid
+     * @param isRead
+     * @return
+     */
+    Integer getReplyCountByIsRead(String toUid, Integer isRead);
+
+    /**
+     * 根据是否已读获取用户的回复信息
+     *
+     * @param toUid
+     * @param isRead
+     * @return
+     */
+    List<TbReply> getReplyByIsRead(String toUid, Integer isRead);
 }

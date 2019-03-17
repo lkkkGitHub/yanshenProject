@@ -49,4 +49,22 @@ public interface ReplyService {
      * @return
      */
     List<TbReply> findReplyById(Integer replyId);
+
+    /**
+     * 获取未读回复数量
+     *
+     * @param isRead
+     * @param uid
+     * @return
+     */
+    Integer getReplyCount(String uid, Integer isRead);
+
+    /**
+     * 根据isRead获取用户接受到的回复信息
+     *
+     * @param uid
+     * @param isRead
+     * @return
+     */
+    List<TbReply> getReplyByIsRead(String uid, Integer isRead);
 }

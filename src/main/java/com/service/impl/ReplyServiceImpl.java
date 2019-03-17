@@ -72,4 +72,14 @@ public class ReplyServiceImpl implements ReplyService {
     public List<TbReply> findReplyById(Integer replyFatherId) {
         return tbReplyDao.findReplyByFatherId(replyFatherId);
     }
+
+    @Override
+    public Integer getReplyCount(String uid, Integer isRead) {
+        return tbReplyDao.getReplyCountByIsRead(uid, isRead);
+    }
+
+    @Override
+    public List<TbReply> getReplyByIsRead(String uid, Integer isRead) {
+        return tbReplyDao.getReplyByIsRead(uid, isRead);
+    }
 }

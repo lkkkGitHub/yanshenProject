@@ -31,7 +31,7 @@ public class TbReply {
   private Integer replyFatherId;
 
   /**
-   * 用户id
+   * 发送用户id
    */
   private String uid;
 
@@ -49,6 +49,32 @@ public class TbReply {
    * 题目信息
    */
   private TbTopic tbTopic;
+
+  /**
+   * 接受用户id
+   */
+  private String toUid;
+
+  /**
+   * 是否已读
+   */
+  private Integer isRead;
+
+  public Integer getIsRead() {
+    return isRead;
+  }
+
+  public void setIsRead(Integer isRead) {
+    this.isRead = isRead;
+  }
+
+  public String getToUid() {
+    return toUid;
+  }
+
+  public void setToUid(String toUid) {
+    this.toUid = toUid;
+  }
 
   public TbTopic getTbTopic() {
     return tbTopic;

@@ -9,6 +9,9 @@
         <result column="commentId" property="commentId"/>
         <result column="replyFatherId" property="replyFatherId"/>
         <result column="uid" property="uid"/>
+        <result column="toUid" property="toUid"/>
+        <result column="topicId" property="topicId"/>
+        <result column="isRead" property="isRead"/>
     </resultMap>
 
     <resultMap id="ctxUser" type="com.pojo.TbReply" extends="AllColumnMap">
@@ -22,25 +25,11 @@
         `replyCreateDate`,
         `commentId`,
         `replyFatherId`,
-        `uid`
+        `uid`,
+        `toUid`,
+        `topicId`,
+        `isRead`
     </sql>
-
-    <!--auto generated Code-->
-    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.replyId">
-        INSERT INTO tb_reply (
-            `replyId`,
-            `replyContent`,
-            `replyCreateDate`,
-            `commentId`,
-            `replyFatherId`
-        ) VALUES (
-            #{pojo.replyId},
-            #{pojo.replyContent},
-            #{pojo.replyCreateDate},
-            #{pojo.commentId},
-            #{pojo.replyFatherId}
-        )
-    </insert>
 
     <!--auto generated Code-->
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="replyId">
@@ -51,6 +40,8 @@
             <if test="replyCreateDate!=null">`replyCreateDate`,</if>
             <if test="commentId!=null">`commentId`,</if>
             <if test="replyFatherId!=null">`replyFatherId`,</if>
+            <if test="toUid!=null">`toUid`,</if>
+            <if test="topicId!=null">`topicId`,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -59,37 +50,10 @@
             <if test="replyCreateDate!=null">#{replyCreateDate},</if>
             <if test="commentId!=null">#{commentId},</if>
             <if test="replyFatherId!=null">#{replyFatherId},</if>
+            <if test="toUid!=null">#{toUid},</if>
+            <if test="topicId!=null">#{topicId},</if>
         </trim>
     </insert>
-
-    <!--auto generated Code-->
-    <insert id="insertList">
-        INSERT INTO tb_reply (
-        <include refid="all_column"/>
-        )VALUES
-        <foreach collection="pojos" item="pojo" index="index" separator=",">
-            (
-            #{pojo.replyId},
-            #{pojo.replyContent},
-            #{pojo.replyCreateDate},
-            #{pojo.commentId},
-            #{pojo.replyFatherId}
-            )
-        </foreach>
-    </insert>
-
-    <!--auto generated Code-->
-    <update id="update">
-        UPDATE tb_reply
-        <set>
-            <if test="pojo.replyId != null">`replyId` = #{pojo.replyId},</if>
-            <if test="pojo.replyContent != null">`replyContent` = #{pojo.replyContent},</if>
-            <if test="pojo.replyCreateDate != null">`replyCreateDate` = #{pojo.replyCreateDate},</if>
-            <if test="pojo.commentId != null">`commentId` = #{pojo.commentId},</if>
-            <if test="pojo.replyFatherId != null">`replyFatherId` = #{pojo.replyFatherId}</if>
-        </set>
-        WHERE replyId = #{pojo.replyId}
-    </update>
 
     <select id="findReplyByCommentId" parameterType="java.lang.Integer" resultMap="ctxUser">
         select
@@ -117,8 +81,17 @@
     </select>
 
     <select id="findReplyByFatherId" resultMap="ctxUser" parameterType="java.lang.Integer">
-        SELECT <include refid="all_column"/> FROM `tb_reply` WHERE `replyFatherId` = #{fatherId}
+        SELECT
+        <include refid="all_column"/>
+        FROM `tb_reply` WHERE `replyFatherId` = #{fatherId}
     </select>
 
+    <select id="getReplyCountByIsRead" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM `tb_reply` WHERE `toUid` = #{param1}  AND `isRead` = #{param2};
+    </select>
+
+    <select id="getReplyByIsRead" resultMap="ctxUser">
+        SELECT * FROM `tb_reply` WHERE `toUid` = #{param1} AND `isRead` = #{param2} ORDER BY `replyCreateDate` DESC;
+    </select>
 </mapper>
 

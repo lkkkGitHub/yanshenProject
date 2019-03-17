@@ -73,31 +73,9 @@ public class ReplyController {
     @ResponseBody
     @RequestMapping(method = {RequestMethod.POST}, value = "/insertReply")
     public boolean insertReply(TbReply tbReply, HttpSession session) {
-        TbReply reply = null;
-        TbComment comment = null;
-        if (tbReply.getReplyFatherId() != -1) {
-            reply = replyServiceImpl.findReplyById(tbReply.getReplyFatherId()).get(0);
-        } else {
-            comment = commentService.findCommentById(tbReply.getCommentId()).get(0);
-        }
-        StringBuffer uid;
-        if (comment != null) {
-            uid = new StringBuffer(comment.getUid());
-        } else {
-            uid = new StringBuffer(reply.getUid());
-        }
-        List<TbReply> replyList = this.getRedisReplyList(session, uid);
-        TbUser tbUser = ((TbUser) session.getAttribute(UserFinalTool.USER));
-        tbReply.setUid(tbUser.getUid());
-        tbReply.setTbUser(tbUser);
+        tbReply.setUid(((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
         tbReply.setReplyCreateDate(TimeUtils.getNowTimestamp());
-        tbReply.setTbTopic(topicService.getTopic(tbReply.getTopicId()));
-        replyList.add(tbReply);
-        boolean insert = replyServiceImpl.insertReply(tbReply);
-        if (insert) {
-            jedisClient.hset(ReplyFinalTool.REPLY, uid.append(ReplyFinalTool.REPLY_LIST).toString(), JsonUtils.objectToJson(replyList));
-        }
-        return insert;
+        return replyServiceImpl.insertReply(tbReply);
     }
 
     /**
@@ -113,23 +91,26 @@ public class ReplyController {
     }
 
     /**
-     * 获取redis缓存中的自己评论信息
+     * 获取自己未读的或者已读回复数量
      *
-     * @param toUid   传入此参数时，则是指定的人的回复信息
      * @param session
      * @return
      */
     @ResponseBody
-    @GetMapping("/getRedisReplyList")
-    public List<TbReply> getRedisReplyList(HttpSession session, @RequestParam(required = false) StringBuffer toUid) {
-        if (toUid == null || toUid.length() != 0) {
-            toUid = new StringBuffer((String) session.getAttribute(UserFinalTool.UID));
-        }
-        List<TbReply> replyList = JsonUtils.jsonToList(jedisClient.hget(ReplyFinalTool.REPLY, toUid.append(ReplyFinalTool.REPLY_LIST).toString()), TbReply.class);
-        if (replyList == null) {
-            replyList = new ArrayList<>();
-            jedisClient.hset(ReplyFinalTool.REPLY, toUid.append(ReplyFinalTool.REPLY_LIST).toString(), JsonUtils.objectToJson(replyList));
-        }
-        return replyList;
+    @GetMapping("/getReplyCount")
+    public Integer getReplyCount(HttpSession session, Integer isRead) {
+        return replyServiceImpl.getReplyCount((String) session.getAttribute(UserFinalTool.UID), isRead);
+    }
+
+    /**
+     * 获取自己未读的或者已读消息内容，按照时间降序排列
+     *
+     * @param session
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/getReplyIsRead")
+    public List<TbReply> getReplyIsRead(HttpSession session, Integer isRead) {
+        return replyServiceImpl.getReplyByIsRead((String) session.getAttribute(UserFinalTool.UID), isRead);
     }
 }

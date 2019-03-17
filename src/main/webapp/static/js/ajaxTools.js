@@ -1,15 +1,15 @@
 function ajaxCyclic() {
-    setInterval(function () {
-        $.ajax({
-            async: false,
-            url: "/reply/getRedisReplyList",
-            type: "get",
-            contentType: "application/x-www-form-urlencoded",
-            dataType: 'json',
-            timeout: 20000,
-            success: function (data) {
+    setInterval(findReplyCount,30000);
+}
 
-            }
-        })
-    },30000);
+function findReplyCount() {
+    $.ajax({
+        async: true,
+        url: "/reply/getReplyCount",
+        type: "get",
+        data: {isRead: 0},
+        success: function (data) {
+            $("#replyCount").html(data);
+        }
+    })
 }
