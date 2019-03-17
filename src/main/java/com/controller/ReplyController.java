@@ -30,15 +30,6 @@ public class ReplyController {
     @Autowired
     private ReplyService replyServiceImpl;
 
-    @Autowired
-    private CommentService commentService;
-
-    @Autowired
-    private JedisClient jedisClient;
-
-    @Autowired
-    private TopicService topicService;
-
     /**
      * 根据评论id，查询评论的回复信息，以及回复的用户信息
      *

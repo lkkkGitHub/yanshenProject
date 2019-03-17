@@ -1,15 +1,15 @@
 function ajaxCyclic() {
-    setInterval(findReplyCount,30000);
+    setInterval(findNoReadReplyCount,30000);
 }
 
-function findReplyCount() {
+function findNoReadReplyCount() {
     $.ajax({
         async: true,
         url: "/reply/getReplyCount",
         type: "get",
         data: {isRead: 0},
         success: function (data) {
-            $("#replyCount").html(data);
+            $("#noReadReplyCount").html(data);
         }
     })
 }
