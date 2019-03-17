@@ -67,4 +67,12 @@ public interface ReplyService {
      * @return
      */
     List<TbReply> getReplyByIsRead(String uid, Integer isRead);
+
+    /**
+     * 更新回复的阅读状态
+     *
+     * @param replyId
+     * @return
+     */
+    boolean updateIsRead(Integer replyId);
 }

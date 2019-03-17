@@ -1,11 +1,14 @@
 package com.controller;
 
+import com.pojo.TbComment;
 import com.pojo.TbReply;
 import com.pojo.TbUser;
 import com.service.CommentService;
 import com.service.ReplyService;
 import com.service.TopicService;
+import com.tools.finaltools.ReplyFinalTool;
 import com.tools.finaltools.UserFinalTool;
+import com.tools.utils.JsonUtils;
 import com.tools.utils.TimeUtils;
 import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,15 +29,6 @@ public class ReplyController {
 
     @Autowired
     private ReplyService replyServiceImpl;
-
-    @Autowired
-    private CommentService commentService;
-
-    @Autowired
-    private JedisClient jedisClient;
-
-    @Autowired
-    private TopicService topicService;
 
     /**
      * 根据评论id，查询评论的回复信息，以及回复的用户信息
@@ -69,7 +64,7 @@ public class ReplyController {
     @ResponseBody
     @RequestMapping(method = {RequestMethod.POST}, value = "/insertReply")
     public boolean insertReply(TbReply tbReply, HttpSession session) {
-        tbReply.setFromUid(((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
+        tbReply.setUid(((TbUser) session.getAttribute(UserFinalTool.USER)).getUid());
         tbReply.setReplyCreateDate(TimeUtils.getNowTimestamp());
         return replyServiceImpl.insertReply(tbReply);
     }
@@ -108,5 +103,17 @@ public class ReplyController {
     @GetMapping("/getReplyIsRead")
     public List<TbReply> getReplyIsRead(HttpSession session, Integer isRead) {
         return replyServiceImpl.getReplyByIsRead((String) session.getAttribute(UserFinalTool.UID), isRead);
+    }
+
+    /**
+     * 更新未读消息状态
+     *
+     * @param replyId
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/updateIsRead")
+    public boolean updateIsRead(Integer replyId) {
+        return replyServiceImpl.updateIsRead(replyId);
     }
 }

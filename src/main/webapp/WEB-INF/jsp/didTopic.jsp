@@ -27,7 +27,7 @@
         var uid = "${sessionScope.user.uid}";
     </script>
 </head>
-<body onload="initTopicToShow(0),ajaxCyclic(),findReplyCount()">
+<body onload="initTopicToShow(0),ajaxCyclic(),findNoReadReplyCount()">
 
 <div class="nk-container     ">
     <div class="nowcoder-header">
@@ -94,7 +94,7 @@
                             <a class="icon-envelope"
                                href="#"
                                data-unread-conv="">
-                                <span class="nav-msg-num" id="replyCount">0</span>消息</a>
+                                <span class="nav-msg-num" id="noReadReplyCount">0</span>消息</a>
                         </li>
                         <li class="profile-item">
                             <a href="/personal" class="nav-profile">

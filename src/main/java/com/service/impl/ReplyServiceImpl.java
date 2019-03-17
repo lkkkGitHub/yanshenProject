@@ -82,4 +82,9 @@ public class ReplyServiceImpl implements ReplyService {
     public List<TbReply> getReplyByIsRead(String uid, Integer isRead) {
         return tbReplyDao.getReplyByIsRead(uid, isRead);
     }
+
+    @Override
+    public boolean updateIsRead(Integer replyId) {
+        return tbReplyDao.updateIsRead(replyId) == 1;
+    }
 }

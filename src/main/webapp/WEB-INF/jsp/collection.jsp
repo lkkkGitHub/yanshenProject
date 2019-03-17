@@ -20,7 +20,7 @@
     <script src="../../static/js/ajaxTools.js"></script>
     <link media="all" href="../../static/collection/css/index.css" type="text/css" rel="stylesheet">
 </head>
-<body onload="getNum(),ajaxCyclic(),findReplyCount()">
+<body onload="getNum(),ajaxCyclic(),findNoReadReplyCount()">
 <div class="nk-container     ">
     <div class="nowcoder-header">
         <div class="header-main clearfix">
@@ -86,7 +86,7 @@
                             <a class="icon-envelope"
                                href="#"
                                data-unread-conv="">
-                                <span class="nav-msg-num" id="replyCount">0</span>消息</a>
+                                <span class="nav-msg-num" id="noReadReplyCount">0</span>消息</a>
                         </li>
                         <li class="profile-item">
                             <a href="/personal" class="nav-profile">
