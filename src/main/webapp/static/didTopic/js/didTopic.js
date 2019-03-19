@@ -265,6 +265,9 @@ function findReply(commentId) {
             var str = "<div class=\"reply-container js-container\" style=\"\"><ul class=\"reply-list js-list\" style=\"\">";
             for (var i = 0; i < data.length; i++) {
                 var flag = data[i].tbUser.uid == uid;
+                if (data[i].toUid == uid) {
+                    updateIsRead(data[i].replyId);
+                }
                 date = timeStamp2String(data[i].replyCreateDate);
                 str += "<li class=\"ui-subcmt-item\" data-id=\"684660\"> <div class=\"reply-main clearfixjsCpn_62_component_6\">";
                 str += "<div class=\"reply-person\" style=\"margin-right:5px;\"><a href=\"/profile/8816416\" data-card-uid=\"8816416\"";
@@ -447,6 +450,22 @@ function deleteReply(replyId) {
                 alert("删除失败！");
             } else {
                 findComment();
+            }
+        }
+    });
+}
+
+function updateIsRead(replyId) {
+    $.ajax({
+        url: '/reply/updateIsRead',
+        type: "get",
+        async: false,
+        data: {replyId: replyId},
+        success: function (data) {
+            if (data == false) {
+                alert("已读失败");
+            } else {
+                findNoReadReplyCount();
             }
         }
     });
