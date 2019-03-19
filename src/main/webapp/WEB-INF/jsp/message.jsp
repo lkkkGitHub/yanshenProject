@@ -16,7 +16,7 @@
     <script charset="utf-8" async="" src="../../static/collection/js/ownerprofile.js"></script>
     <script charset="utf-8" async="" src="../../static/collection/js/questions.js"></script>
     <script charset="utf-8" async="" src="../../static/collection/js/popupedittag.js"></script>
-    <script charset="utf-8" async="" src="../../static/collection/js/collection.js"></script>
+    <script charset="utf-8" async="" src="../../static/message/js/message.js"></script>
     <script src="../../static/js/ajaxTools.js"></script>
     <link media="all" href="../../static/collection/css/index.css" type="text/css" rel="stylesheet">
     <link media="all" href="../../static/message/css/base.css" type="text/css" rel="stylesheet">
@@ -186,293 +186,39 @@
         <script src="../../static/collection/js/hm.js"></script>
         <script>
         </script>
-
-        <%--<div class="nk-content">--%>
-            <%--<div class="module-box">--%>
-
-                <%--<div class="module-head clearfix">--%>
-                    <%--<h1>收藏的试题数(23)</h1>--%>
-                <%--</div>--%>
-                <%--<div class="module-body">--%>
-                    <%--<ul class="common-list" id="commentList">--%>
-                        <%--&lt;%&ndash;<li>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<div class="cont-brief">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<a href="https://www.nowcoder.com/profile/328031526/myFollowings/detail/7095788"&ndash;%&gt;--%>
-                                   <%--&lt;%&ndash;target="_top">增加一个用户的命令是什么</a>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<div class="tags-box">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<a href="https://www.nowcoder.com/questionCenter?mutiTagIds=618" class="tag-label"&ndash;%&gt;--%>
-                                   <%--&lt;%&ndash;target="_top">Linux</a>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<div class="feed-foot">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="feed-origin">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<span>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;来自<a href="https://www.nowcoder.com/test/13484/summary" target="_top">运维工程师能力评估</a>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;</span>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="feed-legend">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<span><a href="javascript:void(0);" class="link-green click-editfollow nc-req-auth"&ndash;%&gt;--%>
-                                             <%--&lt;%&ndash;data-id="23239">编辑收藏</a></span>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                        <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
-                    <%--</ul>--%>
-                    <%--<div class="statistical-list-btn" id="jsExeChosen">--%>
-                        <%--<a href="javascript:void(0);" onclick="" class="btn btn-primary">加载更多</a>--%>
-                    <%--</div>--%>
-                    <%--&lt;%&ndash;<div class="pagination">&ndash;%&gt;--%>
-                        <%--&lt;%&ndash;<div class="pagination">&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<ul data-total="3">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<li class="txt-pager disabled js-first-pager"><a data-page="1"&ndash;%&gt;--%>
-                                                                                 <%--&lt;%&ndash;href="javascript:void(0)">首页</a></li>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<li class="txt-pager disabled js-pre-pager"><a data-page="1" href="javascript:void(0)">上一页</a>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<li class="active js-1-pager"><a href="javascript:void(0)" data-page="1">1</a></li>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<li class="js-2-pager"><a&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;href="https://www.nowcoder.com/profile/328031526/myFollowings?tags=&amp;page=2"&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;data-page="2">2</a></li>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<li class="js-3-pager"><a&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;href="https://www.nowcoder.com/profile/328031526/myFollowings?tags=&amp;page=3"&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;data-page="3">3</a></li>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<li class="txt-pager js-next-pager"><a data-page="2"&ndash;%&gt;--%>
-                                                                       <%--&lt;%&ndash;href="https://www.nowcoder.com/profile/328031526/myFollowings?tags=&amp;page=2">下一页</a>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<li class="txt-pager js-last-pager"><a data-page="3"&ndash;%&gt;--%>
-                                                                       <%--&lt;%&ndash;href="https://www.nowcoder.com/profile/328031526/myFollowings?tags=&amp;page=3">末页</a>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
-                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-
         <div class="nk-content">
             <div class="module-box private-letter">
                 <div class="module-head clearfix">
                     <h1>系统通知</h1>
-                    <a href="conversation-list?type=1" class="return-lable">返回</a>
-                    <div class="module-head-oprt">
-                        <label class="checkbox" id="jsUnReadCheckbox">
-                            <span class="icons"></span>
-                            <input type="checkbox">
-                            只看未读的
-                        </label>
-                    </div>
+                    <a href="/home" class="return-lable">返回</a>
                     <input type="hidden" value="10005" id="receiverId">
                     <input type="hidden" value="通知" id="receiverName">
                 </div>
                 <div class="module-body">
                     <ul class="letter-chatlist">
-                        <li id="msg-item-99670598">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">今天 01:34</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99670598">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/abc3fe2ce8e146608e868a70efebf62e?toCommentId=2691008">"二维数组中的查找"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="msg-item-99641391">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">03-18 23:44</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99641391">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/abc3fe2ce8e146608e868a70efebf62e?toCommentId=2690612">"二维数组中的查找"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="msg-item-99626206">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">03-18 22:16</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99626206">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/1a834e5e3e1a4b7ba251417554e07c00?toCommentId=2690135">"数值的整数次方"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="msg-item-99565999">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">03-18 19:08</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99565999">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/abc3fe2ce8e146608e868a70efebf62e?toCommentId=2688750">"二维数组中的查找"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="msg-item-99560604">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">03-18 19:05</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99560604">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/abc3fe2ce8e146608e868a70efebf62e?toCommentId=2688723">"二维数组中的查找"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="msg-item-99546136">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">03-18 18:25</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99546136">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/a90230b35b5f4a7287f779ecdd88841d?toCommentId=2688453">"什么是Ja..."</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="msg-item-99494989">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">03-18 15:55</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99494989">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/abc3fe2ce8e146608e868a70efebf62e?toCommentId=2687323">"二维数组中的查找"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="msg-item-99486209">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">03-18 15:48</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99486209">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/abc3fe2ce8e146608e868a70efebf62e?toCommentId=2687278">"二维数组中的查找"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="msg-item-99479543">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">03-18 15:20</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99479543">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/1a834e5e3e1a4b7ba251417554e07c00?toCommentId=2687112">"数值的整数次方"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="msg-item-99448921">
-                            <div class="chat-headbox">
-                                <a class="list-head" href="javascript:void(0);">
-                                    <img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">
-                                </a>
-                            </div>
-                            <div class="tooltip fade right in">
-                                <div class="tooltip-arrow"></div>
-                                <div class="tooltip-inner letter-chat clearfix">
-                                    <div class="letter-info">
-                                        <p class="letter-time">03-18 13:44</p>
-                                        <a href="javascript:void(0);" id="del-link" name="99448921">删除</a>
-                                    </div>
-                                    <div class="chat-content">
-                                        你收藏的问题<a class="msg-view-all" href="/questionTerminal/abc3fe2ce8e146608e868a70efebf62e?toCommentId=2686377">"二维数组中的查找"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        <%--<li id="msg-item-99670598">--%>
+                            <%--<div class="chat-headbox">--%>
+                                <%--<a class="list-head" href="javascript:void(0);">--%>
+                                    <%--<img alt="头像" src="https://static.nowcoder.com/images/head/notify.png">--%>
+                                <%--</a>--%>
+                            <%--</div>--%>
+                            <%--<div class="tooltip fade right in">--%>
+                                <%--<div class="tooltip-arrow"></div>--%>
+                                <%--<div class="tooltip-inner letter-chat clearfix">--%>
+                                    <%--<div class="letter-info">--%>
+                                        <%--<p class="letter-time">今天 01:34</p>--%>
+                                        <%--<a href="javascript:void(0);" id="del-link" name="99670598">删除</a>--%>
+                                    <%--</div>--%>
+                                    <%--<div class="chat-content">--%>
+                                        <%--你收藏的问题<a class="msg-view-all" href="/questionTerminal/abc3fe2ce8e146608e868a70efebf62e?toCommentId=2691008">"二维数组中的查找"</a>有了新的回答，去看看对自己是否有用吧。（不想再收到此类提醒？<a class="msg-view-all" href="/profile/account#setNotification">点击设置</a>）--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</li>--%>
                     </ul>
-                    <center>
-                        <div class="pagination">
-                            <ul data-total="52">
-                                <li class="txt-pager disabled js-first-pager"><a data-page="1" href="javascript:void(0)">首页</a></li>
-                                <li class="txt-pager disabled js-pre-pager"><a data-page="1" href="javascript:void(0)">上一页</a></li>
-                                <li class="active js-1-pager"><a href="javascript:void(0)" data-page="1">1</a></li>
-                                <li class="js-2-pager"><a href="/sns/message/328031526/msg-list?onlyUnRead=false&amp;updateRead=1&amp;conversationId=10005_328031526&amp;page=2" data-page="2">2</a></li>
-                                <li class="js-3-pager"><a href="/sns/message/328031526/msg-list?onlyUnRead=false&amp;updateRead=1&amp;conversationId=10005_328031526&amp;page=3" data-page="3">3</a></li>
-                                <li class="js-4-pager"><a href="/sns/message/328031526/msg-list?onlyUnRead=false&amp;updateRead=1&amp;conversationId=10005_328031526&amp;page=4" data-page="4">4</a></li>
-                                <li class="js-5-pager"><a href="/sns/message/328031526/msg-list?onlyUnRead=false&amp;updateRead=1&amp;conversationId=10005_328031526&amp;page=5" data-page="5">5</a></li>
-                                <li class="js-6-pager"><a href="/sns/message/328031526/msg-list?onlyUnRead=false&amp;updateRead=1&amp;conversationId=10005_328031526&amp;page=6" data-page="6">6</a></li>
-                                <li class="js-7-pager"><a href="/sns/message/328031526/msg-list?onlyUnRead=false&amp;updateRead=1&amp;conversationId=10005_328031526&amp;page=7" data-page="7">7</a></li>
-                                <li class="js-8-pager"><a href="/sns/message/328031526/msg-list?onlyUnRead=false&amp;updateRead=1&amp;conversationId=10005_328031526&amp;page=8" data-page="8">8</a></li>
-                                <li class="txt-pager js-next-pager"><a data-page="2" href="/sns/message/328031526/msg-list?onlyUnRead=false&amp;updateRead=1&amp;conversationId=10005_328031526&amp;page=2">下一页</a></li>
-                                <li class="txt-pager js-last-pager"><a data-page="52" href="/sns/message/328031526/msg-list?onlyUnRead=false&amp;updateRead=1&amp;conversationId=10005_328031526&amp;page=52">末页</a></li>
-                            </ul>
-                        </div>
-                    </center>
+                    <div class="statistical-list-btn" id="jsExeChosen">
+                        <a href="javascript:void(0);" onclick="" class="btn btn-primary">加载更多</a>
+                    </div>
                 </div>
             </div>
         </div>

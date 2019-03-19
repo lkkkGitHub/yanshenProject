@@ -1,6 +1,7 @@
 package com.service;
 
 import com.pojo.TbReply;
+import com.tools.pojoexpansion.Pager;
 
 import java.util.List;
 
@@ -64,9 +65,10 @@ public interface ReplyService {
      *
      * @param uid
      * @param isRead
+     * @param pager
      * @return
      */
-    List<TbReply> getReplyByIsRead(String uid, Integer isRead);
+    List<TbReply> getReplyByIsRead(String uid, Integer isRead, Pager<TbReply> pager);
 
     /**
      * 更新回复的阅读状态

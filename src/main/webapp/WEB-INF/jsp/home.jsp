@@ -89,7 +89,7 @@
                     <c:when test="${user!=null}">
                         <li class="nav-msg">
                             <a class="icon-envelope"
-                               href="#"
+                               href="/message"
                                data-unread-conv="">
                                 <span class="nav-msg-num" id="noReadReplyCount">0</span>消息</a>
                         </li>

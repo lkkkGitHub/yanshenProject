@@ -87,11 +87,13 @@
     </select>
 
     <select id="getReplyCountByIsRead" resultType="java.lang.Integer">
-        SELECT COUNT(1) FROM `tb_reply` WHERE `toUid` = #{param1}  AND `isRead` = #{param2};
+        SELECT COUNT(1) FROM `tb_reply` WHERE `toUid` = #{param1}  AND `isRead` = #{param2}
     </select>
 
     <select id="getReplyByIsRead" resultMap="ctxUser">
-        SELECT * FROM `tb_reply` WHERE `toUid` = #{param1} AND `isRead` = #{param2} ORDER BY `replyCreateDate` DESC;
+        SELECT * FROM `tb_reply` WHERE `toUid` = #{param1}
+        AND `isRead` = #{param2} ORDER BY `replyCreateDate` DESC
+        LIMIT #{param3.currentPosition}, #{param3.pageSize}
     </select>
 
     <update id="updateIsRead" parameterType="java.lang.Integer">

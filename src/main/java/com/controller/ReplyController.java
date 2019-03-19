@@ -8,6 +8,7 @@ import com.service.ReplyService;
 import com.service.TopicService;
 import com.tools.finaltools.ReplyFinalTool;
 import com.tools.finaltools.UserFinalTool;
+import com.tools.pojoexpansion.Pager;
 import com.tools.utils.JsonUtils;
 import com.tools.utils.TimeUtils;
 import com.tools.utils.jedis.JedisClient;
@@ -101,8 +102,11 @@ public class ReplyController {
      */
     @ResponseBody
     @GetMapping("/getReplyIsRead")
-    public List<TbReply> getReplyIsRead(HttpSession session, Integer isRead) {
-        return replyServiceImpl.getReplyByIsRead((String) session.getAttribute(UserFinalTool.UID), isRead);
+    public Pager<TbReply> getReplyIsRead(HttpSession session, Integer isRead, Integer currentSize) {
+        String uid = (String) session.getAttribute(UserFinalTool.UID);
+        Pager<TbReply> pager = new Pager<>(5, currentSize, replyServiceImpl.getReplyCount(uid, isRead));
+        pager.setDateList(replyServiceImpl.getReplyByIsRead(uid, isRead, pager));
+        return pager;
     }
 
     /**

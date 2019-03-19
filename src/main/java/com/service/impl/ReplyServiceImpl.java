@@ -4,6 +4,7 @@ import com.dao.TbCommentDao;
 import com.dao.TbReplyDao;
 import com.pojo.TbReply;
 import com.service.ReplyService;
+import com.tools.pojoexpansion.Pager;
 import com.tools.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,8 +80,8 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     @Override
-    public List<TbReply> getReplyByIsRead(String uid, Integer isRead) {
-        return tbReplyDao.getReplyByIsRead(uid, isRead);
+    public List<TbReply> getReplyByIsRead(String uid, Integer isRead, Pager<TbReply> pager) {
+        return tbReplyDao.getReplyByIsRead(uid, isRead, pager);
     }
 
     @Override

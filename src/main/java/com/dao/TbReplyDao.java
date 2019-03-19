@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.pojo.TbReply;
+import com.tools.pojoexpansion.Pager;
 
 import java.util.List;
 
@@ -78,9 +79,10 @@ public interface TbReplyDao {
      *
      * @param toUid
      * @param isRead
+     * @param pager
      * @return
      */
-    List<TbReply> getReplyByIsRead(String toUid, Integer isRead);
+    List<TbReply> getReplyByIsRead(String toUid, Integer isRead, Pager<TbReply> pager);
 
     /**
      * 更新阅读状态
