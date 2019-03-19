@@ -104,7 +104,7 @@ public class ReplyController {
     @GetMapping("/getReplyIsRead")
     public Pager<TbReply> getReplyIsRead(HttpSession session, Integer isRead, Integer currentSize) {
         String uid = (String) session.getAttribute(UserFinalTool.UID);
-        Pager<TbReply> pager = new Pager<>(5, currentSize, replyServiceImpl.getReplyCount(uid, isRead));
+        Pager<TbReply> pager = new Pager<>(4, currentSize, replyServiceImpl.getReplyCount(uid, isRead));
         pager.setDateList(replyServiceImpl.getReplyByIsRead(uid, isRead, pager));
         return pager;
     }
