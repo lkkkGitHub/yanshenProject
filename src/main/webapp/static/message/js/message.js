@@ -31,7 +31,7 @@ function getReply() {
             $(".letter-chatlist").append(str);
             str = "";
             if (data.hasNextPage) {
-                str += "<a href=\"javascript:void(0);\" onclick=\"getNum()\" class=\"btn btn-primary\">加载更多</a>";
+                str += "<a href=\"javascript:void(0);\" onclick=\"getReply()\" class=\"btn btn-primary\">加载更多</a>";
             } else {
                 str += "<a href=\"javascript:void(0);\" class=\"btn btn-primary\">已经到底了</a>";
             }
