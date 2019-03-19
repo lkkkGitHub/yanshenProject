@@ -23,7 +23,7 @@
     <link media="all" href="../../static/message/css/default.css" type="text/css" rel="stylesheet">
     <link media="all" href="../../static/message/css/letterChat.css" type="text/css" rel="stylesheet">
 </head>
-<body onload="getNum(),ajaxCyclic(),findNoReadReplyCount()">
+<body onload="getReply(),ajaxCyclic(),findNoReadReplyCount()">
 <div class="nk-container     ">
     <div class="nowcoder-header">
         <div class="header-main clearfix">

@@ -18,6 +18,10 @@
         <association property="tbUser" column="uid" select="com.dao.TbUserMapper.selectUserInfo"/>
     </resultMap>
 
+    <resultMap id="ctxUserTopic" type="com.pojo.TbReply" extends="ctxUser">
+        <association property="tbTopic" column="topicId" select="com.dao.TbTopicDao.selectTopicByTopicIds"/>
+    </resultMap>
+
     <!--auto generated Code-->
     <sql id="all_column">
         `replyId`,
@@ -90,7 +94,7 @@
         SELECT COUNT(1) FROM `tb_reply` WHERE `toUid` = #{param1}  AND `isRead` = #{param2}
     </select>
 
-    <select id="getReplyByIsRead" resultMap="ctxUser">
+    <select id="getReplyByIsRead" resultMap="ctxUserTopic">
         SELECT * FROM `tb_reply` WHERE `toUid` = #{param1}
         AND `isRead` = #{param2} ORDER BY `replyCreateDate` DESC
         LIMIT #{param3.currentPosition}, #{param3.pageSize}

@@ -63,16 +63,8 @@
         AND `classifyId` = #{param3}
     </select>
 
-    <!--auto generated Code-->
-    <update id="update">
-        UPDATE tb_topic
-        <set>
-            <if test="pojo.topicId != null">`topicId` = #{pojo.topicId},</if>
-            <if test="pojo.topicComment != null">`topicComment` = #{pojo.topicComment},</if>
-            <if test="pojo.classifyId != null">`classifyId` = #{pojo.classifyId}</if>
-            <if test="pojo.analysis != null">`analysis` = #{pojo.analysis}</if>
-        </set>
-        WHERE topic_id = #{pojo.topicId}
-    </update>
+    <select id="selectTopicByTopicIds" resultMap="AllColumnMap" parameterType="java.lang.Integer">
+        select <include refid="all_column"/> from `tb_topic` where `topicId` = #{value}
+    </select>
 </mapper>
 
