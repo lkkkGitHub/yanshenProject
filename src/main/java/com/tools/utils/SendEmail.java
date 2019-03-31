@@ -63,11 +63,11 @@ public class SendEmail {
                 //Eamil的标题
                 send.setSubject("注册u唱");
                 //Eamil的内容
-                send.setMsg("欢迎注册百度网盘，此次注册验证码:   " + resultCode + "   请妥善保管"
+                send.setMsg("欢迎注册岩生答题系统，此次注册验证码:   " + resultCode + "   请妥善保管"
                         + "   验证码三分钟内有效，三分钟内不重复发送");
             } else if ("changePassword".equals(sendFlag)) {
                 send.setSubject("修改密码");
-                send.setMsg("欢迎使用百度网盘，您正在修改密码，此次验证码：          " + resultCode + "    请妥善保管"
+                send.setMsg("欢迎使用岩生答题系统，您正在修改密码，此次验证码：          " + resultCode + "    请妥善保管"
                         + "   验证码三分钟内有效，三分钟内不重复发送");
             }
             //发送

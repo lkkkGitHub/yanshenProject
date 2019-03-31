@@ -98,7 +98,7 @@ public class DidtopicServiceImpl implements DidtopicService {
                 tbDidtopic.setUserId(uid);
                 tbDidtopic.setTbTopic(topic);
                 for (TbOption option : optionList) {
-                    if (option.getCorrect() == 1) {
+                    if (TopicFinalTool.CORRECT.equals(option.getCorrect())) {
                         if (option.getOptionId().equals(topic.getOptionId())) {
                             tbDidtopic.setError(0);
                             tbDidtopic.setErrorOptionId(-1);

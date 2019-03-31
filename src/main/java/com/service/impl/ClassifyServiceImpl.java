@@ -27,9 +27,12 @@ public class ClassifyServiceImpl implements ClassifyService {
 
     @Override
     public List<TbClassify> allClassify() {
-        List<TbClassify> list = JsonUtils.jsonToList(jedisClient.hget(ClassifyFinalTool.CLASSIFY,
-                ClassifyFinalTool.COMMENT), TbClassify.class);
-        if (list == null) {
+        String classifyRedis = jedisClient.hget(ClassifyFinalTool.CLASSIFY,
+                ClassifyFinalTool.COMMENT);
+        List<TbClassify> list;
+        if (classifyRedis != null && !classifyRedis.isEmpty()) {
+            list = JsonUtils.jsonToList(classifyRedis, TbClassify.class);
+        } else {
             list = tbClassifyDao.allClassify();
             jedisClient.hset(ClassifyFinalTool.CLASSIFY, ClassifyFinalTool.COMMENT, JsonUtils.objectToJson(list));
         }

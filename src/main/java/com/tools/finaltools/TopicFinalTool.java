@@ -35,4 +35,14 @@ public class TopicFinalTool {
      * 专题练习
      */
     public static final String SPECIAL_ITEM = "specialItem";
+
+    /**
+     * 正确答案
+     */
+    public static final Integer CORRECT = 1;
+
+    /**
+     * 错误答案
+     */
+    public static final Integer ERROR = 1;
 }

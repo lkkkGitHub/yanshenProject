@@ -22,7 +22,7 @@
     </select>
 
     <!--auto generated Code-->
-    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.optionId">
+    <insert id="insertSelective">
         INSERT INTO tb_option
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="optionId!=null"> `optionId`,</if>
