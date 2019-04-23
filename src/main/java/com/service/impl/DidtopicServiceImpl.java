@@ -123,7 +123,7 @@ public class DidtopicServiceImpl implements DidtopicService {
                 return didTopicList;
             } else {
                 try {
-                    throw new Exception();
+                    throw new Exception("答卷提交统计事务执行失败");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
