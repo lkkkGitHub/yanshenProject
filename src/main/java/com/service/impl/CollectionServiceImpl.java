@@ -11,6 +11,7 @@ import com.tools.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -80,7 +81,13 @@ public class CollectionServiceImpl implements CollectionService {
 
     @Override
     public List<TbTopic> getCollectionTopic(String uid, Pager<TbTopic> pager) {
-        return tbCollectionDao.getTopicToPager(uid, pager);
+        List<TbTopic> list;
+        if (Pager.zero.equals(pager.getTotalNum())) {
+            list = new ArrayList<>();
+        } else {
+            list = tbCollectionDao.getTopicToPager(uid, pager);
+        }
+        return list;
     }
 
     @Override

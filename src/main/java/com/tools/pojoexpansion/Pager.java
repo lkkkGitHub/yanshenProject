@@ -9,6 +9,11 @@ import java.util.List;
 public class Pager<T> {
 
     /**
+     * 总数剧量为0
+     */
+    public static final Integer zero = 0;
+
+    /**
      * 数据总数
      */
     private Integer totalNum;

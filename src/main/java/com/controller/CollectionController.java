@@ -80,8 +80,7 @@ public class CollectionController {
     public Pager<TbTopic> getCollectionTopic(HttpSession session, Integer currentSize) {
         String uid = ((TbUser) session.getAttribute(UserFinalTool.USER)).getUid();
         Pager<TbTopic> pager = new Pager<>(5, currentSize, getCollectionNum(uid));
-        List<TbTopic> list = collectionServiceImpl.getCollectionTopic(uid, pager);
-        pager.setDateList(list);
+        pager.setDateList(collectionServiceImpl.getCollectionTopic(uid, pager));
         return pager;
     }
 

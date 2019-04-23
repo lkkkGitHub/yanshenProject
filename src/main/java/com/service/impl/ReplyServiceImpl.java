@@ -81,7 +81,13 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Override
     public List<TbReply> getReplyByIsRead(String uid, Integer isRead, Pager<TbReply> pager) {
-        return tbReplyDao.getReplyByIsRead(uid, isRead, pager);
+        List<TbReply> list;
+        if (Pager.zero.equals(pager.getTotalNum())) {
+            list = new ArrayList<>();
+        } else {
+            list = tbReplyDao.getReplyByIsRead(uid, isRead, pager);
+        }
+        return list;
     }
 
     @Override
