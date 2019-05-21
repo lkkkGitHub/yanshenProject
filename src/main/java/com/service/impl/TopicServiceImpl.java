@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author lk
@@ -72,80 +73,51 @@ public class TopicServiceImpl implements TopicService {
     /**
      * 判断集合中题目的数量以及需求题目数量的大小
      *
-     * @param size     集合数量
      * @param topicNum 需求题目总数量
      * @return 实际集合的容量
      */
-    private int judgeTopicSize(int size, int classifyIdsLength, int topicNum) {
+    private int judgeTopicSize(int classifyIdsLength, int topicNum) {
         int i = topicNum / classifyIdsLength;
         if (topicNum % classifyIdsLength == 0) {
-            if (size > i) {
-                return i;
-            } else {
-                return size;
-            }
+            return i;
         } else {
-            if (size > ++i) {
-                return i;
-            } else {
-                return size;
-            }
+            return ++i;
         }
-    }
-
-    /**
-     * 开始为LinkedeList 集合赋值
-     * @param list 传入数据库查出的题目
-     * @param length 类型数组的长度
-     * @param topicNum 需求题目数量
-     * @return LinkedList集合
-     */
-    private LinkedList<TbTopic> setLinkedList(List<TbTopic> list, Integer length, Integer topicNum) {
-        LinkedList<TbTopic> linkedList = new LinkedList<>();
-        int critical = judgeTopicSize(list.size(), length, topicNum);
-        for (int j = 0; j < critical; j++) {
-            linkedList.add(list.get(j));
-        }
-        return linkedList;
     }
 
     @Override
     public LinkedList<TbTopic> getTopicToExercise(int topicNum, String topicType, int[] classifyIds, String uid) {
         LinkedList<TbTopic> list = new LinkedList<>();
+        int length = classifyIds.length;
+        int i = judgeTopicSize(length, topicNum);
         //随机生成题目 random
         if (TopicFinalTool.RANDOM.equals(topicType)) {
-            for (int i = 0; i < classifyIds.length; i++) {
-                int classifyId = classifyIds[i];
+            for (int classifyId : classifyIds) {
                 List<TbTopic> noDidTopicList =
-                        tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, topicNum * 2);
+                        tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, i * 2);
                 if (noDidTopicList == null) {
                     break;
                 }
                 //打乱集合
                 Collections.shuffle(noDidTopicList);
-                //开始赋值
-                list.addAll(setLinkedList(noDidTopicList, classifyIds.length, topicNum));
+                list.addAll(noDidTopicList.stream().limit(i).collect(Collectors.toCollection(LinkedList::new)));
             }
             //移除多于的题目，如果题目数量过大
-            ifBigRemove(list, topicNum, classifyIds.length);
+            ifBigRemove(list, topicNum, length);
         }
         //专项练习 specialItem
         if (TopicFinalTool.SPECIAL_ITEM.equals(topicType)) {
             int classifyId = classifyIds[0];
-            List<TbTopic> noDidTopicList = tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, topicNum * 2);
-            if (noDidTopicList != null) {
-                list.addAll(setLinkedList(noDidTopicList, 1, topicNum));
-            }
+            list.addAll(tbTopicDao.selectUserNoDidTopicByUidAndClassifyId(uid, classifyId, topicNum));
         }
         //错题练习 wrongQuestion
         //暂时做了当有类别的错题数量不足时，该题目缺少一个，总题数少一个；随机练习也将如此
         //以后希望在该类别题目少了之后，其他类型的题目数量多，则通过起来类别弥补总题数的缺失
         if (TopicFinalTool.WRONG_QUESTION.equals(topicType)) {
-            for (int i = 1; i < classifyIds.length + 1; i++) {
-                List<TbTopic> noDidTopicList = tbTopicDao.selectErrorTopic(uid, 1, classifyIds[i - 1]);
-                list.addAll(setLinkedList(noDidTopicList, classifyIds.length, topicNum));
+            for (int classifyId : classifyIds) {
+                list.addAll(tbTopicDao.selectErrorTopic(uid, 1, classifyId, i));
             }
-            ifBigRemove(list, topicNum, classifyIds.length);
+            ifBigRemove(list, topicNum, 1);
         }
         return list;
     }

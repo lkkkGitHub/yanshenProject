@@ -57,10 +57,17 @@
     </insert>
 
     <select id="selectErrorTopic" resultMap="ctxTbOption">
-        SELECT * FROM `tb_topic` WHERE `topicId` IN (
-            SELECT `topicId` FROM `tb_didtopic` WHERE
-            `userId` = #{param1} AND `error` = #{param2})
-        AND `classifyId` = #{param3}
+        SELECT
+            t.*
+        FROM
+            `tb_topic` t,
+            `tb_didtopic` d
+        WHERE
+            t.`topicId` = d.`topicId`
+        AND d.`userId` = #{param1}
+        AND d.`error` = #{param2}
+        AND t.`classifyId` = #{param3}
+            limit 0, #{param4}
     </select>
 
     <select id="selectTopicByTopicIds" resultMap="AllColumnMap" parameterType="java.lang.Integer">
