@@ -33,6 +33,10 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.myannotationconf.MyConfigListener</listener-class>
+    </listener>
+
 
     <servlet>
         <!--前端控制器的名称 命名有规则如果springMVC的配置文件在WEB-INF中 命名只能是springMVC—servlet.xml  -->
